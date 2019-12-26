@@ -1,0 +1,1447 @@
+gcc -D_GNUCC -E -DCIL=1 randomTC/v1/5/v1.c -o randomTC/v1/5/v1.i
+/usr/local/bin/cilly.native --out randomTC/v1/5/v1.cil.c --noPrintLn --useLogicalOperators randomTC/v1/5/v1.i
+randomTC/v1/5/v1.c:104: Warning: Body of function main falls-through. Adding a return statement
+gcc -D_GNUCC -E randomTC/v1/5/v1.cil.c -o randomTC/v1/5/v1.cil.i
+gcc -D_GNUCC -c -o randomTC/v1/5/v1.o randomTC/v1/5/v1.cil.i
+randomTC/v1/5/v1.cil.c:241: warning: conflicting types for built-in function ‘exit’
+randomTC/v1/5/v1.cil.c:252: warning: conflicting types for built-in function ‘malloc’
+randomTC/v1/5/v1.cil.c:253: warning: conflicting types for built-in function ‘free’
+randomTC/v1/5/v1.cil.c:347: warning: conflicting types for built-in function ‘strcat’
+gcc -D_GNUCC -E -DCIL=1 randomTC/v1/5/processor.c -o randomTC/v1/5/processor.i
+/usr/local/bin/cilly.native --out randomTC/v1/5/processor.cil.c --noPrintLn --useLogicalOperators randomTC/v1/5/processor.i
+gcc -D_GNUCC -E randomTC/v1/5/processor.cil.c -o randomTC/v1/5/processor.cil.i
+gcc -D_GNUCC -c -o randomTC/v1/5/processor.o randomTC/v1/5/processor.cil.i
+randomTC/v1/5/processor.cil.c:6: warning: conflicting types for built-in function ‘strlen’
+gcc -D_GNUCC -o a.out randomTC/v1/5/v1.o randomTC/v1/5/processor.o
+$ cp randomTC/v1/5/v1.cil.i /tmp/CETI_e67976/v1.cil.i
+$ cp randomTC/v1/5/processor.c /tmp/CETI_e67976/processor.c
+input length='6' output length='6'
+*** Get good/bad tcs ***
+cmd 'gcc /tmp/CETI_e67976/v1.cil.i randomTC/v1/5/processor.c -o /tmp/CETI_e67976/v1.cil.i.exe >& /dev/null'
+$ gcc /tmp/CETI_e67976/v1.cil.i randomTC/v1/5/processor.c -o /tmp/CETI_e67976/v1.cil.i.exe >& /dev/null
+write_file_str: '/tmp/CETI_e67976/v1.cil.i.sh'
+$ sh /tmp/CETI_e67976/v1.cil.i.sh /tmp/CETI_e67976/v1.cil.i.exe &> /dev/null
+[35mAlert: 1/6 tests failed. Processing ..
+[mwrite_src: '/tmp/CETI_e67976/v1.cil.i.preproc.c'
+*** Fault Localization ***
+write_src: '/tmp/CETI_e67976/faultloc_5bb29a/v1.cil.i.cov.c'
+cmd 'gcc /tmp/CETI_e67976/faultloc_5bb29a/v1.cil.i.cov.c randomTC/v1/5/processor.c -o /tmp/CETI_e67976/faultloc_5bb29a/v1.cil.i.cov.c.exe >& /dev/null'
+$ gcc /tmp/CETI_e67976/faultloc_5bb29a/v1.cil.i.cov.c randomTC/v1/5/processor.c -o /tmp/CETI_e67976/faultloc_5bb29a/v1.cil.i.cov.c.exe >& /dev/null
+goods length:5
+write_file_str: '/tmp/CETI_e67976/faultloc_5bb29a/v1.cil.i.g.sh'
+$ sh /tmp/CETI_e67976/faultloc_5bb29a/v1.cil.i.g.sh /tmp/CETI_e67976/faultloc_5bb29a/v1.cil.i.cov.c.exe /tmp/CETI_e67976/faultloc_5bb29a/v1.cil.i.outputs_g_dontcare &> /dev/null
+write_file_str: '/tmp/CETI_e67976/faultloc_5bb29a/v1.cil.i.b.sh'
+$ sh /tmp/CETI_e67976/faultloc_5bb29a/v1.cil.i.b.sh /tmp/CETI_e67976/faultloc_5bb29a/v1.cil.i.cov.c.exe /tmp/CETI_e67976/faultloc_5bb29a/v1.cil.i.outputs_bad_dontcare &> /dev/null
+0. sid 91 in fun 'flush' (score 1)
+__cil_tmp4 = 0;
+1. sid 90 in fun 'flush' (score 1)
+__cil_tmp3 = tmp;
+2. sid 89 in fun 'finish' (score 1)
+__cil_tmp8 = job;
+3. sid 88 in fun 'finish' (score 1)
+tmp = 1U;
+4. sid 87 in fun 'finish' (score 1)
+s[0] = (char )'\000';
+5. sid 86 in fun 'finish' (score 1)
+__cil_tmp7 = 1;
+6. sid 85 in fun 'finish' (score 1)
+__cil_tmp6 = 0;
+7. sid 84 in fun 'finish' (score 1)
+current_job = (struct process *)0;
+8. sid 83 in fun 'finish' (score 1)
+tmp ++;
+9. sid 82 in fun 'finish' (score 1)
+s[tmp] = (char)0;
+10. sid 81 in fun 'finish' (score 1)
+__cil_tmp5 = ! (tmp >= 10U);
+11. sid 73 in fun 'block' (score 1)
+__cil_tmp5 = 0;
+12. sid 104 in fun 'put_end' (score 0.707107)
+__cil_tmp4 = -4;
+13. sid 94 in fun 'get_current' (score 0.707107)
+prio --;
+14. sid 69 in fun 'upgrade_prio' (score 0.707107)
+__cil_tmp8 = tmp;
+15. sid 68 in fun 'upgrade_prio' (score 0.707107)
+job->priority = prio + 1;
+16. sid 67 in fun 'upgrade_prio' (score 0.707107)
+__cil_tmp7 = status <= 0;
+17. sid 37 in fun 'get_command' (score 0.707107)
+*ratio = tmp___2;
+18. sid 1 in fun 'enqueue' (score 0.707107)
+__cil_tmp5 = status;
+19. sid 123 in fun 'get_process' (score 0.57735)
+__cil_tmp11 = 0;
+20. sid 114 in fun 'get_process' (score 0.57735)
+index = length - 1;
+21. sid 72 in fun 'block' (score 0.57735)
+__cil_tmp4 = job;
+22. sid 40 in fun 'get_command' (score 0.5)
+(*pos) ++;
+23. sid 39 in fun 'get_command' (score 0.5)
+(*pos) ++;
+24. sid 103 in fun 'schedule' (score 0.447214)
+__cil_tmp6 = status;
+25. sid 102 in fun 'schedule' (score 0.447214)
+status = 0;
+26. sid 46 in fun 'get_command' (score 0.447214)
+__cil_tmp15 = 1;
+27. sid 45 in fun 'get_command' (score 0.447214)
+__cil_tmp14 = (int )*(argv + *pos) == 10;
+28. sid 44 in fun 'get_command' (score 0.447214)
+*ratio = (float )(- 1.0);
+29. sid 43 in fun 'get_command' (score 0.447214)
+*prio = tmp___0;
+30. sid 42 in fun 'get_command' (score 0.447214)
+*command = tmp___0;
+31. sid 41 in fun 'get_command' (score 0.447214)
+tmp___0 = -1;
+32. sid 38 in fun 'get_command' (score 0.447214)
+__cil_tmp13 = (int )*(argv + *pos) != 0 && (int )*(argv + *pos) != 10;
+33. sid 18 in fun 'mainQ' (score 0.447214)
+pos ++;
+34. sid 15 in fun 'mainQ' (score 0.447214)
+a1 --;
+35. sid 14 in fun 'mainQ' (score 0.447214)
+__cil_tmp18 = status;
+36. sid 12 in fun 'mainQ' (score 0.447214)
+a2 --;
+37. sid 11 in fun 'mainQ' (score 0.447214)
+__cil_tmp16 = status;
+38. sid 9 in fun 'mainQ' (score 0.447214)
+a3 --;
+39. sid 8 in fun 'mainQ' (score 0.447214)
+__cil_tmp14 = status;
+40. sid 131 in fun 'get_process' (score 0.408248)
+__cil_tmp15 = *job;
+41. sid 130 in fun 'get_process' (score 0.408248)
+*job = *next;
+42. sid 129 in fun 'get_process' (score 0.408248)
+next = & prio_queue[prio].head;
+43. sid 128 in fun 'get_process' (score 0.408248)
+__cil_tmp14 = index >= length;
+44. sid 127 in fun 'get_process' (score 0.408248)
+index = (int )(ratio * (float )length);
+45. sid 126 in fun 'get_process' (score 0.408248)
+length = prio_queue[prio].length;
+46. sid 125 in fun 'get_process' (score 0.408248)
+__cil_tmp13 = (double )ratio < 0.0 || (double )ratio > 1.0;
+47. sid 124 in fun 'get_process' (score 0.408248)
+__cil_tmp12 = prio > 3 || prio < 0;
+48. sid 122 in fun 'get_process' (score 0.408248)
+__cil_tmp10 = 1;
+49. sid 121 in fun 'get_process' (score 0.408248)
+(prio_queue[prio].length) --;
+50. sid 120 in fun 'get_process' (score 0.408248)
+(*job)->next = (struct process *)0;
+51. sid 119 in fun 'get_process' (score 0.408248)
+*next = (*next)->next;
+52. sid 116 in fun 'get_process' (score 0.408248)
+__cil_tmp9 = index && *next;
+53. sid 115 in fun 'get_process' (score 0.408248)
+index = index;
+54. sid 111 in fun 'put_end' (score 0.408248)
+__cil_tmp7 = 0;
+55. sid 110 in fun 'put_end' (score 0.408248)
+(prio_queue[prio].length) ++;
+56. sid 109 in fun 'put_end' (score 0.408248)
+*next = process;
+57. sid 108 in fun 'put_end' (score 0.408248)
+next = & prio_queue[prio].head;
+58. sid 107 in fun 'put_end' (score 0.408248)
+__cil_tmp6 = prio > 3 || prio < 0;
+59. sid 106 in fun 'put_end' (score 0.408248)
+next = & (*next)->next;
+60. sid 105 in fun 'put_end' (score 0.408248)
+__cil_tmp5 = *next;
+61. sid 100 in fun 'reschedule' (score 0.408248)
+__cil_tmp3 = 0;
+62. sid 99 in fun 'reschedule' (score 0.408248)
+__cil_tmp2 = current_job && prio > current_job->priority;
+63. sid 97 in fun 'get_current' (score 0.408248)
+__cil_tmp6 = current_job;
+64. sid 96 in fun 'get_current' (score 0.408248)
+__cil_tmp5 = ! current_job;
+65. sid 95 in fun 'get_current' (score 0.408248)
+prio = 3;
+66. sid 93 in fun 'get_current' (score 0.408248)
+__cil_tmp4 = tmp > 0;
+67. sid 92 in fun 'get_current' (score 0.408248)
+__cil_tmp3 = prio > 0;
+68. sid 65 in fun 'new_job' (score 0.408248)
+__cil_tmp10 = status;
+69. sid 64 in fun 'new_job' (score 0.408248)
+__cil_tmp9 = status;
+70. sid 63 in fun 'new_job' (score 0.408248)
+__cil_tmp8 = ! new_process;
+71. sid 62 in fun 'new_job' (score 0.408248)
+new_process = (struct process *)tmp___0;
+72. sid 61 in fun 'new_job' (score 0.408248)
+pid = tmp;
+73. sid 60 in fun 'new_job' (score 0.408248)
+next_pid ++;
+74. sid 59 in fun 'new_job' (score 0.408248)
+tmp = next_pid;
+75. sid 58 in fun 'new_job' (score 0.408248)
+status = 0;
+76. sid 56 in fun 'new_job' (score 0.408248)
+__cil_tmp7 = status;
+77. sid 55 in fun 'new_job' (score 0.408248)
+new_process->next = (struct process *)0;
+78. sid 54 in fun 'new_job' (score 0.408248)
+new_process->priority = prio;
+79. sid 53 in fun 'new_job' (score 0.408248)
+new_process->pid = (unsigned int )pid;
+80. sid 51 in fun 'get_command' (score 0.408248)
+__cil_tmp17 = (int )*(argv + *pos) != 0;
+81. sid 50 in fun 'get_command' (score 0.408248)
+tmp = 1U;
+82. sid 49 in fun 'get_command' (score 0.408248)
+value[0] = (char )'\000';
+83. sid 48 in fun 'get_command' (score 0.408248)
+status = 0;
+84. sid 47 in fun 'get_command' (score 0.408248)
+__cil_tmp16 = 0;
+85. sid 35 in fun 'get_command' (score 0.408248)
+tmp ++;
+86. sid 34 in fun 'get_command' (score 0.408248)
+value[tmp] = (char)0;
+87. sid 33 in fun 'get_command' (score 0.408248)
+__cil_tmp12 = ! (tmp >= 10U);
+88. sid 30 in fun 'mainQ' (score 0.408248)
+__cil_tmp25 = r;
+89. sid 29 in fun 'mainQ' (score 0.408248)
+__cil_tmp24 = (int )*(argv + pos) == 10;
+90. sid 28 in fun 'mainQ' (score 0.408248)
+__cil_tmp23 = a1 < 0;
+91. sid 27 in fun 'mainQ' (score 0.408248)
+prio = 1;
+92. sid 26 in fun 'mainQ' (score 0.408248)
+__cil_tmp22 = a2 < 0;
+93. sid 25 in fun 'mainQ' (score 0.408248)
+prio = 2;
+94. sid 24 in fun 'mainQ' (score 0.408248)
+__cil_tmp21 = a3 < 0;
+95. sid 23 in fun 'mainQ' (score 0.408248)
+prio = 3;
+96. sid 22 in fun 'mainQ' (score 0.408248)
+pos = 0;
+97. sid 21 in fun 'mainQ' (score 0.408248)
+tmp = 1U;
+98. sid 20 in fun 'mainQ' (score 0.408248)
+value[0] = (char )'\000';
+99. sid 19 in fun 'mainQ' (score 0.408248)
+__cil_tmp20 = ! (status > 0);
+100. sid 16 in fun 'mainQ' (score 0.408248)
+__cil_tmp19 = (int )*(argv + pos) != 0 && (int )*(argv + pos) != 10;
+101. sid 13 in fun 'mainQ' (score 0.408248)
+__cil_tmp17 = a1 > 0;
+102. sid 10 in fun 'mainQ' (score 0.408248)
+__cil_tmp15 = a2 > 0;
+103. sid 7 in fun 'mainQ' (score 0.408248)
+__cil_tmp13 = a3 > 0;
+104. sid 6 in fun 'mainQ' (score 0.408248)
+tmp ++;
+105. sid 5 in fun 'mainQ' (score 0.408248)
+value[tmp] = (char)0;
+106. sid 4 in fun 'mainQ' (score 0.408248)
+__cil_tmp12 = ! (tmp >= 10U);
+107. sid 3 in fun 'enqueue' (score 0.408248)
+__cil_tmp7 = tmp;
+108. sid 2 in fun 'enqueue' (score 0.408248)
+__cil_tmp6 = status;
+[35mAlert: FL: found 109 stmts with sscores >= 0.01
+[m[35mAlert: Perform ** BugFix **
+[mwrite_file_bin: '/tmp/CETI_e67976/v1.cil.i.s91.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s90.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s89.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s88.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s87.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s86.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s85.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s84.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s83.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s82.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s81.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s73.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s104.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s94.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s69.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s68.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s67.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s37.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s1.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s123.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s114.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s72.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s40.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s39.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s103.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s102.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s46.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s45.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s44.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s43.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s42.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s41.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s38.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s18.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s15.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s14.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s12.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s11.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s9.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s8.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s131.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s130.t1.arr'
+[35mAlert: CONSTS: don't know how to deal with exp '& prio_queue[prio].head' (sid 129)
+[m[35mAlert: OPS_PR: don't know how to deal with exp '& prio_queue[prio].head' (sid 129)
+[mwrite_file_bin: '/tmp/CETI_e67976/v1.cil.i.s129.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s128.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s127.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s126.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s125.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s124.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s122.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s121.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s120.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s119.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s116.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s115.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s111.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s110.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s109.t1.arr'
+[35mAlert: CONSTS: don't know how to deal with exp '& prio_queue[prio].head' (sid 108)
+[m[35mAlert: OPS_PR: don't know how to deal with exp '& prio_queue[prio].head' (sid 108)
+[mwrite_file_bin: '/tmp/CETI_e67976/v1.cil.i.s108.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s107.t1.arr'
+[35mAlert: CONSTS: don't know how to deal with exp '& (*next)->next' (sid 106)
+[m[35mAlert: OPS_PR: don't know how to deal with exp '& (*next)->next' (sid 106)
+[mwrite_file_bin: '/tmp/CETI_e67976/v1.cil.i.s106.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s105.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s100.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s99.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s97.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s96.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s95.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s93.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s92.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s65.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s64.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s63.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s62.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s61.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s60.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s59.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s58.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s56.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s55.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s54.t1.arr'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.s53.t1.arr'
+[35mAlert: Spy: Got 148 info from 80 sids
+[minput length='6' output length='6'
+write_file_bin: '/tmp/CETI_e67976/v1.cil.i.info'
+$ python kl.py /tmp/CETI_e67976/v1.cil.i randomTC/v1/5/processor.c --do_tb "(91, 3, 1, 1); (91, 1, 4, 2); (90, 1, 4, 2); (89, 1, 4, 2); (88, 3, 1, 1); (88, 1, 4, 2); (87, 3, 1, 1); (87, 1, 4, 2); (86, 3, 1, 1); (86, 1, 4, 2); (85, 3, 1, 1); (85, 1, 4, 2); (84, 3, 1, 1); (84, 1, 4, 2); (83, 3, 1, 1); (83, 7, 2, 1); (83, 1, 4, 2); (82, 3, 1, 1); (82, 1, 4, 2); (81, 3, 1, 1); (81, 7, 2, 1); (81, 1, 4, 2); (73, 3, 1, 1); (73, 1, 4, 2); (104, 3, 1, 1); (104, 1, 4, 2); (94, 3, 1, 1); (94, 7, 2, 1); (94, 1, 4, 3); (69, 1, 4, 5); (68, 3, 1, 1); (68, 7, 2, 1); (68, 1, 4, 5); (67, 3, 1, 1); (67, 7, 2, 1); (67, 1, 4, 5); (37, 1, 4, 3); (1, 1, 4, 4); (123, 3, 1, 1); (123, 1, 4, 5); (114, 3, 1, 1); (114, 7, 2, 1); (114, 1, 4, 5); (72, 1, 4, 2); (40, 3, 1, 1); (40, 7, 2, 1); (40, 1, 4, 3); (39, 3, 1, 1); (39, 7, 2, 1); (39, 1, 4, 3); (103, 1, 4, 5); (102, 3, 1, 1); (102, 1, 4, 5); (46, 3, 1, 1); (46, 1, 4, 3); (45, 3, 1, 1); (45, 7, 2, 1); (45, 1, 4, 3); (44, 3, 1, 1); (44, 1, 4, 3); (43, 1, 4, 3); (42, 1, 4, 3); (41, 3, 1, 1); (41, 1, 4, 3); (38, 3, 1, 2); (38, 7, 2, 3); (38, 1, 4, 3); (18, 3, 1, 1); (18, 7, 2, 1); (18, 1, 4, 10); (15, 3, 1, 1); (15, 7, 2, 1); (15, 1, 4, 10); (14, 1, 4, 10); (12, 3, 1, 1); (12, 7, 2, 1); (12, 1, 4, 10); (11, 1, 4, 10); (9, 3, 1, 1); (9, 7, 2, 1); (9, 1, 4, 10); (8, 1, 4, 10); (131, 1, 4, 5); (130, 1, 4, 5); (129, 1, 4, 5); (128, 7, 2, 1); (128, 1, 4, 5); (127, 1, 4, 5); (126, 1, 4, 5); (125, 3, 1, 2); (125, 7, 2, 3); (125, 1, 4, 5); (124, 3, 1, 2); (124, 7, 2, 3); (124, 1, 4, 5); (122, 3, 1, 1); (122, 1, 4, 5); (121, 3, 1, 1); (121, 7, 2, 1); (121, 1, 4, 5); (120, 3, 1, 1); (120, 1, 4, 5); (119, 1, 4, 5); (116, 7, 2, 1); (116, 1, 4, 5); (115, 1, 4, 5); (111, 3, 1, 1); (111, 1, 4, 2); (110, 3, 1, 1); (110, 7, 2, 1); (110, 1, 4, 2); (109, 1, 4, 2); (108, 1, 4, 2); (107, 3, 1, 2); (107, 7, 2, 3); (107, 1, 4, 2); (106, 1, 4, 2); (105, 1, 4, 2); (100, 3, 1, 1); (100, 1, 4, 2); (99, 7, 2, 2); (99, 1, 4, 2); (97, 1, 4, 3); (96, 1, 4, 3); (95, 3, 1, 1); (95, 1, 4, 3); (93, 3, 1, 1); (93, 7, 2, 1); (93, 1, 4, 3); (92, 3, 1, 1); (92, 7, 2, 1); (92, 1, 4, 3); (65, 1, 4, 5); (64, 1, 4, 5); (63, 1, 4, 5); (62, 1, 4, 5); (61, 1, 4, 5); (60, 3, 1, 1); (60, 7, 2, 1); (60, 1, 4, 5); (59, 1, 4, 5); (58, 3, 1, 1); (58, 1, 4, 5); (56, 1, 4, 5); (55, 3, 1, 1); (55, 1, 4, 5); (54, 1, 4, 5); (53, 1, 4, 5)" --no_parallel
+KR: tasks 1212
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s12.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s9.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s86.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s18.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s95.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s39.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s45.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s94.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s92.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s40.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s15.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s83.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s94.t7_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s45.t7_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s12.t7_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s92.t7_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s15.t7_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s38.t7_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s40.t7_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s9.t7_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s39.t7_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s12.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s40.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s95.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s116.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s94.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s15.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s83.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s9.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s92.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s54.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s131.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s86.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s45.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s39.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s90.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s18.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s38.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s105.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s9.t1_z1_c5.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s12.t1_z1_c0.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c0.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c0.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c0.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c0.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c0.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c0.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c0.tf.c:1050: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z1_c0.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z1_c0.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z1_c0.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z1_c0.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z1_c0.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z1_c0.tf.c: In function ‘finish’:
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z1_c0.tf.c:861: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s40.t1_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s45.t1_z1_c1.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c1.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c1.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c1.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c1.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c1.tf.c: In function ‘new_job’:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c1.tf.c:729: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c1.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s95.t1_z1_c1.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s39.t1_z1_c1.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c0.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c0.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c0.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c0.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c0.tf.c: In function ‘new_job’:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c0.tf.c:729: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c0.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s92.t1_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s15.t1_z1_c5.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s108.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s108.t1_z1_c1.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s108.t1_z1_c1.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s108.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s108.t1_z1_c1.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s108.t1_z1_c1.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s108.t1_z1_c1.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s108.t1_z1_c1.tf.c: In function ‘put_end’:
+/tmp/CETI_e67976/v1.cil.i.s108.t1_z1_c1.tf.c:991: error: invalid operands to binary * (have ‘struct process **’ and ‘struct process **’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s54.t1_z1_c3.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s125.t1_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s9.t1_z1_c0.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c3.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c3.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c3.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c3.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c3.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c3.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c3.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c3.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c3.tf.c:1052: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s106.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s106.t1_z1_c1.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s106.t1_z1_c1.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s106.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s106.t1_z1_c1.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s106.t1_z1_c1.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s106.t1_z1_c1.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s106.t1_z1_c1.tf.c: In function ‘put_end’:
+/tmp/CETI_e67976/v1.cil.i.s106.t1_z1_c1.tf.c:997: error: invalid operands to binary * (have ‘struct process **’ and ‘struct process **’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c1.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c1.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c1.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c1.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c1.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c1.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c1.tf.c:1049: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s15.t1_z1_c6.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c4.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c4.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c4.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c4.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c4.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c4.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c4.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c4.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c4.tf.c:1050: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c0.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c0.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c0.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c0.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c0.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c0.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c0.tf.c:1052: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s106.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s106.t1_z1_c0.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s106.t1_z1_c0.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s106.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s106.t1_z1_c0.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s106.t1_z1_c0.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s106.t1_z1_c0.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s106.t1_z1_c0.tf.c: In function ‘put_end’:
+/tmp/CETI_e67976/v1.cil.i.s106.t1_z1_c0.tf.c:997: error: invalid operands to binary * (have ‘struct process **’ and ‘struct process **’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s86.t1_z1_c1.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s15.t1_z1_c7.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s127.t1_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s12.t1_z1_c8.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c0.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c0.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c0.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c0.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c0.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c0.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c0.tf.c:1049: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s18.t1_z1_c2.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s18.t1_z1_c4.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s38.t1_z1_c1.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s39.t1_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s18.t1_z1_c8.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c2.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c2.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c2.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c2.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c2.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c2.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c2.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c2.tf.c:1040: error: cannot convert to a pointer type
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c2.tf.c:1040: error: invalid operands to binary * (have ‘struct process **’ and ‘struct process **’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s12.t1_z1_c3.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c1.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c1.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c1.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c1.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c1.tf.c: In function ‘new_job’:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c1.tf.c:736: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c1.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s18.t1_z1_c3.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c2.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c2.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c2.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c2.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c2.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c2.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c2.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c2.tf.c:1053: error: cannot convert to a pointer type
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c2.tf.c:1053: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s124.t1_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s15.t1_z1_c9.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s40.t1_z1_c1.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s9.t1_z1_c3.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s108.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s108.t1_z1_c0.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s108.t1_z1_c0.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s108.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s108.t1_z1_c0.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s108.t1_z1_c0.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s108.t1_z1_c0.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s108.t1_z1_c0.tf.c: In function ‘put_end’:
+/tmp/CETI_e67976/v1.cil.i.s108.t1_z1_c0.tf.c:991: error: invalid operands to binary * (have ‘struct process **’ and ‘struct process **’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s9.t1_z1_c4.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c1.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c1.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c1.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c1.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c1.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c1.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c1.tf.c:1053: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s12.t1_z1_c7.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c0.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c0.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c0.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c0.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c0.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c0.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c0.tf.c:1053: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s9.t1_z1_c1.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c3.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c3.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c3.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c3.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c3.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c3.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c3.tf.c: In function ‘new_job’:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c3.tf.c:736: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c3.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c3.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s12.t1_z1_c5.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c0.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c0.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c0.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c0.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c0.tf.c: In function ‘new_job’:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c0.tf.c:736: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c0.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c2.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c2.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c2.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c2.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c2.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c2.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c2.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c2.tf.c:1052: error: cannot convert to a pointer type
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c2.tf.c:1052: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c2.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c2.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c2.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c2.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c2.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c2.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c2.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c2.tf.c:1050: error: cannot convert to a pointer type
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c2.tf.c:1050: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c0.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c0.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c0.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c0.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c0.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c0.tf.c: In function ‘get_current’:
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c0.tf.c:920: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c3.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c3.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c3.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c3.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c3.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c3.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c3.tf.c: In function ‘new_job’:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c3.tf.c:729: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c3.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c3.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s116.t1_z1_c3.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s72.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s72.t1_z1_c0.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s72.t1_z1_c0.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s72.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s72.t1_z1_c0.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s72.t1_z1_c0.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s72.t1_z1_c0.tf.c: In function ‘block’:
+/tmp/CETI_e67976/v1.cil.i.s72.t1_z1_c0.tf.c:783: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s72.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s72.t1_z1_c0.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c1.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c1.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c1.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c1.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c1.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c1.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c1.tf.c:1050: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s45.t1_z1_c2.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s18.t1_z1_c6.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z1_c1.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z1_c1.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z1_c1.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z1_c1.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z1_c1.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z1_c1.tf.c: In function ‘finish’:
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z1_c1.tf.c:859: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s39.t1_z1_c2.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s116.t1_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s92.t1_z1_c2.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c3.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c3.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c3.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c3.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c3.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c3.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c3.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c3.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c3.tf.c:1040: error: invalid operands to binary * (have ‘struct process **’ and ‘struct process **’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s115.t1_z1_c3.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s40.t1_z1_c2.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s15.t1_z1_c3.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c2.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c2.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c2.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c2.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c2.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c2.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c2.tf.c: In function ‘get_current’:
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c2.tf.c:920: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s9.t1_z1_c8.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s116.t1_z1_c2.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s15.t1_z1_c4.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s72.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s72.t1_z1_c1.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s72.t1_z1_c1.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s72.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s72.t1_z1_c1.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s72.t1_z1_c1.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s72.t1_z1_c1.tf.c: In function ‘block’:
+/tmp/CETI_e67976/v1.cil.i.s72.t1_z1_c1.tf.c:783: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s72.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s72.t1_z1_c1.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c4.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c4.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c4.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c4.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c4.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c4.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c4.tf.c: In function ‘new_job’:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c4.tf.c:736: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c4.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c4.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s12.t1_z1_c2.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s15.t1_z1_c0.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c3.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c3.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c3.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c3.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c3.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c3.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c3.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c3.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c3.tf.c:1053: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s54.t1_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s94.t1_z1_c1.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s9.t1_z1_c2.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s115.t1_z1_c4.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s86.t1_z1_c0.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c4.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c4.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c4.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c4.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c4.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c4.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c4.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c4.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c4.tf.c:1052: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s18.t1_z1_c1.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c3.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c3.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c3.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c3.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c3.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c3.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c3.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c3.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z1_c3.tf.c:1050: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s54.t1_z1_c4.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s94.t1_z1_c2.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s95.t1_z1_c2.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s127.t1_z1_c1.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c1.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c1.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c1.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c1.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c1.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c1.tf.c: In function ‘get_current’:
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z1_c1.tf.c:920: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s12.t1_z1_c4.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s45.t1_z1_c0.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c2.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c2.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c2.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c2.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c2.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c2.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c2.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c2.tf.c:1049: error: cannot convert to a pointer type
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c2.tf.c:1049: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s15.t1_z1_c1.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z1_c0.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z1_c0.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z1_c0.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z1_c0.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z1_c0.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z1_c0.tf.c: In function ‘put_end’:
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z1_c0.tf.c:993: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s38.t1_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s18.t1_z1_c7.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s18.t1_z1_c9.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s9.t1_z1_c6.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s38.t1_z1_c2.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s18.t1_z1_c5.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c4.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c4.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c4.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c4.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c4.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c4.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c4.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c4.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c4.tf.c:1049: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c4.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c4.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c4.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c4.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c4.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c4.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c4.tf.c: In function ‘new_job’:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c4.tf.c:729: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c4.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c4.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s95.t1_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s83.t1_z1_c1.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c2.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c2.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c2.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c2.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c2.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c2.tf.c: In function ‘new_job’:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c2.tf.c:729: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c2.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z1_c2.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s122.t1_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s90.t1_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s83.t1_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s127.t1_z1_c3.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s109.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s109.t1_z1_c0.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s109.t1_z1_c0.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s109.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s109.t1_z1_c0.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s109.t1_z1_c0.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s109.t1_z1_c0.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s109.t1_z1_c0.tf.c: In function ‘put_end’:
+/tmp/CETI_e67976/v1.cil.i.s109.t1_z1_c0.tf.c:999: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c4.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c4.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c4.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c4.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c4.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c4.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c4.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c4.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c4.tf.c:1040: error: invalid operands to binary * (have ‘struct process **’ and ‘struct process **’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c1.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c1.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c1.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c1.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c1.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c1.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c1.tf.c:1040: error: invalid operands to binary * (have ‘struct process **’ and ‘struct process **’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s9.t1_z1_c9.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s54.t1_z1_c2.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s9.t1_z1_c7.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c3.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c3.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c3.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c3.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c3.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c3.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c3.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c3.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s130.t1_z1_c3.tf.c:1049: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s12.t1_z1_c9.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z1_c1.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z1_c1.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z1_c1.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z1_c1.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z1_c1.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z1_c1.tf.c: In function ‘finish’:
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z1_c1.tf.c:861: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c4.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c4.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c4.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c4.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c4.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c4.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c4.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c4.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z1_c4.tf.c:1053: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s115.t1_z1_c1.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s92.t1_z1_c1.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s15.t1_z1_c2.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s116.t1_z1_c1.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c0.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c0.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c0.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c0.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c0.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c0.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z1_c0.tf.c:1040: error: invalid operands to binary * (have ‘struct process **’ and ‘struct process **’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s96.t1_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s18.t1_z1_c0.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z1_c0.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z1_c0.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z1_c0.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z1_c0.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z1_c0.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z1_c0.tf.c: In function ‘finish’:
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z1_c0.tf.c:859: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s115.t1_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s12.t1_z1_c1.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s12.t1_z1_c6.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s90.t1_z1_c1.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z1_c1.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z1_c1.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z1_c1.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z1_c1.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z1_c1.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z1_c1.tf.c: In function ‘put_end’:
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z1_c1.tf.c:993: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s54.t1_z1_c1.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c2.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c2.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c2.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c2.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c2.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c2.tf.c: In function ‘new_job’:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c2.tf.c:736: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c2.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z1_c2.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s15.t1_z1_c8.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c1.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c1.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c1.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c1.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c1.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c1.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z1_c1.tf.c:1052: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s94.t1_z1_c0.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s109.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s109.t1_z1_c1.tf.c:603: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s109.t1_z1_c1.tf.c:620: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s109.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s109.t1_z1_c1.tf.c:698: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s109.t1_z1_c1.tf.c:709: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s109.t1_z1_c1.tf.c:836: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s109.t1_z1_c1.tf.c: In function ‘put_end’:
+/tmp/CETI_e67976/v1.cil.i.s109.t1_z1_c1.tf.c:999: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s18.t1_z3_c37.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s12.t1_z3_c6.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z3_c6.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z3_c6.tf.c:607: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z3_c6.tf.c:628: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z3_c6.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z3_c6.tf.c:706: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z3_c6.tf.c:717: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z3_c6.tf.c:844: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z3_c6.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z3_c6.tf.c:1062: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z3_c6.tf.c:1062: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s45.t1_z3_c0.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c0.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c0.tf.c:607: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c0.tf.c:628: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c0.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c0.tf.c:706: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c0.tf.c:717: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c0.tf.c: In function ‘new_job’:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c0.tf.c:737: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c0.tf.c:737: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c0.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c0.tf.c:844: warning: conflicting types for built-in function ‘strcat’
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s15.t1_z3_c3.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s18.t1_z3_c9.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s54.t1_z3_c8.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c8.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c8.tf.c:607: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c8.tf.c:628: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c8.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c8.tf.c:706: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c8.tf.c:717: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c8.tf.c: In function ‘new_job’:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c8.tf.c:737: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c8.tf.c:737: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c8.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c8.tf.c:844: warning: conflicting types for built-in function ‘strcat’
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s9.t1_z3_c24.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s115.t1_z3_c3.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c1.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c1.tf.c:607: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c1.tf.c:628: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c1.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c1.tf.c:706: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c1.tf.c:717: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c1.tf.c:844: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c1.tf.c: In function ‘get_current’:
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c1.tf.c:928: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c1.tf.c:928: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s9.t1_z3_c43.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s124.t1_z3_c1.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s18.t1_z3_c11.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s18.t1_z3_c0.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z3_c6.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z3_c6.tf.c:607: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z3_c6.tf.c:628: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z3_c6.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z3_c6.tf.c:706: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z3_c6.tf.c:717: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z3_c6.tf.c: In function ‘new_job’:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z3_c6.tf.c:744: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z3_c6.tf.c:744: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z3_c6.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s55.t1_z3_c6.tf.c:844: warning: conflicting types for built-in function ‘strcat’
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s18.t1_z3_c36.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c9.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c9.tf.c:607: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c9.tf.c:628: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c9.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c9.tf.c:706: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c9.tf.c:717: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c9.tf.c: In function ‘new_job’:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c9.tf.c:737: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c9.tf.c:737: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c9.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s62.t1_z3_c9.tf.c:844: warning: conflicting types for built-in function ‘strcat’
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s12.t1_z3_c17.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s18.t1_z3_c39.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s9.t1_z3_c9.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s9.t1_z3_c22.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s124.t1_z3_c2.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s116.t1_z3_c1.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s12.t1_z3_c12.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z3_c0.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z3_c0.tf.c:607: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z3_c0.tf.c:628: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z3_c0.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z3_c0.tf.c:706: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z3_c0.tf.c:717: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z3_c0.tf.c:844: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z3_c0.tf.c: In function ‘finish’:
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z3_c0.tf.c:869: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s84.t1_z3_c0.tf.c:869: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s18.t1_z3_c8.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s94.t1_z3_c1.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s12.t1_z3_c16.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s12.t1_z3_c35.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s15.t1_z3_c20.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s15.t1_z3_c1.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s18.t1_z3_c22.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s54.t1_z3_c7.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s128.t1_z3_c9.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s127.t1_z3_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s18.t1_z3_c30.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c0.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c0.tf.c:607: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c0.tf.c:628: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c0.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c0.tf.c:706: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c0.tf.c:717: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c0.tf.c:844: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c0.tf.c: In function ‘get_current’:
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c0.tf.c:928: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c0.tf.c:928: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s15.t1_z3_c0.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z3_c2.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z3_c2.tf.c:607: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z3_c2.tf.c:628: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z3_c2.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z3_c2.tf.c:706: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z3_c2.tf.c:717: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z3_c2.tf.c:844: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z3_c2.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z3_c2.tf.c:1059: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z3_c2.tf.c:1059: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s12.t1_z3_c44.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s15.t1_z3_c27.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s12.t1_z3_c34.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s12.t1_z3_c37.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s18.t1_z3_c29.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s12.t1_z3_c21.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z3_c4.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z3_c4.tf.c:607: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z3_c4.tf.c:628: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z3_c4.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z3_c4.tf.c:706: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z3_c4.tf.c:717: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z3_c4.tf.c:844: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z3_c4.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z3_c4.tf.c:1049: error: invalid operands to binary * (have ‘struct process **’ and ‘struct process **’)
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z3_c4.tf.c:1049: error: cannot convert to a pointer type
+/tmp/CETI_e67976/v1.cil.i.s129.t1_z3_c4.tf.c:1049: error: invalid operands to binary * (have ‘struct process **’ and ‘struct process **’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s9.t1_z3_c11.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z3_c8.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z3_c8.tf.c:607: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z3_c8.tf.c:628: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z3_c8.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z3_c8.tf.c:706: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z3_c8.tf.c:717: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z3_c8.tf.c:844: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z3_c8.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z3_c8.tf.c:1059: error: cannot convert to a pointer type
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z3_c8.tf.c:1059: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s131.t1_z3_c8.tf.c:1059: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s15.t1_z3_c10.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s18.t1_z3_c7.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s115.t1_z3_c7.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s125.t1_z3_c1.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s15.t1_z3_c28.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s45.t1_z3_c2.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s9.t1_z3_c20.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s12.t1_z3_c4.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z3_c0.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z3_c0.tf.c:607: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z3_c0.tf.c:628: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z3_c0.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z3_c0.tf.c:706: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z3_c0.tf.c:717: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z3_c0.tf.c:844: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z3_c0.tf.c: In function ‘put_end’:
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z3_c0.tf.c:1002: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s105.t1_z3_c0.tf.c:1002: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s116.t1_z3_c2.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z3_c0.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z3_c0.tf.c:607: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z3_c0.tf.c:628: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z3_c0.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z3_c0.tf.c:706: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z3_c0.tf.c:717: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z3_c0.tf.c:844: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z3_c0.tf.c: In function ‘finish’:
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z3_c0.tf.c:867: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s89.t1_z3_c0.tf.c:867: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z3_c8.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z3_c8.tf.c:607: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z3_c8.tf.c:628: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z3_c8.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z3_c8.tf.c:706: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z3_c8.tf.c:717: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z3_c8.tf.c:844: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z3_c8.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z3_c8.tf.c:1062: error: cannot convert to a pointer type
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z3_c8.tf.c:1062: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s120.t1_z3_c8.tf.c:1062: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s9.t1_z3_c12.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s9.t1_z3_c36.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c2.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c2.tf.c:607: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c2.tf.c:628: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c2.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c2.tf.c:706: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c2.tf.c:717: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c2.tf.c:844: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c2.tf.c: In function ‘get_current’:
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c2.tf.c:928: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s97.t1_z3_c2.tf.c:928: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_e67976/v1.cil.i.s15.t1_z3_c37.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z3_c4.tf.c: In function ‘main’:
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z3_c4.tf.c:607: warning: comparison between pointer and integer
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z3_c4.tf.c:628: warning: incompatible implicit declaration of built-in function ‘printf’
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z3_c4.tf.c: At top level:
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z3_c4.tf.c:706: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z3_c4.tf.c:717: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z3_c4.tf.c:844: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z3_c4.tf.c: In function ‘get_process’:
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z3_c4.tf.c:1061: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z3_c4.tf.c:1061: error: cannot convert to a pointer type
+/tmp/CETI_e67976/v1.cil.i.s119.t1_z3_c4.tf.c:1061: error: invalid operands to binary * (have ‘struct process *’ and ‘struct process *’)
+randomTC/v1/5/processor.c: In function ‘getOperand’:
+randomTC/v1/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+

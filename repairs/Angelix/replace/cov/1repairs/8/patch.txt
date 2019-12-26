@@ -1,0 +1,11 @@
+--- a/replace.c
++++ b/replace.c
+@@ -422,7 +422,7 @@
+ 	if ((pat[j] == CLOSURE)) {
+ 	    j = j + patsize(pat, j);
+ 	    i = offset;
+-	    while ((!done) && (lin[i] != ENDSTR)) {
++	    while (0) {
+ 		result = omatch(lin, &i, pat, j);
+ 		if (!result)	
+ 		    done = true;

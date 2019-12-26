@@ -1,0 +1,311 @@
+***************replace/MFCC/MR1/v22
+gcc -D_GNUCC -E -DCIL=1 replace/MFCC/MR1/v22/replace22.c -o replace/MFCC/MR1/v22/replace22.i
+replace/MFCC/MR1/v22/replace22.c:11:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace/MFCC/MR1/v22/replace22.c:4:
+/usr/lib/gcc/i486-linux-gnu/4.4.3/include/stddef.h:400:1: warning: this is the location of the previous definition
+/usr/local/bin/cilly.native --out replace/MFCC/MR1/v22/replace22.cil.c --noPrintLn --useLogicalOperators replace/MFCC/MR1/v22/replace22.i
+gcc -D_GNUCC -E replace/MFCC/MR1/v22/replace22.cil.c -o replace/MFCC/MR1/v22/replace22.cil.i
+gcc -D_GNUCC -c -o replace/MFCC/MR1/v22/replace22.o replace/MFCC/MR1/v22/replace22.cil.i
+replace/MFCC/MR1/v22/replace22.cil.c:369: warning: conflicting types for built-in function ‘abort’
+gcc -D_GNUCC -o a.out replace/MFCC/MR1/v22/replace22.o
+$ cp replace/MFCC/MR1/v22/replace22.cil.i /tmp/CETI_21ef91/replace22.cil.i
+input length='30' output length='30'
+*** Get good/bad tcs ***
+cmd 'gcc /tmp/CETI_21ef91/replace22.cil.i -o /tmp/CETI_21ef91/replace22.cil.i.exe >& /dev/null'
+$ gcc /tmp/CETI_21ef91/replace22.cil.i -o /tmp/CETI_21ef91/replace22.cil.i.exe >& /dev/null
+write_file_str: '/tmp/CETI_21ef91/replace22.cil.i.sh'
+$ sh /tmp/CETI_21ef91/replace22.cil.i.sh /tmp/CETI_21ef91/replace22.cil.i.exe &> /dev/null
+[35mAlert: 6/30 tests failed. Processing ..
+[mwrite_src: '/tmp/CETI_21ef91/replace22.cil.i.preproc.c'
+*** Fault Localization ***
+write_src: '/tmp/CETI_21ef91/faultloc_1d66ca/replace22.cil.i.cov.c'
+cmd 'gcc /tmp/CETI_21ef91/faultloc_1d66ca/replace22.cil.i.cov.c -o /tmp/CETI_21ef91/faultloc_1d66ca/replace22.cil.i.cov.c.exe >& /dev/null'
+$ gcc /tmp/CETI_21ef91/faultloc_1d66ca/replace22.cil.i.cov.c -o /tmp/CETI_21ef91/faultloc_1d66ca/replace22.cil.i.cov.c.exe >& /dev/null
+goods length:24
+write_file_str: '/tmp/CETI_21ef91/faultloc_1d66ca/replace22.cil.i.g.sh'
+$ sh /tmp/CETI_21ef91/faultloc_1d66ca/replace22.cil.i.g.sh /tmp/CETI_21ef91/faultloc_1d66ca/replace22.cil.i.cov.c.exe /tmp/CETI_21ef91/faultloc_1d66ca/replace22.cil.i.outputs_g_dontcare &> /dev/null
+write_file_str: '/tmp/CETI_21ef91/faultloc_1d66ca/replace22.cil.i.b.sh'
+$ sh /tmp/CETI_21ef91/faultloc_1d66ca/replace22.cil.i.b.sh /tmp/CETI_21ef91/faultloc_1d66ca/replace22.cil.i.cov.c.exe /tmp/CETI_21ef91/faultloc_1d66ca/replace22.cil.i.outputs_bad_dontcare &> /dev/null
+0. sid 115 in fun 'omatch' (score 0.816497)
+__cil_tmp10 = ! tmp___0;
+1. sid 101 in fun 'locate' (score 0.816497)
+i = offset;
+2. sid 100 in fun 'locate' (score 0.816497)
+flag = (bool )1;
+3. sid 37 in fun 'getccl' (score 0.816497)
+junk = (bool )tmp;
+4. sid 107 in fun 'locate' (score 0.632456)
+__cil_tmp8 = flag;
+5. sid 106 in fun 'locate' (score 0.632456)
+i = offset + (int )*(pat + offset);
+6. sid 105 in fun 'locate' (score 0.632456)
+flag = (bool )0;
+7. sid 104 in fun 'locate' (score 0.632456)
+__cil_tmp7 = (int )c == (int )*(pat + i);
+8. sid 103 in fun 'locate' (score 0.632456)
+__cil_tmp6 = i > offset;
+9. sid 57 in fun 'makepat' (score 0.632456)
+done = (bool )((int )getres == 0);
+10. sid 44 in fun 'getccl' (score 0.632456)
+__cil_tmp11 = (bool )((int )*(arg + *i) == 93);
+11. sid 43 in fun 'getccl' (score 0.632456)
+*(pat + jstart) = (char )((*j - jstart) - 1);
+12. sid 42 in fun 'getccl' (score 0.632456)
+junk = (bool )tmp___1;
+13. sid 41 in fun 'getccl' (score 0.632456)
+jstart = *j;
+14. sid 40 in fun 'getccl' (score 0.632456)
+(*i) ++;
+15. sid 39 in fun 'getccl' (score 0.632456)
+__cil_tmp10 = (int )*(arg + (*i + 1)) == 94;
+16. sid 36 in fun 'dodash' (score 0.632456)
+(*i) ++;
+17. sid 35 in fun 'dodash' (score 0.632456)
+__cil_tmp24 = (int )*(src + (*i - 1)) == 64;
+18. sid 34 in fun 'dodash' (score 0.632456)
+__cil_tmp23 = (int )*(src + *i) != (int )delim && (int )*(src + *i) != 0;
+19. sid 33 in fun 'dodash' (score 0.632456)
+__cil_tmp22 = (int )*(src + *i) != 45;
+20. sid 19 in fun 'dodash' (score 0.632456)
+junk = (bool )tmp___0;
+21. sid 66 in fun 'makepat' (score 0.5)
+__cil_tmp25 = (int )*(arg + i) == 37 && i == start;
+22. sid 65 in fun 'makepat' (score 0.5)
+__cil_tmp24 = (int )*(arg + i) == 36 && (int )*(arg + (i + 1)) == (int )delim;
+23. sid 64 in fun 'makepat' (score 0.5)
+__cil_tmp23 = (int )*(arg + i) == 91;
+24. sid 170 in fun 'subline' (score 0.46291)
+i ++;
+25. sid 169 in fun 'subline' (score 0.46291)
+OL ++;
+26. sid 168 in fun 'subline' (score 0.46291)
+O[OL] = *(lin + i);
+27. sid 149 in fun 'amatch' (score 0.46291)
+done = (bool )1;
+28. sid 148 in fun 'amatch' (score 0.46291)
+offset = -1;
+29. sid 125 in fun 'omatch' (score 0.46291)
+result = (bool )0;
+30. sid 182 in fun 'mainQ' (score 0.447214)
+__cil_tmp9 = tmp___0;
+31. sid 181 in fun 'mainQ' (score 0.447214)
+result = (bool )tmp;
+32. sid 180 in fun 'change' (score 0.447214)
+__cil_tmp5 = tmp;
+33. sid 179 in fun 'subline' (score 0.447214)
+__cil_tmp11 = O;
+34. sid 178 in fun 'subline' (score 0.447214)
+O[OL] = (char )'\000';
+35. sid 177 in fun 'subline' (score 0.447214)
+i = 0;
+36. sid 176 in fun 'subline' (score 0.447214)
+lastm = -1;
+37. sid 175 in fun 'subline' (score 0.447214)
+OL = 0;
+38. sid 174 in fun 'subline' (score 0.447214)
+__cil_tmp10 = m == -1 || m == i;
+39. sid 173 in fun 'subline' (score 0.447214)
+__cil_tmp9 = m >= 0 && lastm != m;
+40. sid 172 in fun 'subline' (score 0.447214)
+__cil_tmp8 = (int )*(lin + i) != 0;
+41. sid 155 in fun 'amatch' (score 0.447214)
+__cil_tmp19 = offset;
+42. sid 154 in fun 'amatch' (score 0.447214)
+done = (bool )0;
+43. sid 153 in fun 'amatch' (score 0.447214)
+__cil_tmp18 = (int )*(pat + j) == 42;
+44. sid 152 in fun 'amatch' (score 0.447214)
+__cil_tmp17 = ! done && (int )*(pat + j) != 0;
+45. sid 151 in fun 'amatch' (score 0.447214)
+__cil_tmp16 = ! result;
+46. sid 129 in fun 'omatch' (score 0.447214)
+__cil_tmp20 = result;
+47. sid 128 in fun 'omatch' (score 0.447214)
+__cil_tmp19 = (int )advance >= 0;
+48. sid 127 in fun 'omatch' (score 0.447214)
+__cil_tmp18 = (int )*(lin + *i) == 0;
+49. sid 126 in fun 'omatch' (score 0.447214)
+advance = (char)-1;
+50. sid 122 in fun 'omatch' (score 0.447214)
+__cil_tmp17 = tmp___1;
+51. sid 99 in fun 'getsub' (score 0.447214)
+__cil_tmp4 = (bool )(makeres > 0);
+52. sid 98 in fun 'makesub' (score 0.447214)
+__cil_tmp17 = result;
+53. sid 97 in fun 'makesub' (score 0.447214)
+__cil_tmp16 = (int )*(arg + i) != (int )delim;
+54. sid 96 in fun 'makesub' (score 0.447214)
+i = from;
+55. sid 95 in fun 'makesub' (score 0.447214)
+j = 0;
+56. sid 94 in fun 'makesub' (score 0.447214)
+__cil_tmp15 = ! junk;
+57. sid 93 in fun 'makesub' (score 0.447214)
+junk = (bool )tmp___1;
+58. sid 92 in fun 'makesub' (score 0.447214)
+result = i;
+59. sid 89 in fun 'makesub' (score 0.447214)
+i ++;
+60. sid 88 in fun 'makesub' (score 0.447214)
+__cil_tmp14 = (unsigned int )*(arg + i) == 38U;
+61. sid 87 in fun 'makesub' (score 0.447214)
+__cil_tmp13 = (int )*(arg + i) != (int )delim && (int )*(arg + i) != 0;
+62. sid 86 in fun 'makesub' (score 0.447214)
+junk = (bool )tmp___0;
+63. sid 84 in fun 'getpat' (score 0.447214)
+__cil_tmp4 = makeres > 0;
+64. sid 83 in fun 'makepat' (score 0.447214)
+__cil_tmp31 = result;
+65. sid 82 in fun 'makepat' (score 0.447214)
+__cil_tmp30 = done || (int )*(arg + i) != (int )delim;
+66. sid 81 in fun 'makepat' (score 0.447214)
+junk = (bool )tmp___5;
+67. sid 80 in fun 'makepat' (score 0.447214)
+done = (bool )0;
+68. sid 79 in fun 'makepat' (score 0.447214)
+lastj = 0;
+69. sid 78 in fun 'makepat' (score 0.447214)
+i = start;
+70. sid 77 in fun 'makepat' (score 0.447214)
+j = 0;
+71. sid 76 in fun 'makepat' (score 0.447214)
+__cil_tmp29 = ! junk;
+72. sid 75 in fun 'makepat' (score 0.447214)
+result = i;
+73. sid 72 in fun 'makepat' (score 0.447214)
+__cil_tmp28 = ! done;
+74. sid 71 in fun 'makepat' (score 0.447214)
+lastj = lj;
+75. sid 70 in fun 'makepat' (score 0.447214)
+__cil_tmp27 = (int )*(arg + i) == 63;
+76. sid 69 in fun 'makepat' (score 0.447214)
+lj = j;
+77. sid 68 in fun 'makepat' (score 0.447214)
+__cil_tmp26 = (! done && (int )*(arg + i) != (int )delim) && (int )*(arg + i) != 0;
+78. sid 67 in fun 'makepat' (score 0.447214)
+i ++;
+79. sid 53 in fun 'in_pat_set' (score 0.447214)
+__cil_tmp2 = (bool )(((((((int )c == 99 || (int )c == 37) || (int )c == 36) || (int )c == 63) || (int )c == 91) || (int )c == 33) || (int )c == 42);
+80. sid 17 in fun 'esc' (score 0.447214)
+__cil_tmp8 = result;
+81. sid 16 in fun 'esc' (score 0.447214)
+__cil_tmp7 = (int )*(s + *i) != 64;
+82. sid 7 in fun 'esc' (score 0.447214)
+result = *(s + *i);
+83. sid 6 in fun 'addstr' (score 0.447214)
+__cil_tmp7 = (int )result;
+84. sid 5 in fun 'addstr' (score 0.447214)
+__cil_tmp6 = *j >= maxset;
+85. sid 4 in fun 'addstr' (score 0.447214)
+result = (bool )1;
+86. sid 3 in fun 'addstr' (score 0.447214)
+(*j) ++;
+87. sid 2 in fun 'addstr' (score 0.447214)
+*(outset + *j) = c;
+[35mAlert: FL: found 88 stmts with sscores >= 0.01
+[m[35mAlert: Perform ** BugFix **
+[mwrite_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s115.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s101.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s100.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s37.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s107.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s106.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s105.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s104.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s103.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s57.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s44.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s43.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s42.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s41.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s40.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s39.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s36.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s35.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s34.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s33.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s19.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s66.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s65.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s64.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s170.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s169.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s168.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s149.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s148.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s125.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s182.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s181.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s180.t1.arr'
+[35mAlert: CONSTS: don't know how to deal with exp 'O' (sid 179)
+[m[35mAlert: OPS_PR: don't know how to deal with exp 'O' (sid 179)
+[mwrite_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s179.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s178.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s177.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s176.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s175.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s174.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s173.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s172.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s155.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s154.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s153.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s152.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s151.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s129.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s128.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s127.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s126.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s122.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s99.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s98.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s97.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s96.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s95.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s94.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s93.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s92.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s89.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s88.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s87.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s86.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s84.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s83.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s82.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s81.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s80.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s79.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s78.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s77.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s76.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s75.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s72.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s71.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s70.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s69.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s68.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s67.t1.arr'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.s53.t1.arr'
+[35mAlert: Spy: Got 160 info from 80 sids
+[minput length='30' output length='30'
+write_file_bin: '/tmp/CETI_21ef91/replace22.cil.i.info'
+$ python kl.py /tmp/CETI_21ef91/replace22.cil.i --do_tb "(115, 1, 4, 5); (101, 1, 4, 3); (100, 3, 1, 1); (100, 1, 4, 3); (37, 1, 4, 6); (107, 1, 4, 3); (106, 7, 2, 1); (106, 1, 4, 3); (105, 3, 1, 1); (105, 1, 4, 3); (104, 7, 2, 1); (104, 1, 4, 3); (103, 7, 2, 1); (103, 1, 4, 3); (57, 3, 1, 1); (57, 7, 2, 1); (57, 1, 4, 11); (44, 3, 1, 1); (44, 7, 2, 1); (44, 1, 4, 6); (43, 3, 1, 1); (43, 7, 2, 2); (43, 1, 4, 6); (42, 1, 4, 6); (41, 1, 4, 6); (40, 3, 1, 1); (40, 7, 2, 1); (40, 1, 4, 6); (39, 3, 1, 1); (39, 7, 2, 1); (39, 1, 4, 6); (36, 3, 1, 1); (36, 7, 2, 1); (36, 1, 4, 9); (35, 3, 1, 1); (35, 7, 2, 1); (35, 1, 4, 9); (34, 3, 1, 1); (34, 7, 2, 3); (34, 1, 4, 9); (33, 3, 1, 1); (33, 7, 2, 1); (33, 1, 4, 9); (19, 1, 4, 9); (66, 3, 1, 1); (66, 7, 2, 3); (66, 1, 4, 11); (65, 3, 1, 1); (65, 7, 2, 3); (65, 1, 4, 11); (64, 3, 1, 1); (64, 7, 2, 1); (64, 1, 4, 11); (170, 3, 1, 1); (170, 7, 2, 1); (170, 1, 4, 7); (169, 3, 1, 1); (169, 7, 2, 1); (169, 1, 4, 7); (168, 1, 4, 7); (149, 3, 1, 1); (149, 1, 4, 7); (148, 3, 1, 1); (148, 1, 4, 7); (125, 3, 1, 1); (125, 1, 4, 5); (182, 1, 4, 4); (181, 1, 4, 4); (180, 1, 4, 4); (179, 1, 4, 7); (178, 3, 1, 1); (178, 1, 4, 7); (177, 3, 1, 1); (177, 1, 4, 7); (176, 3, 1, 1); (176, 1, 4, 7); (175, 3, 1, 1); (175, 1, 4, 7); (174, 3, 1, 1); (174, 7, 2, 3); (174, 1, 4, 7); (173, 3, 1, 1); (173, 7, 2, 3); (173, 1, 4, 7); (172, 3, 1, 1); (172, 7, 2, 1); (172, 1, 4, 7); (155, 1, 4, 7); (154, 3, 1, 1); (154, 1, 4, 7); (153, 3, 1, 1); (153, 7, 2, 1); (153, 1, 4, 7); (152, 3, 1, 1); (152, 7, 2, 2); (152, 1, 4, 7); (151, 1, 4, 7); (129, 1, 4, 5); (128, 3, 1, 1); (128, 7, 2, 1); (128, 1, 4, 5); (127, 3, 1, 1); (127, 7, 2, 1); (127, 1, 4, 5); (126, 3, 1, 1); (126, 1, 4, 5); (122, 1, 4, 5); (99, 3, 1, 1); (99, 7, 2, 1); (99, 1, 4, 3); (98, 1, 4, 7); (97, 7, 2, 1); (97, 1, 4, 7); (96, 1, 4, 7); (95, 3, 1, 1); (95, 1, 4, 7); (94, 1, 4, 7); (93, 1, 4, 7); (92, 1, 4, 7); (89, 3, 1, 1); (89, 7, 2, 1); (89, 1, 4, 7); (88, 3, 1, 1); (88, 7, 2, 1); (88, 1, 4, 7); (87, 3, 1, 1); (87, 7, 2, 3); (87, 1, 4, 7); (86, 1, 4, 7); (84, 3, 1, 1); (84, 7, 2, 1); (84, 1, 4, 3); (83, 1, 4, 11); (82, 7, 2, 2); (82, 1, 4, 11); (81, 1, 4, 11); (80, 3, 1, 1); (80, 1, 4, 11); (79, 3, 1, 1); (79, 1, 4, 11); (78, 1, 4, 11); (77, 3, 1, 1); (77, 1, 4, 11); (76, 1, 4, 11); (75, 1, 4, 11); (72, 1, 4, 11); (71, 1, 4, 11); (70, 3, 1, 1); (70, 7, 2, 1); (70, 1, 4, 11); (69, 1, 4, 11); (68, 3, 1, 1); (68, 7, 2, 4); (68, 1, 4, 11); (67, 3, 1, 1); (67, 7, 2, 1); (67, 1, 4, 11); (53, 3, 1, 7); (53, 7, 2, 13); (53, 1, 4, 1)" --no_parallel
+KR: tasks 2818
+worker 0: stdout: /tmp/CETI_21ef91/replace22.cil.i.s43.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_21ef91/replace22.cil.i.s67.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_21ef91/replace22.cil.i.s95.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_21ef91/replace22.cil.i.s148.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_21ef91/replace22.cil.i.s36.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_21ef91/replace22.cil.i.s175.t3_z1_c0.tf.c, timeout 10
+worker 0: found fix for /tmp/CETI_21ef91/replace22.cil.i.s33.t3_z1_c0.tf.c
+KR: summary (bugfix: True, stop after a repair found: True, parallel: False), '/tmp/CETI_21ef91/replace22.cil.i', 1 / 2818
+0. /tmp/CETI_21ef91/replace22.cil.i.s33.t3_z1_c0.tf.c: __cil_tmp22 = (int )*(src + *i) != 45; ===> __cil_tmp22 = (int )*(src + *i) != uk_0; ===> uk_0 94
+Note: temp files created in dir '/tmp/CETI_21ef91'
+
+real	2m3.452s
+user	2m2.392s
+sys	0m1.068s
+/home/mingyue/experiments/ceti/REPLACE/replace

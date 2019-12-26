@@ -1,0 +1,30 @@
+./limit ./$1 '=-_H'	''	'$D4cEalzK2vP8Kg6Tf$' >> $2/O1
+./limit ./$1 'nCJ'	'be'	';p-3+,\' >> $2/O2
+./limit ./$1 ''	'%'	'MN_B\V' >> $2/O3
+./limit ./$1 ''	'3"'	'nN .' >> $2/O4
+./limit ./$1 ')['	'V'	';zr-P8r`Q$W|l' >> $2/O5
+./limit ./$1 ''	'(zr'	'U' >> $2/O6
+./limit ./$1 ')bE@'	'UM}7'	'j:d3jn#dzzBL2A' >> $2/O7
+./limit ./$1 ''	'HNTP'	'A>' >> $2/O8
+./limit ./$1 'Tk:'	''	'jQx|KaWj' >> $2/O9
+./limit ./$1 'm/'	';'	'UQ0v;~A|K@h[p' >> $2/O10
+./limit ./$1 'g'	'R,)$'	'FDq-~u#8,P tHDVN1' >> $2/O11
+./limit ./$1 '[^Dv'	'J%'	'&3*~,RZMUf$ah6' >> $2/O12
+./limit ./$1 'dH'	'B/Ed'	'teB(L' >> $2/O13
+./limit ./$1 'wI#"'	'uK4b'	':>y/}52zf/**' >> $2/O14
+./limit ./$1 ''	'.'	'pw< M(%-ch' >> $2/O15
+./limit ./$1 ''	'hgVS'	'_@4$V&U' >> $2/O16
+./limit ./$1 'k'	'M4j'	'|B/NWg/.WXISI@uK' >> $2/O17
+./limit ./$1 'k)'	';'	'@R}O^TWbw<bnAYyXN' >> $2/O18
+./limit ./$1 'u}'	'?-'	's|b63@"6;Tz4.Zm.oc4t' >> $2/O19
+./limit ./$1 ''	'1zO'	'g[dJ%h,j%zz"#|B' >> $2/O20
+./limit ./$1 'Wqzw'	'WWZI'	'%d87VHL)c%d4U/\' >> $2/O21
+./limit ./$1 'wzh{'	','	'zpBVkhIcx' >> $2/O22
+./limit ./$1 ''	'R>^\'	'Roh 8"3+{`7EQp"' >> $2/O23
+./limit ./$1 '@wu'	'/y'	'l`.dy&DeW}0n(T q' >> $2/O24
+./limit ./$1 'Fx'	'X!5x'	'sM4rwV?Lga>947>1+D9' >> $2/O25
+./limit ./$1 '[s'	'z'	'"#/JE\~;0//hiGZy@1)(' >> $2/O26
+./limit ./$1 '`@Y!'	'A,'	'gW3u' >> $2/O27
+./limit ./$1 'PvmJ'	'~e'	'[' >> $2/O28
+./limit ./$1 'tk'	'`'	'^' >> $2/O29
+./limit ./$1 '^Ck'	''	'm8XIyr67DW' >> $2/O30

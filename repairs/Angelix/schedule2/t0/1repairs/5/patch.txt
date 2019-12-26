@@ -1,0 +1,11 @@
+--- a/schedule2.c
++++ b/schedule2.c
+@@ -113,7 +113,7 @@
+ {
+     int pid, status = OK;
+     struct process *new_process;
+-    if(prio < 1) return(BADPRIO); /* FIX: if(0) */
++    if(0) return(BADPRIO); /* FIX: if(0) */
+     pid = next_pid++;
+     new_process = (struct process *) malloc(sizeof(struct process));
+     if(!new_process) status = MALLOC_ERR;

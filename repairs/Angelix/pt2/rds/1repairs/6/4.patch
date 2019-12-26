@@ -1,0 +1,11 @@
+--- a/pt2.c
++++ b/pt2.c
+@@ -361,7 +361,7 @@
+     {
+     while ( *(str+i) != '\0' )   /* until meet token end sign */
+       {
+-       if(isdigit(*(str+i+1)))/*fault*/
++       if((i < 2))/*fault*/
+          i++;
+        else
+          return(FALSE);

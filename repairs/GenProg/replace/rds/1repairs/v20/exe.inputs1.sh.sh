@@ -1,0 +1,93 @@
+./limit ./$1 '|?'	'$:'	'Fw/Ym>$Z"o~;' >> $2/O1
+./limit ./$1 'ZTd'	''	't,RR,Zl(- I' >> $2/O2
+./limit ./$1 '>BLu'	'6PR'	'|9P1T{l%p11{++#HAS' >> $2/O3
+./limit ./$1 'L$$'	'(&fi'	'XduK7B#*zpWW#nH1+l' >> $2/O4
+./limit ./$1 'XF<w'	'3Ltx'	'\2$%dHHh@q2-!lZuyb' >> $2/O5
+./limit ./$1 ''	'1'	'KfA' >> $2/O6
+./limit ./$1 ''	'l'	'*X+ |$+hLsM' >> $2/O7
+./limit ./$1 's[>'	'x'	':2Sy\3:[<.94' >> $2/O8
+./limit ./$1 '<vq'	''	'4e0ps"7l )' >> $2/O9
+./limit ./$1 'VJ$-'	'#d'	'[PipOz' >> $2/O10
+./limit ./$1 's+P<'	'0x'	'!A' >> $2/O11
+./limit ./$1 'Un:'	'@2aS'	'`FV7@[X 2%QR' >> $2/O12
+./limit ./$1 'lp>.'	'u@Y'	'r43Tj#$"-}`@r*%pz' >> $2/O13
+./limit ./$1 '_"s'	'1[Br'	'oq,~oW14wu.#)R,v4G' >> $2/O14
+./limit ./$1 ''	's&'	'.fN!mdO&CfW6/O6' >> $2/O15
+./limit ./$1 ''	'i'	'7' >> $2/O16
+./limit ./$1 ''	'e+,'	'j' >> $2/O17
+./limit ./$1 'm/)'	'x;kv'	'g' >> $2/O18
+./limit ./$1 ''	'?W9'	'd.~!1pWguD1x' >> $2/O19
+./limit ./$1 'M'	'Xl'	'8~xp%)z.s ,gR|<V' >> $2/O20
+./limit ./$1 '+XSX'	'`'	'F\dbc)ZT7HB!t6v' >> $2/O21
+./limit ./$1 '-('	'D3'	'A-([s;<MmWjxXC4s]' >> $2/O22
+./limit ./$1 ' A'	'YIY&'	'MT;F~' >> $2/O23
+./limit ./$1 'N['	'-w'	')Q.SA{n' >> $2/O24
+./limit ./$1 'x0P'	'%cO='	'b/' >> $2/O25
+./limit ./$1 ''	'SR'	'hD5N)^{Xj)Z' >> $2/O26
+./limit ./$1 'C!'	'E oK'	'`f-$]``-_{;{Y' >> $2/O27
+./limit ./$1 ''	'U.'	'&O  CFUb]<.`S.N~~(y' >> $2/O28
+./limit ./$1 '='	'=a{'	'B{gwe)9jK' >> $2/O29
+./limit ./$1 '<e:f'	'.iYj'	'^S:VFOwS' >> $2/O30
+./limit ./$1 '&6uq'	'^&:q'	'qHURG/iUAxH8l*$Qs40L' >> $2/O31
+./limit ./$1 ',7zb'	'-|q'	'"%' >> $2/O32
+./limit ./$1 ''	'Xw'	'b<1?T5!*f@J2Pgk29' >> $2/O33
+./limit ./$1 '&`O'	'Lqe'	'(/s/sz.D.nYAaD%' >> $2/O34
+./limit ./$1 'JES'	']5'	'?)3S6`f&fOcD' >> $2/O35
+./limit ./$1 '1!|.'	'z}'	'bF{Jk' >> $2/O36
+./limit ./$1 'Mn'	'ra9'	'Ms&v.2-?!WK[*<mx[' >> $2/O37
+./limit ./$1 ''	'7j'	'e0/yE$*3' >> $2/O38
+./limit ./$1 'h'	''	'"<(#joRF@' >> $2/O39
+./limit ./$1 ''	''	'j>64fKT{|C~uoL}' >> $2/O40
+./limit ./$1 '%*]'	';&M?'	'>3,(w' >> $2/O41
+./limit ./$1 '@)h'	'Den'	'@N6~g-vwlHU6c2-#' >> $2/O42
+./limit ./$1 't4(Z'	''	'<v*)0tktS:ksn`' >> $2/O43
+./limit ./$1 ''	'3VE'	'@h9xAg:I3kUdnJH' >> $2/O44
+./limit ./$1 'I'	''	'/;?+0v9Gem0YZWkZA' >> $2/O45
+./limit ./$1 'J'	'}b@'	'`Ez"(ZRc@+^' >> $2/O46
+./limit ./$1 ''	'd@'	'RHbQ@SKI2;C-d3hoQ+Hg' >> $2/O47
+./limit ./$1 '\73`'	'$i@'	'&{{b' >> $2/O48
+./limit ./$1 '~'	'h'	'w\n:;PKN2' >> $2/O49
+./limit ./$1 'Z'	''	'Y9jbei>p:U?jnno%4+m' >> $2/O50
+./limit ./$1 '&'	']zS/'	'l-W(;oZ?Q5' >> $2/O51
+./limit ./$1 'n'	''	'?<,t;y}|@u!+RF' >> $2/O52
+./limit ./$1 'v0n'	'$'	'p4ag_D;p:DaP;s.u' >> $2/O53
+./limit ./$1 'U)'	'yc _'	'ULmrqT2M%*a+$p*r(D' >> $2/O54
+./limit ./$1 ''	'D=)>'	'{nG[%\uGrQ;[6@' >> $2/O55
+./limit ./$1 'tyXv'	'@'	'Tv`%=~RM{!' >> $2/O56
+./limit ./$1 'MFsR'	'H}'	'_CW#.E;-^8YCZ%{' >> $2/O57
+./limit ./$1 'ynFT'	'=*^;'	'^$%Ez4<,8W"7=2U+' >> $2/O58
+./limit ./$1 'Q$h'	''	'h5j}E' >> $2/O59
+./limit ./$1 '^YH'	'!.D>'	'a<k=LN' >> $2/O60
+./limit ./$1 '4XB'	'\'	'bdirfLujz`9:Iq<kd[n' >> $2/O61
+./limit ./$1 '5P5'	'@W'	'J+PL-BkR' >> $2/O62
+./limit ./$1 '7PGb'	''	')|/>EN' >> $2/O63
+./limit ./$1 '3h%'	'-Gv'	'0/KpKxMEczm+`D9t(+nu' >> $2/O64
+./limit ./$1 ''	'd[V'	'e^RX}`mC' >> $2/O65
+./limit ./$1 ''	'qZ'	'tb7_PK' >> $2/O66
+./limit ./$1 '&q'	'P<S'	'jv/_FW%uw;;i;{ _dsc' >> $2/O67
+./limit ./$1 ']q'	''	',t7gbDF)z\YzgcdKFCYH' >> $2/O68
+./limit ./$1 'RSf}'	'_;0-'	'cC' >> $2/O69
+./limit ./$1 ''	'va'	'9' >> $2/O70
+./limit ./$1 'Y'	''	'j=y:' >> $2/O71
+./limit ./$1 'Z'	''	'[z7Jpz+#cZ' >> $2/O72
+./limit ./$1 '}'	'<?L'	'Y_b_ya]y)OzNMOrB' >> $2/O73
+./limit ./$1 '}:'	'E`9'	'k' >> $2/O74
+./limit ./$1 ''	':7'	'ERQGc}' >> $2/O75
+./limit ./$1 '1.'	'Z#'	'HUeH_\3]g(h"B k' >> $2/O76
+./limit ./$1 '$'	'ppP'	'NG#bFwPmlOCA hx4,8c' >> $2/O77
+./limit ./$1 '@o*'	''	'>XQ9' >> $2/O78
+./limit ./$1 '~'	''	'0M7xDI6)w*n' >> $2/O79
+./limit ./$1 'Kzd'	'n+'	'1%lUg' >> $2/O80
+./limit ./$1 'W6*'	'8= \'	'Hi@-P6rM9m' >> $2/O81
+./limit ./$1 '>Z*'	'm'	',m' >> $2/O82
+./limit ./$1 'pwS'	',[<w'	'\iA>G' >> $2/O83
+./limit ./$1 '_cnw'	'_w'	'~f}\/D%(bE.0au' >> $2/O84
+./limit ./$1 'q{S '	'q'	'H/k04}4u' >> $2/O85
+./limit ./$1 'a'	'H{'	'N~(J}5plR_BihOG' >> $2/O86
+./limit ./$1 ''	'^i<O'	';![T0' >> $2/O87
+./limit ./$1 'jaD'	'QB#k'	'*j4T>iPR F' >> $2/O88
+./limit ./$1 'M/'	''	'Y3~6uBD xV |U5V^Ba' >> $2/O89
+./limit ./$1 ''	'Y~A'	'_' >> $2/O90
+./limit ./$1 ''	''	'[t3!Hj0' >> $2/O91
+./limit ./$1 '7B'	'S4K'	'?n' >> $2/O92
+./limit ./$1 'Uf'	''	'mL(_:C' >> $2/O93

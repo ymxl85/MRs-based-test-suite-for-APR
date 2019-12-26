@@ -1,0 +1,162 @@
+/home/mingyue/Documents/Angelix/angelix/TSE/RDS/schedule/4
+/home/mingyue/Documents/Angelix/angelix/TSE/RDS/schedule/golden
+/home/mingyue/Documents/Angelix/angelix/TSE/RDS/schedule/4/oracle7
+INFO     synthesis       ==class Synthesizer
+INFO     semfix_syn      ==class Semfix_Synthesizer
+INFO     project         configuring validation source
+INFO     project         building json compilation database from validation source
+gcc -c schedule.c -o schedule.o -std=c89 
+schedule.c:16:0: warning: "NULL" redefined [enabled by default]
+ #define NULL 0
+ ^
+In file included from /usr/include/_G_config.h:15:0,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from schedule.c:12:
+/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/stddef.h:402:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ ^
+gcc schedule.o -o schedule
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+INFO     testing         running test '3' of validation source
+INFO     testing         running test '4' of validation source
+INFO     testing         running test '5' of validation source
+INFO     testing         running test '6' of validation source
+INFO     testing         running test '7' of validation source
+INFO     testing         running test '8' of validation source
+INFO     testing         running test '9' of validation source
+INFO     testing         running test '10' of validation source
+INFO     testing         running test '11' of validation source
+INFO     testing         running test '12' of validation source
+INFO     project         configuring frontend source
+INFO     transformation  instrumenting repairable of frontend source
+INFO     project         building frontend source
+angelix-compiler --test -c schedule.c -o schedule.o -std=c89 
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h '-c' 'schedule.c' '-o' 'schedule.o' '-std=c89' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+schedule.c:16:0: warning: "NULL" redefined [enabled by default]
+ #define NULL 0
+ ^
+In file included from /usr/include/_G_config.h:15:0,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from schedule.c:12:
+/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/stddef.h:402:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ ^
+angelix-compiler --test schedule.o -o schedule
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h 'schedule.o' '-o' 'schedule' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+INFO     repair          running positive tests for debugging
+INFO     testing         running test '1' of frontend source
+INFO     testing         running test '2' of frontend source
+INFO     testing         running test '3' of frontend source
+INFO     testing         running test '4' of frontend source
+INFO     testing         running test '5' of frontend source
+INFO     testing         running test '6' of frontend source
+INFO     testing         running test '7' of frontend source
+INFO     testing         running test '9' of frontend source
+INFO     testing         running test '10' of frontend source
+INFO     testing         running test '11' of frontend source
+INFO     testing         running test '12' of frontend source
+INFO     repair          running negative tests for debugging
+INFO     testing         running test '8' of frontend source
+INFO     project         configuring golden source
+INFO     project         building golden source
+angelix-compiler --test -c schedule.c -o schedule.o
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h '-c' 'schedule.c' '-o' 'schedule.o' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+schedule.c:13:0: warning: "NULL" redefined [enabled by default]
+ #define NULL 0
+ ^
+In file included from /usr/include/stdlib.h:33:0,
+                 from schedule.c:9:
+/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/stddef.h:402:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ ^
+angelix-compiler --test schedule.o -o schedule
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h 'schedule.o' '-o' 'schedule' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+INFO     testing         running test '8' of golden source
+INFO     repair          repair test suite: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+INFO     repair          validation test suite: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+INFO     localization    selected expressions [(229, 16, 229, 24)] with group score 1.0 
+INFO     localization    selected expressions [(255, 10, 255, 23)] with group score 0.5 
+INFO     localization    selected expressions [(256, 6, 256, 28)] with group score 0.5 
+INFO     localization    selected expressions [(258, 6, 258, 6)] with group score 0.5 
+INFO     localization    selected expressions [(261, 13, 261, 19)] with group score 0.5 
+INFO     localization    selected expressions [(181, 13, 181, 13)] with group score 0.33333 
+INFO     localization    selected expressions [(182, 15, 182, 17)] with group score 0.33333 
+INFO     localization    selected expressions [(182, 12, 182, 12)] with group score 0.33333 
+INFO     localization    selected expressions [(112, 9, 112, 10)] with group score 0.25 
+INFO     localization    selected expressions [(115, 15, 115, 28)] with group score 0.25 
+INFO     localization    selected expressions [(115, 12, 115, 12)] with group score 0.25 
+INFO     localization    selected expressions [(213, 9, 213, 17)] with group score 0.25 
+INFO     localization    selected expressions [(217, 13, 217, 24)] with group score 0.25 
+INFO     localization    selected expressions [(219, 9, 219, 17)] with group score 0.25 
+INFO     localization    selected expressions [(253, 9, 253, 9)] with group score 0.25 
+INFO     localization    selected expressions [(282, 9, 282, 9)] with group score 0.2 
+INFO     localization    selected expressions [(376, 10, 376, 36)] with group score 0.2 
+INFO     localization    selected expressions [(386, 10, 386, 36)] with group score 0.2 
+INFO     localization    selected expressions [(167, 9, 167, 9)] with group score 0.14286 
+INFO     localization    selected expressions [(191, 21, 191, 25)] with group score 0.11111 
+INFO     repair          considering suspicious expressions [(229, 16, 229, 24)]
+INFO     reduction       selected 1 tests
+INFO     reduction       selected passing tests: []
+INFO     reduction       selected failing tests: ['8']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+angelix-compiler --klee -c schedule.c -o schedule.o -std=c89 
+[angelix-compiler] llvm-gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-c' 'schedule.c' '-o' 'schedule.o' '-std=c89' 
+schedule.c:16:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from schedule.c:12:
+/home/mingyue/Documents/Angelix/angelix/build/llvm-gcc4.2-2.9-x86_64-linux/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.2.1/include/stddef.h:403:1: warning: this is the location of the previous definition
+schedule.c: In function ‘upgrade_process_prio’:
+schedule.c:229: warning: initialisation makes integer from pointer without a cast
+schedule.c:229: warning: initialisation makes integer from pointer without a cast
+angelix-compiler --klee schedule.o -o schedule
+[angelix-compiler] llvm-ld --disable-opt 'schedule.o' '-o' 'schedule' -L/home/mingyue/Documents/Angelix/angelix/build/lib/klee -langelix 
+INFO     semfix_infer    inferring specification for test '8'
+INFO     testing         running test '8' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    expression (229, 16, 229, 24)[0]: angelic = True
+INFO     semfix_infer    found 1 angelic paths for test '8'
+INFO     semfix_syn      ==class semifix_Synthesizer:call
+INFO     semfix_syn      ==class semifix_Synthesizer:dump_angelic
+INFO     semfix_syn      ==class semifix_Synthesizer:dump_angelic==end
+INFO     semfix_syn      ==/tmp/tmpeafhudzt/patch
+INFO     semfix_syn      ==1
+INFO     semfix_syn      ==/home/mingyue/Documents/Angelix/angelix/TSE/.angelix
+INFO     semfix_syn      synthesized expression (229, 16, 229, 24): 1
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+gcc -c schedule.c -o schedule.o -std=c89 
+schedule.c:16:0: warning: "NULL" redefined [enabled by default]
+ #define NULL 0
+ ^
+In file included from /usr/include/_G_config.h:15:0,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from schedule.c:12:
+/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/stddef.h:402:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ ^
+gcc schedule.o -o schedule
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+INFO     testing         running test '3' of validation source
+INFO     testing         running test '4' of validation source
+INFO     testing         running test '5' of validation source
+INFO     testing         running test '6' of validation source
+INFO     testing         running test '7' of validation source
+INFO     testing         running test '8' of validation source
+INFO     testing         running test '9' of validation source
+INFO     testing         running test '10' of validation source
+INFO     testing         running test '11' of validation source
+INFO     testing         running test '12' of validation source
+INFO     repair          patch successfully generated in 3s (see 4-2016-May31-043733.patch)
+SUCCESS

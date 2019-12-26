@@ -1,0 +1,419 @@
+***************pt/MFCC/MR1/v4
+gcc -D_GNUCC -E -DCIL=1 pt/MFCC/MR1/v4/pt4.c -o pt/MFCC/MR1/v4/pt4.i
+pt/MFCC/MR1/v4/pt4.c:20:1: warning: "EOF" redefined
+In file included from /usr/include/stdio.h:75,
+                 from pt/MFCC/MR1/v4/pt4.c:14:
+/usr/include/libio.h:90:1: warning: this is the location of the previous definition
+/usr/local/bin/cilly.native --out pt/MFCC/MR1/v4/pt4.cil.c --noPrintLn --useLogicalOperators pt/MFCC/MR1/v4/pt4.i
+pt/MFCC/MR1/v4/pt4.c:299: Warning: Body of function print_token falls-through. Adding a return statement
+pt/MFCC/MR1/v4/pt4.c:440: Warning: Body of function unget_error falls-through. Adding a return statement
+gcc -D_GNUCC -E pt/MFCC/MR1/v4/pt4.cil.c -o pt/MFCC/MR1/v4/pt4.cil.i
+gcc -D_GNUCC -c -o pt/MFCC/MR1/v4/pt4.o pt/MFCC/MR1/v4/pt4.cil.i
+pt/MFCC/MR1/v4/pt4.cil.c: In function ‘get_token’:
+pt/MFCC/MR1/v4/pt4.cil.c:141: warning: passing argument 1 of ‘unget_error’ from incompatible pointer type
+pt/MFCC/MR1/v4/pt4.cil.c:29: note: expected ‘char **’ but argument is of type ‘token_stream’
+pt/MFCC/MR1/v4/pt4.cil.c:149: warning: passing argument 1 of ‘unget_error’ from incompatible pointer type
+pt/MFCC/MR1/v4/pt4.cil.c:29: note: expected ‘char **’ but argument is of type ‘token_stream’
+pt/MFCC/MR1/v4/pt4.cil.c:161: warning: passing argument 1 of ‘unget_error’ from incompatible pointer type
+pt/MFCC/MR1/v4/pt4.cil.c:29: note: expected ‘char **’ but argument is of type ‘token_stream’
+pt/MFCC/MR1/v4/pt4.cil.c: At top level:
+pt/MFCC/MR1/v4/pt4.cil.c:576: warning: conflicting types for built-in function ‘exit’
+gcc -D_GNUCC -o a.out pt/MFCC/MR1/v4/pt4.o
+$ cp pt/MFCC/MR1/v4/pt4.cil.i /tmp/CETI_19783a/pt4.cil.i
+input length='50' output length='50'
+*** Get good/bad tcs ***
+cmd 'gcc /tmp/CETI_19783a/pt4.cil.i -o /tmp/CETI_19783a/pt4.cil.i.exe >& /dev/null'
+$ gcc /tmp/CETI_19783a/pt4.cil.i -o /tmp/CETI_19783a/pt4.cil.i.exe >& /dev/null
+write_file_str: '/tmp/CETI_19783a/pt4.cil.i.sh'
+$ sh /tmp/CETI_19783a/pt4.cil.i.sh /tmp/CETI_19783a/pt4.cil.i.exe &> /dev/null
+[35mAlert: 28/50 tests failed. Processing ..
+[mwrite_src: '/tmp/CETI_19783a/pt4.cil.i.preproc.c'
+*** Fault Localization ***
+write_src: '/tmp/CETI_19783a/faultloc_b76cfe/pt4.cil.i.cov.c'
+cmd 'gcc /tmp/CETI_19783a/faultloc_b76cfe/pt4.cil.i.cov.c -o /tmp/CETI_19783a/faultloc_b76cfe/pt4.cil.i.cov.c.exe >& /dev/null'
+$ gcc /tmp/CETI_19783a/faultloc_b76cfe/pt4.cil.i.cov.c -o /tmp/CETI_19783a/faultloc_b76cfe/pt4.cil.i.cov.c.exe >& /dev/null
+goods length:22
+write_file_str: '/tmp/CETI_19783a/faultloc_b76cfe/pt4.cil.i.g.sh'
+$ sh /tmp/CETI_19783a/faultloc_b76cfe/pt4.cil.i.g.sh /tmp/CETI_19783a/faultloc_b76cfe/pt4.cil.i.cov.c.exe /tmp/CETI_19783a/faultloc_b76cfe/pt4.cil.i.outputs_g_dontcare &> /dev/null
+write_file_str: '/tmp/CETI_19783a/faultloc_b76cfe/pt4.cil.i.b.sh'
+$ sh /tmp/CETI_19783a/faultloc_b76cfe/pt4.cil.i.b.sh /tmp/CETI_19783a/faultloc_b76cfe/pt4.cil.i.cov.c.exe /tmp/CETI_19783a/faultloc_b76cfe/pt4.cil.i.outputs_bad_dontcare &> /dev/null
+0. sid 98 in fun 'is_comment' (score 0.935414)
+__cil_tmp2 = 1;
+1. sid 74 in fun 'token_type' (score 0.935414)
+__cil_tmp16 = 5;
+2. sid 22 in fun 'get_token' (score 0.935414)
+id = 0;
+3. sid 34 in fun 'get_token' (score 0.831522)
+__cil_tmp23 = buffer;
+4. sid 33 in fun 'get_token' (score 0.831522)
+__cil_tmp22 = (int )ch == 0;
+5. sid 9 in fun 'unget_char' (score 0.815374)
+__cil_tmp5 = c;
+6. sid 7 in fun 'unget_char' (score 0.815374)
+(*fp) --;
+7. sid 59 in fun 'is_token_end' (score 0.797724)
+__cil_tmp14 = 1;
+8. sid 50 in fun 'get_token' (score 0.797724)
+__cil_tmp32 = buffer;
+9. sid 49 in fun 'get_token' (score 0.797724)
+__cil_tmp31 = id == 0 && (int )ch == 59;
+10. sid 48 in fun 'get_token' (score 0.797724)
+__cil_tmp30 = id == 1;
+11. sid 12 in fun 'unget_char' (score 0.789542)
+__cil_tmp7 = (int )c == 0;
+12. sid 11 in fun 'unget_char' (score 0.789542)
+__cil_tmp6 = (int )ch != 0;
+13. sid 10 in fun 'unget_char' (score 0.789542)
+c = ch;
+14. sid 47 in fun 'get_token' (score 0.788811)
+__cil_tmp29 = tmp___3 == 1;
+15. sid 96 in fun 'is_eof_token' (score 0.755929)
+__cil_tmp3 = 0;
+16. sid 66 in fun 'is_token_end' (score 0.755929)
+__cil_tmp19 = ((int )ch == 32 || (int )ch == 10) || (int )ch == 59;
+17. sid 65 in fun 'is_token_end' (score 0.755929)
+__cil_tmp18 = tmp___0 == 1;
+18. sid 64 in fun 'is_token_end' (score 0.755929)
+__cil_tmp17 = str_com_id == 2;
+19. sid 63 in fun 'is_token_end' (score 0.755929)
+__cil_tmp16 = str_com_id == 1;
+20. sid 62 in fun 'is_token_end' (score 0.755929)
+__cil_tmp15 = tmp == 1;
+21. sid 61 in fun 'is_token_end' (score 0.755929)
+ch1[1] = (char )'\000';
+22. sid 60 in fun 'is_token_end' (score 0.755929)
+ch1[0] = ch;
+23. sid 46 in fun 'get_token' (score 0.755929)
+__cil_tmp28 = tmp___2 == 1;
+24. sid 45 in fun 'get_token' (score 0.755929)
+ch1[0] = ch;
+25. sid 44 in fun 'get_token' (score 0.755929)
+__cil_tmp27 = (int )ch == 59;
+26. sid 43 in fun 'get_token' (score 0.755929)
+__cil_tmp26 = (int )ch == 34;
+27. sid 42 in fun 'get_token' (score 0.755929)
+__cil_tmp25 = tmp___0 == 1;
+28. sid 23 in fun 'get_token' (score 0.755929)
+__cil_tmp16 = ! (tmp___1 == 0);
+29. sid 170 in fun 'mainQ' (score 0.748331)
+__cil_tmp7 = r;
+30. sid 169 in fun 'mainQ' (score 0.748331)
+fname = argv1;
+31. sid 168 in fun 'mainQ' (score 0.748331)
+r[0] = (char )'\000';
+32. sid 167 in fun 'mainQ' (score 0.748331)
+__cil_tmp6 = ! (tmp == 0);
+33. sid 166 in fun 'is_spec_symbol' (score 0.748331)
+__cil_tmp23 = 0;
+34. sid 165 in fun 'is_spec_symbol' (score 0.748331)
+__cil_tmp22 = ! tmp___5;
+35. sid 164 in fun 'is_spec_symbol' (score 0.748331)
+__cil_tmp21 = ! tmp___4;
+36. sid 163 in fun 'is_spec_symbol' (score 0.748331)
+__cil_tmp20 = ! tmp___3;
+37. sid 162 in fun 'is_spec_symbol' (score 0.748331)
+__cil_tmp19 = ! tmp___2;
+38. sid 161 in fun 'is_spec_symbol' (score 0.748331)
+__cil_tmp18 = ! tmp___1;
+39. sid 160 in fun 'is_spec_symbol' (score 0.748331)
+__cil_tmp17 = ! tmp___0;
+40. sid 159 in fun 'is_spec_symbol' (score 0.748331)
+__cil_tmp16 = ! tmp;
+41. sid 144 in fun 'is_identifier' (score 0.748331)
+__cil_tmp12 = (int const   )*(*tmp___1 + (int )*str) & 1024;
+42. sid 143 in fun 'is_identifier' (score 0.748331)
+i = 1;
+43. sid 142 in fun 'is_identifier' (score 0.748331)
+__cil_tmp11 = 0;
+44. sid 134 in fun 'is_str_constant' (score 0.748331)
+__cil_tmp8 = (int )*str == 34;
+45. sid 133 in fun 'is_str_constant' (score 0.748331)
+i = 1;
+46. sid 132 in fun 'is_str_constant' (score 0.748331)
+__cil_tmp7 = 0;
+47. sid 126 in fun 'is_num_constant' (score 0.748331)
+__cil_tmp10 = (int const   )*(*tmp___0 + (int )*str) & 2048;
+48. sid 125 in fun 'is_num_constant' (score 0.748331)
+i = 1;
+49. sid 124 in fun 'is_num_constant' (score 0.748331)
+__cil_tmp9 = 0;
+50. sid 118 in fun 'is_char_constant' (score 0.748331)
+__cil_tmp7 = (int )*str == 35;
+51. sid 117 in fun 'is_char_constant' (score 0.748331)
+__cil_tmp6 = 0;
+52. sid 113 in fun 'is_keyword' (score 0.748331)
+__cil_tmp20 = tmp;
+53. sid 111 in fun 'is_keyword' (score 0.748331)
+__cil_tmp18 = tmp___0;
+54. sid 109 in fun 'is_keyword' (score 0.748331)
+__cil_tmp16 = tmp___1;
+55. sid 107 in fun 'is_keyword' (score 0.748331)
+__cil_tmp14 = tmp___2;
+56. sid 105 in fun 'is_keyword' (score 0.748331)
+__cil_tmp12 = tmp___3;
+57. sid 103 in fun 'is_keyword' (score 0.748331)
+__cil_tmp10 = tmp___4;
+58. sid 101 in fun 'is_keyword' (score 0.748331)
+__cil_tmp8 = 0;
+59. sid 100 in fun 'is_comment' (score 0.748331)
+__cil_tmp4 = (int )*ident == 59;
+60. sid 99 in fun 'is_comment' (score 0.748331)
+__cil_tmp3 = 0;
+61. sid 97 in fun 'is_eof_token' (score 0.748331)
+__cil_tmp4 = (int )*tok == 0;
+62. sid 95 in fun 'is_eof_token' (score 0.748331)
+__cil_tmp2 = 1;
+63. sid 94 in fun 'print_token' (score 0.748331)
+__cil_tmp12 = 0;
+64. sid 93 in fun 'print_token' (score 0.748331)
+__cil_tmp11 = type == 6;
+65. sid 92 in fun 'print_token' (score 0.748331)
+__cil_tmp10 = type == 43;
+66. sid 91 in fun 'print_token' (score 0.748331)
+__cil_tmp9 = type == 42;
+67. sid 90 in fun 'print_token' (score 0.748331)
+__cil_tmp8 = type == 41;
+68. sid 89 in fun 'print_token' (score 0.748331)
+__cil_tmp7 = type == 3;
+69. sid 88 in fun 'print_token' (score 0.748331)
+__cil_tmp6 = type == 2;
+70. sid 87 in fun 'print_token' (score 0.748331)
+__cil_tmp5 = type == 1;
+71. sid 86 in fun 'print_token' (score 0.748331)
+__cil_tmp4 = type == 0;
+72. sid 83 in fun 'token_type' (score 0.748331)
+__cil_tmp25 = tmp___6;
+73. sid 82 in fun 'token_type' (score 0.748331)
+__cil_tmp24 = tmp___5;
+74. sid 81 in fun 'token_type' (score 0.748331)
+__cil_tmp23 = tmp___4;
+75. sid 80 in fun 'token_type' (score 0.748331)
+__cil_tmp22 = tmp___3;
+76. sid 79 in fun 'token_type' (score 0.748331)
+__cil_tmp21 = tmp___2;
+77. sid 78 in fun 'token_type' (score 0.748331)
+__cil_tmp20 = tmp___1;
+78. sid 77 in fun 'token_type' (score 0.748331)
+__cil_tmp19 = tmp___0;
+79. sid 76 in fun 'token_type' (score 0.748331)
+__cil_tmp18 = tmp;
+80. sid 75 in fun 'token_type' (score 0.748331)
+__cil_tmp17 = 6;
+81. sid 41 in fun 'get_token' (score 0.748331)
+__cil_tmp24 = tmp == 1;
+82. sid 40 in fun 'get_token' (score 0.748331)
+buffer[i] = ch;
+83. sid 39 in fun 'get_token' (score 0.748331)
+ch1[1] = (char )'\000';
+84. sid 38 in fun 'get_token' (score 0.748331)
+ch1[0] = (char )'\000';
+85. sid 37 in fun 'get_token' (score 0.748331)
+j = 0;
+86. sid 36 in fun 'get_token' (score 0.748331)
+id = 0;
+87. sid 35 in fun 'get_token' (score 0.748331)
+i = 0;
+88. sid 19 in fun 'get_token' (score 0.748331)
+__cil_tmp14 = buffer;
+89. sid 18 in fun 'get_token' (score 0.748331)
+__cil_tmp13 = (int )ch == 32 || (int )ch == 10;
+90. sid 17 in fun 'get_token' (score 0.748331)
+j ++;
+91. sid 16 in fun 'get_token' (score 0.748331)
+buffer[j] = (char )'\000';
+92. sid 15 in fun 'get_token' (score 0.748331)
+__cil_tmp12 = j <= 80;
+93. sid 14 in fun 'open_token_stream' (score 0.748331)
+__cil_tmp5 = fp;
+94. sid 13 in fun 'open_token_stream' (score 0.748331)
+__cil_tmp4 = tmp == 0;
+95. sid 6 in fun 'get_char' (score 0.748331)
+__cil_tmp4 = ch;
+96. sid 5 in fun 'get_char' (score 0.748331)
+__cil_tmp3 = (int )ch != 0;
+97. sid 4 in fun 'get_char' (score 0.748331)
+ch = *(*fp);
+98. sid 3 in fun 'get_char' (score 0.748331)
+(*fp) ++;
+99. sid 2 in fun 'open_character_stream' (score 0.748331)
+__cil_tmp3 = fp;
+100. sid 1 in fun 'open_character_stream' (score 0.748331)
+fp = fname;
+101. sid 84 in fun 'token_type' (score 0.696012)
+__cil_tmp26 = 0;
+102. sid 141 in fun 'is_identifier' (score 0.655789)
+__cil_tmp10 = 1;
+103. sid 70 in fun 'token_type' (score 0.655789)
+__cil_tmp12 = 3;
+104. sid 139 in fun 'is_identifier' (score 0.630062)
+__cil_tmp8 = (int )*(str + i) != 0;
+105. sid 131 in fun 'is_str_constant' (score 0.606092)
+__cil_tmp6 = 0;
+106. sid 130 in fun 'is_str_constant' (score 0.606092)
+__cil_tmp5 = (int )*(str + i) == 34;
+107. sid 129 in fun 'is_str_constant' (score 0.606092)
+__cil_tmp4 = (int )*(str + i) != 0;
+108. sid 128 in fun 'is_str_constant' (score 0.606092)
+i ++;
+109. sid 54 in fun 'is_token_end' (score 0.606092)
+__cil_tmp9 = ((int )ch == 34) | ((int )ch == 10);
+110. sid 21 in fun 'get_token' (score 0.606092)
+id = 1;
+111. sid 52 in fun 'is_token_end' (score 0.545545)
+__cil_tmp7 = 1;
+112. sid 32 in fun 'get_token' (score 0.545545)
+__cil_tmp21 = buffer;
+113. sid 31 in fun 'get_token' (score 0.545545)
+buffer[i] = ch;
+114. sid 30 in fun 'get_token' (score 0.545545)
+i ++;
+115. sid 25 in fun 'get_token' (score 0.53545)
+buffer[i] = ch;
+116. sid 24 in fun 'get_token' (score 0.53545)
+i ++;
+117. sid 67 in fun 'is_token_end' (score 0.486153)
+__cil_tmp20 = 0;
+118. sid 121 in fun 'is_num_constant' (score 0.428571)
+__cil_tmp6 = (int )*(str + i) != 0;
+119. sid 123 in fun 'is_num_constant' (score 0.385758)
+__cil_tmp8 = 1;
+120. sid 71 in fun 'token_type' (score 0.385758)
+__cil_tmp13 = 41;
+121. sid 145 in fun 'unget_error' (score 0.341882)
+__cil_tmp2 = 0;
+122. sid 51 in fun 'is_token_end' (score 0.341882)
+__cil_tmp6 = 1;
+123. sid 27 in fun 'get_token' (score 0.341882)
+__cil_tmp18 = buffer;
+124. sid 26 in fun 'get_token' (score 0.341882)
+__cil_tmp17 = (int )ch == 0;
+125. sid 8 in fun 'unget_char' (score 0.341882)
+__cil_tmp4 = c;
+126. sid 149 in fun 'print_spec_symbol' (score 0.283473)
+__cil_tmp12 = ! tmp___2;
+127. sid 148 in fun 'print_spec_symbol' (score 0.283473)
+__cil_tmp11 = ! tmp___1;
+128. sid 147 in fun 'print_spec_symbol' (score 0.283473)
+__cil_tmp10 = ! tmp___0;
+129. sid 146 in fun 'print_spec_symbol' (score 0.283473)
+__cil_tmp9 = ! tmp;
+130. sid 69 in fun 'token_type' (score 0.283473)
+__cil_tmp11 = 2;
+131. sid 20 in fun 'get_token' (score 0.283473)
+__cil_tmp15 = buffer;
+132. sid 155 in fun 'is_spec_symbol' (score 0.267261)
+__cil_tmp12 = 1;
+133. sid 53 in fun 'is_token_end' (score 0.267261)
+__cil_tmp8 = 0;
+134. sid 122 in fun 'is_num_constant' (score 0.188982)
+__cil_tmp7 = (int const   )*(*tmp + (int )*(str + i)) & 2048;
+135. sid 120 in fun 'is_num_constant' (score 0.188982)
+__cil_tmp5 = 0;
+136. sid 157 in fun 'is_spec_symbol' (score 0.133631)
+__cil_tmp14 = 1;
+137. sid 151 in fun 'print_spec_symbol' (score 0.133631)
+__cil_tmp14 = ! tmp___4;
+138. sid 150 in fun 'print_spec_symbol' (score 0.133631)
+__cil_tmp13 = ! tmp___3;
+139. sid 140 in fun 'is_identifier' (score 0.0944911)
+__cil_tmp9 = (int const   )*(*tmp + (int )*(str + i)) & 1024;
+140. sid 138 in fun 'is_identifier' (score 0.0944911)
+__cil_tmp7 = (int const   )*(*tmp___0 + (int )*(str + i)) & 2048;
+141. sid 137 in fun 'is_identifier' (score 0.0944911)
+__cil_tmp6 = 0;
+[35mAlert: FL: found 142 stmts with sscores >= 0.01
+[m[35mAlert: Perform ** BugFix **
+[mwrite_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s74.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s22.t1.arr'
+[35mAlert: CONSTS: don't know how to deal with exp 'buffer' (sid 34)
+[m[35mAlert: OPS_PR: don't know how to deal with exp 'buffer' (sid 34)
+[mwrite_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s34.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s33.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s9.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s7.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s59.t1.arr'
+[35mAlert: CONSTS: don't know how to deal with exp 'buffer' (sid 50)
+[m[35mAlert: OPS_PR: don't know how to deal with exp 'buffer' (sid 50)
+[mwrite_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s50.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s49.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s48.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s12.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s11.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s10.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s47.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s66.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s65.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s64.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s63.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s62.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s61.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s60.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s46.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s45.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s44.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s43.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s42.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s23.t1.arr'
+[35mAlert: CONSTS: don't know how to deal with exp 'r' (sid 170)
+[m[35mAlert: OPS_PR: don't know how to deal with exp 'r' (sid 170)
+[mwrite_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s170.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s169.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s168.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s167.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s166.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s165.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s164.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s163.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s162.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s161.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s160.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s159.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s144.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s143.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s142.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s134.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s133.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s132.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s126.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s125.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s124.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s118.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s117.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s113.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s111.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s109.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s107.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s105.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s103.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s101.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s94.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s93.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s92.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s91.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s90.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s89.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s88.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s87.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s86.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s83.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s82.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s81.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s80.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s79.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s78.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s77.t1.arr'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.s76.t1.arr'
+[35mAlert: Spy: Got 154 info from 80 sids
+[minput length='50' output length='50'
+write_file_bin: '/tmp/CETI_19783a/pt4.cil.i.info'
+$ python kl.py /tmp/CETI_19783a/pt4.cil.i --do_tb "(98, 3, 1, 1); (74, 3, 1, 1); (74, 1, 4, 1); (22, 3, 1, 1); (22, 1, 4, 6); (34, 1, 4, 6); (33, 3, 1, 1); (33, 7, 2, 1); (33, 1, 4, 6); (9, 1, 4, 3); (7, 3, 1, 1); (7, 1, 4, 3); (59, 3, 1, 1); (59, 1, 4, 3); (50, 1, 4, 6); (49, 3, 1, 2); (49, 7, 2, 3); (49, 1, 4, 6); (48, 3, 1, 1); (48, 7, 2, 1); (48, 1, 4, 6); (12, 3, 1, 1); (12, 7, 2, 1); (12, 1, 4, 3); (11, 3, 1, 1); (11, 7, 2, 1); (11, 1, 4, 3); (10, 1, 4, 3); (47, 3, 1, 1); (47, 7, 2, 1); (47, 1, 4, 6); (96, 3, 1, 1); (66, 3, 1, 3); (66, 7, 2, 5); (66, 1, 4, 3); (65, 3, 1, 1); (65, 7, 2, 1); (65, 1, 4, 3); (64, 3, 1, 1); (64, 7, 2, 1); (64, 1, 4, 3); (63, 3, 1, 1); (63, 7, 2, 1); (63, 1, 4, 3); (62, 3, 1, 1); (62, 7, 2, 1); (62, 1, 4, 3); (61, 3, 1, 1); (61, 1, 4, 3); (60, 1, 4, 3); (46, 3, 1, 1); (46, 7, 2, 1); (46, 1, 4, 6); (45, 1, 4, 6); (44, 3, 1, 1); (44, 7, 2, 1); (44, 1, 4, 6); (43, 3, 1, 1); (43, 7, 2, 1); (43, 1, 4, 6); (42, 3, 1, 1); (42, 7, 2, 1); (42, 1, 4, 6); (23, 3, 1, 1); (23, 7, 2, 1); (23, 1, 4, 6); (170, 1, 4, 3); (169, 1, 4, 3); (168, 3, 1, 1); (168, 1, 4, 3); (167, 3, 1, 1); (167, 7, 2, 1); (167, 1, 4, 3); (166, 3, 1, 1); (166, 1, 4, 1); (165, 1, 4, 1); (164, 1, 4, 1); (163, 1, 4, 1); (162, 1, 4, 1); (161, 1, 4, 1); (160, 1, 4, 1); (159, 1, 4, 1); (144, 3, 1, 1); (144, 1, 4, 2); (143, 3, 1, 1); (143, 1, 4, 2); (142, 3, 1, 1); (142, 1, 4, 2); (134, 3, 1, 1); (134, 7, 2, 1); (134, 1, 4, 1); (133, 3, 1, 1); (133, 1, 4, 1); (132, 3, 1, 1); (132, 1, 4, 1); (126, 3, 1, 1); (126, 1, 4, 2); (125, 3, 1, 1); (125, 1, 4, 2); (124, 3, 1, 1); (124, 1, 4, 2); (118, 3, 1, 1); (118, 7, 2, 1); (118, 1, 4, 1); (117, 3, 1, 1); (117, 1, 4, 1); (113, 1, 4, 1); (111, 1, 4, 1); (109, 1, 4, 1); (107, 1, 4, 1); (105, 1, 4, 1); (103, 1, 4, 1); (101, 3, 1, 1); (101, 1, 4, 1); (100, 3, 1, 1); (100, 7, 2, 1); (99, 3, 1, 1); (97, 3, 1, 1); (97, 7, 2, 1); (95, 3, 1, 1); (94, 3, 1, 1); (94, 1, 4, 2); (93, 3, 1, 1); (93, 7, 2, 1); (93, 1, 4, 2); (92, 3, 1, 1); (92, 7, 2, 1); (92, 1, 4, 2); (91, 3, 1, 1); (91, 7, 2, 1); (91, 1, 4, 2); (90, 3, 1, 1); (90, 7, 2, 1); (90, 1, 4, 2); (89, 3, 1, 1); (89, 7, 2, 1); (89, 1, 4, 2); (88, 3, 1, 1); (88, 7, 2, 1); (88, 1, 4, 2); (87, 3, 1, 1); (87, 7, 2, 1); (87, 1, 4, 2); (86, 3, 1, 1); (86, 7, 2, 1); (86, 1, 4, 2); (83, 1, 4, 1); (82, 1, 4, 1); (81, 1, 4, 1); (80, 1, 4, 1); (79, 1, 4, 1); (78, 1, 4, 1); (77, 1, 4, 1); (76, 1, 4, 1)" --no_parallel
+KR: tasks 609
+worker 0: found fix for /tmp/CETI_19783a/pt4.cil.i.s22.t3_z1_c0.tf.c
+KR: summary (bugfix: True, stop after a repair found: True, parallel: False), '/tmp/CETI_19783a/pt4.cil.i', 1 / 609
+0. /tmp/CETI_19783a/pt4.cil.i.s22.t3_z1_c0.tf.c: id = 0; ===> id = uk_0; ===> uk_0 2
+Note: temp files created in dir '/tmp/CETI_19783a'
+
+real	0m23.973s
+user	0m23.349s
+sys	0m0.772s
+/home/mingyue/experiments/ceti/printtoken2/pt

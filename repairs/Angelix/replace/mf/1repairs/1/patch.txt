@@ -1,0 +1,11 @@
+--- a/replace.c
++++ b/replace.c
+@@ -98,7 +98,7 @@
+ 
+     while ((src[*i] != delim) && (src[*i] != ENDSTR)) 
+     {
+-	if (src[*i] == ESCAPE) {//fault *i-1
++	if (0) {//fault *i-1
+ 	    escjunk = esc(src, i);
+ 	    junk = addstr(escjunk, dest, j, maxset);
+ 	} else	

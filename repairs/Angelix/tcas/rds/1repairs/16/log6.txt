@@ -1,0 +1,117 @@
+/home/mingyue/Documents/Angelix/angelix/TSE/RDS/tcas/16
+/home/mingyue/Documents/Angelix/angelix/TSE/RDS/tcas/golden
+/home/mingyue/Documents/Angelix/angelix/TSE/RDS/tcas/16/oracle6
+INFO     synthesis       ==class Synthesizer
+INFO     semfix_syn      ==class Semfix_Synthesizer
+INFO     project         configuring validation source
+INFO     project         building json compilation database from validation source
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+INFO     testing         running test '3' of validation source
+INFO     testing         running test '4' of validation source
+INFO     testing         running test '5' of validation source
+INFO     testing         running test '6' of validation source
+INFO     testing         running test '7' of validation source
+INFO     testing         running test '8' of validation source
+INFO     testing         running test '9' of validation source
+INFO     testing         running test '10' of validation source
+INFO     testing         running test '11' of validation source
+INFO     testing         running test '12' of validation source
+INFO     testing         running test '13' of validation source
+INFO     testing         running test '14' of validation source
+INFO     testing         running test '15' of validation source
+INFO     testing         running test '16' of validation source
+INFO     project         configuring frontend source
+INFO     transformation  instrumenting repairable of frontend source
+INFO     project         building frontend source
+INFO     repair          running positive tests for debugging
+INFO     testing         running test '1' of frontend source
+INFO     testing         running test '2' of frontend source
+INFO     testing         running test '3' of frontend source
+INFO     testing         running test '4' of frontend source
+INFO     testing         running test '5' of frontend source
+INFO     testing         running test '6' of frontend source
+INFO     testing         running test '7' of frontend source
+INFO     testing         running test '8' of frontend source
+INFO     testing         running test '9' of frontend source
+INFO     testing         running test '11' of frontend source
+INFO     testing         running test '12' of frontend source
+INFO     testing         running test '13' of frontend source
+INFO     testing         running test '14' of frontend source
+INFO     testing         running test '15' of frontend source
+INFO     testing         running test '16' of frontend source
+INFO     repair          running negative tests for debugging
+INFO     testing         running test '10' of frontend source
+INFO     project         configuring golden source
+INFO     project         building golden source
+INFO     testing         running test '10' of golden source
+INFO     repair          repair test suite: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
+INFO     repair          validation test suite: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
+INFO     localization    selected expressions [(161, 9, 161, 30)] with group score 1.0 
+INFO     localization    selected expressions [(165, 7, 165, 7)] with group score 1.0 
+INFO     localization    selected expressions [(167, 15, 167, 32)] with group score 1.0 
+INFO     localization    selected expressions [(173, 11, 173, 11)] with group score 1.0 
+INFO     localization    selected expressions [(175, 19, 175, 24)] with group score 1.0 
+INFO     localization    selected expressions [(177, 13, 177, 32)] with group score 1.0 
+INFO     localization    selected expressions [(182, 21, 182, 21)] with group score 1.0 
+INFO     localization    selected expressions [(244, 22, 244, 28)] with group score 1.0 
+INFO     localization    selected expressions [(250, 9, 250, 9)] with group score 1.0 
+INFO     localization    selected expressions [(254, 19, 254, 24)] with group score 1.0 
+INFO     localization    selected expressions [(256, 13, 256, 32)] with group score 1.0 
+INFO     localization    selected expressions [(406, 17, 406, 43)] with group score 1.0 
+INFO     localization    selected expressions [(408, 11, 408, 11)] with group score 1.0 
+INFO     localization    selected expressions [(410, 19, 410, 36)] with group score 1.0 
+INFO     localization    selected expressions [(414, 21, 414, 21)] with group score 1.0 
+INFO     localization    selected expressions [(424, 24, 424, 24)] with group score 1.0 
+INFO     localization    selected expressions [(444, 26, 444, 26)] with group score 1.0 
+INFO     localization    selected expressions [(446, 11, 446, 11)] with group score 1.0 
+INFO     localization    selected expressions [(448, 13, 448, 13)] with group score 1.0 
+INFO     localization    selected expressions [(460, 19, 460, 19)] with group score 1.0 
+INFO     repair          considering suspicious expressions [(161, 9, 161, 30)]
+INFO     reduction       selected 1 tests
+INFO     reduction       selected passing tests: []
+INFO     reduction       selected failing tests: ['10']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     semfix_infer    inferring specification for test '10'
+INFO     testing         running test '10' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    expression (161, 9, 161, 30)[0]: angelic = 401
+INFO     semfix_infer    expression (161, 9, 161, 30)[1]: angelic = -2147483247
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     semfix_infer    expression (161, 9, 161, 30)[0]: angelic = -2147483247
+INFO     semfix_infer    expression (161, 9, 161, 30)[1]: angelic = -2147483247
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    found 2 angelic paths for test '10'
+INFO     semfix_syn      ==class semifix_Synthesizer:call
+INFO     semfix_syn      ==class semifix_Synthesizer:dump_angelic
+INFO     semfix_syn      ==class semifix_Synthesizer:dump_angelic==end
+INFO     semfix_syn      ==/tmp/tmp_hsa_nxi/patch
+INFO     semfix_syn      ==1
+INFO     semfix_syn      ==/home/mingyue/Documents/Angelix/angelix/TSE/.angelix
+INFO     semfix_syn      synthesized expression (161, 9, 161, 30): -623
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+INFO     testing         running test '3' of validation source
+INFO     testing         running test '4' of validation source
+INFO     testing         running test '5' of validation source
+INFO     testing         running test '6' of validation source
+INFO     testing         running test '7' of validation source
+INFO     testing         running test '8' of validation source
+INFO     testing         running test '9' of validation source
+INFO     testing         running test '10' of validation source
+INFO     testing         running test '11' of validation source
+INFO     testing         running test '12' of validation source
+INFO     testing         running test '13' of validation source
+INFO     testing         running test '14' of validation source
+INFO     testing         running test '15' of validation source
+INFO     testing         running test '16' of validation source
+INFO     repair          patch successfully generated in 3s (see 16-2016-May14-153038.patch)
+SUCCESS

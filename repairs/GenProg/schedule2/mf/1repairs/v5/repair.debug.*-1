@@ -1,0 +1,187 @@
+--allow-coverage-fail false
+--appp 0.33333
+--asm-code-only false
+--best-edit-rule "1 * fault_loc_weight ; 1 * max_test_fail_prob ; -1 * num_tests"
+--best-test-rule "1 * test_fail_prob ; 1 * test_fail_count ; -1 * test_pass_count"
+--compiler "gcc"
+--compiler-command ""
+--compiler-opts ""
+--continue false
+--coverage-info ""
+--coverage-per-test false
+--crossover "one"
+--crossp 0.5
+--delp 0.33333
+--describe-machine false
+--diversity-selection 0
+--edit-script false
+--elf-risc false
+--exclude-edits ""
+--exp-diff false
+--fault-file ""
+--fault-path "coverage.path.neg"
+--fault-scheme "path"
+--fitness-in-parallel 1
+--fix-file ""
+--fix-oracle ""
+--fix-path "coverage.path.pos"
+--fix-scheme "default"
+--flatten-path ""
+--format "txt"
+--gen-per-exchange 1
+--generations 10
+--gui false
+--hostname "127.0.0.1"
+--ignore-dead-code false
+--ignore-equiv-appends false
+--ignore-standard-headers false
+--ignore-string-equiv-fixes false
+--ignore-untyped-returns false
+--incoming-pop ""
+--keep-source false
+--label-repair true
+--max-evals 0
+--minimization false
+--mt-cov false
+--multiopt-minimize false
+--multiopt-no-inf false
+--neg-tests 2
+--neg-weight 1
+--negative-test-weight 2
+--neutral-walk-max-size 0
+--neutral-walk-weight ""
+--nht-id "global"
+--nht-port 51000
+--nht-server ""
+--no-rep-cache false
+--no-test-cache false
+--num-comps 2
+--num-objectives 2
+--oracle-genome ""
+--popsize 40
+--port 60000
+--pos-tests 2
+--pos-weight 0.1
+--prefix "processed"
+--preprocessor ""
+--print-incremental-evals false
+--print-source-name false
+--program "source.txt"
+--promut 1
+--quiet false
+--regen-paths false
+--rep "c"
+--rep-cache ""
+--repp 0
+--samp-strat "variant"
+--sample 1
+--sample-runs 100
+--sanity "default"
+--search "ga"
+--seed 596324625
+--semantic-check "scope"
+--single-fitness false
+--skip-failed-sanity-tests false
+--skip-tests ""
+--split-search 0
+--sport 65000
+--subatom-constp 0.5
+--subatom-mutp 0
+--super-mutant false
+--super-mutant-size 50
+--swap-bug false
+--swapp 0.33333
+--template-cache ""
+--templates ""
+--test-command ""
+--test-script "/bin/sh test.sh"
+--tournament-size 2
+--tweet false
+--uniq false
+--valgrind false
+--variants-exchanged 50
+cilRep: preprocessing IO function signatures: /tmp/tmp23ec00.c /tmp/tmp73c3e5.c
+cilRep: done preprocessing IO function signatures
+cachingRep: source.cache: loaded
+faultlocRep: source.cache: loaded
+cilRep: source.cache: loaded
+cilRep: source.cache: saved
+cachingRep: source.cache: saved
+faultlocRep: source.cache: saved
+cilrep done serialize
+cilRep: stmt_count = 318
+cilRep: stmts in weighted_path = 239
+cilRep: total weight = 66.2
+cilRep: stmts in weighted_path with weight >= 1.0 = 47
+cilRep: processor.i (code bank/base file; atoms [272,318])
+cilRep: v5.i (code bank/base file; atoms [1,271])
+cilRep: 2 file(s) total in representation
+search: genetic algorithm begins (|original| = 0.00846672 MB)
+search: initial population (sizeof one variant = 0.00893307 MB)
+	  2 s(292,295) 
+	  0 d(258) 
+	  0 s(1,3) 
+	  2 s(289,297) 
+	  2 d(259) 
+	  2 s(284,304) 
+	  2 d(283) 
+	  0 s(310,317) 
+	  0 s(248,176) 
+	  2 d(291) 
+	  0 s(229,228) 
+	  2 a(302,132) 
+	  0 s(29,61) 
+	  2 a(147,218) 
+	  0 s(318,309) 
+	  2 a(118,304) 
+	  2 a(87,121) 
+	  2 d(89) 
+	  0 s(131,138) 
+	  2 d(288) 
+	  2 a(287,230) 
+	  2 a(248,263) 
+	  2 d(289) 
+	  2 s(280,284) 
+	  2 s(272,17) 
+	  0 a(113,131) 
+	  2 d(145) 
+	  2 d(285) 
+	  2 a(290,290) 
+	  0 a(38,31) 
+	  2 d(291) 
+	  2 d(280) 
+	  2 a(103,2) 
+	  2 a(290,295) 
+	  2 d(108) 
+	  2 a(282,302) 
+	  2 a(144,29) 
+	  2 d(1) 
+	  0 d(118) 
+	  2 original
+search: generation 1 (sizeof one variant = 0.0422392 MB)
+	  0 s(248,176) s(110,114) 
+	  0 d(291) s(105,109) 
+	  0 s(248,176) a(151,26) 
+	  2 d(291) s(287,296) 
+	  2 d(145) s(290,296) 
+	  2 d(89) s(121,261) 
+	  2 a(290,290) a(283,213) 
+	  2 d(145) d(274) 
+	  6 s(284,304) a(124,181) 
+
+Repair Found: s(284,304) a(124,181)
+Repair Name: s(284,304) a(124,181) 
+Test Condition: 0
+Test Cases Skipped: ""
+Current Time: 1469774790.138379
+Rep: saving test cache
+
+Variant Test Case Queries: 184
+"Test Suite Evaluations": 46
+
+Compile Failures: 0
+Wall-Clock Seconds Elapsed: 19.2628
+  Activity Name                     Count Seconds = Percent of Total Time
+  compile                              45   3.833 = 27.456%
+  test                                180  10.127 = 72.5438%
+  TOTAL                                    13.959 = 72.4438% (avg CPU usage)

@@ -1,0 +1,11 @@
+--- a/schedule.c
++++ b/schedule.c
+@@ -243,7 +243,7 @@
+     if (block_queue)
+     {
+ 	count = block_queue->mem_count;
+-	n = (int) (count*ratio + 1);
++	n = ((count - 1) + count);
+ 	if(ratio == 1.0) n--; /* Correct original */
+ 	proc = find_nth(block_queue, n);
+ 	if (proc) {

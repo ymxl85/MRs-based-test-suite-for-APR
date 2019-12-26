@@ -1,0 +1,33 @@
+--- a/tcas.c
++++ b/tcas.c
+@@ -90,29 +90,7 @@
+   if (upward_preferred)
+     {
+       //tvn: remove a conjunct
+-      result = !(Own_Below_Threat(Cur_Vertical_Sep, 
+-				  High_Confidence,
+-				  Two_of_Three_Reports_Valid,
+-				  Own_Tracked_Alt,
+-				  Own_Tracked_Alt_Rate,
+-				  Other_Tracked_Alt,
+-				  Alt_Layer_Value,
+-				  Up_Separation,
+-				  Down_Separation,
+-				  Other_RAC,
+-				  Other_Capability,
+-				  Climb_Inhibit)) && (!(Down_Separation >= ALIM(Cur_Vertical_Sep, 
+-														      High_Confidence,
+-														      Two_of_Three_Reports_Valid,
+-														      Own_Tracked_Alt,
+-														      Own_Tracked_Alt_Rate,
+-														      Other_Tracked_Alt,
+-														      Alt_Layer_Value,
+-														      Up_Separation,
+-														      Down_Separation,
+-														      Other_RAC,
+-														      Other_Capability,
+-														      Climb_Inhibit)));
++      result = (100 < Down_Separation);
+     }
+   else
+     {	

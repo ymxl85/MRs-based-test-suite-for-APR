@@ -1,0 +1,52 @@
+gcc -D_GNUCC -E -DCIL=1 schedule/MFCC/MR3/v3/v3.c -o schedule/MFCC/MR3/v3/v3.i
+schedule/MFCC/MR3/v3/v3.c:12:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from schedule/MFCC/MR3/v3/v3.c:4:
+/usr/lib/gcc/i486-linux-gnu/4.4.3/include/stddef.h:400:1: warning: this is the location of the previous definition
+/usr/local/bin/cilly.native --out schedule/MFCC/MR3/v3/v3.cil.c --noPrintLn --useLogicalOperators schedule/MFCC/MR3/v3/v3.i
+schedule/MFCC/MR3/v3/v3.c:193: Warning: Return statement without a value in function returning int 
+schedule/MFCC/MR3/v3/v3.c:187: Warning: Body of function schedule falls-through. Adding a return statement
+schedule/MFCC/MR3/v3/v3.c:375: Warning: Return statement without a value in function returning char *
+schedule/MFCC/MR3/v3/v3.c:388: Warning: Return statement without a value in function returning char *
+schedule/MFCC/MR3/v3/v3.c:404: Warning: Body of function main falls-through. Adding a return statement
+gcc -D_GNUCC -E schedule/MFCC/MR3/v3/v3.cil.c -o schedule/MFCC/MR3/v3/v3.cil.i
+gcc -D_GNUCC -c -o schedule/MFCC/MR3/v3/v3.o schedule/MFCC/MR3/v3/v3.cil.i
+schedule/MFCC/MR3/v3/v3.cil.c:71: warning: conflicting types for built-in function ‘malloc’
+schedule/MFCC/MR3/v3/v3.cil.c:160: warning: conflicting types for built-in function ‘free’
+schedule/MFCC/MR3/v3/v3.cil.c:176: warning: conflicting types for built-in function ‘strcat’
+gcc -D_GNUCC -E -DCIL=1 schedule/MFCC/MR3/v3/processor.c -o schedule/MFCC/MR3/v3/processor.i
+/usr/local/bin/cilly.native --out schedule/MFCC/MR3/v3/processor.cil.c --noPrintLn --useLogicalOperators schedule/MFCC/MR3/v3/processor.i
+gcc -D_GNUCC -E schedule/MFCC/MR3/v3/processor.cil.c -o schedule/MFCC/MR3/v3/processor.cil.i
+gcc -D_GNUCC -c -o schedule/MFCC/MR3/v3/processor.o schedule/MFCC/MR3/v3/processor.cil.i
+schedule/MFCC/MR3/v3/processor.cil.c:6: warning: conflicting types for built-in function ‘strlen’
+gcc -D_GNUCC -o a.out schedule/MFCC/MR3/v3/v3.o schedule/MFCC/MR3/v3/processor.o
+$ cp schedule/MFCC/MR3/v3/v3.cil.i /tmp/CETI_11346d/v3.cil.i
+$ cp schedule/MFCC/MR3/v3/processor.c /tmp/CETI_11346d/processor.c
+input length='35' output length='35'
+*** Get good/bad tcs ***
+cmd 'gcc /tmp/CETI_11346d/v3.cil.i schedule/MFCC/MR3/v3/processor.c -o /tmp/CETI_11346d/v3.cil.i.exe >& /dev/null'
+$ gcc /tmp/CETI_11346d/v3.cil.i schedule/MFCC/MR3/v3/processor.c -o /tmp/CETI_11346d/v3.cil.i.exe >& /dev/null
+write_file_str: '/tmp/CETI_11346d/v3.cil.i.sh'
+$ sh /tmp/CETI_11346d/v3.cil.i.sh /tmp/CETI_11346d/v3.cil.i.exe &> /dev/null
+[35mAlert: 12/35 tests failed. Processing ..
+[mschedule/MFCC/MR3/v3/v3.cil.c:227: Warning: Return statement without a value in function returning int 
+schedule/MFCC/MR3/v3/v3.cil.c:432: Warning: Return statement without a value in function returning char *
+schedule/MFCC/MR3/v3/v3.cil.c:444: Warning: Return statement without a value in function returning char *
+write_src: '/tmp/CETI_11346d/v3.cil.i.preproc.c'
+[35mAlert: Perform ** BugFix **
+[mwrite_file_bin: '/tmp/CETI_11346d/v3.cil.i.s57.t1.arr'
+[35mAlert: Spy: Got 3 info from 1 sids
+[minput length='35' output length='35'
+write_file_bin: '/tmp/CETI_11346d/v3.cil.i.info'
+$ python kl.py /tmp/CETI_11346d/v3.cil.i schedule/MFCC/MR3/v3/processor.c --do_tb "(57, 3, 1, 1); (57, 7, 2, 1); (57, 1, 4, 6)" --no_parallel
+KR: tasks 24
+KR: summary (bugfix: True, stop after a repair found: True, parallel: False), '/tmp/CETI_11346d/v3.cil.i', 0 / 24
+
+Note: temp files created in dir '/tmp/CETI_11346d'
+
+real	2m5.911s
+user	2m4.620s
+sys	0m1.276s
+/home/mingyue/experiments/ceti/schedule/schedule

@@ -1,0 +1,11 @@
+--- a/pt2.c
++++ b/pt2.c
+@@ -203,7 +203,7 @@
+    }
+ 
+  if(is_spec_symbol(ch1)==TRUE) return(TRUE); /* is special_symbol? */
+- if(ch ==' ' || ch=='\n' || ch==59 || ch == '\t' /* added code */) return(TRUE); /*fault */
++ if((10 == ch) /* added code */) return(TRUE); /*fault */
+                               /* others until meet blank or tab or 59 */
+  return(FALSE);               /* other case,return FALSE */
+ }

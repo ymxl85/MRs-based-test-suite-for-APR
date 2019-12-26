@@ -1,0 +1,418 @@
+/home/mingyuejiang/Documents/angelix/data/tcas/mf/19
+/home/mingyuejiang/Documents/angelix/data/tcas/mf/golden
+/home/mingyuejiang/Documents/angelix/data/tcas/mf/19/oracle
+tcas
+19
+INFO     repair          src=/home/mingyuejiang/Documents/angelix/data/tcas/mf/19
+ buggy=tcas.c
+ oracle=/home/mingyuejiang/Documents/angelix/data/tcas/mf/19/oracle
+ golden=/home/mingyuejiang/Documents/angelix/data/tcas/mf/golden
+
+INFO     project         configuring validation source
+INFO     project         building json compilation database from validation source
+INFO     project         --message=/tmp/tmpmphc5llc/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data/.angelix/validation---cmd=bear make -e
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+INFO     testing         running test '3' of validation source
+INFO     testing         running test '4' of validation source
+INFO     testing         running test '5' of validation source
+INFO     testing         running test '6' of validation source
+INFO     testing         running test '7' of validation source
+INFO     testing         running test '8' of validation source
+INFO     testing         running test '9' of validation source
+INFO     testing         running test '10' of validation source
+INFO     testing         running test '11' of validation source
+INFO     testing         running test '12' of validation source
+INFO     testing         running test '13' of validation source
+INFO     testing         running test '14' of validation source
+INFO     testing         running test '15' of validation source
+INFO     testing         running test '16' of validation source
+INFO     testing         running test '17' of validation source
+INFO     testing         running test '18' of validation source
+INFO     project         configuring frontend source
+INFO     transformation  instrumenting repairable of frontend source
+INFO     project         building frontend source
+INFO     project         CC=angelix-compiler --test
+INFO     project         --message=/tmp/tmp9z_h64jl/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data/.angelix/frontend---cmd=make -e
+INFO     repair          running positive tests for debugging
+INFO     testing         running test '1' of frontend source
+INFO     testing         running test '2' of frontend source
+INFO     testing         running test '5' of frontend source
+INFO     testing         running test '6' of frontend source
+INFO     testing         running test '7' of frontend source
+INFO     testing         running test '8' of frontend source
+INFO     testing         running test '9' of frontend source
+INFO     testing         running test '10' of frontend source
+INFO     testing         running test '11' of frontend source
+INFO     testing         running test '12' of frontend source
+INFO     testing         running test '13' of frontend source
+INFO     testing         running test '14' of frontend source
+INFO     testing         running test '15' of frontend source
+INFO     testing         running test '16' of frontend source
+INFO     testing         running test '17' of frontend source
+INFO     testing         running test '18' of frontend source
+INFO     repair          running negative tests for debugging
+INFO     testing         running test '3' of frontend source
+INFO     project         configuring golden source
+INFO     project         building golden source
+INFO     project         CC=angelix-compiler --test
+INFO     project         --message=/tmp/tmpu9jg_l_r/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data/.angelix/golden---cmd=make -e
+INFO     testing         running test '3' of golden source
+INFO     testing         running test '4' of frontend source
+INFO     testing         running test '4' of golden source
+INFO     repair          repair test suite: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18']
+INFO     repair          validation test suite: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18']
+INFO     localization    selected expressions [(122, 10, 122, 10)] with group score 0.25 
+INFO     localization    selected expressions [(184, 21, 184, 21)] with group score 0.2 
+INFO     localization    selected expressions [(263, 21, 263, 21)] with group score 0.2 
+INFO     localization    selected expressions [(416, 21, 416, 21)] with group score 0.2 
+INFO     localization    selected expressions [(443, 19, 443, 19)] with group score 0.2 
+INFO     localization    selected expressions [(450, 13, 450, 13)] with group score 0.2 
+INFO     localization    selected expressions [(462, 19, 462, 19)] with group score 0.2 
+INFO     localization    selected expressions [(137, 11, 137, 11)] with group score 0.16667 
+INFO     localization    selected expressions [(211, 21, 211, 21)] with group score 0.14286 
+INFO     localization    selected expressions [(292, 21, 292, 21)] with group score 0.14286 
+INFO     localization    selected expressions [(120, 12, 120, 31)] with group score 0.13333 
+INFO     localization    selected expressions [(118, 12, 118, 31)] with group score 0.125 
+INFO     localization    selected expressions [(173, 17, 173, 34)] with group score 0.125 
+INFO     localization    selected expressions [(175, 11, 175, 11)] with group score 0.125 
+INFO     localization    selected expressions [(179, 13, 179, 32)] with group score 0.125 
+INFO     localization    selected expressions [(195, 14, 195, 14)] with group score 0.125 
+INFO     localization    selected expressions [(250, 15, 250, 32)] with group score 0.125 
+INFO     localization    selected expressions [(252, 9, 252, 9)] with group score 0.125 
+INFO     localization    selected expressions [(258, 13, 258, 32)] with group score 0.125 
+INFO     localization    selected expressions [(412, 19, 412, 36)] with group score 0.125 
+INFO     repair          considering suspicious expressions [(122, 10, 122, 10)]
+INFO     reduction       selected 5 tests
+INFO     reduction       selected passing tests: ['5', '9', '10']
+INFO     reduction       selected failing tests: ['3', '4']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmpg1jtie_a/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data/.angelix/backend---cmd=make -e
+INFO     semfix_infer    inferring specification for test '3'
+INFO     testing         running test '3' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000010.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = 742
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = 742
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = -2147482906
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = 742
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000013.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000006.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000015.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = 742
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = -2147482906
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = -2147482906
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = -2147482906
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000009.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = 742
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = 742
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = -2147482906
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = -2147482906
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = -2147482906
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = -2147482906
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = -2147482906
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = 742
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000012.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000011.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000007.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = -2147482906
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = 742
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = -2147482906
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = 742
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000008.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = -2147482906
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = 742
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = -2147482906
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = -2147482906
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = -2147482906
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = -2147482906
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = -2147482906
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = -2147482906
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000014.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000016.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = 742
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = -2147482906
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = -2147482906
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = 742
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000005.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    found 8 angelic paths for test '3'
+INFO     semfix_infer    inferring specification for test '4'
+INFO     testing         running test '4' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000010.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = -2147482891
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = -2147482891
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = -2147482891
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = -2147482891
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000013.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000006.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000015.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000009.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000012.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000011.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = -2147482891
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = -2147482891
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = 757
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = -2147482891
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000007.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000008.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = 757
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = -2147482891
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = 757
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = -2147482891
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = 757
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = 757
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = -2147482891
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = -2147482891
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000014.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = -2147482891
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = 757
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = 757
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = -2147482891
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000016.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = -2147482891
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = 757
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = -2147482891
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = -2147482891
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000005.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = 757
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = -2147482891
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = -2147482891
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = -2147482891
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = 757
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = 757
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = 757
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = -2147482891
+INFO     semfix_infer    found 8 angelic paths for test '4'
+INFO     semfix_infer    inferring specification for test '5'
+INFO     testing         running test '5' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000010.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000013.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = 641
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = -2147483007
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = 641
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = 641
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000006.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = -2147483007
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = 641
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = 641
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = -2147483007
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000015.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000009.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000012.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = 641
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = 641
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = 641
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = 641
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000011.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = 641
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = 641
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = 641
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = -2147483007
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000007.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000008.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000014.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = 641
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = -2147483007
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = 641
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = -2147483007
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000016.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000005.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = -2147483007
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = 641
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = 641
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = 641
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = -2147483007
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = -2147483007
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = 641
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = -2147483007
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = -2147483007
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = -2147483007
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = 641
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = 641
+INFO     semfix_infer    found 8 angelic paths for test '5'
+INFO     semfix_infer    inferring specification for test '9'
+INFO     testing         running test '9' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000010.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000013.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000006.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000015.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = 17
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = -2147483631
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = 17
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = -2147483631
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000009.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = -2147483631
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = 17
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = 17
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = 17
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000012.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = 17
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = 17
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = 17
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = -2147483631
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000011.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = 17
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = 17
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = 17
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = 17
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000007.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = -2147483631
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = -2147483631
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = 17
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = 17
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000008.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = -2147483631
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = -2147483631
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = 17
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = -2147483631
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = -2147483631
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = 17
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = 17
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = -2147483631
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000014.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000016.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = 17
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = -2147483631
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = 17
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = 17
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000005.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    found 8 angelic paths for test '9'
+INFO     semfix_infer    inferring specification for test '10'
+INFO     testing         running test '10' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000010.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = 2333
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = 2333
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = -2147481315
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = 2333
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000013.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000006.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000015.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = 2333
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = -2147481315
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = -2147481315
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = -2147481315
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000009.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = 2333
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = 2333
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = -2147481315
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = -2147481315
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = -2147481315
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = -2147481315
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = -2147481315
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = 2333
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000012.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000011.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000007.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = -2147481315
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = 2333
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = -2147481315
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = -2147481315
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000008.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = -2147481315
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = 2333
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = -2147481315
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = 2333
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = -2147481315
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = -2147481315
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = -2147481315
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = -2147481315
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000014.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000016.smt2
+INFO     semfix_infer    expression (122, 10, 122, 10)[0]: angelic = 2333
+INFO     semfix_infer    expression (122, 10, 122, 10)[1]: angelic = -2147481315
+INFO     semfix_infer    expression (122, 10, 122, 10)[2]: angelic = -2147481315
+INFO     semfix_infer    expression (122, 10, 122, 10)[3]: angelic = 2333
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000005.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    found 8 angelic paths for test '10'
+INFO     semfix_syn      synthesized expression (122, 10, 122, 10): 648
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+INFO     project         --message=/tmp/tmpqlwqcdpe/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data/.angelix/validation---cmd=make -e
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+INFO     testing         running test '3' of validation source
+INFO     testing         running test '4' of validation source
+INFO     testing         running test '5' of validation source
+INFO     testing         running test '6' of validation source
+INFO     testing         running test '7' of validation source
+INFO     testing         running test '8' of validation source
+INFO     testing         running test '9' of validation source
+INFO     testing         running test '10' of validation source
+INFO     testing         running test '11' of validation source
+INFO     testing         running test '12' of validation source
+INFO     testing         running test '13' of validation source
+INFO     testing         running test '14' of validation source
+INFO     testing         running test '15' of validation source
+INFO     testing         running test '16' of validation source
+INFO     testing         running test '17' of validation source
+INFO     testing         running test '18' of validation source
+INFO     repair          patch successfully generated in 39s (see 19-2016-Aug03-184020.patch)
+SUCCESS

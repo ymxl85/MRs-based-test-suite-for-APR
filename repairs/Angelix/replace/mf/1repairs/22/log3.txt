@@ -1,0 +1,289 @@
+/home/mingyue/Documents/Angelix/angelix/TSE/3/MFCC/replace/22
+/home/mingyue/Documents/Angelix/angelix/TSE/3/MFCC/replace/golden
+/home/mingyue/Documents/Angelix/angelix/TSE/3/MFCC/replace/22/oracle
+INFO     synthesis       ==class Synthesizer
+INFO     semfix_syn      ==class Semfix_Synthesizer
+INFO     project         configuring validation source
+INFO     project         building json compilation database from validation source
+gcc -c replace.c -o replace.o
+replace.c:14:0: warning: "NULL" redefined [enabled by default]
+ # define NULL 0
+ ^
+In file included from /usr/include/_G_config.h:15:0,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/stddef.h:402:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ ^
+replace.c: In function ‘omatch’:
+replace.c:337:6: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+      abort(); 
+      ^
+replace.c: In function ‘patsize’:
+replace.c:388:2: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+  abort();
+  ^
+gcc replace.o -o replace
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+INFO     testing         running test '3' of validation source
+INFO     testing         running test '4' of validation source
+INFO     testing         running test '5' of validation source
+INFO     testing         running test '6' of validation source
+INFO     testing         running test '7' of validation source
+INFO     testing         running test '8' of validation source
+INFO     testing         running test '9' of validation source
+INFO     testing         running test '10' of validation source
+INFO     testing         running test '11' of validation source
+INFO     testing         running test '12' of validation source
+INFO     testing         running test '13' of validation source
+INFO     testing         running test '14' of validation source
+INFO     testing         running test '15' of validation source
+INFO     testing         running test '16' of validation source
+INFO     testing         running test '17' of validation source
+INFO     testing         running test '18' of validation source
+INFO     testing         running test '19' of validation source
+INFO     testing         running test '20' of validation source
+INFO     testing         running test '21' of validation source
+INFO     testing         running test '22' of validation source
+INFO     testing         running test '23' of validation source
+INFO     testing         running test '24' of validation source
+INFO     testing         running test '25' of validation source
+INFO     testing         running test '26' of validation source
+INFO     testing         running test '27' of validation source
+INFO     testing         running test '28' of validation source
+INFO     testing         running test '29' of validation source
+INFO     testing         running test '30' of validation source
+INFO     project         configuring frontend source
+INFO     transformation  instrumenting repairable of frontend source
+INFO     project         building frontend source
+angelix-compiler --test -c replace.c -o replace.o
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h '-c' 'replace.c' '-o' 'replace.o' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+replace.c:14:0: warning: "NULL" redefined [enabled by default]
+ # define NULL 0
+ ^
+In file included from /usr/include/_G_config.h:15:0,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/stddef.h:402:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ ^
+replace.c: In function ‘omatch’:
+replace.c:336:6: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+      abort(); 
+      ^
+replace.c: In function ‘patsize’:
+replace.c:387:2: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+  abort();
+  ^
+angelix-compiler --test replace.o -o replace
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+INFO     repair          running positive tests for debugging
+INFO     testing         running test '1' of frontend source
+INFO     testing         running test '2' of frontend source
+INFO     testing         running test '3' of frontend source
+INFO     testing         running test '4' of frontend source
+INFO     testing         running test '5' of frontend source
+INFO     testing         running test '6' of frontend source
+INFO     testing         running test '7' of frontend source
+INFO     testing         running test '8' of frontend source
+INFO     testing         running test '9' of frontend source
+INFO     testing         running test '10' of frontend source
+INFO     testing         running test '11' of frontend source
+INFO     testing         running test '12' of frontend source
+INFO     testing         running test '13' of frontend source
+INFO     testing         running test '14' of frontend source
+INFO     testing         running test '15' of frontend source
+INFO     testing         running test '20' of frontend source
+INFO     testing         running test '21' of frontend source
+INFO     testing         running test '22' of frontend source
+INFO     testing         running test '24' of frontend source
+INFO     testing         running test '25' of frontend source
+INFO     testing         running test '26' of frontend source
+INFO     testing         running test '28' of frontend source
+INFO     testing         running test '29' of frontend source
+INFO     testing         running test '30' of frontend source
+INFO     repair          running negative tests for debugging
+INFO     testing         running test '16' of frontend source
+INFO     project         configuring golden source
+INFO     project         building golden source
+angelix-compiler --test -c replace.c -o replace.o
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h '-c' 'replace.c' '-o' 'replace.o' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+replace.c:14:0: warning: "NULL" redefined [enabled by default]
+ # define NULL 0
+ ^
+In file included from /usr/include/_G_config.h:15:0,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/stddef.h:402:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ ^
+replace.c: In function ‘omatch’:
+replace.c:338:6: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+      abort(); 
+      ^
+replace.c: In function ‘patsize’:
+replace.c:389:2: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+  abort();
+  ^
+angelix-compiler --test replace.o -o replace
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+INFO     testing         running test '16' of golden source
+INFO     testing         running test '17' of frontend source
+INFO     testing         running test '17' of golden source
+INFO     testing         running test '18' of frontend source
+INFO     testing         running test '18' of golden source
+INFO     testing         running test '19' of frontend source
+INFO     testing         running test '19' of golden source
+INFO     testing         running test '23' of frontend source
+INFO     testing         running test '23' of golden source
+INFO     testing         running test '27' of frontend source
+INFO     testing         running test '27' of golden source
+INFO     repair          repair test suite: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30']
+INFO     repair          validation test suite: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30']
+INFO     localization    selected expressions [(135, 9, 135, 36)] with group score 0.66667 
+INFO     localization    selected expressions [(311, 13, 311, 13)] with group score 0.66667 
+INFO     localization    selected expressions [(312, 10, 312, 10)] with group score 0.66667 
+INFO     localization    selected expressions [(363, 8, 363, 59)] with group score 0.66667 
+INFO     localization    selected expressions [(99, 12, 99, 52)] with group score 0.4 
+INFO     localization    selected expressions [(101, 6, 101, 21)] with group score 0.4 
+INFO     localization    selected expressions [(105, 10, 105, 21)] with group score 0.4 
+INFO     localization    selected expressions [(106, 10, 106, 41)] with group score 0.4 
+INFO     localization    selected expressions [(134, 9, 134, 24)] with group score 0.4 
+INFO     localization    selected expressions [(139, 14, 139, 15)] with group score 0.4 
+INFO     localization    selected expressions [(140, 12, 140, 36)] with group score 0.4 
+INFO     localization    selected expressions [(206, 15, 206, 38)] with group score 0.4 
+INFO     localization    selected expressions [(207, 13, 207, 35)] with group score 0.4 
+INFO     localization    selected expressions [(306, 12, 306, 12)] with group score 0.4 
+INFO     localization    selected expressions [(307, 9, 307, 28)] with group score 0.4 
+INFO     localization    selected expressions [(308, 12, 308, 23)] with group score 0.4 
+INFO     localization    selected expressions [(310, 6, 310, 16)] with group score 0.4 
+INFO     localization    selected expressions [(200, 11, 200, 41)] with group score 0.25 
+INFO     localization    selected expressions [(202, 11, 202, 48)] with group score 0.25 
+INFO     localization    selected expressions [(204, 11, 204, 25)] with group score 0.25 
+INFO     repair          considering suspicious expressions [(135, 9, 135, 36)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['21']
+INFO     reduction       selected failing tests: ['16']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+angelix-compiler --klee -c replace.c -o replace.o
+[angelix-compiler] llvm-gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-c' 'replace.c' '-o' 'replace.o' 
+replace.c:14:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/home/mingyue/Documents/Angelix/angelix/build/llvm-gcc4.2-2.9-x86_64-linux/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.2.1/include/stddef.h:403:1: warning: this is the location of the previous definition
+replace.c: In function ‘omatch’:
+replace.c:337: warning: incompatible implicit declaration of built-in function ‘abort’
+replace.c: In function ‘patsize’:
+replace.c:388: warning: incompatible implicit declaration of built-in function ‘abort’
+angelix-compiler --klee replace.o -o replace
+[angelix-compiler] llvm-ld --disable-opt 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/klee -langelix 
+INFO     semfix_infer    inferring specification for test '16'
+INFO     testing         running test '16' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    value 'output' executed 0 times while 2 required
+INFO     semfix_infer    found 0 angelic paths for test '16'
+INFO     repair          considering suspicious expressions [(311, 13, 311, 13)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['21']
+INFO     reduction       selected failing tests: ['16']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+angelix-compiler --klee -c replace.c -o replace.o
+[angelix-compiler] llvm-gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-c' 'replace.c' '-o' 'replace.o' 
+replace.c:14:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/home/mingyue/Documents/Angelix/angelix/build/llvm-gcc4.2-2.9-x86_64-linux/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.2.1/include/stddef.h:403:1: warning: this is the location of the previous definition
+replace.c: In function ‘omatch’:
+replace.c:337: warning: incompatible implicit declaration of built-in function ‘abort’
+replace.c: In function ‘patsize’:
+replace.c:388: warning: incompatible implicit declaration of built-in function ‘abort’
+angelix-compiler --klee replace.o -o replace
+[angelix-compiler] llvm-ld --disable-opt 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/klee -langelix 
+INFO     semfix_infer    inferring specification for test '16'
+INFO     testing         running test '16' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     semfix_infer    expression (311, 13, 311, 13)[0]: angelic = 0
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    found 1 angelic paths for test '16'
+INFO     semfix_infer    inferring specification for test '21'
+INFO     testing         running test '21' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     semfix_infer    expression (311, 13, 311, 13)[0]: angelic = 0
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    expression (311, 13, 311, 13)[0]: angelic = -1
+INFO     semfix_infer    found 2 angelic paths for test '21'
+INFO     semfix_syn      ==class semifix_Synthesizer:call
+INFO     semfix_syn      ==class semifix_Synthesizer:dump_angelic
+INFO     semfix_syn      ==class semifix_Synthesizer:dump_angelic==end
+INFO     semfix_syn      ==/tmp/tmpem9iwqyy/patch
+INFO     semfix_syn      ==1
+INFO     semfix_syn      ==/home/mingyue/Documents/Angelix/angelix/TSE/3/.angelix
+INFO     semfix_syn      synthesized expression (311, 13, 311, 13): 0
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+gcc -c replace.c -o replace.o
+replace.c:14:0: warning: "NULL" redefined [enabled by default]
+ # define NULL 0
+ ^
+In file included from /usr/include/_G_config.h:15:0,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/stddef.h:402:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ ^
+replace.c: In function ‘omatch’:
+replace.c:337:6: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+      abort(); 
+      ^
+replace.c: In function ‘patsize’:
+replace.c:388:2: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+  abort();
+  ^
+gcc replace.o -o replace
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+INFO     testing         running test '3' of validation source
+INFO     testing         running test '4' of validation source
+INFO     testing         running test '5' of validation source
+INFO     testing         running test '6' of validation source
+INFO     testing         running test '7' of validation source
+INFO     testing         running test '8' of validation source
+INFO     testing         running test '9' of validation source
+INFO     testing         running test '10' of validation source
+INFO     testing         running test '11' of validation source
+INFO     testing         running test '12' of validation source
+INFO     testing         running test '13' of validation source
+INFO     testing         running test '14' of validation source
+INFO     testing         running test '15' of validation source
+INFO     testing         running test '16' of validation source
+INFO     testing         running test '17' of validation source
+INFO     testing         running test '18' of validation source
+INFO     testing         running test '19' of validation source
+INFO     testing         running test '20' of validation source
+INFO     testing         running test '21' of validation source
+INFO     testing         running test '22' of validation source
+INFO     testing         running test '23' of validation source
+INFO     testing         running test '24' of validation source
+INFO     testing         running test '25' of validation source
+INFO     testing         running test '26' of validation source
+INFO     testing         running test '27' of validation source
+INFO     testing         running test '28' of validation source
+INFO     testing         running test '29' of validation source
+INFO     testing         running test '30' of validation source
+INFO     repair          patch successfully generated in 11s (see 22-2016-May27-051606.patch)
+SUCCESS

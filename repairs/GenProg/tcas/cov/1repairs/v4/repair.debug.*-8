@@ -1,0 +1,182 @@
+--allow-coverage-fail false
+--appp 0.33333
+--asm-code-only false
+--best-edit-rule "1 * fault_loc_weight ; 1 * max_test_fail_prob ; -1 * num_tests"
+--best-test-rule "1 * test_fail_prob ; 1 * test_fail_count ; -1 * test_pass_count"
+--compiler "gcc"
+--compiler-command ""
+--compiler-opts ""
+--continue false
+--coverage-info ""
+--coverage-per-test false
+--crossover "one"
+--crossp 0.5
+--delp 0.33333
+--describe-machine false
+--diversity-selection 0
+--edit-script false
+--elf-risc false
+--exclude-edits ""
+--exp-diff false
+--fault-file ""
+--fault-path "coverage.path.neg"
+--fault-scheme "path"
+--fitness-in-parallel 1
+--fix-file ""
+--fix-oracle ""
+--fix-path "coverage.path.pos"
+--fix-scheme "default"
+--flatten-path ""
+--format "txt"
+--gen-per-exchange 1
+--generations 10
+--gui false
+--hostname "127.0.0.1"
+--ignore-dead-code false
+--ignore-equiv-appends false
+--ignore-standard-headers false
+--ignore-string-equiv-fixes false
+--ignore-untyped-returns false
+--incoming-pop ""
+--keep-source false
+--label-repair true
+--max-evals 0
+--minimization false
+--mt-cov false
+--multiopt-minimize false
+--multiopt-no-inf false
+--neg-tests 4
+--neg-weight 1
+--negative-test-weight 2
+--neutral-walk-max-size 0
+--neutral-walk-weight ""
+--nht-id "global"
+--nht-port 51000
+--nht-server ""
+--no-rep-cache false
+--no-test-cache false
+--num-comps 2
+--num-objectives 2
+--oracle-genome ""
+--popsize 40
+--port 60000
+--pos-tests 23
+--pos-weight 0.1
+--prefix "./"
+--preprocessor ""
+--print-incremental-evals false
+--print-source-name false
+--program "m4.i"
+--promut 1
+--quiet false
+--regen-paths false
+--rep ""
+--rep-cache ""
+--repp 0
+--samp-strat "variant"
+--sample 1
+--sample-runs 100
+--sanity "default"
+--search "ga"
+--seed 133930
+--semantic-check "scope"
+--single-fitness false
+--skip-failed-sanity-tests false
+--skip-tests ""
+--split-search 0
+--sport 65000
+--subatom-constp 0.5
+--subatom-mutp 0
+--super-mutant false
+--super-mutant-size 50
+--swap-bug false
+--swapp 0.33333
+--template-cache ""
+--templates ""
+--test-command ""
+--test-script "/bin/sh test.sh"
+--tournament-size 2
+--tweet false
+--uniq false
+--valgrind false
+--variants-exchanged 50
+cilRep: preprocessing IO function signatures: /tmp/tmp261418.c /tmp/tmp886998.c
+cilRep: done preprocessing IO function signatures
+cachingRep: m4.cache: loaded
+faultlocRep: m4.cache: loaded
+cilRep: m4.cache: loaded
+cilRep: m4.cache: saved
+cachingRep: m4.cache: saved
+faultlocRep: m4.cache: saved
+cilrep done serialize
+cilRep: stmt_count = 126
+cilRep: stmts in weighted_path = 77
+cilRep: total weight = 8.6
+cilRep: stmts in weighted_path with weight >= 1.0 = 1
+cilRep: m4.i (code bank/base file; atoms [1,126])
+cilRep: 1 file(s) total in representation
+search: genetic algorithm begins (|original| = 0.00636101 MB)
+search: initial population (sizeof one variant = 0.00670338 MB)
+	 23 a(121,124) 
+	 18 d(59) 
+	 23 a(4,6) 
+	 14 d(76) 
+	33.5 d(2) 
+	  0 a(114,1) 
+	 23 d(28) 
+	  0 d(124) 
+	 23 d(35) 
+	 23 a(56,46) 
+	 23 a(25,20) 
+	 23 s(5,7) 
+	 61 d(80) 
+	 19 d(91) 
+	 19 a(10,4) 
+	 23 s(25,29) 
+	 64 s(11,9) 
+	 23 a(30,24) 
+	 23 a(57,98) 
+	 23 d(25) 
+	 23 d(11) 
+	 23 s(114,119) 
+	 23 s(25,29) 
+	 23 s(29,31) 
+	33.5 d(2) 
+	 23 s(122,120) 
+	 23 a(25,23) 
+	 23 a(76,107) 
+	 19 s(27,32) 
+	 23 d(25) 
+	 61 d(81) 
+	 19 s(56,54) 
+	 23 a(25,24) 
+	 48 s(85,109) 
+	 61 d(97) 
+	 23 s(4,126) 
+	 23 a(120,114) 
+	 23 d(57) 
+	 23 d(25) 
+	 23 original
+search: generation 1 (sizeof one variant = 0.0299807 MB)
+	 65 s(29,31) d(62) 
+	 23 s(122,120) a(77,83) 
+	 59 s(29,31) s(93,109) 
+	 23 s(122,120) d(11) 
+	 69 a(10,4) d(62) 
+
+Repair Found: a(10,4) d(62)
+Repair Name: a(10,4) d(62) 
+Test Condition: 0
+Test Cases Skipped: ""
+Current Time: 1431043003.701828
+Rep: saving test cache
+
+Variant Test Case Queries: 1215
+"Test Suite Evaluations": 45
+
+Compile Failures: 0
+Wall-Clock Seconds Elapsed: 29.5175
+  Activity Name                     Count Seconds = Percent of Total Time
+  compile                              44   3.437 = 12.6944%
+  test                               1188  23.640 = 87.3056%
+  TOTAL                                    27.078 = 91.7108% (avg CPU usage)

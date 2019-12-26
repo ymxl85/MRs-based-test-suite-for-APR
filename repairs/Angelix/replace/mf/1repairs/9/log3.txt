@@ -1,0 +1,417 @@
+/home/mingyue/Documents/Angelix/angelix/TSE/3/MFCC/replace/9
+/home/mingyue/Documents/Angelix/angelix/TSE/3/MFCC/replace/golden
+/home/mingyue/Documents/Angelix/angelix/TSE/3/MFCC/replace/9/oracle
+INFO     synthesis       ==class Synthesizer
+INFO     semfix_syn      ==class Semfix_Synthesizer
+INFO     project         configuring validation source
+INFO     project         building json compilation database from validation source
+gcc -c replace.c -o replace.o
+replace.c:14:0: warning: "NULL" redefined [enabled by default]
+ # define NULL 0
+ ^
+In file included from /usr/include/_G_config.h:15:0,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/stddef.h:402:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ ^
+replace.c: In function ‘omatch’:
+replace.c:338:6: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+      abort(); 
+      ^
+replace.c: In function ‘patsize’:
+replace.c:389:2: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+  abort();
+  ^
+gcc replace.o -o replace
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+INFO     testing         running test '3' of validation source
+INFO     testing         running test '4' of validation source
+INFO     testing         running test '5' of validation source
+INFO     testing         running test '6' of validation source
+INFO     testing         running test '7' of validation source
+INFO     testing         running test '8' of validation source
+INFO     testing         running test '9' of validation source
+INFO     testing         running test '10' of validation source
+INFO     testing         running test '11' of validation source
+INFO     testing         running test '12' of validation source
+INFO     testing         running test '13' of validation source
+INFO     testing         running test '14' of validation source
+INFO     testing         running test '15' of validation source
+INFO     testing         running test '16' of validation source
+INFO     project         configuring frontend source
+INFO     transformation  instrumenting repairable of frontend source
+INFO     project         building frontend source
+angelix-compiler --test -c replace.c -o replace.o
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h '-c' 'replace.c' '-o' 'replace.o' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+replace.c:14:0: warning: "NULL" redefined [enabled by default]
+ # define NULL 0
+ ^
+In file included from /usr/include/_G_config.h:15:0,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/stddef.h:402:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ ^
+replace.c: In function ‘omatch’:
+replace.c:338:6: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+      abort(); 
+      ^
+replace.c: In function ‘patsize’:
+replace.c:389:2: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+  abort();
+  ^
+angelix-compiler --test replace.o -o replace
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+INFO     repair          running positive tests for debugging
+INFO     testing         running test '3' of frontend source
+INFO     testing         running test '4' of frontend source
+INFO     testing         running test '5' of frontend source
+INFO     testing         running test '6' of frontend source
+INFO     testing         running test '7' of frontend source
+INFO     testing         running test '10' of frontend source
+INFO     testing         running test '11' of frontend source
+INFO     testing         running test '12' of frontend source
+INFO     testing         running test '13' of frontend source
+INFO     testing         running test '14' of frontend source
+INFO     repair          running negative tests for debugging
+INFO     testing         running test '1' of frontend source
+INFO     project         configuring golden source
+INFO     project         building golden source
+angelix-compiler --test -c replace.c -o replace.o
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h '-c' 'replace.c' '-o' 'replace.o' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+replace.c:14:0: warning: "NULL" redefined [enabled by default]
+ # define NULL 0
+ ^
+In file included from /usr/include/_G_config.h:15:0,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/stddef.h:402:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ ^
+replace.c: In function ‘omatch’:
+replace.c:338:6: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+      abort(); 
+      ^
+replace.c: In function ‘patsize’:
+replace.c:389:2: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+  abort();
+  ^
+angelix-compiler --test replace.o -o replace
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+INFO     testing         running test '1' of golden source
+INFO     testing         running test '2' of frontend source
+INFO     testing         running test '2' of golden source
+INFO     testing         running test '8' of frontend source
+INFO     testing         running test '8' of golden source
+INFO     testing         running test '9' of frontend source
+INFO     testing         running test '9' of golden source
+INFO     testing         running test '15' of frontend source
+INFO     testing         running test '15' of golden source
+INFO     testing         running test '16' of frontend source
+INFO     testing         running test '16' of golden source
+INFO     repair          repair test suite: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
+INFO     repair          validation test suite: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
+INFO     localization    selected expressions [(112, 16, 112, 26)] with group score 0.75 
+INFO     localization    selected expressions [(112, 29, 112, 40)] with group score 0.75 
+INFO     localization    selected expressions [(107, 15, 107, 41)] with group score 0.6 
+INFO     localization    selected expressions [(109, 15, 109, 62)] with group score 0.6 
+INFO     localization    selected expressions [(315, 10, 315, 14)] with group score 0.6 
+INFO     localization    selected expressions [(99, 12, 99, 52)] with group score 0.5 
+INFO     localization    selected expressions [(101, 6, 101, 21)] with group score 0.5 
+INFO     localization    selected expressions [(105, 10, 105, 21)] with group score 0.5 
+INFO     localization    selected expressions [(106, 10, 106, 41)] with group score 0.5 
+INFO     localization    selected expressions [(135, 9, 135, 20)] with group score 0.5 
+INFO     localization    selected expressions [(139, 9, 139, 35)] with group score 0.5 
+INFO     localization    selected expressions [(140, 14, 140, 15)] with group score 0.5 
+INFO     localization    selected expressions [(141, 12, 141, 36)] with group score 0.5 
+INFO     localization    selected expressions [(207, 15, 207, 38)] with group score 0.5 
+INFO     localization    selected expressions [(208, 13, 208, 35)] with group score 0.5 
+INFO     localization    selected expressions [(307, 12, 307, 12)] with group score 0.5 
+INFO     localization    selected expressions [(308, 9, 308, 28)] with group score 0.5 
+INFO     localization    selected expressions [(309, 12, 309, 23)] with group score 0.5 
+INFO     localization    selected expressions [(311, 6, 311, 16)] with group score 0.5 
+INFO     localization    selected expressions [(360, 8, 360, 34)] with group score 0.5 
+INFO     repair          considering suspicious expressions [(112, 16, 112, 26)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['5']
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+angelix-compiler --klee -c replace.c -o replace.o
+[angelix-compiler] llvm-gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-c' 'replace.c' '-o' 'replace.o' 
+replace.c:14:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/home/mingyue/Documents/Angelix/angelix/build/llvm-gcc4.2-2.9-x86_64-linux/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.2.1/include/stddef.h:403:1: warning: this is the location of the previous definition
+replace.c: In function ‘omatch’:
+replace.c:338: warning: incompatible implicit declaration of built-in function ‘abort’
+replace.c: In function ‘patsize’:
+replace.c:389: warning: incompatible implicit declaration of built-in function ‘abort’
+angelix-compiler --klee replace.o -o replace
+[angelix-compiler] llvm-ld --disable-opt 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/klee -langelix 
+INFO     semfix_infer    inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000041.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 42
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000019.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 64
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000022.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 61
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000030.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 53
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000011.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 72
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000042.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 41
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000014.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 69
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000040.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 43
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000010.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 73
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000036.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 47
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000016.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 67
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000007.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 76
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000045.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 38
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000049.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 34
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000038.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 45
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000046.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 37
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000029.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 54
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000031.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 52
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 81
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000051.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 30
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000015.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 68
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000032.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 51
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000037.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 46
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 79
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000018.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 65
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000024.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 59
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000023.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 60
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000048.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 35
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000035.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 48
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000033.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 50
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000026.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 57
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000020.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 63
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000039.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 44
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000009.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 74
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 80
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000006.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 77
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000012.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 71
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000043.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 40
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000044.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 39
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000028.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 55
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000047.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 36
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000050.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 33
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000021.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 62
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000025.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 58
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000013.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 70
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000008.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 75
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000005.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 78
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000027.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 56
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000017.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 66
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000034.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 49
+INFO     semfix_infer    found 50 angelic paths for test '1'
+INFO     semfix_infer    inferring specification for test '5'
+INFO     testing         running test '5' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000041.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 42
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000019.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 64
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000022.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 61
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000030.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 53
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000011.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 72
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000042.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 41
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000014.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 69
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000040.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 43
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000010.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 73
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000036.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 47
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000016.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 67
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000007.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 76
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000045.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 38
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000049.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 34
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000038.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 45
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000046.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 37
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000029.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 54
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000031.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 52
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 81
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000051.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 26
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000015.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 68
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000032.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 51
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 82
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000037.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 46
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 79
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000018.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 65
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000024.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 59
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000023.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 60
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000048.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 35
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000035.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 48
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000033.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 50
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000026.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 57
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000020.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 63
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000039.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 44
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000009.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 74
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 80
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000006.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 77
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000012.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 71
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000043.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 40
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000044.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 39
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000028.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 55
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000047.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 36
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000050.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 33
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000021.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 62
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000025.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 58
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000013.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 70
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000008.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 75
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000005.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 78
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000027.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 56
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000017.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 66
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000034.smt2
+INFO     semfix_infer    expression (112, 16, 112, 26)[0]: angelic = 49
+INFO     semfix_infer    found 51 angelic paths for test '5'
+INFO     semfix_syn      ==class semifix_Synthesizer:call
+INFO     semfix_syn      ==class semifix_Synthesizer:dump_angelic
+INFO     semfix_syn      ==class semifix_Synthesizer:dump_angelic==end
+INFO     semfix_syn      ==/tmp/tmpg_to4ie5/patch
+INFO     semfix_syn      ==1
+INFO     semfix_syn      ==/home/mingyue/Documents/Angelix/angelix/TSE/3/.angelix
+INFO     semfix_syn      synthesized expression (112, 16, 112, 26): 42
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+gcc -c replace.c -o replace.o
+replace.c:14:0: warning: "NULL" redefined [enabled by default]
+ # define NULL 0
+ ^
+In file included from /usr/include/_G_config.h:15:0,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/stddef.h:402:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ ^
+replace.c: In function ‘omatch’:
+replace.c:338:6: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+      abort(); 
+      ^
+replace.c: In function ‘patsize’:
+replace.c:389:2: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+  abort();
+  ^
+gcc replace.o -o replace
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+INFO     testing         running test '3' of validation source
+INFO     testing         running test '4' of validation source
+INFO     testing         running test '5' of validation source
+INFO     testing         running test '6' of validation source
+INFO     testing         running test '7' of validation source
+INFO     testing         running test '8' of validation source
+INFO     testing         running test '9' of validation source
+INFO     testing         running test '10' of validation source
+INFO     testing         running test '11' of validation source
+INFO     testing         running test '12' of validation source
+INFO     testing         running test '13' of validation source
+INFO     testing         running test '14' of validation source
+INFO     testing         running test '15' of validation source
+INFO     testing         running test '16' of validation source
+INFO     repair          patch successfully generated in 25s (see 9-2016-May26-091957.patch)
+SUCCESS

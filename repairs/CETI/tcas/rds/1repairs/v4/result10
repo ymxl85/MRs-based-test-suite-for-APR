@@ -1,0 +1,149 @@
+gcc -D_GNUCC -E -DCIL=1 /home/mingyue/experiments/ceti/TCAS/randomTC/v4/10/bug4.c -o /home/mingyue/experiments/ceti/TCAS/randomTC/v4/10/bug4.i
+/usr/local/bin/cilly.native --out /home/mingyue/experiments/ceti/TCAS/randomTC/v4/10/bug4.cil.c --noPrintLn --useLogicalOperators /home/mingyue/experiments/ceti/TCAS/randomTC/v4/10/bug4.i
+gcc -D_GNUCC -E /home/mingyue/experiments/ceti/TCAS/randomTC/v4/10/bug4.cil.c -o /home/mingyue/experiments/ceti/TCAS/randomTC/v4/10/bug4.cil.i
+gcc -D_GNUCC -c -o /home/mingyue/experiments/ceti/TCAS/randomTC/v4/10/bug4.o /home/mingyue/experiments/ceti/TCAS/randomTC/v4/10/bug4.cil.i
+gcc -D_GNUCC -o a.out /home/mingyue/experiments/ceti/TCAS/randomTC/v4/10/bug4.o
+**Begin v4**
+$ cp /home/mingyue/experiments/ceti/TCAS/randomTC/v4/10/bug4.cil.i /tmp/CETI_9e1001/bug4.cil.i
+*** Get good/bad tcs ***
+cmd 'gcc /tmp/CETI_9e1001/bug4.cil.i -o /tmp/CETI_9e1001/bug4.cil.i.exe >& /dev/null'
+$ gcc /tmp/CETI_9e1001/bug4.cil.i -o /tmp/CETI_9e1001/bug4.cil.i.exe >& /dev/null
+write_file_str: '/tmp/CETI_9e1001/bug4.cil.i.sh'
+$ sh /tmp/CETI_9e1001/bug4.cil.i.sh /tmp/CETI_9e1001/bug4.cil.i.exe /tmp/CETI_9e1001/bug4.cil.i.routputs &> /dev/null
+[35mAlert: 1/36 tests failed. Bug found. Processing ..
+[mwrite_src: '/tmp/CETI_9e1001/bug4.cil.i.preproc.c'
+*** Fault Localization ***
+write_src: '/tmp/CETI_9e1001/fautloc_257770/bug4.cil.i.cov.c'
+cmd 'gcc /tmp/CETI_9e1001/fautloc_257770/bug4.cil.i.cov.c -o /tmp/CETI_9e1001/fautloc_257770/bug4.cil.i.cov.c.exe >& /dev/null'
+$ gcc /tmp/CETI_9e1001/fautloc_257770/bug4.cil.i.cov.c -o /tmp/CETI_9e1001/fautloc_257770/bug4.cil.i.cov.c.exe >& /dev/null
+write_file_str: '/tmp/CETI_9e1001/fautloc_257770/bug4.cil.i.g.sh'
+$ sh /tmp/CETI_9e1001/fautloc_257770/bug4.cil.i.g.sh /tmp/CETI_9e1001/fautloc_257770/bug4.cil.i.cov.c.exe /tmp/CETI_9e1001/fautloc_257770/bug4.cil.i.outputs_g_dontcare &> /dev/null
+write_file_str: '/tmp/CETI_9e1001/fautloc_257770/bug4.cil.i.b.sh'
+$ sh /tmp/CETI_9e1001/fautloc_257770/bug4.cil.i.b.sh /tmp/CETI_9e1001/fautloc_257770/bug4.cil.i.cov.c.exe /tmp/CETI_9e1001/fautloc_257770/bug4.cil.i.outputs_bad_dontcare &> /dev/null
+0. sid 56 in fun 'alt_sep_test' (score 1)
+alt_sep = 1;
+1. sid 49 in fun 'alt_sep_test' (score 1)
+__cil_tmp25 = tmp___0;
+2. sid 47 in fun 'alt_sep_test' (score 1)
+tmp___1 = 1;
+3. sid 45 in fun 'Own_Below_Threat' (score 1)
+__cil_tmp13 = Own_Tracked_Alt < Other_Tracked_Alt;
+4. sid 20 in fun 'Non_Crossing_Biased_Climb' (score 1)
+tmp___6 = 1;
+5. sid 8 in fun 'Inhibit_Biased_Climb' (score 1)
+__cil_tmp13 = 100 + Up_Separation;
+6. sid 65 in fun 'alt_sep_test' (score 0.707107)
+__cil_tmp31 = need_upward_RA && need_downward_RA;
+7. sid 64 in fun 'alt_sep_test' (score 0.707107)
+need_downward_RA = tmp___4;
+8. sid 63 in fun 'alt_sep_test' (score 0.707107)
+__cil_tmp30 = tmp___2;
+9. sid 62 in fun 'alt_sep_test' (score 0.707107)
+need_upward_RA = tmp___1;
+10. sid 61 in fun 'alt_sep_test' (score 0.707107)
+__cil_tmp29 = tmp;
+11. sid 60 in fun 'alt_sep_test' (score 0.707107)
+__cil_tmp28 = need_upward_RA;
+12. sid 53 in fun 'alt_sep_test' (score 0.707107)
+__cil_tmp26 = tmp___3;
+13. sid 52 in fun 'alt_sep_test' (score 0.707107)
+tmp___4 = 0;
+14. sid 46 in fun 'Own_Above_Threat' (score 0.707107)
+__cil_tmp13 = Other_Tracked_Alt < Own_Tracked_Alt;
+15. sid 44 in fun 'Non_Crossing_Biased_Descend' (score 0.707107)
+__cil_tmp29 = result;
+16. sid 43 in fun 'Non_Crossing_Biased_Descend' (score 0.707107)
+__cil_tmp28 = upward_preferred;
+17. sid 42 in fun 'Non_Crossing_Biased_Descend' (score 0.707107)
+upward_preferred = tmp > Down_Separation;
+18. sid 41 in fun 'Non_Crossing_Biased_Descend' (score 0.707107)
+result = tmp___6;
+19. sid 40 in fun 'Non_Crossing_Biased_Descend' (score 0.707107)
+__cil_tmp27 = tmp___3;
+20. sid 39 in fun 'Non_Crossing_Biased_Descend' (score 0.707107)
+tmp___6 = 1;
+21. sid 27 in fun 'Non_Crossing_Biased_Climb' (score 0.707107)
+__cil_tmp29 = result;
+22. sid 26 in fun 'Non_Crossing_Biased_Climb' (score 0.707107)
+__cil_tmp28 = upward_preferred;
+23. sid 25 in fun 'Non_Crossing_Biased_Climb' (score 0.707107)
+upward_preferred = tmp > Down_Separation;
+24. sid 24 in fun 'Non_Crossing_Biased_Climb' (score 0.707107)
+result = tmp___6;
+25. sid 23 in fun 'Non_Crossing_Biased_Climb' (score 0.707107)
+__cil_tmp27 = tmp___4 && Cur_Vertical_Sep >= 300;
+26. sid 22 in fun 'Non_Crossing_Biased_Climb' (score 0.707107)
+__cil_tmp26 = Up_Separation >= tmp___5;
+27. sid 10 in fun 'Inhibit_Biased_Climb' (score 0.707107)
+__cil_tmp14 = Climb_Inhibit;
+28. sid 7 in fun 'ALIM' (score 0.707107)
+__cil_tmp19 = Alt_Layer_Value == 0;
+29. sid 1 in fun 'ALIM' (score 0.707107)
+__cil_tmp13 = 400;
+30. sid 72 in fun 'mainQ' (score 0.166667)
+__cil_tmp14 = tmp;
+31. sid 71 in fun 'alt_sep_test' (score 0.166667)
+__cil_tmp33 = alt_sep;
+32. sid 70 in fun 'alt_sep_test' (score 0.166667)
+__cil_tmp32 = enabled && ((tcas_equipped && intent_not_known) || ! tcas_equipped);
+33. sid 69 in fun 'alt_sep_test' (score 0.166667)
+alt_sep = 0;
+34. sid 68 in fun 'alt_sep_test' (score 0.166667)
+intent_not_known = Two_of_Three_Reports_Valid && Other_RAC == 0;
+35. sid 67 in fun 'alt_sep_test' (score 0.166667)
+tcas_equipped = Other_Capability == 1;
+36. sid 66 in fun 'alt_sep_test' (score 0.166667)
+enabled = (High_Confidence && Own_Tracked_Alt_Rate <= 600) && Cur_Vertical_Sep > 600;
+[35mAlert: FL: found 37 stmts with sscores >= 0.01
+[mwrite_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s56.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s49.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s47.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s45.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s20.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s8.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s65.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s64.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s63.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s62.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s61.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s60.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s53.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s52.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s46.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s44.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s43.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s42.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s41.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s40.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s39.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s27.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s26.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s25.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s24.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s23.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s22.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s10.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s7.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s1.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s72.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s71.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s70.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s69.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s68.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s67.t1.arr'
+write_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.s66.t1.arr'
+[35mAlert: Spy: Got 63 info from 37 ssids
+[mwrite_file_bin: '/tmp/CETI_9e1001/bug4.cil.i.info'
+$ python kl.py /tmp/CETI_9e1001/bug4.cil.i --do_tb "(56, 3, 1, 1); (56, 1, 4, 19); (49, 1, 4, 19); (47, 3, 1, 1); (47, 1, 4, 19); (45, 7, 2, 1); (45, 1, 4, 12); (20, 3, 1, 1); (20, 1, 4, 15); (8, 3, 1, 1); (8, 7, 2, 1); (8, 1, 4, 12); (65, 7, 2, 1); (65, 1, 4, 19); (64, 1, 4, 19); (63, 1, 4, 19); (62, 1, 4, 19); (61, 1, 4, 19); (60, 1, 4, 19); (53, 1, 4, 19); (52, 3, 1, 1); (52, 1, 4, 19); (46, 7, 2, 1); (46, 1, 4, 12); (44, 1, 4, 15); (43, 1, 4, 15); (42, 7, 2, 1); (42, 1, 4, 15); (41, 1, 4, 15); (40, 1, 4, 15); (39, 3, 1, 1); (39, 1, 4, 15); (27, 1, 4, 15); (26, 1, 4, 15); (25, 7, 2, 1); (25, 1, 4, 15); (24, 1, 4, 15); (23, 3, 1, 1); (23, 7, 2, 2); (23, 1, 4, 15); (22, 7, 2, 1); (22, 1, 4, 15); (10, 1, 4, 12); (7, 3, 1, 1); (7, 7, 2, 1); (7, 1, 4, 12); (1, 3, 1, 1); (1, 1, 4, 12); (72, 1, 4, 13); (71, 1, 4, 19); (70, 7, 2, 3); (70, 1, 4, 19); (69, 3, 1, 1); (69, 1, 4, 19); (68, 3, 1, 1); (68, 7, 2, 2); (68, 1, 4, 19); (67, 3, 1, 1); (67, 7, 2, 1); (67, 1, 4, 19); (66, 3, 1, 2); (66, 7, 2, 4); (66, 1, 4, 19)" --no_parallel
+KR: tasks 5419
+worker 0: found fix for /tmp/CETI_9e1001/bug4.cil.i.s1.t3_z1_c0.tf.c
+KR: summary (bugfix: True, stop after a repair found: True, parallel: False), '/tmp/CETI_9e1001/bug4.cil.i', 1 / 5419
+0. /tmp/CETI_9e1001/bug4.cil.i.s1.t3_z1_c0.tf.c: __cil_tmp13 = 400; ===> __cil_tmp13 = uk_0; ===> uk_0 100000
+Note: temp files created in dir '/tmp/CETI_9e1001'
+0.39user 0.14system 0:00.42elapsed 126%CPU (0avgtext+0avgdata 41856maxresident)k
+0inputs+984outputs (0major+43045minor)pagefaults 0swaps
+
+real	0m0.425s
+user	0m0.400s
+sys	0m0.140s
+**Done v4**

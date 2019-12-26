@@ -1,0 +1,27 @@
+***************replace/MFCC/MR1/v27
+gcc -D_GNUCC -E -DCIL=1 replace/MFCC/MR1/v27/replace27.c -o replace/MFCC/MR1/v27/replace27.i
+replace/MFCC/MR1/v27/replace27.c:11:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace/MFCC/MR1/v27/replace27.c:4:
+/usr/lib/gcc/i486-linux-gnu/4.4.3/include/stddef.h:400:1: warning: this is the location of the previous definition
+/usr/local/bin/cilly.native --out replace/MFCC/MR1/v27/replace27.cil.c --noPrintLn --useLogicalOperators replace/MFCC/MR1/v27/replace27.i
+gcc -D_GNUCC -E replace/MFCC/MR1/v27/replace27.cil.c -o replace/MFCC/MR1/v27/replace27.cil.i
+gcc -D_GNUCC -c -o replace/MFCC/MR1/v27/replace27.o replace/MFCC/MR1/v27/replace27.cil.i
+replace/MFCC/MR1/v27/replace27.cil.c:370: warning: conflicting types for built-in function ‘abort’
+gcc -D_GNUCC -o a.out replace/MFCC/MR1/v27/replace27.o
+$ cp replace/MFCC/MR1/v27/replace27.cil.i /tmp/CETI_457dc5/replace27.cil.i
+input length='46' output length='46'
+*** Get good/bad tcs ***
+cmd 'gcc /tmp/CETI_457dc5/replace27.cil.i -o /tmp/CETI_457dc5/replace27.cil.i.exe >& /dev/null'
+$ gcc /tmp/CETI_457dc5/replace27.cil.i -o /tmp/CETI_457dc5/replace27.cil.i.exe >& /dev/null
+write_file_str: '/tmp/CETI_457dc5/replace27.cil.i.sh'
+$ sh /tmp/CETI_457dc5/replace27.cil.i.sh /tmp/CETI_457dc5/replace27.cil.i.exe &> /dev/null
+[35mAlert: All tests passed. Exit!
+[mNote: temp files created in dir '/tmp/CETI_457dc5'
+
+real	0m0.141s
+user	0m0.160s
+sys	0m0.048s
+/home/mingyue/experiments/ceti/REPLACE/replace

@@ -1,0 +1,11 @@
+--- a/schedule.c
++++ b/schedule.c
+@@ -323,7 +323,7 @@
+     float ratio;
+     int status; FILE *in_fp; long in_fp_offset = 0;
+ 
+-    if (argc < (MAXPRIO+1)) /* FIX: argc < (MAXPRIO+2) */
++    if ((argc <= 4)) /* FIX: argc < (MAXPRIO+2) */
+     {
+ 	printf("%d\n", ANGELIX_OUTPUT(int, INCORRECT_USAGE, "output"));
+ 	return 1;
