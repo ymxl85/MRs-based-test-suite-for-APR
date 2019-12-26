@@ -1,0 +1,1 @@
+../gnulib/m4/mode_t.m4

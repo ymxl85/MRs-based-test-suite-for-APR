@@ -1,0 +1,24 @@
+Making all in lib
+make[1]: Entering directory `/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend/lib'
+  GEN    configmake.h
+make  all-recursive
+make[2]: Entering directory `/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend/lib'
+make[3]: Entering directory `/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend/lib'
+  GEN    configmake.h
+make[3]: Leaving directory `/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend/lib'
+make[2]: Leaving directory `/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend/lib'
+make[1]: Leaving directory `/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend/lib'
+Making all in doc
+make[1]: Entering directory `/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend/doc'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend/doc'
+make[1]: Entering directory `/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend'
+  CC     gzip.o
+[angelix-compiler] llvm-gcc -include /home/mingyuejiang/Documents/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-DHAVE_CONFIG_H' '-I.' '-I./lib' '-I./lib' '-g' '-MT' 'gzip.o' '-MD' '-MP' '-MF' '.deps/gzip.Tpo' '-c' '-o' 'gzip.o' 'gzip.c' 
+llvm-gcc -include /home/mingyuejiang/Documents/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-DHAVE_CONFIG_H' '-I.' '-I./lib' '-I./lib' '-g' '-MT' 'gzip.o' '-MD' '-MP' '-MF' '.deps/gzip.Tpo' '-c' '-o' 'gzip.o' 'gzip.c' 
+  CCLD   gzip
+[angelix-compiler] filtering out non-linking option -g
+[angelix-compiler] filtering out non-linking option -O2
+[angelix-compiler] llvm-ld --disable-opt '-o' 'gzip' 'bits.o' 'crypt.o' 'deflate.o' 'gzip.o' 'inflate.o' 'lzw.o' 'trees.o' 'unlzh.o' 'unlzw.o' 'unpack.o' 'unzip.o' 'util.o' 'zip.o' 'lib/libgzip.a' -L/home/mingyuejiang/Documents/angelix/build/lib/klee -langelix 
+llvm-ld --disable-opt '-o' 'gzip' 'bits.o' 'crypt.o' 'deflate.o' 'gzip.o' 'inflate.o' 'lzw.o' 'trees.o' 'unlzh.o' 'unlzw.o' 'unpack.o' 'unzip.o' 'util.o' 'zip.o' 'lib/libgzip.a' -L/home/mingyuejiang/Documents/angelix/build/lib/klee -langelix 
+make[1]: Leaving directory `/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend'
