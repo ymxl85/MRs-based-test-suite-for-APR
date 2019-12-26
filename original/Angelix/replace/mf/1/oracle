@@ -1,0 +1,111 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "@@" "a" "?]"
+      ;;
+    2)
+      test-replace  "@@" "a" "]?"
+      ;;
+    3)
+      test-replace  "@@" "d" "]]"
+      ;;
+    4)
+      test-replace  "@c" "y" "\"]"
+      ;;
+    5)
+      test-replace  "¿^" "p" "\"]"
+      ;;
+    6)
+      test-replace  "@@" "z" "?]"
+      ;;
+    7)
+      test-replace  "¿@" "z" "?]"
+      ;;
+    8)
+      test-replace  "@@" "y" "@]"
+      ;;
+    9)
+      test-replace  "@@" "y" "]@"
+      ;;
+    10)
+      test-replace  "@c" "y" "]\""
+      ;;
+    11)
+      test-replace  "¿^" "p" "]\""
+      ;;
+    12)
+      test-replace  "@@" "z" "]?"
+      ;;
+    13)
+      test-replace  "¿@" "z" "]?"
+      ;;
+    14)
+      test-replace  "@c" "y" "]]"
+      ;;
+    15)
+      test-replace  "¿^" "p" "]]"
+      ;;
+    16)
+      test-replace  "@@" "z" "]]"
+      ;;
+    17)
+      test-replace  "¿@" "z" "]]"
+      ;;
+    18)
+      test-replace  "[@]" "a" "?]"
+      ;;
+    19)
+      test-replace  "[@]" "a" "]?"
+      ;;
+    20)
+      test-replace  "[@]" "d" "]]"
+      ;;
+    21)
+      test-replace  "[c]" "y" "\"]"
+      ;;
+    22)
+      test-replace  "[¿]^" "p" "\"]"
+      ;;
+    23)
+      test-replace  "[@]" "z" "?]"
+      ;;
+    24)
+      test-replace  "[¿]@" "z" "?]"
+      ;;
+    25)
+      test-replace  "[@]" "y" "@]"
+      ;;
+    26)
+      test-replace  "[@]" "y" "]@"
+      ;;
+    27)
+      test-replace  "[c]" "y" "]\""
+      ;;
+    28)
+      test-replace  "[¿]^" "p" "]\""
+      ;;
+    29)
+      test-replace  "[@]" "z" "]?"
+      ;;
+    30)
+      test-replace  "[¿]@" "z" "]?"
+      ;;
+    31)
+      test-replace  "[c]" "y" "]]"
+      ;;
+    32)
+      test-replace  "[¿]^" "p" "]]"
+      ;;
+    33)
+      test-replace  "[@]" "z" "]]"
+      ;;
+    34)
+      test-replace  "[¿]@" "z" "]]"
+      ;;
+esac

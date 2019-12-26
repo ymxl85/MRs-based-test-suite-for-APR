@@ -1,0 +1,99 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "" "Sk13" "uz,cV1&I4OIe&%j]Hp"
+      ;;
+    2)
+      test-replace  "QCk\`" "" "P~QYyypjQ~n"
+      ;;
+    3)
+      test-replace  "/v]" "Z^\"" "=ESamnZ=6y_4jcEDb"
+      ;;
+    4)
+      test-replace  "5" "0" "v.iBYwB0Y7uB{eu"
+      ;;
+    5)
+      test-replace  "?*k" "Z" "|Uo!}+3<R"
+      ;;
+    6)
+      test-replace  ">Y#q" "T]G" "Okb1tFwB(G"
+      ;;
+    7)
+      test-replace  "xa2" "0" "x{PdCRgwR^CP"
+      ;;
+    8)
+      test-replace  "jB" "z" "Ff"
+      ;;
+    9)
+      test-replace  "b&hU" "j*" "akI&t*jOjv"
+      ;;
+    10)
+      test-replace  "{w4M" "d! " "} 0HSs"
+      ;;
+    11)
+      test-replace  "Vz" "" "y}=Eaa3V6\`FH!w1GM\`(C"
+      ;;
+    12)
+      test-replace  ",C" "" "+69l,z)(y!]cL.^eHD="
+      ;;
+    13)
+      test-replace  " gy" "" "hnoRlf5)@"
+      ;;
+    14)
+      test-replace  "a" "*" "ss7G&\\H-_?(Yrm"
+      ;;
+    15)
+      test-replace  "" "h\\Jl" "Tcc]gLS"
+      ;;
+    16)
+      test-replace  "" "(7~" "iK3kIw\$Mcb2eqpY6"
+      ;;
+    17)
+      test-replace  "s+qP" "?" "J2GBE#19d*)~U,"
+      ;;
+    18)
+      test-replace  "0S" "gXy" "*kB~Os<cNa"
+      ;;
+    19)
+      test-replace  "{o" "t~" "2BV|o*UM0ne+D|S."
+      ;;
+    20)
+      test-replace  "o" "pm-" "sG/S\"6q5GUJ"
+      ;;
+    21)
+      test-replace  "^" "p" "|\$yK(6QGCK;/@_n|g\\.\\"
+      ;;
+    22)
+      test-replace  ".NI" "K" "F};,FozEa&"
+      ;;
+    23)
+      test-replace  "" "" "M[]u{lf1BUjy9"
+      ;;
+    24)
+      test-replace  "K" "" "p:}/W!jmv\$Rzrfw"
+      ;;
+    25)
+      test-replace  "" "!cl" "UG7lW]jw5qjp-T"
+      ;;
+    26)
+      test-replace  "8L" "WLI" "hm%."
+      ;;
+    27)
+      test-replace  "" "%|T " "QU&Rt\$"
+      ;;
+    28)
+      test-replace  "\\Z" "*A{M" "3P1ghJ7q\\"
+      ;;
+    29)
+      test-replace  "\\" "" ",z"
+      ;;
+    30)
+      test-replace  ";TS" "X8d" "=mCSkIE~rphB"
+      ;;
+esac

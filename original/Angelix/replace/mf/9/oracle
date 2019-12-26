@@ -1,0 +1,57 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "[V-Q]" "p" "Q"
+      ;;
+    2)
+      test-replace  "[U-P]" "p" "-"
+      ;;
+    3)
+      test-replace  "¤V-Q]" "p" "Q"
+      ;;
+    4)
+      test-replace  "[}-x]" "h" "x"
+      ;;
+    5)
+      test-replace  "[V-Q]" "y" ""
+      ;;
+    6)
+      test-replace  "{" "p" ""
+      ;;
+    7)
+      test-replace  "[VÒQ]" "p" "Q"
+      ;;
+    8)
+      test-replace  "[V-Q¢" "p" "Q"
+      ;;
+    9)
+      test-replace  "[V-Q]" "p" "Q"
+      ;;
+    10)
+      test-replace  "¤V-Q]" "z" "-"
+      ;;
+    11)
+      test-replace  "[}-x]" "a" "-"
+      ;;
+    12)
+      test-replace  "[V-Q]" "y" "R"
+      ;;
+    13)
+      test-replace  "{" "p" ""
+      ;;
+    14)
+      test-replace  "[VÒQ]" "z" "-"
+      ;;
+    15)
+      test-replace  "[V-Q¢" "z" "-"
+      ;;
+    16)
+      test-replace  "[V-Q]" "z" "-"
+      ;;
+esac

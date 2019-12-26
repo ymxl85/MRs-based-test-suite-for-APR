@@ -1,0 +1,99 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "\`" "" "FL-z&yw9rhD/;\"}L\$&"
+      ;;
+    2)
+      test-replace  ",#xQ" "+/," "YKuRokvN3("
+      ;;
+    3)
+      test-replace  "2" "" "P83r?7p=G/"
+      ;;
+    4)
+      test-replace  "" "O9?" "y031UU##Bx"
+      ;;
+    5)
+      test-replace  "\"Zu" "i\`?-" "V#5{T8"
+      ;;
+    6)
+      test-replace  "" "h!" "al_%8K7~-UP.+v"
+      ;;
+    7)
+      test-replace  "K&;" "" "q=/H"
+      ;;
+    8)
+      test-replace  "lYG" "\"l" "&=tnd):j./mgA^"
+      ;;
+    9)
+      test-replace  "^9" "L}1" "_{Q3#tj#oIEm"
+      ;;
+    10)
+      test-replace  "%mWN" "+*X" ";6_F\\Bxnz"
+      ;;
+    11)
+      test-replace  "" "2" "9i\`BPS_7b1i?+>n\$V"
+      ;;
+    12)
+      test-replace  "cNX" "w" "UIvaUsit%#"
+      ;;
+    13)
+      test-replace  "fr" "Y " "?|<A"
+      ;;
+    14)
+      test-replace  "?*y" "" ":[-)k4\"<x0utzk\\1"
+      ;;
+    15)
+      test-replace  "\\" "}8p" "oHl_zHGrd)ZqPb"
+      ;;
+    16)
+      test-replace  "" "4l" "RNGprVo"
+      ;;
+    17)
+      test-replace  "f]" ";^w" "V&\"JV"
+      ;;
+    18)
+      test-replace  "3" "43Hv" "9)xzamFF"
+      ;;
+    19)
+      test-replace  "c3b" "" "Umxn=W|FG,CiUr"
+      ;;
+    20)
+      test-replace  "\`H" "K[" "!SlbzMP~oiN%"
+      ;;
+    21)
+      test-replace  "" "\$" "NZ,"
+      ;;
+    22)
+      test-replace  "" "V(5" ".MI1A"
+      ;;
+    23)
+      test-replace  "k5" "-z" "u:Ci-3 "
+      ;;
+    24)
+      test-replace  "-p}" "b9?-" "\`bm<"
+      ;;
+    25)
+      test-replace  "" "I);" "&"
+      ;;
+    26)
+      test-replace  "RgQ" "i" "z/zM)o\`VuuQU&&&="
+      ;;
+    27)
+      test-replace  "fi;" ":\`>" "=wp;@%Drg"
+      ;;
+    28)
+      test-replace  "U" "LlB" "_R!L7\`\""
+      ;;
+    29)
+      test-replace  "q" ".Z&{" "ur)a(#\\A;w-LE"
+      ;;
+    30)
+      test-replace  "Cg" "" "f"
+      ;;
+esac

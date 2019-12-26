@@ -1,0 +1,99 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "7|i/" "YhJ]" "C!o"
+      ;;
+    2)
+      test-replace  "+Mi" "" ".XNFPSgwq"
+      ;;
+    3)
+      test-replace  "W" "n" "\`Vdp\$<N"
+      ;;
+    4)
+      test-replace  "x" "t" "cq8W9f=!,HP\`%Q\$h~"
+      ;;
+    5)
+      test-replace  "^" "" "hQ=}4 tCu,U\\3b"
+      ;;
+    6)
+      test-replace  "&" "EWG" "Hl"
+      ;;
+    7)
+      test-replace  "?*y" "+" ".;"
+      ;;
+    8)
+      test-replace  "" "" "zwPU-Yg"
+      ;;
+    9)
+      test-replace  "" "|\`vj" "BE\""
+      ;;
+    10)
+      test-replace  "\"~sD" "):*3" "KK7"
+      ;;
+    11)
+      test-replace  "}" "a~8z" "@2LxeL7!"
+      ;;
+    12)
+      test-replace  "y#" " =S" "7"
+      ;;
+    13)
+      test-replace  ",po" "6" "|yf/2?!"
+      ;;
+    14)
+      test-replace  "D" "[A" ",&+\"Y"
+      ;;
+    15)
+      test-replace  "MTF" "K," "0kBx_FiU4B:b "
+      ;;
+    16)
+      test-replace  "7g!=" "KCKX" "uN2cz{u7wZ^u}Rn+_D?"
+      ;;
+    17)
+      test-replace  "t" "IF#" "Nc7|FK1]4:WYI4+"
+      ;;
+    18)
+      test-replace  "Rk" "QZKb" "E&FjDI"
+      ;;
+    19)
+      test-replace  "" "fGV" "c:y@c|e!B>M"
+      ;;
+    20)
+      test-replace  "kd|" "" "[}P:IXmp~R8sw"
+      ;;
+    21)
+      test-replace  "B=U" "eP" "xqA;S"
+      ;;
+    22)
+      test-replace  "" "/" "rL7bjZ@mY,I*V"
+      ;;
+    23)
+      test-replace  "" "" "K\\AM*"
+      ;;
+    24)
+      test-replace  "u" "5nE" "KN<J0Z%{UCMltwJ"
+      ;;
+    25)
+      test-replace  "n" "gf" "kE=>Ri%yI\`#L4\`eb)"
+      ;;
+    26)
+      test-replace  "Y" "r{" "r0z(xm.wm"
+      ;;
+    27)
+      test-replace  "" "" "Cos+1Cd(A@;=k"
+      ;;
+    28)
+      test-replace  "" "mF" "#Dr9m.<8S7U"
+      ;;
+    29)
+      test-replace  "" "?:H" "p"
+      ;;
+    30)
+      test-replace  "\$" "|249" "J-#; W7O"
+      ;;
+esac

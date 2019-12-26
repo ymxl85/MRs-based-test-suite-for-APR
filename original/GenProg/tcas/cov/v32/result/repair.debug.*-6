@@ -1,0 +1,201 @@
+--allow-coverage-fail false
+--appp 0.33333
+--asm-code-only false
+--best-edit-rule "1 * fault_loc_weight ; 1 * max_test_fail_prob ; -1 * num_tests"
+--best-test-rule "1 * test_fail_prob ; 1 * test_fail_count ; -1 * test_pass_count"
+--compiler "gcc"
+--compiler-command ""
+--compiler-opts ""
+--continue false
+--coverage-info ""
+--coverage-per-test false
+--crossover "one"
+--crossp 0.5
+--delp 0.33333
+--describe-machine false
+--diversity-selection 0
+--edit-script false
+--elf-risc false
+--exclude-edits ""
+--exp-diff false
+--fault-file ""
+--fault-path "coverage.path.neg"
+--fault-scheme "path"
+--fitness-in-parallel 1
+--fix-file ""
+--fix-oracle ""
+--fix-path "coverage.path.pos"
+--fix-scheme "default"
+--flatten-path ""
+--format "txt"
+--gen-per-exchange 1
+--generations 10
+--gui false
+--hostname "127.0.0.1"
+--ignore-dead-code false
+--ignore-equiv-appends false
+--ignore-standard-headers false
+--ignore-string-equiv-fixes false
+--ignore-untyped-returns false
+--incoming-pop ""
+--keep-source false
+--label-repair true
+--max-evals 0
+--minimization false
+--mt-cov false
+--multiopt-minimize false
+--multiopt-no-inf false
+--neg-tests 1
+--neg-weight 1
+--negative-test-weight 2
+--neutral-walk-max-size 0
+--neutral-walk-weight ""
+--nht-id "global"
+--nht-port 51000
+--nht-server ""
+--no-rep-cache false
+--no-test-cache false
+--num-comps 2
+--num-objectives 2
+--oracle-genome ""
+--popsize 40
+--port 60000
+--pos-tests 20
+--pos-weight 0.1
+--prefix "./"
+--preprocessor ""
+--print-incremental-evals false
+--print-source-name false
+--program "m32.i"
+--promut 1
+--quiet false
+--regen-paths false
+--rep ""
+--rep-cache ""
+--repp 0
+--samp-strat "variant"
+--sample 1
+--sample-runs 100
+--sanity "default"
+--search "ga"
+--seed 278863
+--semantic-check "scope"
+--single-fitness false
+--skip-failed-sanity-tests false
+--skip-tests ""
+--split-search 0
+--sport 65000
+--subatom-constp 0.5
+--subatom-mutp 0
+--super-mutant false
+--super-mutant-size 50
+--swap-bug false
+--swapp 0.33333
+--template-cache ""
+--templates ""
+--test-command ""
+--test-script "/bin/sh test.sh"
+--tournament-size 2
+--tweet false
+--uniq false
+--valgrind false
+--variants-exchanged 50
+cilRep: preprocessing IO function signatures: /tmp/tmpa05a86.c /tmp/tmp9310a2.c
+cilRep: done preprocessing IO function signatures
+cachingRep: m32.cache: loaded
+faultlocRep: m32.cache: loaded
+cilRep: m32.cache: loaded
+cilRep: m32.cache: saved
+cachingRep: m32.cache: saved
+faultlocRep: m32.cache: saved
+cilrep done serialize
+cilRep: stmt_count = 132
+cilRep: stmts in weighted_path = 65
+cilRep: total weight = 6.5
+cilRep: stmts in weighted_path with weight >= 1.0 = 0
+cilRep: m32.i (code bank/base file; atoms [1,132])
+cilRep: 1 file(s) total in representation
+search: genetic algorithm begins (|original| = 0.00633717 MB)
+search: initial population (sizeof one variant = 0.0067358 MB)
+	 16 d(118) 
+	 20 a(32,18) 
+	 20 a(32,23) 
+	 52 d(114) 
+	 20 d(11) 
+	 20 d(73) 
+	 20 a(120,130) 
+	 20 d(84) 
+	 18 s(82,113) 
+	 20 a(34,13) 
+	 56 s(8,11) 
+	 20 s(30,34) 
+	 18 d(113) 
+	 20 a(31,28) 
+	 20 a(128,129) 
+	 20 a(118,120) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/coverageTC/v32/./000016.c a(98,96)  fails to compile
+	  0 a(98,96) 
+	 20 a(115,104) 
+	 20 a(69,70) 
+	 18 d(113) 
+	 20 a(70,64) 
+	 51 d(91) 
+	 20 d(123) 
+	 20 a(68,67) 
+	 20 a(61,46) 
+	 20 d(120) 
+	 20 s(127,126) 
+	 20 a(106,99) 
+	 20 s(126,124) 
+	 20 s(119,118) 
+	 20 s(84,82) 
+	 20 s(124,129) 
+	 20 a(131,129) 
+	 20 d(70) 
+	 20 a(128,125) 
+	  0 a(119,1) 
+	 20 s(119,121) 
+	 20 a(100,102) 
+	 16 d(118) 
+	 20 original
+search: generation 1 (sizeof one variant = 0.0297709 MB)
+	 20 a(128,125) d(29) 
+	 20 d(120) a(115,76) 
+	 20 s(119,118) d(71) 
+	 20 d(123) a(80,82) 
+	 20 s(119,118) d(33) 
+	 20 d(123) d(110) 
+	 20 a(115,104) s(31,33) 
+	  0 a(34,13) a(126,132) 
+	 52 a(115,104) d(98) 
+	 16 a(34,13) d(61) 
+	 20 s(119,118) a(35,13) 
+	 16 a(31,28) s(68,63) 
+	  0 s(119,118) a(128,2) 
+	  0 a(31,28) a(125,131) 
+	 20 d(70) d(29) 
+	 52 d(114) d(76) 
+	  6 d(70) s(97,102) 
+	 52 d(114) d(75) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/coverageTC/v32/./000057.c s(119,121) a(98,82)  fails to compile
+	  0 s(119,121) a(98,82) 
+	 20 s(84,82) s(124,123) 
+	  6 d(73) s(99,98) 
+	 60 d(73) d(67) 
+
+Repair Found: d(73) d(67)
+Repair Name: d(73) d(67) 
+Test Condition: 0
+Test Cases Skipped: ""
+Current Time: 1431080064.824391
+Rep: saving test cache
+
+Variant Test Case Queries: 1302
+"Test Suite Evaluations": 62
+
+Compile Failures: 2
+Wall-Clock Seconds Elapsed: 15.873
+  Activity Name                     Count Seconds = Percent of Total Time
+  compile                              61   3.791 = 28.3127%
+  test                               1239   9.598 = 71.6872%
+  TOTAL                                    13.389 = 84.3185% (avg CPU usage)

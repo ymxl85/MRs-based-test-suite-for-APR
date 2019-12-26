@@ -1,0 +1,266 @@
+/home/mingyuejiang/Documents/angelix/data/tcas/rds/38
+/home/mingyuejiang/Documents/angelix/data/tcas/rds/golden
+/home/mingyuejiang/Documents/angelix/data/tcas/rds/38/oracle2
+INFO     repair          src=/home/mingyuejiang/Documents/angelix/data/tcas/rds/38
+ buggy=tcas.c
+ oracle=/home/mingyuejiang/Documents/angelix/data/tcas/rds/38/oracle2
+ golden=/home/mingyuejiang/Documents/angelix/data/tcas/rds/golden
+
+INFO     project         configuring validation source
+INFO     project         building json compilation database from validation source
+INFO     project         --message=/tmp/tmpe5brb_da/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data/.angelix/validation---cmd=bear make -e
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+INFO     testing         running test '3' of validation source
+INFO     testing         running test '4' of validation source
+INFO     testing         running test '5' of validation source
+INFO     testing         running test '6' of validation source
+INFO     testing         running test '7' of validation source
+INFO     testing         running test '8' of validation source
+INFO     testing         running test '9' of validation source
+INFO     testing         running test '10' of validation source
+INFO     testing         running test '11' of validation source
+INFO     testing         running test '12' of validation source
+INFO     testing         running test '13' of validation source
+INFO     testing         running test '14' of validation source
+INFO     testing         running test '15' of validation source
+INFO     testing         running test '16' of validation source
+INFO     testing         running test '17' of validation source
+INFO     project         configuring frontend source
+INFO     transformation  instrumenting repairable of frontend source
+INFO     project         building frontend source
+INFO     project         CC=angelix-compiler --test
+INFO     project         --message=/tmp/tmpe_bselm_/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data/.angelix/frontend---cmd=make -e
+INFO     repair          running positive tests for debugging
+INFO     testing         running test '1' of frontend source
+INFO     testing         running test '2' of frontend source
+INFO     testing         running test '4' of frontend source
+INFO     testing         running test '5' of frontend source
+INFO     testing         running test '6' of frontend source
+INFO     testing         running test '7' of frontend source
+INFO     testing         running test '8' of frontend source
+INFO     testing         running test '9' of frontend source
+INFO     testing         running test '10' of frontend source
+INFO     testing         running test '11' of frontend source
+INFO     testing         running test '12' of frontend source
+INFO     testing         running test '13' of frontend source
+INFO     testing         running test '14' of frontend source
+INFO     testing         running test '15' of frontend source
+INFO     testing         running test '16' of frontend source
+INFO     testing         running test '17' of frontend source
+INFO     repair          running negative tests for debugging
+INFO     testing         running test '3' of frontend source
+INFO     project         configuring golden source
+INFO     project         building golden source
+INFO     project         CC=angelix-compiler --test
+INFO     project         --message=/tmp/tmpdno4ee7n/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data/.angelix/golden---cmd=make -e
+INFO     testing         running test '3' of golden source
+INFO     repair          repair test suite: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17']
+INFO     repair          validation test suite: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17']
+INFO     localization    selected expressions [(35, 7, 35, 26), (36, 12, 36, 31)] with group score 1.0 
+INFO     localization    selected expressions [(361, 16, 361, 16), (364, 12, 364, 12)] with group score 0.66667 
+INFO     localization    selected expressions [(89, 7, 89, 7), (184, 7, 184, 7)] with group score 0.5 
+INFO     localization    selected expressions [(305, 7, 305, 72), (354, 11, 354, 29)] with group score 0.30882 
+INFO     localization    selected expressions [(359, 16, 359, 16), (360, 12, 360, 12)] with group score 0.25 
+INFO     localization    selected expressions [(299, 13, 299, 88), (300, 19, 300, 39)] with group score 0.11765 
+INFO     localization    selected expressions [(301, 22, 301, 65), (303, 13, 303, 13)] with group score 0.11765 
+INFO     repair          considering suspicious expressions [(35, 7, 35, 26), (36, 12, 36, 31)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['16']
+INFO     reduction       selected failing tests: ['3']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmplqurpvgc/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data/.angelix/backend---cmd=make -e
+INFO     inference       inferring specification for test '3'
+INFO     testing         running test '3' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000006.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000009.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000007.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000008.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000005.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     inference       UNSAT
+INFO     inference       found 0 angelic paths for test '3'
+INFO     repair          considering suspicious expressions [(361, 16, 361, 16), (364, 12, 364, 12)]
+INFO     reduction       selected 3 tests
+INFO     reduction       selected passing tests: ['12', '15']
+INFO     reduction       selected failing tests: ['3']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmpnzl_1k78/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data/.angelix/backend---cmd=make -e
+INFO     inference       inferring specification for test '3'
+INFO     testing         running test '3' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (361, 16, 361, 16)[0]: angelic = False
+INFO     inference       expression (364, 12, 364, 12)[0]: angelic = 1
+INFO     inference       found 1 angelic paths for test '3'
+INFO     inference       inferring specification for test '12'
+INFO     testing         running test '12' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (361, 16, 361, 16)[0]: angelic = False
+INFO     inference       expression (364, 12, 364, 12)[0]: angelic = 0
+INFO     inference       found 1 angelic paths for test '12'
+INFO     inference       inferring specification for test '15'
+INFO     testing         running test '15' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (361, 16, 361, 16)[0]: angelic = False
+INFO     inference       expression (364, 12, 364, 12)[0]: angelic = 0
+INFO     inference       found 1 angelic paths for test '15'
+INFO     synthesis       synthesizing patch with component level 'alternatives'
+INFO     synthesis       synthesis failed
+INFO     synthesis       synthesizing patch with component level 'integer-constants'
+INFO     synthesis       synthesis failed
+INFO     synthesis       synthesizing patch with component level 'boolean-constants'
+INFO     synthesis       synthesis failed
+INFO     repair          cannot synthesize fix
+INFO     repair          considering suspicious expressions [(89, 7, 89, 7), (184, 7, 184, 7)]
+INFO     reduction       selected 4 tests
+INFO     reduction       selected passing tests: ['12', '15', '16']
+INFO     reduction       selected failing tests: ['3']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmpoq5bfsx5/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data/.angelix/backend---cmd=make -e
+INFO     inference       inferring specification for test '3'
+INFO     testing         running test '3' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     inference       UNSAT
+INFO     inference       found 0 angelic paths for test '3'
+INFO     repair          considering suspicious expressions [(305, 7, 305, 72), (354, 11, 354, 29)]
+INFO     reduction       selected 5 tests
+INFO     reduction       selected passing tests: ['12', '15', '16', '1']
+INFO     reduction       selected failing tests: ['3']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmpab6j517n/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data/.angelix/backend---cmd=make -e
+INFO     inference       inferring specification for test '3'
+INFO     testing         running test '3' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       UNSAT
+INFO     inference       found 0 angelic paths for test '3'
+INFO     repair          considering suspicious expressions [(359, 16, 359, 16), (360, 12, 360, 12)]
+INFO     reduction       selected 4 tests
+INFO     reduction       selected passing tests: ['16', '12', '15']
+INFO     reduction       selected failing tests: ['3']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmpqebmznwq/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data/.angelix/backend---cmd=make -e
+INFO     inference       inferring specification for test '3'
+INFO     testing         running test '3' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (359, 16, 359, 16)[0]: angelic = True
+INFO     inference       expression (360, 12, 360, 12)[0]: angelic = 1
+INFO     inference       found 1 angelic paths for test '3'
+INFO     inference       inferring specification for test '16'
+INFO     testing         running test '16' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (359, 16, 359, 16)[0]: angelic = True
+INFO     inference       expression (360, 12, 360, 12)[0]: angelic = 1
+INFO     inference       found 1 angelic paths for test '16'
+INFO     inference       inferring specification for test '12'
+INFO     testing         running test '12' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (359, 16, 359, 16)[0]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (359, 16, 359, 16)[0]: angelic = True
+INFO     inference       expression (360, 12, 360, 12)[0]: angelic = 0
+INFO     inference       found 2 angelic paths for test '12'
+INFO     inference       inferring specification for test '15'
+INFO     testing         running test '15' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (359, 16, 359, 16)[0]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (359, 16, 359, 16)[0]: angelic = True
+INFO     inference       expression (360, 12, 360, 12)[0]: angelic = 0
+INFO     inference       found 2 angelic paths for test '15'
+INFO     synthesis       synthesizing patch with component level 'alternatives'
+INFO     synthesis       synthesis failed
+INFO     synthesis       synthesizing patch with component level 'integer-constants'
+INFO     synthesis       synthesis failed
+INFO     synthesis       synthesizing patch with component level 'boolean-constants'
+INFO     synthesis       synthesis failed
+INFO     repair          cannot synthesize fix
+INFO     repair          considering suspicious expressions [(299, 13, 299, 88), (300, 19, 300, 39)]
+INFO     reduction       selected 5 tests
+INFO     reduction       selected passing tests: ['1', '2', '4', '5']
+INFO     reduction       selected failing tests: ['3']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmpzv6g6g7q/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data/.angelix/backend---cmd=make -e
+INFO     inference       inferring specification for test '3'
+INFO     testing         running test '3' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       UNSAT
+INFO     inference       found 0 angelic paths for test '3'
+INFO     repair          considering suspicious expressions [(301, 22, 301, 65), (303, 13, 303, 13)]
+INFO     reduction       selected 5 tests
+INFO     reduction       selected passing tests: ['1', '2', '4', '5']
+INFO     reduction       selected failing tests: ['3']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmpu4aamg7h/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data/.angelix/backend---cmd=make -e
+INFO     inference       inferring specification for test '3'
+INFO     testing         running test '3' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       UNSAT
+INFO     inference       found 0 angelic paths for test '3'
+INFO     repair          no patch generated in 35s
+FAIL

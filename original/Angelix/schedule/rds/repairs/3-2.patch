@@ -1,0 +1,11 @@
+--- a/schedule.c
++++ b/schedule.c
+@@ -218,7 +218,7 @@
+ 
+     if (count > 0)
+     {
+-	upgrade = 1; n = (int) (count*ratio + 1.1); /* constant mutation */
++	upgrade = 1; n = (((8 <= count) ? upgrade : 2) + 2); /* constant mutation */
+ 	proc = find_nth(src_queue, n);
+ 	if (proc) {
+ 	    src_queue = del_ele(src_queue, proc);

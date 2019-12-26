@@ -1,0 +1,99 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "?" "Ua,E" "djttf4?#[JcU{A"
+      ;;
+    2)
+      test-replace  "2q" "7%" "ZnTxUr^,"
+      ;;
+    3)
+      test-replace  "Y2" "=" "Y:N\`sh5"
+      ;;
+    4)
+      test-replace  "?*+^" "{" "z:.5BH<wg"
+      ;;
+    5)
+      test-replace  "" "*k[" "aO;e7{5v,*>,8%LF(t="
+      ;;
+    6)
+      test-replace  "Sr" "" "9.jKnFy6"
+      ;;
+    7)
+      test-replace  "z" "h=" "d%kM"
+      ;;
+    8)
+      test-replace  "f" "K&" "s\`<-7"
+      ;;
+    9)
+      test-replace  "}\$&[" "" "VfOM oGt!moTln+1]9"
+      ;;
+    10)
+      test-replace  "(A" "og" "6+\\9P)"
+      ;;
+    11)
+      test-replace  "8au" "" ".hDcACo-s+aV^R"
+      ;;
+    12)
+      test-replace  "E" "j5#)" "_j3{"
+      ;;
+    13)
+      test-replace  "" "45" "eUhQh5RmLRa(s Bg"
+      ;;
+    14)
+      test-replace  "B?n6" "w!i2" "R<L"
+      ;;
+    15)
+      test-replace  "X+=" "f2" "<9]WVmWEq "
+      ;;
+    16)
+      test-replace  " <" "" "0kcVr*9xQ"
+      ;;
+    17)
+      test-replace  "" "" "{;lvTMlSu=A\$"
+      ;;
+    18)
+      test-replace  "KK" "A" ",\$(b8~{OlU"
+      ;;
+    19)
+      test-replace  "8DS" "n^Cb" "3TzE5+R.KO@f"
+      ;;
+    20)
+      test-replace  "\"" "" "t0="
+      ;;
+    21)
+      test-replace  "Ae" "B" "9YRR"
+      ;;
+    22)
+      test-replace  "&5\\g" "*," "Ga%"
+      ;;
+    23)
+      test-replace  "S" "K" "V UB"
+      ;;
+    24)
+      test-replace  "" "\\xoH" "Bz^_k5"
+      ;;
+    25)
+      test-replace  "J" "KHuo" ":V"
+      ;;
+    26)
+      test-replace  "" "-cV" "C)bvf\\@de{A4T-VR\$Z3g"
+      ;;
+    27)
+      test-replace  "N" "3C" ";IJK"
+      ;;
+    28)
+      test-replace  "c" "" "tdj.S[d tZJ.z"
+      ;;
+    29)
+      test-replace  "4a4J" "o82-" "9> O"
+      ;;
+    30)
+      test-replace  "" "i2v2" "Yb2wgY!JNE=8"
+      ;;
+esac

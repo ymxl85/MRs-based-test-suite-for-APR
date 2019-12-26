@@ -1,0 +1,419 @@
+--allow-coverage-fail false
+--appp 0.33333
+--asm-code-only false
+--best-edit-rule "1 * fault_loc_weight ; 1 * max_test_fail_prob ; -1 * num_tests"
+--best-test-rule "1 * test_fail_prob ; 1 * test_fail_count ; -1 * test_pass_count"
+--compiler "gcc"
+--compiler-command ""
+--compiler-opts ""
+--continue false
+--coverage-info ""
+--coverage-per-test false
+--crossover "one"
+--crossp 0.5
+--delp 0.33333
+--describe-machine false
+--diversity-selection 0
+--edit-script false
+--elf-risc false
+--exclude-edits ""
+--exp-diff false
+--fault-file ""
+--fault-path "coverage.path.neg"
+--fault-scheme "path"
+--fitness-in-parallel 1
+--fix-file ""
+--fix-oracle ""
+--fix-path "coverage.path.pos"
+--fix-scheme "default"
+--flatten-path ""
+--format "txt"
+--gen-per-exchange 1
+--generations 10
+--gui false
+--hostname "127.0.0.1"
+--ignore-dead-code false
+--ignore-equiv-appends false
+--ignore-standard-headers false
+--ignore-string-equiv-fixes false
+--ignore-untyped-returns false
+--incoming-pop ""
+--keep-source false
+--label-repair true
+--max-evals 0
+--minimization false
+--mt-cov false
+--multiopt-minimize false
+--multiopt-no-inf false
+--neg-tests 6
+--neg-weight 1
+--negative-test-weight 2
+--neutral-walk-max-size 0
+--neutral-walk-weight ""
+--nht-id "global"
+--nht-port 51000
+--nht-server ""
+--no-rep-cache false
+--no-test-cache false
+--num-comps 2
+--num-objectives 2
+--oracle-genome ""
+--popsize 40
+--port 60000
+--pos-tests 50
+--pos-weight 0.1
+--prefix "./"
+--preprocessor ""
+--print-incremental-evals false
+--print-source-name false
+--program "pt1.i"
+--promut 1
+--quiet false
+--regen-paths false
+--rep ""
+--rep-cache ""
+--repp 0
+--samp-strat "variant"
+--sample 1
+--sample-runs 100
+--sanity "default"
+--search "ga"
+--seed 775005177
+--semantic-check "scope"
+--single-fitness false
+--skip-failed-sanity-tests false
+--skip-tests ""
+--split-search 0
+--sport 65000
+--subatom-constp 0.5
+--subatom-mutp 0
+--super-mutant false
+--super-mutant-size 50
+--swap-bug false
+--swapp 0.33333
+--template-cache ""
+--templates ""
+--test-command ""
+--test-script "/bin/sh test.sh"
+--tournament-size 2
+--tweet false
+--uniq false
+--valgrind false
+--variants-exchanged 50
+cilRep: preprocessing IO function signatures: /tmp/tmpd36e9a.c /tmp/tmpac12c8.c
+cilRep: done preprocessing IO function signatures
+Exception in loading: Sys_error("pt1.cache: No such file or directory")
+cilrep: from_source: pre: stmt_count = 1
+cilRep: pt1.i: parsing
+cilRep: pt1.i: parsed (0.0507069 MB)
+cilrep: from_source: post: stmt_count: 326
+cachingRepresentation: sanity checking begins
+	p1: true (1)
+	p2: true (1)
+	p3: true (1)
+	p4: true (1)
+	p5: true (1)
+	p6: true (1)
+	p7: true (1)
+	p8: true (1)
+	p9: true (1)
+	p10: true (1)
+	p11: true (1)
+	p12: true (1)
+	p13: true (1)
+	p14: true (1)
+	p15: true (1)
+	p16: true (1)
+	p17: true (1)
+	p18: true (1)
+	p19: true (1)
+	p20: true (1)
+	p21: true (1)
+	p22: true (1)
+	p23: true (1)
+	p24: true (1)
+	p25: true (1)
+	p26: true (1)
+	p27: true (1)
+	p28: true (1)
+	p29: true (1)
+	p30: true (1)
+	p31: true (1)
+	p32: true (1)
+	p33: true (1)
+	p34: true (1)
+	p35: true (1)
+	p36: true (1)
+	p37: true (1)
+	p38: true (1)
+	p39: true (1)
+	p40: true (1)
+	p41: true (1)
+	p42: true (1)
+	p43: true (1)
+	p44: true (1)
+	p45: true (1)
+	p46: true (1)
+	p47: true (1)
+	p48: true (1)
+	p49: true (1)
+	p50: true (1)
+	n1: false (0)
+	n2: false (0)
+	n3: false (0)
+	n4: false (0)
+	n5: false (0)
+	n6: false (0)
+cachingRepresentation: sanity checking passed (time_taken = 0.791074)
+faultLocRep: compute_localization: fault_scheme: path, fix_scheme: default
+Rep: coverage_sourcename: /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/pt2/randomTC/v1/6/./coverage.c
+cilRep: instrumenting for fault localization
+cilRep: done instrumenting for fault localization
+coverage negative:
+	test: 1
+	test: 2
+	test: 3
+	test: 4
+	test: 5
+	test: 6
+coverage positive:
+	test: 1
+	test: 2
+	test: 3
+	test: 4
+	test: 5
+	test: 6
+	test: 7
+	test: 8
+	test: 9
+	test: 10
+	test: 11
+	test: 12
+	test: 13
+	test: 14
+	test: 15
+	test: 16
+	test: 17
+	test: 18
+	test: 19
+	test: 20
+	test: 21
+	test: 22
+	test: 23
+	test: 24
+	test: 25
+	test: 26
+	test: 27
+	test: 28
+	test: 29
+	test: 30
+	test: 31
+	test: 32
+	test: 33
+	test: 34
+	test: 35
+	test: 36
+	test: 37
+	test: 38
+	test: 39
+	test: 40
+	test: 41
+	test: 42
+	test: 43
+	test: 44
+	test: 45
+	test: 46
+	test: 47
+	test: 48
+	test: 49
+	test: 50
+cilRep: pt1.cache: saved
+cachingRep: pt1.cache: saved
+faultlocRep: pt1.cache: saved
+cilrep done serialize
+cilRep: stmt_count = 326
+cilRep: stmts in weighted_path = 256
+cilRep: total weight = 26.5
+cilRep: stmts in weighted_path with weight >= 1.0 = 1
+cilRep: pt1.i (code bank/base file; atoms [1,326])
+cilRep: 1 file(s) total in representation
+search: genetic algorithm begins (|original| = 0.0418501 MB)
+search: initial population (sizeof one variant = 0.00949383 MB)
+	 50 a(160,126) 
+	  1 d(298) 
+	 14 d(243) 
+	 43 d(299) 
+	  0 a(140,53) 
+	 50 d(170) 
+	  0 s(183,117) 
+	 46 d(304) 
+	  0 d(181) 
+	 49 d(180) 
+	 50 a(80,78) 
+	  0 a(178,158) 
+	 50 d(223) 
+	 78 s(5,6) 
+	 50 s(109,92) 
+	 50 d(32) 
+	 50 a(26,260) 
+	 50 s(255,4) 
+	  0 s(2,1) 
+	 43 d(299) 
+	  0 d(135) 
+	 46 d(95) 
+	 50 s(195,203) 
+	 50 s(188,187) 
+	 50 d(161) 
+	 50 d(58) 
+	 50 a(98,232) 
+	 50 a(41,46) 
+	  0 d(225) 
+	 50 s(310,288) 
+	 42 d(303) 
+	 50 a(8,110) 
+	 50 d(88) 
+	 50 s(248,236) 
+	 50 d(92) 
+	 50 d(21) 
+	 50 a(97,295) 
+	 42 d(238) 
+	 50 a(233,257) 
+	 50 original
+search: generation 1 (sizeof one variant = 0.0422077 MB)
+	 50 d(170) d(147) 
+	 50 a(8,110) d(4) 
+	  0 s(255,4) s(159,175) 
+	 50 s(310,288) a(296,48) 
+	 43 d(299) s(105,106) 
+	 15 s(255,4) s(108,106) 
+	  0 d(299) d(65) 
+	  0 s(255,4) s(140,112) 
+	 50 a(41,46) s(37,48) 
+	 42 d(238) a(83,94) 
+	 50 a(41,46) d(47) 
+	 42 d(238) s(242,236) 
+	 42 d(299) s(105,104) 
+	 78 s(5,6) s(274,272) 
+	 43 d(299) d(4) 
+	 78 s(5,6) a(73,9) 
+	 31 d(21) s(54,31) 
+	 42 d(303) s(161,34) 
+	 42 d(21) s(282,264) 
+	  0 d(303) d(185) 
+	 47 a(233,257) d(273) 
+	 50 s(188,187) a(110,104) 
+	  0 a(233,257) a(116,110) 
+	 50 s(188,187) s(130,122) 
+	  0 d(21) a(63,233) 
+	 50 a(8,110) a(200,312) 
+	 50 d(58) a(217,29) 
+	 50 s(195,203) a(323,165) 
+	 42 d(58) d(303) 
+	  7 s(195,203) d(83) 
+	 43 d(299) a(97,112) 
+	  0 d(304) a(1,312) 
+	 78 s(5,6) d(264) 
+	 27 a(98,232) s(130,114) 
+	 78 s(5,6) d(301) 
+	 50 a(98,232) d(20) 
+	 25 d(95) d(80) 
+	  0 d(21) d(18) 
+	 50 a(8,110) s(235,233) 
+	 50 d(223) s(234,235) 
+	  0 a(8,110) d(312) 
+	 50 d(223) a(260,276) 
+	 46 d(304) a(116,141) 
+	 49 s(188,187) d(158) 
+	  0 d(304) d(319) 
+	 46 s(188,187) d(276) 
+	 32 a(41,46) s(260,258) 
+	 77 s(5,6) a(274,47) 
+	  4 a(233,257) s(101,88) 
+	 50 a(26,260) a(29,69) 
+	  0 d(27) 
+	 50 d(88) a(120,286) 
+	 50 a(97,31) 
+	  4 d(88) a(42,47) 
+	 44 s(206,203) 
+	  0 s(5,6) d(125) 
+	 50 d(88) a(67,161) 
+	 50 s(188,187) s(286,255) 
+	 46 d(95) d(222) 
+	 28 s(11,8) 
+search: generation 2 (sizeof one variant = 0.0429411 MB)
+	 42 a(233,257) d(273) s(311,304) 
+	  0 d(299) d(65) a(37,126) 
+	 35 d(299) d(158) d(281) 
+	  0 s(188,187) s(105,106) s(39,37) 
+	 43 d(299) s(105,106) s(141,140) 
+	 49 s(188,187) d(158) a(248,296) 
+	 50 d(58) a(31,255) 
+	 78 s(5,6) d(301) d(303) s(191,197) 
+	 42 d(58) d(303) a(106,172) 
+	  0 s(5,6) d(301) d(16) 
+	 25 d(95) s(63,48) 
+	 50 a(98,232) d(20) d(222) a(97,285) 
+	  0 d(95) d(222) a(116,208) 
+	  7 a(98,232) d(20) s(6,3) 
+	 50 d(58) a(200,312) a(97,255) 
+	  1 a(8,110) a(217,29) s(41,31) 
+	 20 d(58) a(217,29) d(239) 
+	 50 a(8,110) a(200,312) s(60,43) 
+	 49 a(8,110) s(220,225) 
+	 37 d(58) d(303) s(235,233) d(206) 
+	  0 a(8,110) s(235,233) d(27) 
+	 42 d(58) d(303) d(267) 
+	 50 s(310,288) d(97) 
+	 49 s(188,187) d(158) a(296,48) a(137,135) 
+	 48 s(310,288) a(296,48) a(294,216) 
+	 43 s(188,187) d(158) s(197,206) 
+	  0 s(310,288) a(296,48) s(114,184) 
+	 42 d(88) a(120,286) d(280) 
+	  0 s(188,187) a(110,104) d(224) 
+	 25 s(5,6) d(301) d(82) 
+	 50 s(188,187) a(110,104) s(197,189) 
+	 78 s(5,6) d(301) a(59,255) 
+	 50 s(188,187) s(37,48) d(97) 
+	 50 a(41,46) s(286,255) d(217) 
+	 42 s(188,187) s(286,255) d(302) 
+	 50 a(41,46) s(37,48) d(19) 
+	 50 s(310,288) a(296,48) d(60) 
+	 36 a(98,232) d(20) s(160,156) 
+	 37 a(26,260) a(29,69) s(161,34) s(245,250) 
+	 42 d(303) d(46) 
+	 50 a(26,260) a(29,69) d(128) 
+	  1 d(303) s(161,34) s(30,53) 
+	 50 a(8,110) s(235,233) d(20) d(97) 
+	  0 a(98,232) s(59,70) 
+	 27 a(8,110) s(235,233) d(152) 
+	 50 a(98,232) d(20) a(97,86) 
+	 49 a(8,110) s(235,233) s(213,212) 
+	  0 d(304) a(116,141) s(117,112) 
+	 25 d(223) s(234,235) s(283,88) 
+	 50 a(98,232) d(20) a(69,214) 
+	 50 d(223) s(234,235) s(247,182) 
+	  0 a(98,232) d(20) s(129,114) 
+	 46 d(95) d(222) d(110) 
+	 50 s(195,203) a(323,165) a(129,161) 
+	 78 s(5,6) a(16,283) 
+	  0 s(188,187) a(110,104) d(301) s(241,250) 
+	  0 s(5,6) d(301) a(118,29) 
+	  0 s(188,187) a(110,104) s(290,183) 
+	150 a(8,110) d(4) s(76,80) 
+
+Repair Found: a(8,110) d(4) s(76,80)
+Repair Name: a(8,110) d(4) s(76,80) 
+Test Condition: 0
+Test Cases Skipped: ""
+Current Time: 1438221113.892013
+Rep: saving test cache
+
+Variant Test Case Queries: 8848
+"Test Suite Evaluations": 158
+
+Compile Failures: 0
+Wall-Clock Seconds Elapsed: 359.73
+  Activity Name                     Count Seconds = Percent of Total Time
+  compile                             160  12.866 = 3.79279%
+  test                               8960 326.337 = 96.2003%
+  TOTAL                                   339.227 = 94.2963% (avg CPU usage)

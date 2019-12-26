@@ -1,0 +1,580 @@
+***************randomTC/v1/4
+gcc -D_GNUCC -E -DCIL=1 randomTC/v1/4/pt1.c -o randomTC/v1/4/pt1.i
+randomTC/v1/4/pt1.c:20:1: warning: "EOF" redefined
+In file included from /usr/include/stdio.h:75,
+                 from randomTC/v1/4/pt1.c:14:
+/usr/include/libio.h:90:1: warning: this is the location of the previous definition
+/usr/local/bin/cilly.native --out randomTC/v1/4/pt1.cil.c --noPrintLn --useLogicalOperators randomTC/v1/4/pt1.i
+randomTC/v1/4/pt1.c:276: Warning: Body of function print_token falls-through. Adding a return statement
+randomTC/v1/4/pt1.c:417: Warning: Body of function unget_error falls-through. Adding a return statement
+gcc -D_GNUCC -E randomTC/v1/4/pt1.cil.c -o randomTC/v1/4/pt1.cil.i
+gcc -D_GNUCC -c -o randomTC/v1/4/pt1.o randomTC/v1/4/pt1.cil.i
+randomTC/v1/4/pt1.cil.c: In function ‘get_token’:
+randomTC/v1/4/pt1.cil.c:141: warning: passing argument 1 of ‘unget_error’ from incompatible pointer type
+randomTC/v1/4/pt1.cil.c:29: note: expected ‘char **’ but argument is of type ‘token_stream’
+randomTC/v1/4/pt1.cil.c:149: warning: passing argument 1 of ‘unget_error’ from incompatible pointer type
+randomTC/v1/4/pt1.cil.c:29: note: expected ‘char **’ but argument is of type ‘token_stream’
+randomTC/v1/4/pt1.cil.c: At top level:
+randomTC/v1/4/pt1.cil.c:568: warning: conflicting types for built-in function ‘exit’
+gcc -D_GNUCC -o a.out randomTC/v1/4/pt1.o
+$ cp randomTC/v1/4/pt1.cil.i /tmp/CETI_1d9a19/pt1.cil.i
+input length='56' output length='56'
+*** Get good/bad tcs ***
+cmd 'gcc /tmp/CETI_1d9a19/pt1.cil.i -o /tmp/CETI_1d9a19/pt1.cil.i.exe >& /dev/null'
+$ gcc /tmp/CETI_1d9a19/pt1.cil.i -o /tmp/CETI_1d9a19/pt1.cil.i.exe >& /dev/null
+write_file_str: '/tmp/CETI_1d9a19/pt1.cil.i.sh'
+$ sh /tmp/CETI_1d9a19/pt1.cil.i.sh /tmp/CETI_1d9a19/pt1.cil.i.exe &> /dev/null
+[35mAlert: 6/56 tests failed. Processing ..
+[mwrite_src: '/tmp/CETI_1d9a19/pt1.cil.i.preproc.c'
+*** Fault Localization ***
+write_src: '/tmp/CETI_1d9a19/faultloc_5438e0/pt1.cil.i.cov.c'
+cmd 'gcc /tmp/CETI_1d9a19/faultloc_5438e0/pt1.cil.i.cov.c -o /tmp/CETI_1d9a19/faultloc_5438e0/pt1.cil.i.cov.c.exe >& /dev/null'
+$ gcc /tmp/CETI_1d9a19/faultloc_5438e0/pt1.cil.i.cov.c -o /tmp/CETI_1d9a19/faultloc_5438e0/pt1.cil.i.cov.c.exe >& /dev/null
+goods length:50
+write_file_str: '/tmp/CETI_1d9a19/faultloc_5438e0/pt1.cil.i.g.sh'
+$ sh /tmp/CETI_1d9a19/faultloc_5438e0/pt1.cil.i.g.sh /tmp/CETI_1d9a19/faultloc_5438e0/pt1.cil.i.cov.c.exe /tmp/CETI_1d9a19/faultloc_5438e0/pt1.cil.i.outputs_g_dontcare &> /dev/null
+write_file_str: '/tmp/CETI_1d9a19/faultloc_5438e0/pt1.cil.i.b.sh'
+$ sh /tmp/CETI_1d9a19/faultloc_5438e0/pt1.cil.i.b.sh /tmp/CETI_1d9a19/faultloc_5438e0/pt1.cil.i.cov.c.exe /tmp/CETI_1d9a19/faultloc_5438e0/pt1.cil.i.outputs_bad_dontcare &> /dev/null
+0. sid 56 in fun 'is_token_end' (score 0.774597)
+__cil_tmp14 = 1;
+1. sid 47 in fun 'get_token' (score 0.774597)
+__cil_tmp29 = buffer;
+2. sid 46 in fun 'get_token' (score 0.738549)
+__cil_tmp28 = id == 1;
+3. sid 45 in fun 'get_token' (score 0.454859)
+__cil_tmp27 = tmp___3 == 1;
+4. sid 111 in fun 'is_char_constant' (score 0.408248)
+__cil_tmp3 = 1;
+5. sid 82 in fun 'print_token' (score 0.408248)
+tok ++;
+6. sid 70 in fun 'token_type' (score 0.408248)
+__cil_tmp15 = 43;
+7. sid 81 in fun 'token_type' (score 0.369274)
+__cil_tmp26 = 0;
+8. sid 142 in fun 'unget_error' (score 0.357295)
+__cil_tmp2 = 0;
+9. sid 48 in fun 'is_token_end' (score 0.357295)
+__cil_tmp6 = 1;
+10. sid 27 in fun 'get_token' (score 0.357295)
+__cil_tmp18 = buffer;
+11. sid 26 in fun 'get_token' (score 0.357295)
+__cil_tmp17 = (int )ch == 0;
+12. sid 8 in fun 'unget_char' (score 0.357295)
+__cil_tmp4 = c;
+13. sid 145 in fun 'print_spec_symbol' (score 0.356348)
+__cil_tmp11 = ! tmp___1;
+14. sid 132 in fun 'is_identifier' (score 0.35007)
+i ++;
+15. sid 64 in fun 'is_token_end' (score 0.339683)
+__cil_tmp20 = 0;
+16. sid 63 in fun 'is_token_end' (score 0.339683)
+__cil_tmp19 = ((int )ch == 32 || (int )ch == 10) || (int )ch == 59;
+17. sid 62 in fun 'is_token_end' (score 0.339683)
+__cil_tmp18 = tmp___0 == 1;
+18. sid 61 in fun 'is_token_end' (score 0.339683)
+__cil_tmp17 = str_com_id == 2;
+19. sid 60 in fun 'is_token_end' (score 0.339683)
+__cil_tmp16 = str_com_id == 1;
+20. sid 25 in fun 'get_token' (score 0.339683)
+buffer[i] = ch;
+21. sid 24 in fun 'get_token' (score 0.339683)
+i ++;
+22. sid 93 in fun 'is_eof_token' (score 0.330289)
+__cil_tmp3 = 0;
+23. sid 59 in fun 'is_token_end' (score 0.330289)
+__cil_tmp15 = tmp == 1;
+24. sid 58 in fun 'is_token_end' (score 0.330289)
+ch1[1] = (char )'\000';
+25. sid 57 in fun 'is_token_end' (score 0.330289)
+ch1[0] = ch;
+26. sid 44 in fun 'get_token' (score 0.330289)
+__cil_tmp26 = tmp___2 == 1;
+27. sid 43 in fun 'get_token' (score 0.330289)
+ch1[0] = ch;
+28. sid 42 in fun 'get_token' (score 0.330289)
+__cil_tmp25 = (int )ch == 59;
+29. sid 41 in fun 'get_token' (score 0.330289)
+__cil_tmp24 = (int )ch == 34;
+30. sid 40 in fun 'get_token' (score 0.330289)
+__cil_tmp23 = tmp___0 == 1;
+31. sid 23 in fun 'get_token' (score 0.330289)
+__cil_tmp16 = ! (tmp___1 == 0);
+32. sid 12 in fun 'unget_char' (score 0.330289)
+__cil_tmp7 = (int )c == 0;
+33. sid 11 in fun 'unget_char' (score 0.330289)
+__cil_tmp6 = (int )ch != 0;
+34. sid 10 in fun 'unget_char' (score 0.330289)
+c = ch;
+35. sid 166 in fun 'mainQ' (score 0.327327)
+__cil_tmp7 = r;
+36. sid 165 in fun 'mainQ' (score 0.327327)
+fname = argv1;
+37. sid 164 in fun 'mainQ' (score 0.327327)
+__cil_tmp6 = ! (tmp == 0);
+38. sid 163 in fun 'is_spec_symbol' (score 0.327327)
+__cil_tmp23 = 0;
+39. sid 162 in fun 'is_spec_symbol' (score 0.327327)
+__cil_tmp22 = ! tmp___5;
+40. sid 161 in fun 'is_spec_symbol' (score 0.327327)
+__cil_tmp21 = ! tmp___4;
+41. sid 160 in fun 'is_spec_symbol' (score 0.327327)
+__cil_tmp20 = ! tmp___3;
+42. sid 159 in fun 'is_spec_symbol' (score 0.327327)
+__cil_tmp19 = ! tmp___2;
+43. sid 158 in fun 'is_spec_symbol' (score 0.327327)
+__cil_tmp18 = ! tmp___1;
+44. sid 157 in fun 'is_spec_symbol' (score 0.327327)
+__cil_tmp17 = ! tmp___0;
+45. sid 156 in fun 'is_spec_symbol' (score 0.327327)
+__cil_tmp16 = ! tmp;
+46. sid 141 in fun 'is_identifier' (score 0.327327)
+__cil_tmp12 = (int const   )*(*tmp___1 + (int )*str) & 1024;
+47. sid 140 in fun 'is_identifier' (score 0.327327)
+i = 1;
+48. sid 139 in fun 'is_identifier' (score 0.327327)
+__cil_tmp11 = 0;
+49. sid 131 in fun 'is_str_constant' (score 0.327327)
+__cil_tmp8 = (int )*str == 34;
+50. sid 130 in fun 'is_str_constant' (score 0.327327)
+i = 1;
+51. sid 129 in fun 'is_str_constant' (score 0.327327)
+__cil_tmp7 = 0;
+52. sid 123 in fun 'is_num_constant' (score 0.327327)
+__cil_tmp10 = (int const   )*(*tmp___0 + (int )*str) & 2048;
+53. sid 122 in fun 'is_num_constant' (score 0.327327)
+i = 1;
+54. sid 121 in fun 'is_num_constant' (score 0.327327)
+__cil_tmp9 = 0;
+55. sid 115 in fun 'is_char_constant' (score 0.327327)
+__cil_tmp7 = (int )*str == 35;
+56. sid 114 in fun 'is_char_constant' (score 0.327327)
+__cil_tmp6 = 0;
+57. sid 110 in fun 'is_keyword' (score 0.327327)
+__cil_tmp20 = tmp;
+58. sid 108 in fun 'is_keyword' (score 0.327327)
+__cil_tmp18 = tmp___0;
+59. sid 106 in fun 'is_keyword' (score 0.327327)
+__cil_tmp16 = tmp___1;
+60. sid 104 in fun 'is_keyword' (score 0.327327)
+__cil_tmp14 = tmp___2;
+61. sid 102 in fun 'is_keyword' (score 0.327327)
+__cil_tmp12 = tmp___3;
+62. sid 100 in fun 'is_keyword' (score 0.327327)
+__cil_tmp10 = tmp___4;
+63. sid 98 in fun 'is_keyword' (score 0.327327)
+__cil_tmp8 = 0;
+64. sid 97 in fun 'is_comment' (score 0.327327)
+__cil_tmp4 = (int )*ident == 59;
+65. sid 96 in fun 'is_comment' (score 0.327327)
+__cil_tmp3 = 0;
+66. sid 94 in fun 'is_eof_token' (score 0.327327)
+__cil_tmp4 = (int )*tok == 0;
+67. sid 92 in fun 'is_eof_token' (score 0.327327)
+__cil_tmp2 = 1;
+68. sid 91 in fun 'print_token' (score 0.327327)
+__cil_tmp12 = 0;
+69. sid 90 in fun 'print_token' (score 0.327327)
+__cil_tmp11 = type == 6;
+70. sid 89 in fun 'print_token' (score 0.327327)
+__cil_tmp10 = type == 43;
+71. sid 88 in fun 'print_token' (score 0.327327)
+__cil_tmp9 = type == 42;
+72. sid 87 in fun 'print_token' (score 0.327327)
+__cil_tmp8 = type == 41;
+73. sid 86 in fun 'print_token' (score 0.327327)
+__cil_tmp7 = type == 3;
+74. sid 85 in fun 'print_token' (score 0.327327)
+__cil_tmp6 = type == 2;
+75. sid 84 in fun 'print_token' (score 0.327327)
+__cil_tmp5 = type == 1;
+76. sid 83 in fun 'print_token' (score 0.327327)
+__cil_tmp4 = type == 0;
+77. sid 80 in fun 'token_type' (score 0.327327)
+__cil_tmp25 = tmp___6;
+78. sid 79 in fun 'token_type' (score 0.327327)
+__cil_tmp24 = tmp___5;
+79. sid 78 in fun 'token_type' (score 0.327327)
+__cil_tmp23 = tmp___4;
+80. sid 77 in fun 'token_type' (score 0.327327)
+__cil_tmp22 = tmp___3;
+81. sid 76 in fun 'token_type' (score 0.327327)
+__cil_tmp21 = tmp___2;
+82. sid 75 in fun 'token_type' (score 0.327327)
+__cil_tmp20 = tmp___1;
+83. sid 74 in fun 'token_type' (score 0.327327)
+__cil_tmp19 = tmp___0;
+84. sid 73 in fun 'token_type' (score 0.327327)
+__cil_tmp18 = tmp;
+85. sid 72 in fun 'token_type' (score 0.327327)
+__cil_tmp17 = 6;
+86. sid 39 in fun 'get_token' (score 0.327327)
+__cil_tmp22 = tmp == 1;
+87. sid 38 in fun 'get_token' (score 0.327327)
+buffer[i] = ch;
+88. sid 37 in fun 'get_token' (score 0.327327)
+ch1[1] = (char )'\000';
+89. sid 36 in fun 'get_token' (score 0.327327)
+ch1[0] = (char )'\000';
+90. sid 35 in fun 'get_token' (score 0.327327)
+j = 0;
+91. sid 34 in fun 'get_token' (score 0.327327)
+id = 0;
+92. sid 33 in fun 'get_token' (score 0.327327)
+i = 0;
+93. sid 19 in fun 'get_token' (score 0.327327)
+__cil_tmp14 = buffer;
+94. sid 18 in fun 'get_token' (score 0.327327)
+__cil_tmp13 = (int )ch == 32 || (int )ch == 10;
+95. sid 17 in fun 'get_token' (score 0.327327)
+j ++;
+96. sid 16 in fun 'get_token' (score 0.327327)
+buffer[j] = (char )'\000';
+97. sid 15 in fun 'get_token' (score 0.327327)
+__cil_tmp12 = j <= 80;
+98. sid 14 in fun 'open_token_stream' (score 0.327327)
+__cil_tmp5 = fp;
+99. sid 13 in fun 'open_token_stream' (score 0.327327)
+__cil_tmp4 = tmp == 0;
+100. sid 6 in fun 'get_char' (score 0.327327)
+__cil_tmp4 = ch;
+101. sid 5 in fun 'get_char' (score 0.327327)
+__cil_tmp3 = (int )ch != 0;
+102. sid 4 in fun 'get_char' (score 0.327327)
+ch = *(*fp);
+103. sid 3 in fun 'get_char' (score 0.327327)
+(*fp) ++;
+104. sid 2 in fun 'open_character_stream' (score 0.327327)
+__cil_tmp3 = fp;
+105. sid 1 in fun 'open_character_stream' (score 0.327327)
+fp = fname;
+106. sid 137 in fun 'is_identifier' (score 0.32686)
+__cil_tmp9 = (int const   )*(*tmp + (int )*(str + i)) & 1024;
+107. sid 55 in fun 'is_token_end' (score 0.326599)
+__cil_tmp13 = 1;
+108. sid 29 in fun 'get_token' (score 0.326599)
+__cil_tmp20 = buffer;
+109. sid 28 in fun 'get_token' (score 0.326599)
+__cil_tmp19 = (int )ch == 0;
+110. sid 9 in fun 'unget_char' (score 0.326599)
+__cil_tmp5 = c;
+111. sid 7 in fun 'unget_char' (score 0.326599)
+(*fp) --;
+112. sid 136 in fun 'is_identifier' (score 0.311286)
+__cil_tmp8 = (int )*(str + i) != 0;
+113. sid 144 in fun 'print_spec_symbol' (score 0.303239)
+__cil_tmp10 = ! tmp___0;
+114. sid 146 in fun 'print_spec_symbol' (score 0.297044)
+__cil_tmp12 = ! tmp___2;
+115. sid 143 in fun 'print_spec_symbol' (score 0.293294)
+__cil_tmp9 = ! tmp;
+116. sid 66 in fun 'token_type' (score 0.293294)
+__cil_tmp11 = 2;
+117. sid 20 in fun 'get_token' (score 0.293294)
+__cil_tmp15 = buffer;
+118. sid 128 in fun 'is_str_constant' (score 0.288675)
+__cil_tmp6 = 0;
+119. sid 113 in fun 'is_char_constant' (score 0.288675)
+__cil_tmp5 = (int const   )*(*tmp + (int )*(str + 1)) & 1024;
+120. sid 138 in fun 'is_identifier' (score 0.280976)
+__cil_tmp10 = 1;
+121. sid 67 in fun 'token_type' (score 0.280976)
+__cil_tmp12 = 3;
+122. sid 135 in fun 'is_identifier' (score 0.276026)
+__cil_tmp7 = (int const   )*(*tmp___0 + (int )*(str + i)) & 2048;
+123. sid 148 in fun 'print_spec_symbol' (score 0.246183)
+__cil_tmp14 = ! tmp___4;
+124. sid 147 in fun 'print_spec_symbol' (score 0.246183)
+__cil_tmp13 = ! tmp___3;
+125. sid 155 in fun 'is_spec_symbol' (score 0.235702)
+__cil_tmp15 = 1;
+126. sid 126 in fun 'is_str_constant' (score 0.235702)
+__cil_tmp4 = (int )*(str + i) != 0;
+127. sid 21 in fun 'get_token' (score 0.235702)
+id = 1;
+128. sid 134 in fun 'is_identifier' (score 0.235702)
+__cil_tmp6 = 0;
+129. sid 119 in fun 'is_num_constant' (score 0.226455)
+__cil_tmp7 = (int const   )*(*tmp + (int )*(str + i)) & 2048;
+130. sid 117 in fun 'is_num_constant' (score 0.226455)
+__cil_tmp5 = 0;
+131. sid 118 in fun 'is_num_constant' (score 0.210819)
+__cil_tmp6 = (int )*(str + i) != 0;
+132. sid 133 in fun 'is_identifier' (score 0.204124)
+i ++;
+133. sid 152 in fun 'is_spec_symbol' (score 0.166667)
+__cil_tmp12 = 1;
+134. sid 151 in fun 'is_spec_symbol' (score 0.154303)
+__cil_tmp11 = 1;
+135. sid 154 in fun 'is_spec_symbol' (score 0.144338)
+__cil_tmp14 = 1;
+136. sid 150 in fun 'is_spec_symbol' (score 0.129099)
+__cil_tmp10 = 1;
+[35mAlert: FL: found 137 stmts with sscores >= 0.01
+[m[35mAlert: Perform ** BugFix **
+[mwrite_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s56.t1.arr'
+[35mAlert: CONSTS: don't know how to deal with exp 'buffer' (sid 47)
+[m[35mAlert: OPS_PR: don't know how to deal with exp 'buffer' (sid 47)
+[mwrite_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s47.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s46.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s45.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s111.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s82.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s70.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s81.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s142.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s48.t1.arr'
+[35mAlert: CONSTS: don't know how to deal with exp 'buffer' (sid 27)
+[m[35mAlert: OPS_PR: don't know how to deal with exp 'buffer' (sid 27)
+[mwrite_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s27.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s26.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s8.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s145.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s132.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s64.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s63.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s62.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s61.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s60.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s25.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s24.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s59.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s58.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s57.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s44.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s43.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s42.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s41.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s40.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s23.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s12.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s11.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s10.t1.arr'
+[35mAlert: CONSTS: don't know how to deal with exp 'r' (sid 166)
+[m[35mAlert: OPS_PR: don't know how to deal with exp 'r' (sid 166)
+[mwrite_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s166.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s165.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s164.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s163.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s162.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s161.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s160.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s159.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s158.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s157.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s156.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s141.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s140.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s139.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s131.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s130.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s129.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s123.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s122.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s121.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s115.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s114.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s110.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s108.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s106.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s104.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s102.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s100.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s98.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s91.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s90.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s89.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s88.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s87.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s86.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s85.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s84.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s83.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s80.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s79.t1.arr'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.s78.t1.arr'
+[35mAlert: Spy: Got 159 info from 80 sids
+[minput length='56' output length='56'
+write_file_bin: '/tmp/CETI_1d9a19/pt1.cil.i.info'
+$ python kl.py /tmp/CETI_1d9a19/pt1.cil.i --do_tb "(56, 3, 1, 1); (56, 1, 4, 3); (47, 1, 4, 6); (46, 3, 1, 1); (46, 7, 2, 1); (46, 1, 4, 6); (45, 3, 1, 1); (45, 7, 2, 1); (45, 1, 4, 6); (111, 3, 1, 1); (111, 1, 4, 1); (82, 3, 1, 1); (82, 1, 4, 2); (70, 3, 1, 1); (70, 1, 4, 1); (81, 3, 1, 1); (81, 1, 4, 1); (142, 3, 1, 1); (142, 1, 4, 1); (48, 3, 1, 1); (48, 1, 4, 3); (27, 1, 4, 6); (26, 3, 1, 1); (26, 7, 2, 1); (26, 1, 4, 6); (8, 1, 4, 3); (145, 1, 4, 2); (132, 3, 1, 1); (132, 7, 2, 1); (132, 1, 4, 2); (64, 3, 1, 1); (64, 1, 4, 3); (63, 3, 1, 3); (63, 7, 2, 5); (63, 1, 4, 3); (62, 3, 1, 1); (62, 7, 2, 1); (62, 1, 4, 3); (61, 3, 1, 1); (61, 7, 2, 1); (61, 1, 4, 3); (60, 3, 1, 1); (60, 7, 2, 1); (60, 1, 4, 3); (25, 1, 4, 6); (24, 3, 1, 1); (24, 7, 2, 1); (24, 1, 4, 6); (93, 3, 1, 1); (59, 3, 1, 1); (59, 7, 2, 1); (59, 1, 4, 3); (58, 3, 1, 1); (58, 1, 4, 3); (57, 1, 4, 3); (44, 3, 1, 1); (44, 7, 2, 1); (44, 1, 4, 6); (43, 1, 4, 6); (42, 3, 1, 1); (42, 7, 2, 1); (42, 1, 4, 6); (41, 3, 1, 1); (41, 7, 2, 1); (41, 1, 4, 6); (40, 3, 1, 1); (40, 7, 2, 1); (40, 1, 4, 6); (23, 3, 1, 1); (23, 7, 2, 1); (23, 1, 4, 6); (12, 3, 1, 1); (12, 7, 2, 1); (12, 1, 4, 3); (11, 3, 1, 1); (11, 7, 2, 1); (11, 1, 4, 3); (10, 1, 4, 3); (166, 1, 4, 3); (165, 1, 4, 3); (164, 3, 1, 1); (164, 7, 2, 1); (164, 1, 4, 3); (163, 3, 1, 1); (163, 1, 4, 1); (162, 1, 4, 1); (161, 1, 4, 1); (160, 1, 4, 1); (159, 1, 4, 1); (158, 1, 4, 1); (157, 1, 4, 1); (156, 1, 4, 1); (141, 3, 1, 1); (141, 1, 4, 2); (140, 3, 1, 1); (140, 1, 4, 2); (139, 3, 1, 1); (139, 1, 4, 2); (131, 3, 1, 1); (131, 7, 2, 1); (131, 1, 4, 1); (130, 3, 1, 1); (130, 1, 4, 1); (129, 3, 1, 1); (129, 1, 4, 1); (123, 3, 1, 1); (123, 1, 4, 2); (122, 3, 1, 1); (122, 1, 4, 2); (121, 3, 1, 1); (121, 1, 4, 2); (115, 3, 1, 1); (115, 7, 2, 1); (115, 1, 4, 1); (114, 3, 1, 1); (114, 1, 4, 1); (110, 1, 4, 1); (108, 1, 4, 1); (106, 1, 4, 1); (104, 1, 4, 1); (102, 1, 4, 1); (100, 1, 4, 1); (98, 3, 1, 1); (98, 1, 4, 1); (97, 3, 1, 1); (97, 7, 2, 1); (96, 3, 1, 1); (94, 3, 1, 1); (94, 7, 2, 1); (92, 3, 1, 1); (91, 3, 1, 1); (91, 1, 4, 2); (90, 3, 1, 1); (90, 7, 2, 1); (90, 1, 4, 2); (89, 3, 1, 1); (89, 7, 2, 1); (89, 1, 4, 2); (88, 3, 1, 1); (88, 7, 2, 1); (88, 1, 4, 2); (87, 3, 1, 1); (87, 7, 2, 1); (87, 1, 4, 2); (86, 3, 1, 1); (86, 7, 2, 1); (86, 1, 4, 2); (85, 3, 1, 1); (85, 7, 2, 1); (85, 1, 4, 2); (84, 3, 1, 1); (84, 7, 2, 1); (84, 1, 4, 2); (83, 3, 1, 1); (83, 7, 2, 1); (83, 1, 4, 2); (80, 1, 4, 1); (79, 1, 4, 1); (78, 1, 4, 1)" --no_parallel
+KR: tasks 619
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s115.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s63.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s141.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s24.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s132.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s131.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s97.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s41.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s42.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s130.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s122.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s123.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s140.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s132.t7_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s140.t1_z0_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s122.t1_z0_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s130.t1_z0_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s24.t1_z0_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s132.t1_z0_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s40.t1_z1_c4.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s60.t1_z1_c1.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s44.t1_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s140.t1_z1_c1.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s24.t1_z1_c4.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s64.t1_z1_c1.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c0.tf.c: In function ‘get_token’:
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c0.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c0.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c0.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s24.t1_z1_c3.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s24.t1_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s132.t1_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s41.t1_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s164.t1_z1_c0.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c0.tf.c: In function ‘get_token’:
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c0.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c0.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c0.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s25.t1_z1_c1.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s62.t1_z1_c1.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s122.t1_z1_c0.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c4.tf.c: In function ‘get_token’:
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c4.tf.c:566: warning: cast to pointer from integer of different size
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c4.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c4.tf.c: At top level:
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c4.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c4.tf.c: In function ‘main’:
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c4.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c1.tf.c: In function ‘get_token’:
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c1.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c1.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c1.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s41.t1_z1_c4.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_1d9a19/pt1.cil.i.s165.t1_z1_c1.tf.c: In function ‘mainQ’:
+/tmp/CETI_1d9a19/pt1.cil.i.s165.t1_z1_c1.tf.c:1182: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_1d9a19/pt1.cil.i.s165.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_1d9a19/pt1.cil.i.s165.t1_z1_c1.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_1d9a19/pt1.cil.i.s165.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_1d9a19/pt1.cil.i.s165.t1_z1_c1.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c4.tf.c: In function ‘get_token’:
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c4.tf.c:545: warning: cast to pointer from integer of different size
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c4.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c4.tf.c: At top level:
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c4.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c4.tf.c: In function ‘main’:
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c4.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s42.t1_z1_c4.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s59.t1_z1_c1.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c2.tf.c: In function ‘get_token’:
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c2.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c2.tf.c: At top level:
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c2.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c2.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s45.t1_z1_c0.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c5.tf.c: In function ‘get_token’:
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c5.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c5.tf.c: At top level:
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c5.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c5.tf.c: In function ‘main’:
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c5.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s122.t1_z1_c1.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s24.t1_z1_c2.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_1d9a19/pt1.cil.i.s166.t1_z1_c2.tf.c: In function ‘mainQ’:
+/tmp/CETI_1d9a19/pt1.cil.i.s166.t1_z1_c2.tf.c:1195: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_1d9a19/pt1.cil.i.s166.t1_z1_c2.tf.c: At top level:
+/tmp/CETI_1d9a19/pt1.cil.i.s166.t1_z1_c2.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_1d9a19/pt1.cil.i.s166.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_1d9a19/pt1.cil.i.s166.t1_z1_c2.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s61.t1_z1_c1.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c1.tf.c: In function ‘get_token’:
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c1.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c1.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_1d9a19/pt1.cil.i.s27.t1_z1_c1.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c5.tf.c: In function ‘get_token’:
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c5.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c5.tf.c: At top level:
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c5.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c5.tf.c: In function ‘main’:
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c5.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s42.t1_z1_c0.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c3.tf.c: In function ‘get_token’:
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c3.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c3.tf.c: At top level:
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c3.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c3.tf.c: In function ‘main’:
+/tmp/CETI_1d9a19/pt1.cil.i.s47.t1_z1_c3.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s164.t1_z1_c1.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_1d9a19/pt1.cil.i.s166.t1_z1_c0.tf.c: In function ‘mainQ’:
+/tmp/CETI_1d9a19/pt1.cil.i.s166.t1_z1_c0.tf.c:1195: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_1d9a19/pt1.cil.i.s166.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_1d9a19/pt1.cil.i.s166.t1_z1_c0.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_1d9a19/pt1.cil.i.s166.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_1d9a19/pt1.cil.i.s166.t1_z1_c0.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_1d9a19/pt1.cil.i.s40.t1_z1_c0.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_1d9a19/pt1.cil.i.s165.t1_z1_c0.tf.c: In function ‘mainQ’:
+/tmp/CETI_1d9a19/pt1.cil.i.s165.t1_z1_c0.tf.c:1182: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_1d9a19/pt1.cil.i.s165.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_1d9a19/pt1.cil.i.s165.t1_z1_c0.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_1d9a19/pt1.cil.i.s165.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_1d9a19/pt1.cil.i.s165.t1_z1_c0.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_1d9a19/pt1.cil.i.s82.t1_z1_c1.tf.c: In function ‘print_token’:
+/tmp/CETI_1d9a19/pt1.cil.i.s82.t1_z1_c1.tf.c:769: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_1d9a19/pt1.cil.i.s82.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_1d9a19/pt1.cil.i.s82.t1_z1_c1.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_1d9a19/pt1.cil.i.s82.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_1d9a19/pt1.cil.i.s82.t1_z1_c1.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_1d9a19/pt1.cil.i.s165.t1_z1_c2.tf.c: In function ‘mainQ’:
+/tmp/CETI_1d9a19/pt1.cil.i.s165.t1_z1_c2.tf.c:1182: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_1d9a19/pt1.cil.i.s165.t1_z1_c2.tf.c: At top level:
+/tmp/CETI_1d9a19/pt1.cil.i.s165.t1_z1_c2.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_1d9a19/pt1.cil.i.s165.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_1d9a19/pt1.cil.i.s165.t1_z1_c2.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_1d9a19/pt1.cil.i.s166.t1_z1_c1.tf.c: In function ‘mainQ’:
+/tmp/CETI_1d9a19/pt1.cil.i.s166.t1_z1_c1.tf.c:1195: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_1d9a19/pt1.cil.i.s166.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_1d9a19/pt1.cil.i.s166.t1_z1_c1.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_1d9a19/pt1.cil.i.s166.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_1d9a19/pt1.cil.i.s166.t1_z1_c1.tf.c:1321: warning: comparison between pointer and integer
+

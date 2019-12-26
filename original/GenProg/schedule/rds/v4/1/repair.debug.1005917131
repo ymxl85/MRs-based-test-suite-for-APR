@@ -1,0 +1,193 @@
+--allow-coverage-fail false
+--appp 0.33333
+--asm-code-only false
+--best-edit-rule "1 * fault_loc_weight ; 1 * max_test_fail_prob ; -1 * num_tests"
+--best-test-rule "1 * test_fail_prob ; 1 * test_fail_count ; -1 * test_pass_count"
+--compiler "gcc"
+--compiler-command ""
+--compiler-opts ""
+--continue false
+--coverage-info ""
+--coverage-per-test false
+--crossover "one"
+--crossp 0.5
+--delp 0.33333
+--describe-machine false
+--diversity-selection 0
+--edit-script false
+--elf-risc false
+--exclude-edits ""
+--exp-diff false
+--fault-file ""
+--fault-path "coverage.path.neg"
+--fault-scheme "path"
+--fitness-in-parallel 1
+--fix-file ""
+--fix-oracle ""
+--fix-path "coverage.path.pos"
+--fix-scheme "default"
+--flatten-path ""
+--format "txt"
+--gen-per-exchange 1
+--generations 10
+--gui false
+--hostname "127.0.0.1"
+--ignore-dead-code false
+--ignore-equiv-appends false
+--ignore-standard-headers false
+--ignore-string-equiv-fixes false
+--ignore-untyped-returns false
+--incoming-pop ""
+--keep-source false
+--label-repair true
+--max-evals 0
+--minimization false
+--mt-cov false
+--multiopt-minimize false
+--multiopt-no-inf false
+--neg-tests 1
+--neg-weight 1
+--negative-test-weight 2
+--neutral-walk-max-size 0
+--neutral-walk-weight ""
+--nht-id "global"
+--nht-port 51000
+--nht-server ""
+--no-rep-cache false
+--no-test-cache false
+--num-comps 2
+--num-objectives 2
+--oracle-genome ""
+--popsize 40
+--port 60000
+--pos-tests 11
+--pos-weight 0.1
+--prefix "processed"
+--preprocessor ""
+--print-incremental-evals false
+--print-source-name false
+--program "source.txt"
+--promut 1
+--quiet false
+--regen-paths false
+--rep "c"
+--rep-cache ""
+--repp 0
+--samp-strat "variant"
+--sample 1
+--sample-runs 100
+--sanity "default"
+--search "ga"
+--seed 1005917131
+--semantic-check "scope"
+--single-fitness false
+--skip-failed-sanity-tests false
+--skip-tests ""
+--split-search 0
+--sport 65000
+--subatom-constp 0.5
+--subatom-mutp 0
+--super-mutant false
+--super-mutant-size 50
+--swap-bug false
+--swapp 0.33333
+--template-cache ""
+--templates ""
+--test-command ""
+--test-script "/bin/sh test.sh"
+--tournament-size 2
+--tweet false
+--uniq false
+--valgrind false
+--variants-exchanged 50
+cilRep: preprocessing IO function signatures: /tmp/tmp9f4351.c /tmp/tmpa7b208.c
+cilRep: done preprocessing IO function signatures
+Exception in loading: Sys_error("source.cache: No such file or directory")
+cilrep: from_source: pre: stmt_count = 1
+cilRep: processed/v4.i: parsing
+cilRep: processed/v4.i: parsed (0.035182 MB)
+cilRep: processed/processor.i: parsing
+cilRep: processed/processor.i: parsed (0.0259809 MB)
+cilrep: from_source: post: stmt_count: 268
+cachingRepresentation: sanity checking begins
+	p1: true (1)
+	p2: true (1)
+	p3: true (1)
+	p4: true (1)
+	p5: true (1)
+	p6: true (1)
+	p7: true (1)
+	p8: true (1)
+	p9: true (1)
+	p10: true (1)
+	p11: true (1)
+	n1: false (0)
+cachingRepresentation: sanity checking passed (time_taken = 0.182995)
+faultLocRep: compute_localization: fault_scheme: path, fix_scheme: default
+Rep: coverage_sourcename: /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/randomTC/v4/1/coverage/coverage.c
+cilRep: instrumenting for fault localization
+cilRep: done instrumenting for fault localization
+coverage negative:
+	test: 1
+coverage positive:
+	test: 1
+	test: 2
+	test: 3
+	test: 4
+	test: 5
+	test: 6
+	test: 7
+	test: 8
+	test: 9
+	test: 10
+	test: 11
+cilRep: source.cache: saved
+cachingRep: source.cache: saved
+faultlocRep: source.cache: saved
+cilrep done serialize
+cilRep: stmt_count = 268
+cilRep: stmts in weighted_path = 201
+cilRep: total weight = 20.1
+cilRep: stmts in weighted_path with weight >= 1.0 = 0
+cilRep: processor.i (code bank/base file; atoms [220,268])
+cilRep: v4.i (code bank/base file; atoms [1,219])
+cilRep: 2 file(s) total in representation
+search: genetic algorithm begins (|original| = 0.0402937 MB)
+search: initial population (sizeof one variant = 0.0086298 MB)
+	  4 s(256,254) 
+	  4 a(129,123) 
+	  4 a(212,136) 
+	  5 d(87) 
+	  5 d(84) 
+	 11 s(46,39) 
+	 11 d(41) 
+	 11 a(252,232) 
+	 10 d(120) 
+	 11 a(12,50) 
+	 11 a(195,70) 
+	 11 a(263,127) 
+	  8 d(117) 
+	 11 d(188) 
+	 11 a(236,99) 
+	 11 s(67,60) 
+	 11 a(86,261) 
+	  9 s(195,209) 
+	 11 a(101,220) 
+	 11 s(10,12) 
+	 11 a(56,114) 
+	 11 s(229,149) 
+	 11 a(65,70) 
+	  4 s(256,261) 
+	  4 s(203,189) 
+	 11 d(9) 
+	  9 a(186,212) 
+	  8 s(101,99) 
+	 11 a(103,129) 
+	 11 s(68,59) 
+	 11 a(263,261) 
+	 11 d(54) 
+	  5 s(69,65) 
+	 11 a(141,119) 
+	 11 a(77,136) 
+	  8 d(266) 
+	  9 s(117,122) 

@@ -1,0 +1,13 @@
+--- a/pt2.c
++++ b/pt2.c
+@@ -139,8 +139,8 @@
+ 
+    if(is_eof_token(buffer)==TRUE){return(buffer);}
+    if(is_spec_symbol(buffer)==TRUE)return(buffer); 
+-   if(ch =='"')id=1;    /* prepare for string */
+-   if(ch ==59)id=0;    /* prepare for comment fault*/
++   if((ch == 34))id=1;    /* prepare for string */
++   if(ch ==59)id=2;    /* prepare for comment fault*/
+    ch=get_char(tp);
+ 
+    while (is_token_end(id,ch) == FALSE)/* until meet the end character */

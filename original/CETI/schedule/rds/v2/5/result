@@ -1,0 +1,1808 @@
+gcc -D_GNUCC -E -DCIL=1 randomTC/v2/5/v2.c -o randomTC/v2/5/v2.i
+randomTC/v2/5/v2.c:10:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from randomTC/v2/5/v2.c:4:
+/usr/lib/gcc/i486-linux-gnu/4.4.3/include/stddef.h:400:1: warning: this is the location of the previous definition
+/usr/local/bin/cilly.native --out randomTC/v2/5/v2.cil.c --noPrintLn --useLogicalOperators randomTC/v2/5/v2.i
+randomTC/v2/5/v2.c:191: Warning: Return statement without a value in function returning int 
+randomTC/v2/5/v2.c:185: Warning: Body of function schedule falls-through. Adding a return statement
+randomTC/v2/5/v2.c:373: Warning: Return statement without a value in function returning char *
+randomTC/v2/5/v2.c:386: Warning: Return statement without a value in function returning char *
+randomTC/v2/5/v2.c:402: Warning: Body of function main falls-through. Adding a return statement
+gcc -D_GNUCC -E randomTC/v2/5/v2.cil.c -o randomTC/v2/5/v2.cil.i
+gcc -D_GNUCC -c -o randomTC/v2/5/v2.o randomTC/v2/5/v2.cil.i
+randomTC/v2/5/v2.cil.c:71: warning: conflicting types for built-in function ‘malloc’
+randomTC/v2/5/v2.cil.c:160: warning: conflicting types for built-in function ‘free’
+randomTC/v2/5/v2.cil.c:176: warning: conflicting types for built-in function ‘strcat’
+gcc -D_GNUCC -E -DCIL=1 randomTC/v2/5/processor.c -o randomTC/v2/5/processor.i
+/usr/local/bin/cilly.native --out randomTC/v2/5/processor.cil.c --noPrintLn --useLogicalOperators randomTC/v2/5/processor.i
+gcc -D_GNUCC -E randomTC/v2/5/processor.cil.c -o randomTC/v2/5/processor.cil.i
+gcc -D_GNUCC -c -o randomTC/v2/5/processor.o randomTC/v2/5/processor.cil.i
+randomTC/v2/5/processor.cil.c:6: warning: conflicting types for built-in function ‘strlen’
+gcc -D_GNUCC -o a.out randomTC/v2/5/v2.o randomTC/v2/5/processor.o
+$ cp randomTC/v2/5/v2.cil.i /tmp/CETI_8c6f5e/v2.cil.i
+$ cp randomTC/v2/5/processor.c /tmp/CETI_8c6f5e/processor.c
+input length='35' output length='35'
+*** Get good/bad tcs ***
+cmd 'gcc /tmp/CETI_8c6f5e/v2.cil.i randomTC/v2/5/processor.c -o /tmp/CETI_8c6f5e/v2.cil.i.exe >& /dev/null'
+$ gcc /tmp/CETI_8c6f5e/v2.cil.i randomTC/v2/5/processor.c -o /tmp/CETI_8c6f5e/v2.cil.i.exe >& /dev/null
+write_file_str: '/tmp/CETI_8c6f5e/v2.cil.i.sh'
+$ sh /tmp/CETI_8c6f5e/v2.cil.i.sh /tmp/CETI_8c6f5e/v2.cil.i.exe &> /dev/null
+[35mAlert: 1/35 tests failed. Processing ..
+[mrandomTC/v2/5/v2.cil.c:227: Warning: Return statement without a value in function returning int 
+randomTC/v2/5/v2.cil.c:432: Warning: Return statement without a value in function returning char *
+randomTC/v2/5/v2.cil.c:444: Warning: Return statement without a value in function returning char *
+write_src: '/tmp/CETI_8c6f5e/v2.cil.i.preproc.c'
+*** Fault Localization ***
+write_src: '/tmp/CETI_8c6f5e/faultloc_ecb864/v2.cil.i.cov.c'
+cmd 'gcc /tmp/CETI_8c6f5e/faultloc_ecb864/v2.cil.i.cov.c randomTC/v2/5/processor.c -o /tmp/CETI_8c6f5e/faultloc_ecb864/v2.cil.i.cov.c.exe >& /dev/null'
+$ gcc /tmp/CETI_8c6f5e/faultloc_ecb864/v2.cil.i.cov.c randomTC/v2/5/processor.c -o /tmp/CETI_8c6f5e/faultloc_ecb864/v2.cil.i.cov.c.exe >& /dev/null
+goods length:34
+write_file_str: '/tmp/CETI_8c6f5e/faultloc_ecb864/v2.cil.i.g.sh'
+$ sh /tmp/CETI_8c6f5e/faultloc_ecb864/v2.cil.i.g.sh /tmp/CETI_8c6f5e/faultloc_ecb864/v2.cil.i.cov.c.exe /tmp/CETI_8c6f5e/faultloc_ecb864/v2.cil.i.outputs_g_dontcare &> /dev/null
+write_file_str: '/tmp/CETI_8c6f5e/faultloc_ecb864/v2.cil.i.b.sh'
+$ sh /tmp/CETI_8c6f5e/faultloc_ecb864/v2.cil.i.b.sh /tmp/CETI_8c6f5e/faultloc_ecb864/v2.cil.i.cov.c.exe /tmp/CETI_8c6f5e/faultloc_ecb864/v2.cil.i.outputs_bad_dontcare &> /dev/null
+0. sid 64 in fun 'unblock_process' (score 0.447214)
+prio = (int )proc->priority;
+1. sid 67 in fun 'unblock_process' (score 0.408248)
+__cil_tmp6 = proc;
+2. sid 66 in fun 'unblock_process' (score 0.408248)
+n = (int )((float )count * ratio);
+3. sid 65 in fun 'unblock_process' (score 0.408248)
+count = block_queue->mem_count + 1;
+4. sid 59 in fun 'upgrade_process_prio' (score 0.408248)
+__cil_tmp9 = prio >= 3;
+5. sid 27 in fun 'find_nth' (score 0.408248)
+__cil_tmp8 = f_ele;
+6. sid 26 in fun 'find_nth' (score 0.408248)
+i = 1;
+7. sid 25 in fun 'find_nth' (score 0.408248)
+f_ele = f_list->first;
+8. sid 24 in fun 'find_nth' (score 0.408248)
+__cil_tmp7 = ! f_list;
+9. sid 21 in fun 'find_nth' (score 0.408248)
+__cil_tmp6 = f_ele && i < n;
+10. sid 69 in fun 'quantum_expire' (score 0.316228)
+prio = (int )cur_proc->priority;
+11. sid 70 in fun 'quantum_expire' (score 0.288675)
+__cil_tmp2 = cur_proc;
+12. sid 55 in fun 'schedule' (score 0.288675)
+__cil_tmp4 = 0;
+13. sid 91 in fun 'mainQ' (score 0.27735)
+__cil_tmp19 = prio > 3 || prio <= 0;
+14. sid 90 in fun 'mainQ' (score 0.27735)
+__cil_tmp18 = (int )*(argv + pos) != 0;
+15. sid 87 in fun 'mainQ' (score 0.27735)
+ratio = tmp___1;
+16. sid 86 in fun 'mainQ' (score 0.267261)
+ratio = tmp___0;
+17. sid 68 in fun 'unblock_process' (score 0.267261)
+__cil_tmp7 = block_queue;
+18. sid 48 in fun 'finish_all_processes' (score 0.25)
+i = 0;
+19. sid 47 in fun 'finish_all_processes' (score 0.25)
+total = num_processes;
+20. sid 46 in fun 'finish_all_processes' (score 0.25)
+i ++;
+21. sid 45 in fun 'finish_all_processes' (score 0.25)
+__cil_tmp5 = i < total;
+22. sid 71 in fun 'block_process' (score 0.235702)
+__cil_tmp1 = cur_proc;
+23. sid 52 in fun 'schedule' (score 0.235702)
+i --;
+24. sid 44 in fun 'finish_process' (score 0.229416)
+__cil_tmp6 = cur_proc;
+25. sid 43 in fun 'finish_process' (score 0.229416)
+tmp = 1U;
+26. sid 42 in fun 'finish_process' (score 0.229416)
+s[0] = (char )'\000';
+27. sid 41 in fun 'finish_process' (score 0.229416)
+num_processes --;
+28. sid 40 in fun 'finish_process' (score 0.229416)
+tmp ++;
+29. sid 39 in fun 'finish_process' (score 0.229416)
+s[tmp] = (char)0;
+30. sid 38 in fun 'finish_process' (score 0.229416)
+__cil_tmp5 = ! (tmp >= 10U);
+31. sid 101 in fun 'mainQ' (score 0.223607)
+__cil_tmp23 = r;
+32. sid 30 in fun 'del_ele' (score 0.218218)
+d_list->last = d_ele->prev;
+33. sid 29 in fun 'del_ele' (score 0.218218)
+(d_ele->next)->prev = d_ele->prev;
+34. sid 54 in fun 'schedule' (score 0.204124)
+i = 3;
+35. sid 53 in fun 'schedule' (score 0.204124)
+cur_proc = (Ele *)0;
+36. sid 51 in fun 'schedule' (score 0.204124)
+__cil_tmp3 = (prio_queue[i])->mem_count > 0;
+37. sid 50 in fun 'schedule' (score 0.204124)
+__cil_tmp2 = i > 0;
+38. sid 49 in fun 'schedule' (score 0.204124)
+cur_proc = (prio_queue[i])->first;
+39. sid 37 in fun 'del_ele' (score 0.204124)
+__cil_tmp7 = d_list;
+40. sid 36 in fun 'del_ele' (score 0.204124)
+(d_list->mem_count) --;
+41. sid 35 in fun 'del_ele' (score 0.204124)
+__cil_tmp6 = d_ele->prev;
+42. sid 34 in fun 'del_ele' (score 0.204124)
+__cil_tmp5 = d_ele->next;
+43. sid 33 in fun 'del_ele' (score 0.204124)
+__cil_tmp4 = ! d_list || ! d_ele;
+44. sid 32 in fun 'del_ele' (score 0.204124)
+d_list->first = d_ele->next;
+45. sid 11 in fun 'append_ele' (score 0.174078)
+(a_list->last)->next = a_ele;
+46. sid 100 in fun 'mainQ' (score 0.169031)
+tmp = 1U;
+47. sid 99 in fun 'mainQ' (score 0.169031)
+value[0] = (char )'\000';
+48. sid 98 in fun 'mainQ' (score 0.169031)
+pos = 0;
+49. sid 97 in fun 'mainQ' (score 0.169031)
+OL = 0;
+50. sid 96 in fun 'mainQ' (score 0.169031)
+r[0] = (char )'\000';
+51. sid 95 in fun 'mainQ' (score 0.169031)
+intF = (float )1.0;
+52. sid 94 in fun 'mainQ' (score 0.169031)
+__cil_tmp22 = (int )*(argv + pos) != 0;
+53. sid 85 in fun 'mainQ' (score 0.169031)
+tmp ++;
+54. sid 84 in fun 'mainQ' (score 0.169031)
+value[tmp] = (char)0;
+55. sid 83 in fun 'mainQ' (score 0.169031)
+__cil_tmp15 = ! (tmp >= 10U);
+56. sid 82 in fun 'initialize' (score 0.169031)
+num_processes = 0;
+57. sid 81 in fun 'initialize' (score 0.169031)
+alloc_proc_num = 0;
+58. sid 80 in fun 'init_prio_queue' (score 0.169031)
+prio_queue[prio] = queue;
+59. sid 79 in fun 'init_prio_queue' (score 0.169031)
+i = 0;
+60. sid 78 in fun 'init_prio_queue' (score 0.169031)
+i ++;
+61. sid 77 in fun 'init_prio_queue' (score 0.169031)
+__cil_tmp6 = i < num_proc;
+62. sid 76 in fun 'new_process' (score 0.169031)
+__cil_tmp4 = proc;
+63. sid 75 in fun 'new_process' (score 0.169031)
+num_processes ++;
+64. sid 74 in fun 'new_process' (score 0.169031)
+proc->priority = (short )prio;
+65. sid 73 in fun 'new_process' (score 0.169031)
+alloc_proc_num ++;
+66. sid 72 in fun 'new_process' (score 0.169031)
+tmp = alloc_proc_num;
+67. sid 19 in fun 'append_ele' (score 0.169031)
+__cil_tmp5 = a_list;
+68. sid 18 in fun 'append_ele' (score 0.169031)
+(a_list->mem_count) ++;
+69. sid 17 in fun 'append_ele' (score 0.169031)
+a_ele->next = (struct _job *)0;
+70. sid 16 in fun 'append_ele' (score 0.169031)
+a_list->last = a_ele;
+71. sid 15 in fun 'append_ele' (score 0.169031)
+__cil_tmp4 = a_list->last;
+72. sid 14 in fun 'append_ele' (score 0.169031)
+a_ele->prev = a_list->last;
+73. sid 13 in fun 'append_ele' (score 0.169031)
+__cil_tmp3 = ! a_list;
+74. sid 12 in fun 'append_ele' (score 0.169031)
+a_list->first = a_ele;
+75. sid 10 in fun 'new_list' (score 0.169031)
+__cil_tmp3 = list;
+76. sid 9 in fun 'new_list' (score 0.169031)
+list->mem_count = 0;
+77. sid 8 in fun 'new_list' (score 0.169031)
+list->last = (Ele *)0;
+78. sid 7 in fun 'new_list' (score 0.169031)
+list->first = (Ele *)0;
+79. sid 6 in fun 'new_list' (score 0.169031)
+list = (List *)tmp;
+80. sid 5 in fun 'new_ele' (score 0.169031)
+__cil_tmp4 = ele;
+81. sid 4 in fun 'new_ele' (score 0.169031)
+ele->val = new_num;
+82. sid 3 in fun 'new_ele' (score 0.169031)
+ele->prev = (struct _job *)0;
+83. sid 2 in fun 'new_ele' (score 0.169031)
+ele->next = (struct _job *)0;
+84. sid 1 in fun 'new_ele' (score 0.169031)
+ele = (Ele *)tmp;
+[35mAlert: FL: found 85 stmts with sscores >= 0.01
+[m[35mAlert: Perform ** BugFix **
+[mwrite_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s64.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s67.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s66.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s65.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s59.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s27.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s26.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s25.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s24.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s21.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s69.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s70.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s55.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s91.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s90.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s87.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s86.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s68.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s48.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s47.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s46.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s45.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s71.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s52.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s44.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s43.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s42.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s41.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s40.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s39.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s38.t1.arr'
+[35mAlert: CONSTS: don't know how to deal with exp 'r' (sid 101)
+[m[35mAlert: OPS_PR: don't know how to deal with exp 'r' (sid 101)
+[mwrite_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s101.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s30.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s29.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s54.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s53.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s51.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s50.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s49.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s37.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s36.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s35.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s34.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s33.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s32.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s11.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s100.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s99.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s98.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s97.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s96.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s95.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s94.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s85.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s84.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s83.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s82.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s81.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s80.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s79.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s78.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s77.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s76.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s75.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s74.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s73.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s72.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s19.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s18.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s17.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s16.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s15.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s14.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s13.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s12.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s10.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s9.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s8.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s7.t1.arr'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.s6.t1.arr'
+[35mAlert: Spy: Got 144 info from 80 sids
+[minput length='35' output length='35'
+write_file_bin: '/tmp/CETI_8c6f5e/v2.cil.i.info'
+$ python kl.py /tmp/CETI_8c6f5e/v2.cil.i randomTC/v2/5/processor.c --do_tb "(64, 1, 4, 6); (67, 1, 4, 6); (66, 1, 4, 6); (65, 3, 1, 1); (65, 7, 2, 1); (65, 1, 4, 6); (59, 3, 1, 1); (59, 7, 2, 1); (59, 1, 4, 6); (27, 1, 4, 4); (26, 3, 1, 1); (26, 1, 4, 4); (25, 1, 4, 4); (24, 1, 4, 4); (21, 7, 2, 2); (21, 1, 4, 4); (69, 1, 4, 3); (70, 1, 4, 3); (55, 3, 1, 1); (55, 1, 4, 3); (91, 3, 1, 2); (91, 7, 2, 3); (91, 1, 4, 12); (90, 3, 1, 1); (90, 7, 2, 1); (90, 1, 4, 12); (87, 1, 4, 12); (86, 1, 4, 12); (68, 1, 4, 6); (48, 3, 1, 1); (48, 1, 4, 4); (47, 1, 4, 4); (46, 3, 1, 1); (46, 7, 2, 1); (46, 1, 4, 4); (45, 7, 2, 1); (45, 1, 4, 4); (71, 1, 4, 2); (52, 3, 1, 1); (52, 7, 2, 1); (52, 1, 4, 3); (44, 1, 4, 3); (43, 3, 1, 1); (43, 1, 4, 3); (42, 3, 1, 1); (42, 1, 4, 3); (41, 3, 1, 1); (41, 7, 2, 1); (41, 1, 4, 3); (40, 3, 1, 1); (40, 7, 2, 1); (40, 1, 4, 3); (39, 3, 1, 1); (39, 1, 4, 3); (38, 3, 1, 1); (38, 7, 2, 1); (38, 1, 4, 3); (101, 1, 4, 12); (30, 1, 4, 2); (29, 1, 4, 2); (54, 3, 1, 1); (54, 1, 4, 3); (53, 3, 1, 1); (53, 1, 4, 3); (51, 3, 1, 1); (51, 7, 2, 1); (51, 1, 4, 3); (50, 3, 1, 1); (50, 7, 2, 1); (50, 1, 4, 3); (49, 1, 4, 3); (37, 1, 4, 2); (36, 3, 1, 1); (36, 7, 2, 1); (36, 1, 4, 2); (35, 1, 4, 2); (34, 1, 4, 2); (33, 7, 2, 1); (33, 1, 4, 2); (32, 1, 4, 2); (11, 1, 4, 2); (100, 3, 1, 1); (100, 1, 4, 12); (99, 3, 1, 1); (99, 1, 4, 12); (98, 3, 1, 1); (98, 1, 4, 12); (97, 3, 1, 1); (97, 1, 4, 12); (96, 3, 1, 1); (96, 1, 4, 12); (95, 3, 1, 1); (95, 1, 4, 12); (94, 3, 1, 1); (94, 7, 2, 1); (94, 1, 4, 12); (85, 3, 1, 1); (85, 7, 2, 1); (85, 1, 4, 12); (84, 3, 1, 1); (84, 1, 4, 12); (83, 3, 1, 1); (83, 7, 2, 1); (83, 1, 4, 12); (82, 3, 1, 1); (82, 1, 4, 2); (81, 3, 1, 1); (81, 1, 4, 2); (80, 1, 4, 5); (79, 3, 1, 1); (79, 1, 4, 5); (78, 3, 1, 1); (78, 7, 2, 1); (78, 1, 4, 5); (77, 7, 2, 1); (77, 1, 4, 5); (76, 1, 4, 4); (75, 3, 1, 1); (75, 7, 2, 1); (75, 1, 4, 4); (74, 1, 4, 4); (73, 3, 1, 1); (73, 7, 2, 1); (73, 1, 4, 4); (72, 1, 4, 4); (19, 1, 4, 2); (18, 3, 1, 1); (18, 7, 2, 1); (18, 1, 4, 2); (17, 3, 1, 1); (17, 1, 4, 2); (16, 1, 4, 2); (15, 1, 4, 2); (14, 1, 4, 2); (13, 1, 4, 2); (12, 1, 4, 2); (10, 1, 4, 3); (9, 3, 1, 1); (9, 1, 4, 3); (8, 3, 1, 1); (8, 1, 4, 3); (7, 3, 1, 1); (7, 1, 4, 3); (6, 1, 4, 3)" --no_parallel
+KR: tasks 1829
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s79.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s98.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s54.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s82.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s94.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s41.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s52.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s46.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s75.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s40.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s48.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s78.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s85.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s78.t7_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s94.t7_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s77.t7_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s45.t7_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s46.t7_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s85.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s54.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s40.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s47.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s98.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s45.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s79.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s82.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s74.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s75.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s21.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s46.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s64.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s69.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s77.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s94.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s52.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s78.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s41.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s48.t1_z0_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s78.t1_z1_c3.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s33.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s33.t1_z1_c0.tf.c: In function ‘del_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s33.t1_z1_c0.tf.c:516: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s33.t1_z1_c0.tf.c:516: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s33.t1_z1_c0.tf.c:516: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s33.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s33.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s33.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s33.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s45.t1_z1_c2.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s75.t1_z1_c2.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s32.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s32.t1_z1_c0.tf.c: In function ‘del_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s32.t1_z1_c0.tf.c:531: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s32.t1_z1_c0.tf.c:531: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s32.t1_z1_c0.tf.c:531: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s32.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s32.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s32.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s32.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s32.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c0.tf.c: In function ‘init_prio_queue’:
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c0.tf.c:764: error: invalid operands to binary * (have ‘struct List *’ and ‘struct List *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c2.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c2.tf.c: In function ‘new_list’:
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c2.tf.c:445: error: invalid operands to binary * (have ‘struct List *’ and ‘struct List *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c2.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c2.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c2.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c2.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s41.t1_z1_c2.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s85.t1_z1_c5.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s79.t1_z1_c4.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s53.t1_z1_c2.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s53.t1_z1_c2.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s53.t1_z1_c2.tf.c: In function ‘schedule’:
+/tmp/CETI_8c6f5e/v2.cil.i.s53.t1_z1_c2.tf.c:614: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s53.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s53.t1_z1_c2.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s53.t1_z1_c2.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s14.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s14.t1_z1_c0.tf.c: In function ‘append_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s14.t1_z1_c0.tf.c:464: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s14.t1_z1_c0.tf.c:464: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s14.t1_z1_c0.tf.c:464: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s14.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s14.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s14.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s14.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s14.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c6.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c6.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c6.tf.c: In function ‘mainQ’:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c6.tf.c:896: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c6.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c6.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c6.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s85.t1_z2_c10.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s98.t1_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s79.t1_z1_c0.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s11.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s11.t1_z1_c1.tf.c: In function ‘append_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s11.t1_z1_c1.tf.c:467: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s11.t1_z1_c1.tf.c:467: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s11.t1_z1_c1.tf.c:467: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s11.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s11.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s11.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s11.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s11.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s98.t1_z1_c5.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s94.t1_z1_c1.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c3.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c3.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c3.tf.c: In function ‘unblock_process’:
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c3.tf.c:676: error: invalid operands to binary * (have ‘struct List *’ and ‘struct List *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c3.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c3.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c3.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c5.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c5.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c5.tf.c: In function ‘unblock_process’:
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c5.tf.c:676: error: invalid operands to binary * (have ‘struct List *’ and ‘struct List *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c5.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c5.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c5.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c2.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c2.tf.c: In function ‘new_list’:
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c2.tf.c:447: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c2.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c2.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c2.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c2.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s32.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s32.t1_z1_c1.tf.c: In function ‘del_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s32.t1_z1_c1.tf.c:531: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s32.t1_z1_c1.tf.c:531: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s32.t1_z1_c1.tf.c:531: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s32.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s32.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s32.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s32.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s32.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s78.t1_z1_c4.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s46.t1_z1_c0.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c1.tf.c: In function ‘init_prio_queue’:
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c1.tf.c:764: error: invalid operands to binary * (have ‘struct List *’ and ‘struct List *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c3.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c3.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c3.tf.c: In function ‘init_prio_queue’:
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c3.tf.c:764: error: invalid operands to binary * (have ‘struct List *’ and ‘struct List *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c3.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c3.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c3.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c1.tf.c: In function ‘unblock_process’:
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c1.tf.c:681: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s94.t1_z1_c6.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s44.t1_z1_c2.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s44.t1_z1_c2.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s44.t1_z1_c2.tf.c: In function ‘finish_process’:
+/tmp/CETI_8c6f5e/v2.cil.i.s44.t1_z1_c2.tf.c:574: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s44.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s44.t1_z1_c2.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s44.t1_z1_c2.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s36.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s36.t1_z1_c1.tf.c: In function ‘del_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s36.t1_z1_c1.tf.c:533: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s36.t1_z1_c1.tf.c:533: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s36.t1_z1_c1.tf.c:533: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s36.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s36.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s36.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s36.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s53.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s53.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s53.t1_z1_c1.tf.c: In function ‘schedule’:
+/tmp/CETI_8c6f5e/v2.cil.i.s53.t1_z1_c1.tf.c:614: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s53.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s53.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s53.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c0.tf.c: In function ‘mainQ’:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c0.tf.c:896: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s45.t1_z1_c0.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s35.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s35.t1_z1_c0.tf.c: In function ‘del_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s35.t1_z1_c0.tf.c:527: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s35.t1_z1_c0.tf.c:527: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s35.t1_z1_c0.tf.c:527: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s35.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s35.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s35.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s35.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s35.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c0.tf.c: In function ‘new_list’:
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c0.tf.c:447: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c0.tf.c:447: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c0.tf.c:447: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c7.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c7.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c7.tf.c: In function ‘mainQ’:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c7.tf.c:896: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c7.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c7.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c7.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s15.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s15.t1_z1_c0.tf.c: In function ‘append_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s15.t1_z1_c0.tf.c:465: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s15.t1_z1_c0.tf.c:465: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s15.t1_z1_c0.tf.c:465: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s15.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s15.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s15.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s15.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s15.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s54.t1_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s98.t1_z2_c11.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s37.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s37.t1_z1_c1.tf.c: In function ‘del_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s37.t1_z1_c1.tf.c:534: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s37.t1_z1_c1.tf.c:534: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s37.t1_z1_c1.tf.c:534: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s37.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s37.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s37.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s37.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s37.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s29.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s29.t1_z1_c1.tf.c: In function ‘del_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s29.t1_z1_c1.tf.c:523: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s29.t1_z1_c1.tf.c:523: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s29.t1_z1_c1.tf.c:523: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s29.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s29.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s29.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s29.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s29.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s94.t1_z1_c8.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s98.t1_z1_c1.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s82.t1_z1_c1.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s66.t1_z1_c3.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s98.t1_z1_c2.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s37.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s37.t1_z1_c0.tf.c: In function ‘del_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s37.t1_z1_c0.tf.c:534: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s37.t1_z1_c0.tf.c:534: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s37.t1_z1_c0.tf.c:534: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s37.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s37.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s37.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s37.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s37.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s34.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s34.t1_z1_c1.tf.c: In function ‘del_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s34.t1_z1_c1.tf.c:521: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s34.t1_z1_c1.tf.c:521: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s34.t1_z1_c1.tf.c:521: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s34.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s34.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s34.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s34.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s34.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c8.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c8.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c8.tf.c: In function ‘mainQ’:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c8.tf.c:896: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c8.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c8.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c8.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s94.t1_z1_c4.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s36.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s36.t1_z1_c0.tf.c: In function ‘del_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s36.t1_z1_c0.tf.c:533: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s36.t1_z1_c0.tf.c:533: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s36.t1_z1_c0.tf.c:533: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s36.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s36.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s36.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s36.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s45.t1_z1_c1.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s13.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s13.t1_z1_c0.tf.c: In function ‘append_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s13.t1_z1_c0.tf.c:460: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s13.t1_z1_c0.tf.c:460: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s13.t1_z1_c0.tf.c:460: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s13.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s13.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s13.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s13.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c2.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c2.tf.c: In function ‘find_nth’:
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c2.tf.c:503: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c2.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c2.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c2.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c2.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s12.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s12.t1_z1_c0.tf.c: In function ‘append_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s12.t1_z1_c0.tf.c:469: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s12.t1_z1_c0.tf.c:469: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s12.t1_z1_c0.tf.c:469: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s12.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s12.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s12.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s12.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s12.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s64.t1_z1_c4.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s40.t1_z1_c1.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c4.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c4.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c4.tf.c: In function ‘init_prio_queue’:
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c4.tf.c:764: error: invalid operands to binary * (have ‘struct List *’ and ‘struct List *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c4.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c4.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c4.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s21.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s21.t1_z1_c1.tf.c: In function ‘find_nth’:
+/tmp/CETI_8c6f5e/v2.cil.i.s21.t1_z1_c1.tf.c:496: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s21.t1_z1_c1.tf.c:496: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s21.t1_z1_c1.tf.c:496: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s21.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s21.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s21.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s21.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s70.t1_z1_c2.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s70.t1_z1_c2.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s70.t1_z1_c2.tf.c: In function ‘quantum_expire’:
+/tmp/CETI_8c6f5e/v2.cil.i.s70.t1_z1_c2.tf.c:698: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s70.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s70.t1_z1_c2.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s70.t1_z1_c2.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c1.tf.c: In function ‘new_list’:
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c1.tf.c:445: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c1.tf.c:445: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c1.tf.c:445: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s94.t1_z2_c10.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s21.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s21.t1_z1_c0.tf.c: In function ‘find_nth’:
+/tmp/CETI_8c6f5e/v2.cil.i.s21.t1_z1_c0.tf.c:496: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s21.t1_z1_c0.tf.c:496: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s21.t1_z1_c0.tf.c:496: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s21.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s21.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s21.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s21.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s18.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s18.t1_z1_c1.tf.c: In function ‘append_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s18.t1_z1_c1.tf.c:473: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s18.t1_z1_c1.tf.c:473: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s18.t1_z1_c1.tf.c:473: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s18.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s18.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s18.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s18.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s64.t1_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s74.t1_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s98.t1_z1_c3.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s71.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s71.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s71.t1_z1_c0.tf.c: In function ‘block_process’:
+/tmp/CETI_8c6f5e/v2.cil.i.s71.t1_z1_c0.tf.c:712: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s71.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s71.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s71.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s49.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s49.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s49.t1_z1_c1.tf.c: In function ‘schedule’:
+/tmp/CETI_8c6f5e/v2.cil.i.s49.t1_z1_c1.tf.c:623: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s49.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s49.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s49.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c1.tf.c: In function ‘new_list’:
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c1.tf.c:446: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c1.tf.c:446: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c1.tf.c:446: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s79.t1_z1_c2.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s47.t1_z1_c3.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s71.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s71.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s71.t1_z1_c1.tf.c: In function ‘block_process’:
+/tmp/CETI_8c6f5e/v2.cil.i.s71.t1_z1_c1.tf.c:712: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s71.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s71.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s71.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c0.tf.c: In function ‘unblock_process’:
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c0.tf.c:676: error: invalid operands to binary * (have ‘struct List *’ and ‘struct List *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c0.tf.c: In function ‘find_nth’:
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c0.tf.c:493: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c0.tf.c:493: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c0.tf.c:493: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c2.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c2.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c2.tf.c: In function ‘unblock_process’:
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c2.tf.c:676: error: cannot convert to a pointer type
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c2.tf.c:676: error: invalid operands to binary * (have ‘struct List *’ and ‘struct List *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c2.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c2.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s53.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s53.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s53.t1_z1_c0.tf.c: In function ‘schedule’:
+/tmp/CETI_8c6f5e/v2.cil.i.s53.t1_z1_c0.tf.c:614: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s53.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s53.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s53.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c4.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c4.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c4.tf.c: In function ‘mainQ’:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c4.tf.c:896: error: cannot convert to a pointer type
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c4.tf.c:896: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c4.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c4.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c4.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s54.t1_z1_c1.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s29.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s29.t1_z1_c0.tf.c: In function ‘del_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s29.t1_z1_c0.tf.c:523: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s29.t1_z1_c0.tf.c:523: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s29.t1_z1_c0.tf.c:523: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s29.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s29.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s29.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s29.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s29.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c4.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c4.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c4.tf.c: In function ‘unblock_process’:
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c4.tf.c:681: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c4.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c4.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c4.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s100.t1_z1_c1.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c2.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c2.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c2.tf.c: In function ‘init_prio_queue’:
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c2.tf.c:764: error: invalid operands to binary * (have ‘struct List *’ and ‘struct List *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c2.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s80.t1_z1_c2.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s44.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s44.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s44.t1_z1_c0.tf.c: In function ‘finish_process’:
+/tmp/CETI_8c6f5e/v2.cil.i.s44.t1_z1_c0.tf.c:574: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s44.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s44.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s44.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s40.t1_z1_c2.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s75.t1_z1_c3.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s94.t1_z1_c3.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s85.t1_z1_c2.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s34.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s34.t1_z1_c0.tf.c: In function ‘del_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s34.t1_z1_c0.tf.c:521: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s34.t1_z1_c0.tf.c:521: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s34.t1_z1_c0.tf.c:521: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s34.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s34.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s34.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s34.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s34.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s41.t1_z1_c0.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c2.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c2.tf.c: In function ‘find_nth’:
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c2.tf.c:493: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c2.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c2.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c2.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c2.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z2_c10.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z2_c10.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z2_c10.tf.c: In function ‘mainQ’:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z2_c10.tf.c:896: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z2_c10.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z2_c10.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z2_c10.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s69.t1_z1_c2.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s9.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s9.t1_z1_c1.tf.c: In function ‘new_list’:
+/tmp/CETI_8c6f5e/v2.cil.i.s9.t1_z1_c1.tf.c:448: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s9.t1_z1_c1.tf.c:448: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s9.t1_z1_c1.tf.c:448: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s9.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s9.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s9.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s9.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s9.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s9.t1_z1_c0.tf.c: In function ‘new_list’:
+/tmp/CETI_8c6f5e/v2.cil.i.s9.t1_z1_c0.tf.c:448: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s9.t1_z1_c0.tf.c:448: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s9.t1_z1_c0.tf.c:448: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s9.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s9.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s9.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s9.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s77.t1_z1_c0.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s30.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s30.t1_z1_c0.tf.c: In function ‘del_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s30.t1_z1_c0.tf.c:525: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s30.t1_z1_c0.tf.c:525: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s30.t1_z1_c0.tf.c:525: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s30.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s30.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s30.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s30.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s30.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s94.t1_z1_c5.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s15.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s15.t1_z1_c1.tf.c: In function ‘append_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s15.t1_z1_c1.tf.c:465: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s15.t1_z1_c1.tf.c:465: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s15.t1_z1_c1.tf.c:465: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s15.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s15.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s15.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s15.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s15.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c1.tf.c: In function ‘find_nth’:
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c1.tf.c:503: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c1.tf.c:503: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c1.tf.c:503: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s52.t1_z1_c0.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s11.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s11.t1_z1_c0.tf.c: In function ‘append_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s11.t1_z1_c0.tf.c:467: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s11.t1_z1_c0.tf.c:467: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s11.t1_z1_c0.tf.c:467: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s11.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s11.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s11.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s11.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s11.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s21.t1_z1_c2.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c1.tf.c: In function ‘new_process’:
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c1.tf.c:731: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s98.t1_z1_c8.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c2.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c2.tf.c: In function ‘new_list’:
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c2.tf.c:446: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c2.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c2.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c2.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c2.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c2.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c2.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c2.tf.c: In function ‘mainQ’:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c2.tf.c:896: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c2.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c2.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s85.t1_z1_c4.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s47.t1_z1_c1.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c1.tf.c: In function ‘mainQ’:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c1.tf.c:896: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s94.t1_z2_c11.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s78.t1_z1_c2.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s74.t1_z1_c1.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s70.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s70.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s70.t1_z1_c0.tf.c: In function ‘quantum_expire’:
+/tmp/CETI_8c6f5e/v2.cil.i.s70.t1_z1_c0.tf.c:698: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s70.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s70.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s70.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s64.t1_z1_c5.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s85.t1_z1_c6.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s94.t1_z1_c2.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s19.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s19.t1_z1_c1.tf.c: In function ‘append_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s19.t1_z1_c1.tf.c:474: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s19.t1_z1_c1.tf.c:474: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s19.t1_z1_c1.tf.c:474: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s19.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s19.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s19.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s19.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s19.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c2.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c2.tf.c: In function ‘new_list’:
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c2.tf.c:449: error: invalid operands to binary * (have ‘struct List *’ and ‘struct List *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c2.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c2.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c2.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c2.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c4.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c4.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c4.tf.c: In function ‘unblock_process’:
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c4.tf.c:676: error: invalid operands to binary * (have ‘struct List *’ and ‘struct List *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c4.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c4.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c4.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s19.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s19.t1_z1_c0.tf.c: In function ‘append_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s19.t1_z1_c0.tf.c:474: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s19.t1_z1_c0.tf.c:474: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s19.t1_z1_c0.tf.c:474: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s19.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s19.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s19.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s19.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s19.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s48.t1_z1_c2.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s49.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s49.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s49.t1_z1_c0.tf.c: In function ‘schedule’:
+/tmp/CETI_8c6f5e/v2.cil.i.s49.t1_z1_c0.tf.c:623: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s49.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s49.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s49.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s52.t1_z1_c2.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s35.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s35.t1_z1_c1.tf.c: In function ‘del_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s35.t1_z1_c1.tf.c:527: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s35.t1_z1_c1.tf.c:527: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s35.t1_z1_c1.tf.c:527: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s35.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s35.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s35.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s35.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s35.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s26.t1_z1_c2.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s47.t1_z1_c2.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s16.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s16.t1_z1_c1.tf.c: In function ‘append_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s16.t1_z1_c1.tf.c:471: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s16.t1_z1_c1.tf.c:471: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s16.t1_z1_c1.tf.c:471: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s16.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s16.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s16.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s16.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s16.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c0.tf.c: In function ‘new_list’:
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c0.tf.c:449: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c0.tf.c:449: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c0.tf.c:449: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s48.t1_z1_c1.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s46.t1_z1_c2.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s16.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s16.t1_z1_c0.tf.c: In function ‘append_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s16.t1_z1_c0.tf.c:471: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s16.t1_z1_c0.tf.c:471: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s16.t1_z1_c0.tf.c:471: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s16.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s16.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s16.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s16.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s16.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s64.t1_z1_c1.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s94.t1_z1_c7.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s74.t1_z1_c3.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s69.t1_z1_c1.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s54.t1_z1_c2.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s26.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s26.t1_z1_c0.tf.c: In function ‘find_nth’:
+/tmp/CETI_8c6f5e/v2.cil.i.s26.t1_z1_c0.tf.c:494: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s26.t1_z1_c0.tf.c:494: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s26.t1_z1_c0.tf.c:494: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s26.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s26.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s26.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s26.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c3.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c3.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c3.tf.c: In function ‘unblock_process’:
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c3.tf.c:681: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c3.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c3.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c3.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s13.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s13.t1_z1_c1.tf.c: In function ‘append_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s13.t1_z1_c1.tf.c:460: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s13.t1_z1_c1.tf.c:460: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s13.t1_z1_c1.tf.c:460: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s13.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s13.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s13.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s13.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s98.t1_z1_c4.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s78.t1_z1_c0.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c3.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c3.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c3.tf.c: In function ‘mainQ’:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c3.tf.c:896: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c3.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c3.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c3.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s52.t1_z1_c1.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c1.tf.c: In function ‘new_list’:
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c1.tf.c:447: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c1.tf.c:447: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c1.tf.c:447: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s8.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s46.t1_z1_c1.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c3.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c3.tf.c: In function ‘find_nth’:
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c3.tf.c:503: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c3.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c3.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c3.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c3.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c3.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s64.t1_z1_c2.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s12.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s12.t1_z1_c1.tf.c: In function ‘append_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s12.t1_z1_c1.tf.c:469: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s12.t1_z1_c1.tf.c:469: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s12.t1_z1_c1.tf.c:469: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s12.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s12.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s12.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s12.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s12.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s45.t1_z1_c3.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s43.t1_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s77.t1_z1_c4.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s79.t1_z1_c1.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c5.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c5.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c5.tf.c: In function ‘mainQ’:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c5.tf.c:896: error: cannot convert to a pointer type
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c5.tf.c:896: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c5.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c5.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c5.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s94.t1_z1_c0.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s24.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s24.t1_z1_c0.tf.c: In function ‘find_nth’:
+/tmp/CETI_8c6f5e/v2.cil.i.s24.t1_z1_c0.tf.c:488: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s24.t1_z1_c0.tf.c:488: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s24.t1_z1_c0.tf.c:488: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s24.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s24.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s24.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s24.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s82.t1_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s85.t1_z1_c3.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s85.t1_z1_c7.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s30.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s30.t1_z1_c1.tf.c: In function ‘del_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s30.t1_z1_c1.tf.c:525: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s30.t1_z1_c1.tf.c:525: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s30.t1_z1_c1.tf.c:525: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s30.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s30.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s30.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s30.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s30.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s66.t1_z1_c1.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s78.t1_z1_c1.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s69.t1_z1_c0.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s24.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s24.t1_z1_c1.tf.c: In function ‘find_nth’:
+/tmp/CETI_8c6f5e/v2.cil.i.s24.t1_z1_c1.tf.c:488: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s24.t1_z1_c1.tf.c:488: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s24.t1_z1_c1.tf.c:488: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s24.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s24.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s24.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s24.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s77.t1_z1_c2.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s9.t1_z1_c2.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s43.t1_z1_c1.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c0.tf.c: In function ‘find_nth’:
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c0.tf.c:503: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c0.tf.c:503: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c0.tf.c:503: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s27.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s79.t1_z1_c3.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s75.t1_z1_c1.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s85.t1_z1_c1.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s64.t1_z1_c3.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s98.t1_z1_c9.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s98.t1_z2_c10.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s75.t1_z1_c0.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s44.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s44.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s44.t1_z1_c1.tf.c: In function ‘finish_process’:
+/tmp/CETI_8c6f5e/v2.cil.i.s44.t1_z1_c1.tf.c:574: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s44.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s44.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s44.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c0.tf.c: In function ‘unblock_process’:
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c0.tf.c:681: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c1.tf.c: In function ‘new_list’:
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c1.tf.c:449: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c1.tf.c:449: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c1.tf.c:449: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s10.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s98.t1_z1_c6.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s17.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s17.t1_z1_c1.tf.c: In function ‘append_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s17.t1_z1_c1.tf.c:472: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s17.t1_z1_c1.tf.c:472: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s17.t1_z1_c1.tf.c:472: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s17.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s17.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s17.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s17.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s17.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s85.t1_z2_c11.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s47.t1_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s74.t1_z1_c2.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s48.t1_z1_c3.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c2.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c2.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c2.tf.c: In function ‘new_process’:
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c2.tf.c:731: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c2.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c2.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s77.t1_z1_c1.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s85.t1_z1_c9.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s100.t1_z1_c0.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c2.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c2.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c2.tf.c: In function ‘unblock_process’:
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c2.tf.c:681: error: cannot convert to a pointer type
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c2.tf.c:681: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c2.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c2.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s26.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s26.t1_z1_c1.tf.c: In function ‘find_nth’:
+/tmp/CETI_8c6f5e/v2.cil.i.s26.t1_z1_c1.tf.c:494: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s26.t1_z1_c1.tf.c:494: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s26.t1_z1_c1.tf.c:494: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s26.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s26.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s26.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s26.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c9.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c9.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c9.tf.c: In function ‘mainQ’:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c9.tf.c:896: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c9.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c9.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z1_c9.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c5.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c5.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c5.tf.c: In function ‘unblock_process’:
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c5.tf.c:681: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c5.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c5.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s67.t1_z1_c5.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c0.tf.c: In function ‘new_list’:
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c0.tf.c:446: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c0.tf.c:446: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c0.tf.c:446: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s7.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s41.t1_z1_c1.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s46.t1_z1_c3.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s85.t1_z1_c8.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c0.tf.c: In function ‘new_process’:
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c0.tf.c:731: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s17.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s17.t1_z1_c0.tf.c: In function ‘append_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s17.t1_z1_c0.tf.c:472: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s17.t1_z1_c0.tf.c:472: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s17.t1_z1_c0.tf.c:472: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s17.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s17.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s17.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s17.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s17.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s94.t1_z1_c9.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z2_c11.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z2_c11.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z2_c11.tf.c: In function ‘mainQ’:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z2_c11.tf.c:896: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z2_c11.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z2_c11.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s101.t1_z2_c11.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c3.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c3.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c3.tf.c: In function ‘new_process’:
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c3.tf.c:731: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c3.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c3.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s76.t1_z1_c3.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s49.t1_z1_c2.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s49.t1_z1_c2.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s49.t1_z1_c2.tf.c: In function ‘schedule’:
+/tmp/CETI_8c6f5e/v2.cil.i.s49.t1_z1_c2.tf.c:623: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s49.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s49.t1_z1_c2.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s49.t1_z1_c2.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c1.tf.c: In function ‘find_nth’:
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c1.tf.c:493: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c1.tf.c:493: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c1.tf.c:493: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c0.tf.c: In function ‘new_list’:
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c0.tf.c:445: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c0.tf.c:445: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c0.tf.c:445: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c0.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s6.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s18.t1_z1_c0.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s18.t1_z1_c0.tf.c: In function ‘append_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s18.t1_z1_c0.tf.c:473: error: ‘num_processes’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s18.t1_z1_c0.tf.c:473: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s18.t1_z1_c0.tf.c:473: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s18.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s18.t1_z1_c0.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s18.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s18.t1_z1_c0.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s70.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s70.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s70.t1_z1_c1.tf.c: In function ‘quantum_expire’:
+/tmp/CETI_8c6f5e/v2.cil.i.s70.t1_z1_c1.tf.c:698: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s70.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s70.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s70.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c3.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c3.tf.c: In function ‘find_nth’:
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c3.tf.c:493: error: invalid operands to binary * (have ‘struct Ele *’ and ‘struct Ele *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c3.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c3.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c3.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c3.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s25.t1_z1_c3.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s40.t1_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s98.t1_z1_c7.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s77.t1_z1_c3.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s85.t1_z1_c0.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s14.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s14.t1_z1_c1.tf.c: In function ‘append_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s14.t1_z1_c1.tf.c:464: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s14.t1_z1_c1.tf.c:464: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s14.t1_z1_c1.tf.c:464: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s14.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s14.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s14.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s14.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s14.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s48.t1_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_8c6f5e/v2.cil.i.s66.t1_z1_c0.tf.c, timeout 30
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s33.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s33.t1_z1_c1.tf.c: In function ‘del_ele’:
+/tmp/CETI_8c6f5e/v2.cil.i.s33.t1_z1_c1.tf.c:516: error: ‘alloc_proc_num’ undeclared (first use in this function)
+/tmp/CETI_8c6f5e/v2.cil.i.s33.t1_z1_c1.tf.c:516: error: (Each undeclared identifier is reported only once
+/tmp/CETI_8c6f5e/v2.cil.i.s33.t1_z1_c1.tf.c:516: error: for each function it appears in.)
+/tmp/CETI_8c6f5e/v2.cil.i.s33.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_8c6f5e/v2.cil.i.s33.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s33.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s33.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+
+worker 0: compile error:
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c1.tf.c:420: warning: conflicting types for built-in function ‘malloc’
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c1.tf.c:554: warning: conflicting types for built-in function ‘strcat’
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c1.tf.c: In function ‘unblock_process’:
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c1.tf.c:676: error: invalid operands to binary * (have ‘struct List *’ and ‘struct List *’)
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c1.tf.c:980: warning: comparison between pointer and integer
+/tmp/CETI_8c6f5e/v2.cil.i.s68.t1_z1_c1.tf.c:1055: warning: incompatible implicit declaration of built-in function ‘printf’
+randomTC/v2/5/processor.c: In function ‘getOperand’:
+randomTC/v2/5/processor.c:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+

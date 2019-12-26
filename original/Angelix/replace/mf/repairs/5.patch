@@ -1,0 +1,11 @@
+--- a/replace.c
++++ b/replace.c
+@@ -109,7 +109,7 @@
+ 	    else if ((isalnum(src[*i - 1])) && (isalnum(src[*i + 1])) 
+ 		&& (src[*i - 1] <= src[*i + 1]))
+ 		{
+-		    for (k = src[*i-1]+1; k<src[*i+1]; k++) //fault
++		    for (k = src[*i-1]+1; (k <= 122); k++) //fault
+ 		    {
+ 			junk = addstr(k, dest, j, maxset);
+ 		    }	

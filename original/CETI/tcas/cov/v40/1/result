@@ -1,0 +1,206 @@
+gcc -D_GNUCC -E -DCIL=1 /home/mingyue/experiments/ceti/TCAS/coverageTC/v40/m40.c -o /home/mingyue/experiments/ceti/TCAS/coverageTC/v40/m40.i
+/usr/local/bin/cilly.native --out /home/mingyue/experiments/ceti/TCAS/coverageTC/v40/m40.cil.c --noPrintLn --useLogicalOperators /home/mingyue/experiments/ceti/TCAS/coverageTC/v40/m40.i
+gcc -D_GNUCC -E /home/mingyue/experiments/ceti/TCAS/coverageTC/v40/m40.cil.c -o /home/mingyue/experiments/ceti/TCAS/coverageTC/v40/m40.cil.i
+gcc -D_GNUCC -c -o /home/mingyue/experiments/ceti/TCAS/coverageTC/v40/m40.o /home/mingyue/experiments/ceti/TCAS/coverageTC/v40/m40.cil.i
+gcc -D_GNUCC -o a.out /home/mingyue/experiments/ceti/TCAS/coverageTC/v40/m40.o
+**Begin v40**
+$ cp /home/mingyue/experiments/ceti/TCAS/coverageTC/v40/m40.cil.i /tmp/CETI_20fc9c/m40.cil.i
+*** Get good/bad tcs ***
+cmd 'gcc /tmp/CETI_20fc9c/m40.cil.i -o /tmp/CETI_20fc9c/m40.cil.i.exe >& /dev/null'
+$ gcc /tmp/CETI_20fc9c/m40.cil.i -o /tmp/CETI_20fc9c/m40.cil.i.exe >& /dev/null
+write_file_str: '/tmp/CETI_20fc9c/m40.cil.i.sh'
+$ sh /tmp/CETI_20fc9c/m40.cil.i.sh /tmp/CETI_20fc9c/m40.cil.i.exe /tmp/CETI_20fc9c/m40.cil.i.routputs &> /dev/null
+[35mAlert: 11/19 tests failed. Bug found. Processing ..
+[mwrite_src: '/tmp/CETI_20fc9c/m40.cil.i.preproc.c'
+*** Fault Localization ***
+write_src: '/tmp/CETI_20fc9c/fautloc_86290c/m40.cil.i.cov.c'
+cmd 'gcc /tmp/CETI_20fc9c/fautloc_86290c/m40.cil.i.cov.c -o /tmp/CETI_20fc9c/fautloc_86290c/m40.cil.i.cov.c.exe >& /dev/null'
+$ gcc /tmp/CETI_20fc9c/fautloc_86290c/m40.cil.i.cov.c -o /tmp/CETI_20fc9c/fautloc_86290c/m40.cil.i.cov.c.exe >& /dev/null
+write_file_str: '/tmp/CETI_20fc9c/fautloc_86290c/m40.cil.i.g.sh'
+$ sh /tmp/CETI_20fc9c/fautloc_86290c/m40.cil.i.g.sh /tmp/CETI_20fc9c/fautloc_86290c/m40.cil.i.cov.c.exe /tmp/CETI_20fc9c/fautloc_86290c/m40.cil.i.outputs_g_dontcare &> /dev/null
+write_file_str: '/tmp/CETI_20fc9c/fautloc_86290c/m40.cil.i.b.sh'
+$ sh /tmp/CETI_20fc9c/fautloc_86290c/m40.cil.i.b.sh /tmp/CETI_20fc9c/fautloc_86290c/m40.cil.i.cov.c.exe /tmp/CETI_20fc9c/fautloc_86290c/m40.cil.i.outputs_bad_dontcare &> /dev/null
+0. sid 7 in fun 'ALIM' (score 0.829156)
+__cil_tmp19 = Alt_Layer_Value == 0;
+1. sid 57 in fun 'alt_sep_test' (score 0.8044)
+__cil_tmp26 = need_upward_RA && need_downward_RA;
+2. sid 56 in fun 'alt_sep_test' (score 0.8044)
+need_downward_RA = tmp___1;
+3. sid 55 in fun 'alt_sep_test' (score 0.8044)
+__cil_tmp25 = tmp;
+4. sid 42 in fun 'Non_Crossing_Biased_Descend' (score 0.8044)
+__cil_tmp29 = result;
+5. sid 41 in fun 'Non_Crossing_Biased_Descend' (score 0.8044)
+__cil_tmp28 = upward_preferred;
+6. sid 40 in fun 'Non_Crossing_Biased_Descend' (score 0.8044)
+upward_preferred = tmp > Down_Separation;
+7. sid 25 in fun 'Non_Crossing_Biased_Climb' (score 0.8044)
+__cil_tmp27 = result;
+8. sid 24 in fun 'Non_Crossing_Biased_Climb' (score 0.8044)
+__cil_tmp26 = upward_preferred;
+9. sid 23 in fun 'Non_Crossing_Biased_Climb' (score 0.8044)
+upward_preferred = tmp > Down_Separation;
+10. sid 10 in fun 'Inhibit_Biased_Climb' (score 0.8044)
+__cil_tmp14 = Climb_Inhibit;
+11. sid 43 in fun 'Own_Below_Threat' (score 0.80403)
+__cil_tmp13 = Own_Tracked_Alt < Other_Tracked_Alt;
+12. sid 31 in fun 'Non_Crossing_Biased_Descend' (score 0.80403)
+result = tmp___2;
+13. sid 30 in fun 'Non_Crossing_Biased_Descend' (score 0.80403)
+__cil_tmp24 = tmp___0 && Cur_Vertical_Sep >= 300;
+14. sid 16 in fun 'Non_Crossing_Biased_Climb' (score 0.80403)
+result = tmp___2;
+15. sid 15 in fun 'Non_Crossing_Biased_Climb' (score 0.80403)
+__cil_tmp23 = tmp___0;
+16. sid 64 in fun 'mainQ' (score 0.760886)
+__cil_tmp14 = tmp;
+17. sid 63 in fun 'alt_sep_test' (score 0.760886)
+__cil_tmp28 = alt_sep;
+18. sid 62 in fun 'alt_sep_test' (score 0.760886)
+__cil_tmp27 = enabled && ((tcas_equipped && intent_not_known) || ! tcas_equipped);
+19. sid 61 in fun 'alt_sep_test' (score 0.760886)
+alt_sep = 0;
+20. sid 60 in fun 'alt_sep_test' (score 0.760886)
+intent_not_known = Two_of_Three_Reports_Valid && Other_RAC == 0;
+21. sid 59 in fun 'alt_sep_test' (score 0.760886)
+tcas_equipped = Other_Capability == 1;
+22. sid 58 in fun 'alt_sep_test' (score 0.760886)
+enabled = (High_Confidence && Own_Tracked_Alt_Rate <= 600) && Cur_Vertical_Sep > 600;
+23. sid 6 in fun 'ALIM' (score 0.727273)
+__cil_tmp18 = Alt_Layer_Value == 1;
+24. sid 48 in fun 'alt_sep_test' (score 0.668994)
+tmp___1 = 0;
+25. sid 54 in fun 'alt_sep_test' (score 0.644658)
+__cil_tmp24 = need_upward_RA;
+26. sid 9 in fun 'Inhibit_Biased_Climb' (score 0.609272)
+__cil_tmp13 = Up_Separation;
+27. sid 50 in fun 'alt_sep_test' (score 0.603023)
+alt_sep = 1;
+28. sid 28 in fun 'Non_Crossing_Biased_Descend' (score 0.603023)
+__cil_tmp23 = Down_Separation >= tmp___1;
+29. sid 27 in fun 'Non_Crossing_Biased_Descend' (score 0.603023)
+tmp___2 = 0;
+30. sid 13 in fun 'Non_Crossing_Biased_Climb' (score 0.603023)
+tmp___2 = 1;
+31. sid 11 in fun 'Non_Crossing_Biased_Climb' (score 0.603023)
+tmp___2 = 0;
+32. sid 5 in fun 'ALIM' (score 0.569803)
+__cil_tmp17 = Alt_Layer_Value == 2;
+33. sid 29 in fun 'Non_Crossing_Biased_Descend' (score 0.53936)
+tmp___2 = 0;
+34. sid 14 in fun 'Non_Crossing_Biased_Climb' (score 0.53936)
+__cil_tmp22 = Down_Separation >= tmp___1;
+35. sid 8 in fun 'Inhibit_Biased_Climb' (score 0.53936)
+__cil_tmp13 = 100 + Up_Separation;
+36. sid 49 in fun 'alt_sep_test' (score 0.522233)
+alt_sep = 0;
+37. sid 45 in fun 'alt_sep_test' (score 0.522233)
+tmp___1 = 1;
+38. sid 32 in fun 'Non_Crossing_Biased_Descend' (score 0.522233)
+tmp___6 = 1;
+39. sid 17 in fun 'Non_Crossing_Biased_Climb' (score 0.522233)
+tmp___5 = 1;
+40. sid 47 in fun 'alt_sep_test' (score 0.452267)
+__cil_tmp22 = tmp___0;
+41. sid 4 in fun 'ALIM' (score 0.452267)
+__cil_tmp16 = 740;
+42. sid 2 in fun 'ALIM' (score 0.452267)
+__cil_tmp14 = 500;
+43. sid 1 in fun 'ALIM' (score 0.40452)
+__cil_tmp13 = 400;
+44. sid 53 in fun 'alt_sep_test' (score 0.381385)
+__cil_tmp23 = need_downward_RA;
+45. sid 52 in fun 'alt_sep_test' (score 0.381385)
+alt_sep = 0;
+46. sid 3 in fun 'ALIM' (score 0.348155)
+__cil_tmp15 = 640;
+47. sid 36 in fun 'Non_Crossing_Biased_Descend' (score 0.341882)
+__cil_tmp26 = tmp___4;
+48. sid 34 in fun 'Non_Crossing_Biased_Descend' (score 0.341882)
+__cil_tmp25 = Up_Separation >= tmp___5;
+49. sid 19 in fun 'Non_Crossing_Biased_Climb' (score 0.341882)
+__cil_tmp24 = Up_Separation >= tmp___4;
+50. sid 44 in fun 'Own_Above_Threat' (score 0.319801)
+__cil_tmp13 = Other_Tracked_Alt < Own_Tracked_Alt;
+51. sid 39 in fun 'Non_Crossing_Biased_Descend' (score 0.319801)
+result = tmp___6;
+52. sid 38 in fun 'Non_Crossing_Biased_Descend' (score 0.319801)
+__cil_tmp27 = tmp___3;
+53. sid 22 in fun 'Non_Crossing_Biased_Climb' (score 0.319801)
+result = tmp___5;
+54. sid 21 in fun 'Non_Crossing_Biased_Climb' (score 0.319801)
+__cil_tmp25 = tmp___3 && Cur_Vertical_Sep >= 300;
+[35mAlert: FL: found 55 stmts with sscores >= 0.01
+[mwrite_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s7.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s57.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s56.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s55.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s42.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s41.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s40.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s25.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s24.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s23.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s10.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s43.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s31.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s30.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s16.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s15.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s64.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s63.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s62.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s61.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s60.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s59.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s58.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s6.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s48.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s54.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s9.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s50.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s28.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s27.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s13.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s11.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s5.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s29.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s14.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s8.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s49.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s45.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s32.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s17.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s47.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s4.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s2.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s1.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s53.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s52.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s3.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s36.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s34.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s19.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s44.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s39.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s38.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s22.t1.arr'
+write_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.s21.t1.arr'
+[35mAlert: Spy: Got 99 info from 55 ssids
+[mwrite_file_bin: '/tmp/CETI_20fc9c/m40.cil.i.info'
+$ python kl.py /tmp/CETI_20fc9c/m40.cil.i --do_tb "(7, 3, 1, 1); (7, 7, 2, 1); (7, 1, 4, 12); (57, 7, 2, 1); (57, 1, 4, 19); (56, 1, 4, 19); (55, 1, 4, 19); (42, 1, 4, 15); (41, 1, 4, 15); (40, 7, 2, 1); (40, 1, 4, 15); (25, 1, 4, 15); (24, 1, 4, 15); (23, 7, 2, 1); (23, 1, 4, 15); (10, 1, 4, 12); (43, 7, 2, 1); (43, 1, 4, 12); (31, 1, 4, 15); (30, 3, 1, 1); (30, 7, 2, 2); (30, 1, 4, 15); (16, 1, 4, 15); (15, 1, 4, 15); (64, 1, 4, 13); (63, 1, 4, 19); (62, 7, 2, 3); (62, 1, 4, 19); (61, 3, 1, 1); (61, 1, 4, 19); (60, 3, 1, 1); (60, 7, 2, 2); (60, 1, 4, 19); (59, 3, 1, 1); (59, 7, 2, 1); (59, 1, 4, 19); (58, 3, 1, 2); (58, 7, 2, 4); (58, 1, 4, 19); (6, 3, 1, 1); (6, 7, 2, 1); (6, 1, 4, 12); (48, 3, 1, 1); (48, 1, 4, 19); (54, 1, 4, 19); (9, 1, 4, 12); (50, 3, 1, 1); (50, 1, 4, 19); (28, 7, 2, 1); (28, 1, 4, 15); (27, 3, 1, 1); (27, 1, 4, 15); (13, 3, 1, 1); (13, 1, 4, 15); (11, 3, 1, 1); (11, 1, 4, 15); (5, 3, 1, 1); (5, 7, 2, 1); (5, 1, 4, 12); (29, 3, 1, 1); (29, 1, 4, 15); (14, 7, 2, 1); (14, 1, 4, 15); (8, 3, 1, 1); (8, 7, 2, 1); (8, 1, 4, 12); (49, 3, 1, 1); (49, 1, 4, 19); (45, 3, 1, 1); (45, 1, 4, 19); (32, 3, 1, 1); (32, 1, 4, 15); (17, 3, 1, 1); (17, 1, 4, 15); (47, 1, 4, 19); (4, 3, 1, 1); (4, 1, 4, 12); (2, 3, 1, 1); (2, 1, 4, 12); (1, 3, 1, 1); (1, 1, 4, 12); (53, 1, 4, 19); (52, 3, 1, 1); (52, 1, 4, 19); (3, 3, 1, 1); (3, 1, 4, 12); (36, 1, 4, 15); (34, 7, 2, 1); (34, 1, 4, 15); (19, 7, 2, 1); (19, 1, 4, 15); (44, 7, 2, 1); (44, 1, 4, 12); (39, 1, 4, 15); (38, 1, 4, 15); (22, 1, 4, 15); (21, 3, 1, 1); (21, 7, 2, 2); (21, 1, 4, 15)" --no_parallel
+KR: tasks 7364
+worker 0: stdout: /tmp/CETI_20fc9c/m40.cil.i.s7.t1_z3_c52.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_20fc9c/m40.cil.i.s7.t1_z3_c45.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_20fc9c/m40.cil.i.s7.t1_z3_c32.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_20fc9c/m40.cil.i.s7.t1_z3_c51.tf.c, timeout 10
+KR: summary (bugfix: True, stop after a repair found: True, parallel: False), '/tmp/CETI_20fc9c/m40.cil.i', 0 / 7364
+
+Note: temp files created in dir '/tmp/CETI_20fc9c'
+665.51user 139.46system 13:00.92elapsed 103%CPU (0avgtext+0avgdata 88112maxresident)k
+984inputs+1072768outputs (5major+51456478minor)pagefaults 0swaps
+
+real	13m0.926s
+user	11m5.522s
+sys	2m19.465s
+**Done v40**

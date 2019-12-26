@@ -1,0 +1,14 @@
+/bin/sh repairAVersion.sh MR1 5 tcas/MFCC
+/bin/sh repairAVersion.sh MR1 11 tcas/MFCC
+/bin/sh repairAVersion.sh MR3 11 tcas/MFCC
+/bin/sh repairAVersion.sh MR1 15 tcas/MFCC
+/bin/sh repairAVersion.sh MR3 24 tcas/MFCC
+/bin/sh repairAVersion.sh MR1 26 tcas/MFCC
+/bin/sh repairAVersion.sh MR1 27 tcas/MFCC
+/bin/sh repairAVersion.sh MR3 29 tcas/MFCC
+/bin/sh repairAVersion.sh MR3 30 tcas/MFCC
+/bin/sh repairAVersion.sh MR2 33 tcas/MFCC
+/bin/sh repairAVersion.sh MR3 35 tcas/MFCC
+/bin/sh repairAVersion.sh MR2 38 tcas/MFCC
+/bin/sh repairAVersion.sh MR1 40 tcas/MFCC
+/bin/sh repairAVersion.sh MR3 40 tcas/MFCC

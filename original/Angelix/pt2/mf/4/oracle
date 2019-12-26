@@ -1,0 +1,201 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-pt2 () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./pt2 "$1") <(angelix-eval $SCRIPT_DIR/../golden/pt2 "$1")
+}
+
+case "$1" in
+    1)
+      test-pt2  "  ; \"
+  "
+      ;;
+    2)
+      test-pt2  " x; 9
+  "
+      ;;
+    3)
+      test-pt2  " x; \"
+  "
+      ;;
+    4)
+      test-pt2  " x; x
+  "
+      ;;
+    5)
+      test-pt2  "  Ä \"
+  "
+      ;;
+    6)
+      test-pt2  "  ; ]
+  "
+      ;;
+    7)
+      test-pt2  "  ; \"
+ß "
+      ;;
+    8)
+      test-pt2  "  ; \"
+ ß"
+      ;;
+    9)
+      test-pt2  ""
+      ;;
+    10)
+      test-pt2  "  ; \"õ  "
+      ;;
+    11)
+      test-pt2  "ß ; \"
+  "
+      ;;
+    12)
+      test-pt2  " ß; \"
+  "
+      ;;
+    13)
+      test-pt2  "  ;U\"
+  "
+      ;;
+    14)
+      test-pt2  "ßx; 9
+  "
+      ;;
+    15)
+      test-pt2  " {; 9
+  "
+      ;;
+    16)
+      test-pt2  " x;U9
+  "
+      ;;
+    17)
+      test-pt2  " x; \`
+  "
+      ;;
+    18)
+      test-pt2  " x; 9
+ß "
+      ;;
+    19)
+      test-pt2  " x; 9
+ ß"
+      ;;
+    20)
+      test-pt2  " \`"
+      ;;
+    21)
+      test-pt2  " xÄ 9
+  "
+      ;;
+    22)
+      test-pt2  " x; 9õ  "
+      ;;
+    23)
+      test-pt2  "ßx; \"
+  "
+      ;;
+    24)
+      test-pt2  " {; \"
+  "
+      ;;
+    25)
+      test-pt2  " x;U\"
+  "
+      ;;
+    26)
+      test-pt2  " x; ]
+  "
+      ;;
+    27)
+      test-pt2  " x; \"
+ß "
+      ;;
+    28)
+      test-pt2  " x; \"
+ ß"
+      ;;
+    29)
+      test-pt2  " "
+      ;;
+    30)
+      test-pt2  " xÄ \"
+  "
+      ;;
+    31)
+      test-pt2  " x; \"õ  "
+      ;;
+    32)
+      test-pt2  "ßx; x
+  "
+      ;;
+    33)
+      test-pt2  " {; x
+  "
+      ;;
+    34)
+      test-pt2  " x;Ux
+  "
+      ;;
+    35)
+      test-pt2  " x; {
+  "
+      ;;
+    36)
+      test-pt2  " x; x
+ß "
+      ;;
+    37)
+      test-pt2  " x; x
+ ß"
+      ;;
+    38)
+      test-pt2  " {"
+      ;;
+    39)
+      test-pt2  " xÄ x
+  "
+      ;;
+    40)
+      test-pt2  " x; xõ  "
+      ;;
+    41)
+      test-pt2  "  
+  "
+      ;;
+    42)
+      test-pt2  " x
+  "
+      ;;
+    43)
+      test-pt2  "  
+ß "
+      ;;
+    44)
+      test-pt2  "  
+ ß"
+      ;;
+    45)
+      test-pt2  "ß 
+  "
+      ;;
+    46)
+      test-pt2  " ß
+  "
+      ;;
+    47)
+      test-pt2  "ßx
+  "
+      ;;
+    48)
+      test-pt2  " {
+  "
+      ;;
+    49)
+      test-pt2  " x
+ß "
+      ;;
+    50)
+      test-pt2  " x
+ ß"
+      ;;
+esac

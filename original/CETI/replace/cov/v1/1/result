@@ -1,0 +1,27 @@
+***************coverageTC/v1
+gcc -D_GNUCC -E -DCIL=1 coverageTC/v1/replace1.c -o coverageTC/v1/replace1.i
+coverageTC/v1/replace1.c:11:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from coverageTC/v1/replace1.c:4:
+/usr/lib/gcc/i486-linux-gnu/4.4.3/include/stddef.h:400:1: warning: this is the location of the previous definition
+/usr/local/bin/cilly.native --out coverageTC/v1/replace1.cil.c --noPrintLn --useLogicalOperators coverageTC/v1/replace1.i
+gcc -D_GNUCC -E coverageTC/v1/replace1.cil.c -o coverageTC/v1/replace1.cil.i
+gcc -D_GNUCC -c -o coverageTC/v1/replace1.o coverageTC/v1/replace1.cil.i
+coverageTC/v1/replace1.cil.c:370: warning: conflicting types for built-in function ‘abort’
+gcc -D_GNUCC -o a.out coverageTC/v1/replace1.o
+$ cp coverageTC/v1/replace1.cil.i /tmp/CETI_bfa98f/replace1.cil.i
+input length='51' output length='51'
+*** Get good/bad tcs ***
+cmd 'gcc /tmp/CETI_bfa98f/replace1.cil.i -o /tmp/CETI_bfa98f/replace1.cil.i.exe >& /dev/null'
+$ gcc /tmp/CETI_bfa98f/replace1.cil.i -o /tmp/CETI_bfa98f/replace1.cil.i.exe >& /dev/null
+write_file_str: '/tmp/CETI_bfa98f/replace1.cil.i.sh'
+$ sh /tmp/CETI_bfa98f/replace1.cil.i.sh /tmp/CETI_bfa98f/replace1.cil.i.exe &> /dev/null
+[35mAlert: All tests passed. Exit!
+[mNote: temp files created in dir '/tmp/CETI_bfa98f'
+
+real	0m0.152s
+user	0m0.180s
+sys	0m0.064s
+/home/mingyue/experiments/ceti/REPLACE/coverageTC

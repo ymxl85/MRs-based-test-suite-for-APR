@@ -1,0 +1,99 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "kf" "Tp6" "ixVTL>KiTS AA%"
+      ;;
+    2)
+      test-replace  "+3f" "~ 6q" "|(x\$F(4#SsD4llKiU^,"
+      ;;
+    3)
+      test-replace  "5" "<o(" "H:AZ**!|\$  6>|_OjB"
+      ;;
+    4)
+      test-replace  "U_m" "g>" "ti\`U17"
+      ;;
+    5)
+      test-replace  "" "/=^" "-)6^8q<SQm)ST"
+      ;;
+    6)
+      test-replace  "[yRD" "yq{p" "0L,"
+      ;;
+    7)
+      test-replace  "0]" "s" "/0+ [.f?Y97ENkI"
+      ;;
+    8)
+      test-replace  "J" "" "V4LGZ"
+      ;;
+    9)
+      test-replace  "Ue.=" "wu" "Pk"
+      ;;
+    10)
+      test-replace  "" "{N7" ";]o"
+      ;;
+    11)
+      test-replace  "L?DM" "4T" "s\`\"i{;.Lo0dEE"
+      ;;
+    12)
+      test-replace  "Rm(" "V&wU" "v),H/A\`h;"
+      ;;
+    13)
+      test-replace  "W" "j" "0xh5asHR,;V2?h"
+      ;;
+    14)
+      test-replace  "_@" "\\l)" "y{"
+      ;;
+    15)
+      test-replace  "*" "vf" "\`^\\V2!MIdf.,gH&\\P||"
+      ;;
+    16)
+      test-replace  "?*" "j" "w{?CA-h+yj_63u;:RC~1"
+      ;;
+    17)
+      test-replace  "t" ";U3M" "~|}@9z-SkD\`zIM"
+      ;;
+    18)
+      test-replace  "i" "" "]m?zj:d"
+      ;;
+    19)
+      test-replace  "EQ" "BOI" "*y/XSIOHEN\\u?t8_g#n"
+      ;;
+    20)
+      test-replace  "5/" "B702" "\`Cx(RW"
+      ;;
+    21)
+      test-replace  "NAl<" "nS" "3\`)"
+      ;;
+    22)
+      test-replace  "i {b" "Z" "sm>VxEY~r>\""
+      ;;
+    23)
+      test-replace  "" "" "3&DL5t<u]\\!CbxlE@"
+      ;;
+    24)
+      test-replace  "D" "W" ")o;7"
+      ;;
+    25)
+      test-replace  "} d" "<V" ":l3{?p\`&"
+      ;;
+    26)
+      test-replace  "z\\7" "3" "iZ63xL"
+      ;;
+    27)
+      test-replace  "" "U(" "I(Fm\$x80Ktf"
+      ;;
+    28)
+      test-replace  "h0=" "{" "4a.anMJ9w(9qKO\`y"
+      ;;
+    29)
+      test-replace  "av" "~ " "w}v(lh<z!P24Lul6\\X"
+      ;;
+    30)
+      test-replace  "CFdc" "n" "9L\"rwH>^Fb*nnL\$8?"
+      ;;
+esac

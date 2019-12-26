@@ -1,0 +1,62 @@
+#!/bin/bash
+
+subject="replace"
+
+subdir="T0"
+tar=$subdir/$subject
+for v in {1..32..1}
+do
+  rm *.patch
+
+  t1=$(($(date +%s%N)/1000000))
+  /bin/sh repair_t0 $subject $subdir $v > $tar/$v/log.txt 2>&1
+  t2=$(($(date +%s%N)/1000000))
+  t=$(($t2-$t1))
+  echo $t > $tar/repairs/$v.time
+
+  for repair in *.patch
+  do
+    cp $repair $tar/repairs/$v.patch
+  done
+done
+
+#subdir="MFCC"
+#tar=$subdir/$subject
+#for v in {31..32..1}
+#do
+#  rm *.patch
+# if [ -e $tar/$v/oracle ]
+# then
+#  t1=$(($(date +%s%N)/1000000))
+#  /bin/sh repair_mf $subject $subdir $v > $tar/$v/log2.txt 2>&1
+#  t2=$(($(date +%s%N)/1000000))
+#  t=$(($t2-$t1))
+#  echo $t > $tar/repairs/$v.time
+
+#  for repair in *.patch
+#  do
+#    cp $repair $tar/repairs/$v.patch
+#  done
+# fi
+#done
+
+#subdir="COV"
+#tar=$subdir/$subject
+#for v in {1..32..1}
+#do
+#  rm *.patch
+# if [ -e $tar/$v/oracle ]
+# then
+#  t1=$(($(date +%s%N)/1000000))
+#  /bin/sh repair_mf $subject $subdir $v > $tar/$v/log.txt 2>&1
+#  t2=$(($(date +%s%N)/1000000))
+#  t=$(($t2-$t1))
+#  echo $t > $tar/repairs/$v.time
+
+#  for repair in *.patch
+#  do
+#    cp $repair $tar/repairs/$v.patch
+#  done
+# fi
+#done
+

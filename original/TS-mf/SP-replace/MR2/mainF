@@ -1,0 +1,71 @@
+int main()
+{
+   char argv1[7];
+   char argv2[2];
+   char argv3[3];
+   char rr[1000]="";
+   klee_make_symbolic(&argv1,sizeof(argv1),"argv1");
+   klee_make_symbolic(&argv2,sizeof(argv2),"argv2");
+   klee_make_symbolic(&argv3,sizeof(argv3),"argv3");
+   int i;
+    //ts.pat="[x1-x2]x3"
+    klee_assume(argv1[0]=='[');
+    klee_assume(argv1[1]>='p' & argv1[1]<='z');
+    klee_assume(argv1[2]=='-');
+    klee_assume(argv1[3]>='o' && argv1[3]!='z');
+    klee_assume(argv1[4]==']');
+    klee_assume(argv1[5]=='\0');
+    //ts.substitution   
+    klee_assume(argv2[0]>='0' & argv2[0]<='9');
+    klee_assume(argv2[1]=='\0');
+    //ts.text
+     klee_assume(argv3[0]>='o' & argv3[0]<=127);
+    klee_assume(argv3[1]=='\0');
+    ///////////////////////////////////////////////////////////////////////////////
+    char f[10];
+    if(argv1[1]<argv1[3] && argv1[3]<='z')//(argv1[3]=='Z') //[U-Z]
+    {
+      if(argv1[3]-argv1[1]==1)
+      {
+       f[0]=argv1[0];
+       f[1]=argv1[1];
+       f[2]=argv1[3];
+       f[3]=argv1[4];
+       f[4]=argv1[5];
+      }
+      else
+      {
+         if(argv3[0]<=argv1[3] && argv1[3]<'z')
+         {
+           f[0]=argv1[0];
+           f[1]=argv1[1];
+           f[2]=argv1[2];
+           f[3]=argv1[3]+1;
+           f[4]=argv1[4];
+           f[5]=argv1[5];
+         }
+         else
+         {
+           f[0]=argv1[0];
+           f[1]=argv1[1]-1;
+           f[2]=argv1[2];
+           f[3]=argv1[3];
+           f[4]=argv1[4];
+           f[5]=argv1[5];
+         }
+      }
+    }
+    else //[U-R] = [-UR] [U-\] = [-U\]
+    {
+      f[0]=argv1[0];
+      f[1]=argv1[2];
+      f[2]=argv1[1];
+      f[3]=argv1[3];
+      f[4]=argv1[4];
+      f[5]=argv1[5];
+    }
+   mainQ(f,argv2,argv3,rr);
+   klee_print_expr("rr=",rr);
+   
+   return 0;
+}

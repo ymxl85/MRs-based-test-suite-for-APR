@@ -1,0 +1,912 @@
+--allow-coverage-fail false
+--appp 0.33333
+--asm-code-only false
+--best-edit-rule "1 * fault_loc_weight ; 1 * max_test_fail_prob ; -1 * num_tests"
+--best-test-rule "1 * test_fail_prob ; 1 * test_fail_count ; -1 * test_pass_count"
+--compiler "gcc"
+--compiler-command ""
+--compiler-opts ""
+--continue false
+--coverage-info ""
+--coverage-per-test false
+--crossover "one"
+--crossp 0.5
+--delp 0.33333
+--describe-machine false
+--diversity-selection 0
+--edit-script false
+--elf-risc false
+--exclude-edits ""
+--exp-diff false
+--fault-file ""
+--fault-path "coverage.path.neg"
+--fault-scheme "path"
+--fitness-in-parallel 1
+--fix-file ""
+--fix-oracle ""
+--fix-path "coverage.path.pos"
+--fix-scheme "default"
+--flatten-path ""
+--format "txt"
+--gen-per-exchange 1
+--generations 10
+--gui false
+--hostname "127.0.0.1"
+--ignore-dead-code false
+--ignore-equiv-appends false
+--ignore-standard-headers false
+--ignore-string-equiv-fixes false
+--ignore-untyped-returns false
+--incoming-pop ""
+--keep-source false
+--label-repair true
+--max-evals 0
+--minimization false
+--mt-cov false
+--multiopt-minimize false
+--multiopt-no-inf false
+--neg-tests 10
+--neg-weight 1
+--negative-test-weight 2
+--neutral-walk-max-size 0
+--neutral-walk-weight ""
+--nht-id "global"
+--nht-port 51000
+--nht-server ""
+--no-rep-cache false
+--no-test-cache false
+--num-comps 2
+--num-objectives 2
+--oracle-genome ""
+--popsize 40
+--port 60000
+--pos-tests 25
+--pos-weight 0.1
+--prefix "processed"
+--preprocessor ""
+--print-incremental-evals false
+--print-source-name false
+--program "source.txt"
+--promut 1
+--quiet false
+--regen-paths false
+--rep "c"
+--rep-cache ""
+--repp 0
+--samp-strat "variant"
+--sample 1
+--sample-runs 100
+--sanity "default"
+--search "ga"
+--seed 53128369
+--semantic-check "scope"
+--single-fitness false
+--skip-failed-sanity-tests false
+--skip-tests ""
+--split-search 0
+--sport 65000
+--subatom-constp 0.5
+--subatom-mutp 0
+--super-mutant false
+--super-mutant-size 50
+--swap-bug false
+--swapp 0.33333
+--template-cache ""
+--templates ""
+--test-command ""
+--test-script "/bin/sh test.sh"
+--tournament-size 2
+--tweet false
+--uniq false
+--valgrind false
+--variants-exchanged 50
+cilRep: preprocessing IO function signatures: /tmp/tmp0af904.c /tmp/tmp067e37.c
+cilRep: done preprocessing IO function signatures
+Exception in loading: Sys_error("source.cache: No such file or directory")
+cilrep: from_source: pre: stmt_count = 1
+cilRep: processed/v2.i: parsing
+cilRep: processed/v2.i: parsed (0.0351553 MB)
+cilRep: processed/processor.i: parsing
+cilRep: processed/processor.i: parsed (0.0259714 MB)
+cilrep: from_source: post: stmt_count: 268
+cachingRepresentation: sanity checking begins
+	p1: true (1)
+	p2: true (1)
+	p3: true (1)
+	p4: true (1)
+	p5: true (1)
+	p6: true (1)
+	p7: true (1)
+	p8: true (1)
+	p9: true (1)
+	p10: true (1)
+	p11: true (1)
+	p12: true (1)
+	p13: true (1)
+	p14: true (1)
+	p15: true (1)
+	p16: true (1)
+	p17: true (1)
+	p18: true (1)
+	p19: true (1)
+	p20: true (1)
+	p21: true (1)
+	p22: true (1)
+	p23: true (1)
+	p24: true (1)
+	p25: true (1)
+	n1: false (0)
+	n2: false (0)
+	n3: false (0)
+	n4: false (0)
+	n5: false (0)
+	n6: false (0)
+	n7: false (0)
+	n8: false (0)
+	n9: false (0)
+	n10: false (0)
+cachingRepresentation: sanity checking passed (time_taken = 0.317825)
+faultLocRep: compute_localization: fault_scheme: path, fix_scheme: default
+Rep: coverage_sourcename: /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/coverage/coverage.c
+cilRep: instrumenting for fault localization
+cilRep: done instrumenting for fault localization
+coverage negative:
+	test: 1
+	test: 2
+	test: 3
+	test: 4
+	test: 5
+	test: 6
+	test: 7
+	test: 8
+	test: 9
+	test: 10
+coverage positive:
+	test: 1
+	test: 2
+	test: 3
+	test: 4
+	test: 5
+	test: 6
+	test: 7
+	test: 8
+	test: 9
+	test: 10
+	test: 11
+	test: 12
+	test: 13
+	test: 14
+	test: 15
+	test: 16
+	test: 17
+	test: 18
+	test: 19
+	test: 20
+	test: 21
+	test: 22
+	test: 23
+	test: 24
+	test: 25
+cilRep: source.cache: saved
+cachingRep: source.cache: saved
+faultlocRep: source.cache: saved
+cilrep done serialize
+cilRep: stmt_count = 268
+cilRep: stmts in weighted_path = 210
+cilRep: total weight = 21
+cilRep: stmts in weighted_path with weight >= 1.0 = 0
+cilRep: processor.i (code bank/base file; atoms [220,268])
+cilRep: v2.i (code bank/base file; atoms [1,219])
+cilRep: 2 file(s) total in representation
+search: genetic algorithm begins (|original| = 0.0402317 MB)
+search: initial population (sizeof one variant = 0.00867462 MB)
+	  0 s(258,265) 
+	 25 d(127) 
+	 25 a(245,38) 
+	 25 a(26,25) 
+	 25 d(148) 
+	 25 s(220,234) 
+	 25 a(3,5) 
+	 20 a(13,127) 
+	  0 d(140) 
+	  0 s(12,8) 
+	 25 a(44,45) 
+	 25 a(79,225) 
+	 25 d(224) 
+	  7 d(29) 
+	 25 a(212,203) 
+	  0 s(239,229) 
+	 25 d(146) 
+	 25 d(82) 
+	 25 a(251,137) 
+	  0 s(257,261) 
+	 25 s(77,54) 
+	 24 s(208,195) 
+	 25 a(249,254) 
+	 25 a(226,137) 
+	 25 a(48,47) 
+	 25 d(74) 
+	 20 d(112) 
+	 25 a(81,148) 
+	 25 s(238,224) 
+	  0 s(25,127) 
+	 25 a(9,225) 
+	  0 s(136,132) 
+	 25 a(196,213) 
+	  0 s(142,144) 
+	  0 d(263) 
+	  0 s(35,30) 
+	 25 s(260,259) 
+	  7 s(230,226) 
+	 25 s(12,9) 
+	 25 original
+search: generation 1 (sizeof one variant = 0.0403299 MB)
+	 25 a(3,5) s(18,19) 
+	  7 a(196,213) d(248) 
+	  0 a(3,5) d(144) 
+	  0 a(196,213) s(35,29) 
+	 25 d(224) a(58,59) 
+	 25 s(12,9) a(200,199) 
+	 25 d(224) d(191) 
+	 25 s(12,9) a(258,150) 
+	  0 s(134,135) 
+	  0 s(260,259) d(46) 
+	  0 a(251,137) d(43) 
+	  0 d(148) d(212) 
+	  0 a(196,213) a(59,127) 
+	  5 a(26,25) s(245,233) 
+	 25 a(196,213) a(169,234) 
+	  7 a(26,25) a(240,127) 
+	 25 a(3,5) d(31) 
+	 25 a(81,148) d(38) 
+	 25 d(224) a(189,132) 
+	  7 d(29) a(145,105) 
+	  7 d(224) a(237,219) 
+	  0 d(29) s(257,260) 
+	  0 s(77,54) s(150,176) 
+	 25 d(148) d(200) 
+	 25 s(77,54) a(248,228) 
+	 25 d(148) d(220) 
+	 25 d(82) s(4,5) 
+	 25 d(224) a(202,154) 
+	 25 d(82) a(221,14) 
+	  0 d(224) s(14,116) 
+	  0 a(212,203) s(130,133) 
+	 20 a(9,225) a(123,54) 
+	 20 a(212,203) s(204,211) 
+	 25 a(9,225) a(50,268) 
+	  7 a(226,137) d(236) 
+	  0 s(238,224) a(194,176) 
+	  0 a(226,137) s(266,268) 
+	 25 s(238,224) d(4) 
+	  0 s(230,226) s(48,39) 
+	 25 a(249,254) a(257,14) 
+	  0 s(230,226) a(255,268) 
+	  0 a(249,254) s(213,203) 
+	 25 s(12,9) a(268,77) 
+	  0 s(238,224) a(205,208) 
+	  7 s(12,9) d(252) 
+	  0 s(238,224) a(195,159) 
+	  0 a(9,225) a(16,127) 
+	  7 s(238,224) d(249) 
+	  0 a(9,225) s(77,76) 
+	 20 s(238,224) d(115) 
+	  0 a(79,225) s(16,20) 
+	 25 a(3,5) d(64) 
+	 25 a(79,225) d(201) 
+	 25 a(3,5) d(220) 
+	  0 s(208,195) d(264) 
+	  0 d(224) s(144,137) 
+	  0 s(208,195) s(46,41) 
+	  0 d(224) a(80,86) 
+	 25 s(238,224) a(83,261) 
+	  0 d(148) d(169) 
+	 25 s(202,193) 
+	 25 s(220,234) a(61,14) 
+	 25 a(44,45) a(54,91) 
+	 25 d(127) d(70) 
+	  0 a(44,45) s(87,79) 
+	  0 d(127) a(169,151) 
+	 25 s(12,9) a(26,82) 
+	 25 a(245,38) a(215,214) 
+	 25 s(12,9) d(203) 
+	  0 a(245,38) s(266,258) 
+search: generation 2 (sizeof one variant = 0.0414 MB)
+	  0 s(134,135) s(199,190) 
+	 25 d(224) a(58,59) d(261) 
+	  0 s(12,9) a(268,77) s(145,139) 
+	  0 d(82) a(221,14) a(189,125) 
+	  0 d(148) d(200) s(145,141) 
+	  0 s(134,135) s(137,234) 
+	  0 d(148) d(200) s(239,249) 
+	  0 s(134,135) a(53,53) 
+	  0 a(196,213) a(59,127) d(225) 
+	  7 a(196,213) d(248) d(26) 
+	 25 a(3,5) s(18,19) d(200) d(202) 
+	 25 d(148) s(137,254) 
+	  0 a(3,5) s(18,19) d(73) 
+	 25 d(148) d(200) a(16,25) 
+	  0 d(127) d(70) a(248,228) s(129,57) 
+	 20 s(77,54) a(126,126) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000125/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000125/processor.i  d(127) d(70) a(127,55)  fails to compile
+	  0 d(127) d(70) a(127,55) 
+	  0 s(77,54) a(248,228) d(84) 
+	  0 d(224) a(58,59) s(153,186) 
+	 20 d(224) a(58,59) d(125) 
+	 25 d(82) a(221,14) a(144,14) 
+	 25 d(82) s(4,5) d(195) 
+	 24 a(9,225) a(50,268) a(62,148) 
+	  7 a(26,25) a(240,127) s(247,244) 
+	  0 a(226,137) d(236) d(177) 
+	  0 s(230,226) a(255,268) a(248,91) 
+	  0 a(226,137) d(236) s(137,132) 
+	  0 s(230,226) a(255,268) s(54,64) 
+	  0 a(3,5) d(220) s(29,32) 
+	 25 d(127) d(70) d(198) 
+	  0 a(3,5) d(220) d(134) 
+	 25 d(127) d(70) d(74) 
+	 20 a(44,45) d(13) 
+	  0 a(226,137) s(266,268) a(54,91) a(62,91) 
+	  0 a(44,45) a(54,91) a(85,125) 
+	  0 a(226,137) s(266,268) a(235,222) 
+	  0 a(79,225) s(150,176) s(232,240) 
+	  0 s(77,54) d(201) s(75,70) 
+	  0 a(79,225) d(201) s(209,176) 
+	  0 s(77,54) s(150,176) s(262,260) 
+	  0 d(224) a(189,132) s(134,135) 
+	  7 s(202,193) d(231) 
+	  0 d(224) a(189,132) a(258,150) s(135,134) 
+	 25 s(12,9) a(48,25) 
+	  0 d(224) a(189,132) d(22) 
+	  0 s(12,9) a(258,150) a(197,159) 
+	  0 a(44,45) a(54,91) d(248) a(134,149) 
+	 25 a(196,213) s(66,54) 
+	 25 a(44,45) a(54,91) a(69,54) 
+	  0 a(196,213) d(248) s(27,30) 
+	 20 a(9,225) a(123,54) a(219,149) 
+	  0 s(238,224) a(194,176) a(116,229) 
+	  7 a(9,225) a(123,54) d(221) 
+	  0 s(238,224) a(194,176) a(82,80) 
+	  0 d(224) a(80,86) a(137,146) 
+	  0 s(12,9) d(252) d(19) 
+	  0 s(238,224) d(4) d(176) 
+	  0 s(77,54) s(150,176) d(147) 
+	 25 a(245,38) a(215,214) a(257,14) a(47,91) 
+	 15 a(249,254) d(223) 
+	  0 a(245,38) a(215,214) s(34,29) 
+	 25 a(249,254) a(257,14) a(48,149) 
+search: generation 3 (sizeof one variant = 0.0420332 MB)
+	 25 a(9,225) d(235) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000172/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000172/processor.i  d(127) d(70) a(127,55) a(50,268) a(62,148) s(7,10)  fails to compile
+	  0 d(127) d(70) a(127,55) a(50,268) a(62,148) s(7,10) 
+	 24 a(9,225) a(50,268) a(62,148) a(266,91) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000174/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000174/processor.i  d(127) d(70) a(127,55) d(257)  fails to compile
+	  0 d(127) d(70) a(127,55) d(257) 
+	 25 d(82) a(221,14) a(144,14) a(42,70) 
+	 24 a(9,225) a(50,268) a(62,148) s(193,198) 
+	  0 d(224) d(220) d(134) a(108,81) 
+	  0 a(3,5) a(189,132) s(134,135) a(33,220) 
+	  0 d(224) a(189,132) s(134,135) d(146) 
+	  0 a(3,5) d(220) d(134) s(15,19) 
+	  0 s(230,226) a(255,268) a(248,91) s(203,154) 
+	  7 a(44,45) d(13) s(220,243) 
+	  0 d(82) a(221,14) a(144,14) a(58,59) d(261) s(263,267) 
+	  0 d(224) a(128,57) 
+	  0 d(82) a(221,14) a(144,14) a(39,48) 
+	  2 d(224) a(58,59) d(261) d(208) 
+	  0 a(196,213) a(59,127) a(248,228) d(84) d(196) 
+	 25 s(77,54) d(225) a(210,152) 
+	  0 a(196,213) a(59,127) d(225) d(62) 
+	  0 s(77,54) a(248,228) d(84) a(113,220) 
+	  0 s(238,224) d(4) d(176) s(79,87) 
+	 25 d(148) s(137,254) d(241) 
+	  0 a(79,225) s(150,176) s(232,240) a(216,159) 
+	  0 d(148) d(200) s(145,141) d(27) 
+	  0 a(9,225) a(50,268) a(62,148) a(46,149) 
+	  0 a(245,38) a(215,214) a(257,14) a(47,91) s(31,29) 
+	  5 d(127) d(70) s(245,247) 
+	  0 a(44,45) a(54,91) a(85,125) d(74) d(141) 
+	 25 d(127) d(70) d(74) d(39) 
+	  0 a(44,45) a(54,91) a(85,125) a(152,25) 
+	  7 d(224) a(58,59) d(261) a(32,268) 
+	  0 a(226,137) s(266,268) a(54,91) a(62,91) a(81,85) 
+	  0 s(77,54) a(126,126) s(255,262) 
+	  7 a(9,225) a(123,54) d(221) a(76,81) 
+	  0 a(226,137) s(266,268) a(235,222) a(141,229) 
+	  7 a(196,213) d(248) d(26) s(11,12) 
+	  7 a(26,25) a(240,127) s(4,5) d(195) a(76,25) 
+	  5 d(82) s(247,244) s(204,214) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000209/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000209/processor.i  a(26,25) a(240,127) s(247,244) a(247,127)  fails to compile
+	  0 a(26,25) a(240,127) s(247,244) a(247,127) 
+	 25 d(82) s(4,5) d(195) a(143,25) 
+	  0 a(3,5) d(220) d(134) s(59,55) 
+	  0 d(127) d(70) d(74) d(129) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000213/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000213/processor.i  a(9,225) a(123,54) a(219,149) a(123,54) d(221) s(10,12)  fails to compile
+	  0 a(9,225) a(123,54) a(219,149) a(123,54) d(221) s(10,12) 
+	  7 a(9,225) s(226,237) 
+	 12 a(9,225) a(123,54) a(219,149) a(135,135) 
+	  7 a(9,225) a(123,54) d(221) d(106) 
+	  0 s(77,54) s(150,176) d(147) s(128,129) 
+	  8 a(44,45) d(13) a(28,30) 
+	  0 s(12,9) a(268,77) s(266,268) a(54,91) a(62,91) d(219) 
+	  0 a(226,137) s(145,139) d(214) 
+	  0 s(12,9) a(268,77) s(145,139) a(234,219) 
+	  0 a(226,137) s(266,268) a(54,91) a(62,91) s(202,199) 
+	 25 d(82) a(221,14) a(144,14) d(67) 
+	  7 a(249,254) a(257,14) a(48,149) s(34,30) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000225/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000225/processor.i  d(127) d(70) a(127,55) s(262,256)  fails to compile
+	  0 d(127) d(70) a(127,55) s(262,256) 
+	  0 a(44,45) a(54,91) d(248) a(134,149) d(237) 
+search: generation 4 (sizeof one variant = 0.0422792 MB)
+	 25 d(82) s(4,5) d(195) a(143,25) a(247,137) 
+	 25 s(77,54) d(225) a(210,152) a(132,26) 
+	  7 a(249,254) a(257,14) a(48,149) s(34,30) a(240,50) 
+	  0 a(9,225) a(123,54) d(221) d(106) s(213,202) 
+	  0 a(9,225) a(50,268) a(62,148) a(59,127) d(225) d(62) d(207) 
+	 25 a(196,213) a(266,91) a(115,50) 
+	  0 a(9,225) a(50,268) a(62,148) a(266,91) d(22) 
+	  0 a(196,213) a(59,127) d(225) d(62) d(248) 
+	  0 a(3,5) d(220) d(134) s(59,55) s(145,143) 
+	  0 a(9,225) s(226,237) a(176,205) 
+	  0 d(82) s(4,5) d(195) a(143,25) a(19,219) 
+	  0 a(196,213) a(59,127) a(248,228) d(84) d(196) s(53,54) 
+	  0 a(44,45) a(54,91) d(248) a(134,149) d(237) d(169) 
+	  0 s(77,54) s(150,176) d(147) s(128,129) s(253,243) 
+	  0 d(148) d(200) s(145,141) d(27) s(260,265) 
+	  7 a(26,25) a(240,127) s(4,5) d(195) a(76,25) d(32) 
+	 25 a(226,137) a(146,146) 
+	  0 d(82) a(221,14) a(144,14) a(42,70) s(145,139) d(214) d(258) 
+	  0 a(226,137) s(145,139) d(214) a(196,77) 
+	 20 d(82) a(221,14) a(144,14) a(42,70) d(125) 
+	  0 s(77,54) a(126,126) s(255,262) a(186,184) 
+	  7 d(82) a(221,14) a(144,14) d(67) s(26,77) 
+	  0 s(77,54) a(126,126) s(255,262) a(48,220) 
+	 25 d(82) a(221,14) a(144,14) d(67) s(9,10) 
+	  7 a(9,225) a(123,54) d(221) d(33) 
+	  0 s(12,9) a(268,77) s(266,268) a(54,91) a(62,91) d(219) d(106) d(145) 
+	  7 a(9,225) a(123,54) d(221) d(106) a(1,91) 
+	  0 s(12,9) a(268,77) s(266,268) a(54,91) a(62,91) d(219) d(217) 
+	 20 a(9,225) a(123,54) d(221) a(76,81) d(224) 
+	  0 a(249,254) a(257,14) a(48,149) s(34,30) s(153,215) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000257/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000257/processor.i  d(127) d(70) a(127,55) s(262,256) d(70) s(245,247) s(219,136)  fails to compile
+	  0 d(127) d(70) a(127,55) s(262,256) d(70) s(245,247) s(219,136) 
+	 25 d(127) d(201) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000259/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000259/processor.i  d(127) d(70) a(127,55) s(262,256) s(192,203)  fails to compile
+	  0 d(127) d(70) a(127,55) s(262,256) s(192,203) 
+	  0 d(127) d(70) s(245,247) d(267) 
+	  0 a(9,225) a(123,54) d(221) s(226,237) s(48,46) 
+	 20 a(9,225) d(106) a(5,146) 
+	  7 a(9,225) a(123,54) d(221) d(106) s(252,220) 
+	  7 a(9,225) s(226,237) s(65,61) 
+	  0 d(148) s(137,254) d(241) d(263) 
+	 25 d(82) s(4,5) d(195) a(143,25) d(138) 
+	  0 d(127) d(70) d(74) d(39) a(21,105) 
+	  0 a(3,5) a(189,132) s(134,135) a(33,220) a(75,254) 
+	  2 d(224) a(58,59) d(261) d(208) a(32,31) 
+	  0 a(26,25) a(240,127) s(4,5) d(195) a(76,25) d(264) 
+	  7 a(26,25) s(137,254) d(241) d(221) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000272/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000272/processor.i  d(148) a(240,127) s(247,244) a(247,127) a(194,149)  fails to compile
+	  0 d(148) a(240,127) s(247,244) a(247,127) a(194,149) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000273/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000273/processor.i  a(26,25) a(240,127) s(247,244) a(247,127) d(144)  fails to compile
+	  0 a(26,25) a(240,127) s(247,244) a(247,127) d(144) 
+	 25 d(148) s(137,254) d(241) d(23) 
+	  7 a(249,254) a(257,14) a(48,149) s(34,30) a(132,254) 
+	  4 a(9,225) a(50,268) a(62,148) a(46,149) s(41,47) 
+	 25 d(82) s(4,5) d(195) a(143,25) d(58) 
+	  0 s(77,54) s(150,176) d(147) s(128,129) d(28) 
+	  5 a(44,45) d(13) a(28,30) s(233,229) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000280/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000280/processor.i  d(127) d(70) a(127,55) s(262,256) d(230)  fails to compile
+	  0 d(127) d(70) a(127,55) s(262,256) d(230) 
+search: generation 5 (sizeof one variant = 0.0427351 MB)
+	  0 a(26,25) a(240,127) s(4,5) d(195) a(76,25) d(32) a(256,259) 
+	  0 d(127) d(70) s(245,247) d(267) d(265) 
+	  0 a(26,25) a(240,127) s(4,5) d(195) a(76,25) s(4,5) d(195) a(143,25) d(138) d(7) 
+	  0 d(82) d(264) a(52,150) 
+	  0 a(26,25) a(240,127) s(4,5) d(195) a(76,25) d(264) d(127) 
+	  7 d(82) s(4,5) d(195) a(143,25) d(138) s(246,236) 
+	 25 d(82) s(4,5) d(195) s(65,66) 
+	  7 a(26,25) s(137,254) d(241) d(221) a(143,25) a(247,137) s(234,261) 
+	 25 d(82) s(4,5) d(195) a(143,25) a(247,137) a(49,38) 
+	  7 a(26,25) s(137,254) d(241) d(221) d(205) 
+	  7 d(127) d(70) s(226,237) s(65,61) s(127,55) 
+	  0 a(9,225) d(74) d(39) a(21,105) a(148,54) 
+	  0 d(127) d(70) d(74) d(39) a(21,105) s(46,42) 
+	  0 a(9,225) s(226,237) s(65,61) s(73,76) 
+	  4 d(127) d(70) s(245,247) d(225) a(210,152) a(132,26) a(262,220) 
+	  0 s(77,54) d(267) s(220,240) 
+	  0 d(127) d(70) s(245,247) d(267) s(212,204) 
+	  0 s(77,54) d(225) a(210,152) a(132,26) d(256) 
+	  7 a(26,25) a(240,127) s(4,5) d(195) a(76,25) s(4,5) d(195) a(143,25) d(138) s(14,254) 
+	  0 d(82) d(264) a(241,220) 
+	  0 a(26,25) a(240,127) s(4,5) d(195) a(76,25) d(264) d(6) 
+	 25 d(82) s(4,5) d(195) a(143,25) d(138) a(151,26) 
+	  7 a(9,225) a(123,54) d(221) d(106) a(1,91) a(4,234) 
+	 20 d(82) a(221,14) a(144,14) a(42,70) d(125) a(126,86) 
+	  0 s(77,54) s(150,176) d(147) s(128,129) d(28) s(78,85) 
+	  0 a(196,213) a(59,127) d(225) d(62) d(248) s(33,30) 
+	  7 a(249,254) a(257,14) a(48,149) s(34,30) a(240,50) d(108) 
+	 25 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) 
+	  0 a(249,254) s(26,77) s(263,268) 
+	  0 d(82) a(221,14) a(144,14) d(67) a(257,14) a(48,149) s(34,30) a(132,254) s(86,80) 
+	  7 a(249,254) a(257,14) a(48,149) s(34,30) a(132,254) a(260,257) 
+	  7 d(82) a(221,14) a(144,14) d(67) s(26,77) d(123) 
+	  0 a(26,25) s(137,254) d(58) a(210,177) 
+	  7 d(82) s(4,5) d(195) a(143,25) d(241) d(221) a(209,209) 
+	  7 a(26,25) s(137,254) d(241) d(221) d(127) 
+	 25 d(82) s(4,5) d(195) a(143,25) d(58) a(191,213) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000317/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000317/processor.i  a(26,25) a(240,127) s(247,244) a(247,127) d(144) a(234,219)  fails to compile
+	  0 a(26,25) a(240,127) s(247,244) a(247,127) d(144) a(234,219) 
+	  0 a(196,213) a(59,127) d(225) d(62) d(248) s(64,52) 
+	 20 a(9,225) d(106) a(5,146) a(267,105) 
+	  0 s(77,54) s(150,176) d(147) s(128,129) s(253,243) d(190) 
+	  0 d(82) s(4,5) d(195) a(143,25) a(247,137) a(80,88) 
+	  7 a(249,254) a(257,14) a(48,149) s(34,30) a(132,254) s(10,12) 
+	  7 d(82) a(221,14) a(144,14) d(67) s(26,77) d(220) 
+	  0 s(12,9) a(268,77) s(266,268) a(54,91) a(62,91) d(219) d(106) d(145) s(43,40) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000325/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000325/processor.i  d(127) d(70) a(127,55) s(262,256) d(230) a(110,113)  fails to compile
+	  0 d(127) d(70) a(127,55) s(262,256) d(230) a(110,113) 
+	  0 a(249,254) a(257,14) a(48,149) s(34,30) a(132,254) d(128) 
+	 20 d(82) s(4,5) d(195) a(143,25) a(247,137) d(110) 
+	  0 s(77,54) d(225) a(210,152) a(132,26) s(190,206) 
+	 25 d(82) a(221,14) d(138) d(127) 
+	 25 d(82) s(4,5) d(195) a(143,25) a(144,14) d(67) s(9,10) d(202) 
+	 25 d(82) a(221,14) a(144,14) d(67) s(9,10) d(191) 
+	  0 d(82) s(4,5) d(195) a(143,25) d(138) s(19,22) 
+	  7 a(9,225) a(123,54) d(221) d(106) s(252,220) a(10,91) 
+	  0 a(9,225) s(226,237) s(65,61) s(130,128) 
+	 25 a(196,213) a(266,91) a(115,50) s(149,146) 
+	  0 d(127) d(70) d(74) d(39) a(21,105) s(238,242) 
+search: generation 6 (sizeof one variant = 0.0430393 MB)
+	  7 a(26,25) s(137,254) d(241) d(221) a(23,23) 
+	  7 a(249,254) a(257,14) a(48,149) s(34,30) a(132,254) s(10,12) d(205) s(3,5) 
+	  0 a(26,25) s(137,254) d(241) d(221) d(205) d(128) 
+	  7 a(249,254) a(257,14) a(48,149) s(34,30) a(132,254) s(10,12) a(47,137) 
+	  0 a(249,254) a(257,14) a(48,149) a(72,116) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000342/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000342/processor.i  a(26,25) a(240,127) s(247,244) a(247,127) d(144) a(234,219) s(34,30) a(132,254) a(260,257) a(144,126)  fails to compile
+	  0 a(26,25) a(240,127) s(247,244) a(247,127) d(144) a(234,219) s(34,30) a(132,254) a(260,257) a(144,126) 
+	  0 a(249,254) a(257,14) a(48,149) s(34,30) a(132,254) a(260,257) s(151,215) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000344/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000344/processor.i  a(26,25) a(240,127) s(247,244) a(247,127) d(144) a(234,219) d(252)  fails to compile
+	  0 a(26,25) a(240,127) s(247,244) a(247,127) d(144) a(234,219) d(252) 
+	  0 d(127) d(70) s(26,77) d(123) a(199,168) 
+	  7 d(82) a(221,14) a(144,14) d(67) s(226,237) s(65,61) s(127,55) s(21,17) 
+	  0 d(127) d(70) s(226,237) s(65,61) s(127,55) d(68) 
+	  0 d(82) a(221,14) a(144,14) d(67) s(26,77) d(123) d(85) 
+	 25 a(196,213) a(266,91) a(115,50) s(149,146) s(65,66) s(220,238) 
+	  0 d(82) s(4,5) d(195) d(227) 
+	 20 a(196,213) a(266,91) a(115,50) s(149,146) a(111,149) 
+	  0 d(82) s(4,5) d(195) s(65,66) a(204,219) 
+	  0 d(82) s(4,5) d(195) a(143,25) a(247,137) d(110) a(132,254) s(10,12) d(190) 
+	  0 a(249,254) a(257,14) a(48,149) s(34,30) s(125,86) 
+	 20 d(82) s(4,5) d(195) a(143,25) a(247,137) d(110) a(38,70) 
+	  0 a(249,254) a(257,14) a(48,149) s(34,30) a(132,254) s(10,12) s(145,143) 
+	  0 a(9,225) d(106) a(5,146) a(267,105) s(257,263) 
+	  0 d(82) a(221,14) a(144,14) a(42,70) d(125) a(126,86) s(42,45) 
+	 25 d(82) d(195) s(65,66) d(66) 
+	  7 d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) 
+	  0 d(82) a(221,14) a(144,14) d(67) s(26,77) d(123) d(140) 
+	 25 d(82) s(4,5) d(195) s(65,66) a(125,225) 
+	  7 a(26,25) s(137,254) d(241) d(221) a(143,25) a(247,137) s(234,261) a(192,220) 
+	  0 s(77,54) s(150,176) d(147) s(128,129) s(253,243) d(190) d(116) 
+	  0 a(9,225) a(123,54) d(221) d(106) a(1,91) a(4,234) a(132,57) 
+	  0 d(82) a(221,14) d(138) d(127) s(140,146) 
+	  0 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(87,84) 
+	 25 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(53,54) 
+	  0 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) a(7,9) 
+	 20 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) 
+	  7 a(26,25) s(137,254) d(241) d(221) s(199,154) 
+	  7 a(26,25) s(137,254) d(241) d(221) d(127) d(127) d(21) 
+	  0 a(26,25) s(137,254) d(241) d(221) d(127) a(198,125) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000374/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000374/processor.i  a(26,25) s(137,254) d(241) d(221) d(127) a(26,14)  fails to compile
+	  0 a(26,25) s(137,254) d(241) d(221) d(127) a(26,14) 
+	  0 d(82) s(4,5) d(195) a(143,25) d(241) d(221) a(209,209) s(131,130) 
+	  4 d(127) d(70) s(245,247) d(225) a(210,152) a(132,26) a(262,220) a(32,69) 
+	 25 d(127) d(70) d(195) a(143,25) a(247,137) a(49,38) a(177,211) 
+	  0 d(82) s(4,5) a(127,55) s(262,256) d(230) a(110,113) a(235,232) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000379/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000379/processor.i  d(127) d(70) a(127,55) s(262,256) d(230) a(110,113) d(199)  fails to compile
+	  0 d(127) d(70) a(127,55) s(262,256) d(230) a(110,113) d(199) 
+	 25 d(82) s(4,5) d(195) a(143,25) a(247,137) a(49,38) a(249,238) 
+	 25 d(82) s(4,5) d(195) a(143,25) s(9,10) d(191) d(244) 
+	  0 d(82) a(221,14) a(144,14) d(67) d(58) a(191,213) s(88,85) 
+	 25 d(82) s(4,5) d(195) a(143,25) d(58) a(191,213) d(247) 
+	 25 d(82) a(221,14) a(144,14) d(67) s(9,10) d(191) a(76,261) 
+	  0 d(82) d(264) a(52,150) d(107) 
+	  0 a(26,25) a(240,127) s(4,5) d(195) a(76,25) d(264) d(127) s(65,54) 
+	  7 a(249,254) a(257,14) a(48,149) s(34,30) a(132,254) a(260,257) s(235,229) 
+	 25 d(82) s(4,5) d(195) a(143,25) a(144,14) d(67) s(9,10) d(202) a(81,50) 
+	 20 d(82) a(221,14) a(144,14) a(42,70) d(125) a(126,86) d(230) 
+	  7 a(9,225) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) 
+	  0 a(26,25) a(240,127) s(4,5) d(195) a(76,25) d(264) d(6) s(123,219) 
+	  0 d(82) a(221,14) a(144,14) d(67) s(26,77) d(123) s(23,15) 
+	  0 d(82) s(4,5) d(195) a(143,25) d(138) a(151,26) d(130) 
+	  7 d(82) s(4,5) d(195) a(143,25) d(138) s(246,236) d(191) 
+	  0 a(26,25) s(137,254) d(241) a(210,152) a(132,26) d(256) a(77,14) 
+	  0 s(77,54) d(225) d(221) d(205) d(46) 
+	  2 a(26,25) s(137,254) d(241) d(221) d(205) s(208,154) 
+	  0 s(77,54) d(225) a(210,152) a(132,26) d(256) d(50) 
+search: generation 7 (sizeof one variant = 0.0430746 MB)
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000399/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000399/processor.i  d(82) s(4,5) d(195) a(143,25) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) a(127,91)  fails to compile
+	  0 d(82) s(4,5) d(195) a(143,25) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) a(127,91) 
+	  0 a(9,225) d(138) a(151,26) d(130) s(125,70) 
+	  0 d(82) s(4,5) d(195) a(143,25) d(138) a(151,26) d(130) s(69,61) 
+	  0 a(9,225) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) s(30,35) 
+	  0 d(82) s(4,5) s(65,61) s(127,55) s(21,17) s(128,133) 
+	  0 d(82) a(221,14) a(144,14) d(67) s(226,237) d(195) a(143,25) d(241) d(221) a(209,209) s(131,130) d(52) 
+	  0 d(82) s(4,5) d(195) a(143,25) d(241) d(221) a(209,209) s(131,130) d(48) 
+	  0 d(82) a(221,14) a(144,14) d(67) s(226,237) s(65,61) s(127,55) s(21,17) d(143) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000407/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000407/processor.i  d(82) s(4,5) a(127,55) s(262,256) d(230) a(110,113) a(235,232) a(82,225)  fails to compile
+	  0 d(82) s(4,5) a(127,55) s(262,256) d(230) a(110,113) a(235,232) a(82,225) 
+	  0 a(249,254) a(257,14) a(48,149) s(34,30) a(132,254) s(10,12) d(205) s(3,5) d(79) 
+	  7 d(82) a(221,14) a(144,14) a(42,70) d(125) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) d(241) 
+	  0 a(9,225) a(126,86) d(230) s(20,15) 
+	 20 d(82) a(221,14) a(144,14) a(42,70) d(125) a(126,86) d(230) a(63,91) 
+	  7 a(9,225) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) s(10,12) 
+	  0 a(26,25) s(137,254) d(241) d(221) d(127) d(127) d(21) s(132,137) 
+	  0 d(82) s(4,5) d(195) s(65,66) a(204,219) d(145) 
+	  0 d(82) a(221,14) a(144,14) a(42,70) d(125) a(126,86) s(42,45) d(23) 
+	 25 a(196,213) a(266,91) a(115,50) s(149,146) s(65,66) s(220,238) d(195) 
+	  7 d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) 
+	  7 d(82) a(221,14) a(144,14) d(67) s(226,237) s(65,61) s(127,55) s(21,17) d(125) 
+	  0 a(26,25) s(262,256) d(230) a(110,113) a(235,232) a(169,127) 
+	  0 d(82) s(4,5) a(127,55) s(137,254) d(241) d(221) d(205) s(208,154) s(115,113) 
+	  2 a(26,25) s(137,254) d(241) d(221) d(205) s(208,154) d(146) 
+	  0 d(82) s(4,5) a(127,55) s(262,256) d(230) a(110,113) a(235,232) s(108,107) 
+	  0 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) s(216,211) 
+	  0 d(82) s(4,5) a(127,55) s(262,256) d(230) a(110,113) a(235,232) d(153) 
+	  0 a(249,254) a(257,14) a(48,149) s(34,30) a(132,254) a(260,257) s(151,215) d(51) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000426/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000426/processor.i  a(26,25) a(240,127) s(247,244) a(247,127) d(144) a(234,219) s(34,30) a(132,254) a(260,257) a(144,126) d(204)  fails to compile
+	  0 a(26,25) a(240,127) s(247,244) a(247,127) d(144) a(234,219) s(34,30) a(132,254) a(260,257) a(144,126) d(204) 
+	 20 d(82) a(221,14) a(144,14) a(42,70) d(125) a(126,86) d(230) a(207,14) 
+	 20 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) a(42,14) 
+	  0 a(9,225) a(123,54) d(221) d(106) a(1,91) a(204,219) a(129,70) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000430/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000430/processor.i  d(82) s(4,5) d(195) s(65,66) a(4,234) a(127,149) d(235)  fails to compile
+	  0 d(82) s(4,5) d(195) s(65,66) a(4,234) a(127,149) d(235) 
+	  7 a(9,225) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) a(81,123) 
+	  0 d(82) s(4,5) d(195) s(65,66) a(204,219) a(131,150) 
+	 20 a(196,213) a(266,91) a(115,50) s(149,146) a(111,149) a(42,14) 
+	 25 d(82) d(195) s(65,66) d(66) a(220,250) 
+	  0 d(82) s(4,5) d(195) a(143,25) a(247,137) a(49,38) a(249,238) d(15) 
+	 20 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) d(199) 
+	  7 a(26,25) s(137,254) d(241) d(221) d(127) d(126) 
+	  0 d(82) d(195) s(65,66) d(66) a(26,14) s(40,45) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000439/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000439/processor.i  a(26,25) s(137,254) d(241) d(221) d(127) a(26,14) s(190,153)  fails to compile
+	  0 a(26,25) s(137,254) d(241) d(221) d(127) a(26,14) s(190,153) 
+	  0 d(82) d(195) s(65,66) d(66) a(169,206) 
+	  0 a(9,225) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) s(81,82) 
+	  0 d(82) a(221,14) a(144,14) d(67) s(26,77) d(123) d(140) a(262,50) 
+	  0 s(77,54) s(150,176) d(147) s(128,129) s(253,243) d(190) d(116) s(267,259) 
+	 25 d(82) s(4,5) d(195) a(143,25) a(144,14) d(67) s(9,10) d(202) a(81,50) a(176,229) 
+	  0 d(127) d(70) s(226,237) s(65,61) s(127,55) d(68) a(133,146) 
+	  0 d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) s(255,256) 
+	  0 d(82) s(4,5) d(195) a(143,25) a(247,137) d(110) a(38,70) a(75,127) 
+	 15 d(82) s(4,5) d(195) a(143,25) d(58) a(191,213) d(247) d(228) 
+	  7 a(26,25) s(137,254) d(241) d(221) a(143,25) a(247,137) s(234,261) a(192,220) a(210,203) 
+	  3 d(82) s(4,5) d(195) a(143,25) a(247,137) a(49,38) a(249,238) s(28,30) 
+search: generation 8 (sizeof one variant = 0.0436535 MB)
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000451/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000451/processor.i  d(82) s(4,5) a(221,14) a(221,14) a(144,14) a(42,70) d(125) a(126,86) d(230) a(63,91) s(264,265)  fails to compile
+	  0 d(82) s(4,5) a(221,14) a(221,14) a(144,14) a(42,70) d(125) a(126,86) d(230) a(63,91) s(264,265) 
+	  0 d(82) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) s(12,7) 
+	  7 d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) a(241,91) 
+	 20 d(82) a(221,14) a(144,14) a(42,70) d(125) a(126,86) d(230) a(63,91) s(193,201) 
+	  2 a(26,25) s(137,254) d(241) d(221) d(205) s(208,154) d(146) a(233,236) 
+	  0 d(82) a(221,14) a(144,14) a(42,70) d(125) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) d(241) s(169,188) 
+	  0 a(196,213) a(266,91) a(115,50) s(26,77) d(123) a(145,225) d(48) s(262,259) 
+	  0 d(82) s(4,5) a(221,14) a(144,14) d(67) s(149,146) a(111,149) a(42,14) d(73) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000459/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000459/processor.i  a(196,213) a(266,91) a(115,50) s(149,146) a(111,149) a(42,14) a(42,82)  fails to compile
+	  0 a(196,213) a(266,91) a(115,50) s(149,146) a(111,149) a(42,14) a(42,82) 
+	  0 d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) s(72,76) 
+	  0 a(26,25) s(137,254) d(241) d(221) d(127) d(126) a(87,50) 
+	  0 a(9,225) a(126,86) d(230) s(20,15) s(235,233) 
+	  7 a(9,225) d(106) a(1,91) a(4,234) a(127,149) s(10,12) a(30,33) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000464/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000464/processor.i  a(9,225) a(123,54) d(221) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) s(81,82) s(209,186)  fails to compile
+	  0 a(9,225) a(123,54) d(221) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) s(81,82) s(209,186) 
+	  0 a(9,225) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) s(81,82) d(67) 
+	  7 a(9,225) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) s(10,12) s(87,86) 
+	  0 d(82) s(4,5) d(195) a(143,25) a(247,137) a(49,38) a(249,238) d(15) s(13,20) 
+	  0 d(82) s(4,5) a(127,55) s(137,254) d(241) d(221) d(205) s(208,154) s(115,113) d(19) 
+	  0 d(82) d(67) s(26,77) d(123) a(145,225) d(48) d(190) 
+	  0 d(82) s(4,5) a(221,14) a(144,14) d(195) s(65,66) d(66) a(169,206) s(58,60) 
+	  0 d(82) d(195) s(65,66) d(66) a(169,206) d(203) 
+	  0 d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) s(198,151) 
+	 20 d(82) s(127,55) s(21,17) d(125) s(200,196) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000474/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000474/processor.i  d(82) a(221,14) a(144,14) d(67) s(226,237) s(65,61) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) d(68)  fails to compile
+	  0 d(82) a(221,14) a(144,14) d(67) s(226,237) s(65,61) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) d(68) 
+	  2 d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) s(247,228) 
+	  0 d(82) a(221,14) a(144,14) d(67) s(226,237) s(65,61) s(127,55) s(21,17) d(125) a(209,189) 
+	  0 d(82) s(4,5) a(127,55) s(262,256) d(230) a(110,113) a(235,232) s(108,107) d(252) 
+	  0 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) a(42,14) s(176,206) 
+	  0 d(82) s(4,5) d(195) s(65,66) a(144,14) d(67) s(9,10) d(202) a(81,50) a(176,229) d(218) 
+	  0 d(82) s(4,5) d(195) a(143,25) a(204,219) a(131,150) d(243) 
+	  0 d(82) s(4,5) d(195) s(65,66) a(204,219) a(131,150) d(200) 
+	 25 d(82) s(4,5) d(195) a(143,25) a(144,14) d(67) s(9,10) d(202) a(81,50) a(176,229) a(239,236) 
+	  7 d(82) a(221,14) a(144,14) a(42,70) d(125) a(123,54) d(221) a(108,261) s(69,123) d(199) s(126,77) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000484/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000484/processor.i  d(82) s(4,5) d(195) a(143,25) d(58) d(106) a(1,91) a(4,234) a(127,149) d(241) a(142,70)  fails to compile
+	  0 d(82) s(4,5) d(195) a(143,25) d(58) d(106) a(1,91) a(4,234) a(127,149) d(241) a(142,70) 
+	  8 d(82) a(221,14) a(144,14) a(42,70) d(125) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) d(241) a(30,127) 
+	  7 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) d(199) d(232) 
+	  0 d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) s(255,256) d(108) 
+	  0 a(26,25) s(137,254) d(241) d(221) d(127) d(126) s(75,70) 
+	  0 d(82) a(221,14) a(144,14) a(42,70) d(125) a(126,86) d(230) s(132,150) 
+	  0 d(127) d(70) s(226,237) s(65,61) s(127,55) d(68) a(133,146) a(207,14) s(195,177) 
+	  0 d(82) a(221,14) a(144,14) a(42,70) d(125) a(126,86) d(230) a(207,14) a(14,20) 
+	  0 d(127) d(70) s(226,237) s(65,61) s(127,55) d(68) a(133,146) a(50,25) 
+	 20 d(82) d(58) a(108,261) s(69,123) a(42,14) a(154,148) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000494/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000494/processor.i  d(82) s(4,5) d(195) a(143,25) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) s(216,211) d(214)  fails to compile
+	  0 d(82) s(4,5) d(195) a(143,25) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) s(216,211) d(214) 
+	  0 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) s(216,211) a(227,223) 
+	 20 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) a(42,14) a(138,14) 
+	  2 d(82) a(221,14) a(144,14) a(42,70) d(125) a(123,54) d(221) d(106) a(1,91) a(143,25) d(58) a(191,213) d(247) d(228) a(112,132) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000498/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000498/processor.i  d(82) s(4,5) d(195) a(4,234) a(127,149) d(241) d(249)  fails to compile
+	  0 d(82) s(4,5) d(195) a(4,234) a(127,149) d(241) d(249) 
+	  7 d(82) a(221,14) a(144,14) a(42,70) d(125) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) d(241) a(23,91) 
+	 13 d(82) s(4,5) d(195) a(143,25) d(58) a(191,213) d(247) d(228) a(10,254) 
+	  7 a(9,225) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) a(81,123) a(200,229) 
+	  0 a(26,25) s(137,254) d(241) d(221) d(127) d(126) s(38,268) 
+	  0 d(127) d(70) s(226,237) s(65,61) s(127,55) d(68) a(133,146) s(245,252) 
+	  0 a(9,225) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) s(30,35) s(146,55) 
+	  0 d(82) s(4,5) d(195) a(143,25) a(48,149) s(34,30) a(132,254) a(260,257) s(151,215) d(51) a(170,205) 
+	  0 a(249,254) a(257,14) a(247,137) d(110) a(38,70) a(75,127) a(147,126) 
+	  0 d(82) s(4,5) d(195) a(143,25) a(247,137) d(110) a(38,70) a(75,127) a(131,234) 
+	  0 a(249,254) a(257,14) a(48,149) s(34,30) a(132,254) a(260,257) s(151,215) d(51) s(48,43) 
+	  0 d(82) a(221,14) a(144,14) a(42,70) d(125) a(126,86) s(42,45) d(23) s(130,129) 
+	 20 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) d(199) s(19,18) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000511/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000511/processor.i  d(82) s(4,5) d(195) s(65,66) a(4,234) a(127,149) d(235) a(83,220)  fails to compile
+	  0 d(82) s(4,5) d(195) s(65,66) a(4,234) a(127,149) d(235) a(83,220) 
+	  7 d(82) a(221,14) a(144,14) a(42,70) d(125) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) d(241) a(13,234) 
+search: generation 9 (sizeof one variant = 0.0437517 MB)
+	  7 d(127) d(70) s(226,237) a(143,25) d(58) a(108,261) s(69,123) a(42,14) a(138,14) a(263,81) 
+	  0 d(82) s(4,5) d(195) s(65,61) s(127,55) d(68) a(133,146) a(50,25) s(211,195) 
+	  0 d(127) d(70) s(226,237) s(65,61) s(127,55) d(68) a(133,146) a(50,25) d(59) 
+	  0 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) a(42,14) a(138,14) d(177) 
+	  0 d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) a(241,91) a(259,268) 
+	  0 d(82) s(4,5) d(195) a(143,25) a(247,137) a(49,38) a(249,238) d(15) s(13,20) s(39,42) 
+	  0 d(82) a(221,14) a(144,14) d(67) s(226,237) s(65,61) s(127,55) s(21,17) d(125) a(209,189) a(49,91) 
+	  0 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) d(199) s(19,18) s(13,20) 
+	  0 d(82) d(58) a(108,261) s(69,123) d(67) s(26,77) d(123) a(145,225) d(48) d(68) d(255) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000522/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000522/processor.i  d(82) a(221,14) a(144,14) d(67) s(226,237) s(65,61) s(4,5) a(221,14) a(144,14) a(42,14) a(154,148) a(132,128)  fails to compile
+	  0 d(82) a(221,14) a(144,14) d(67) s(226,237) s(65,61) s(4,5) a(221,14) a(144,14) a(42,14) a(154,148) a(132,128) 
+	  0 d(82) d(58) a(108,261) s(69,123) a(42,14) a(154,148) a(14,15) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000524/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000524/processor.i  d(82) a(221,14) a(144,14) d(67) s(226,237) s(65,61) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) d(68) a(198,195)  fails to compile
+	  0 d(82) a(221,14) a(144,14) d(67) s(226,237) s(65,61) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) d(68) a(198,195) 
+	  7 d(82) d(232) s(73,72) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000526/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000526/processor.i  d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) d(199) s(4,5) d(195) a(143,25) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) s(216,211) d(214) d(38)  fails to compile
+	  0 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) d(199) s(4,5) d(195) a(143,25) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) s(216,211) d(214) d(38) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000527/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000527/processor.i  d(82) s(4,5) d(195) a(143,25) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) s(216,211) d(214) s(215,193)  fails to compile
+	  0 d(82) s(4,5) d(195) a(143,25) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) s(216,211) d(214) s(215,193) 
+	  7 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) d(199) d(232) s(61,54) 
+	  0 d(127) d(70) s(226,237) s(65,61) s(127,55) d(68) s(4,5) a(221,14) a(144,14) d(67) s(149,146) a(111,149) a(42,14) d(73) d(111) 
+	  0 d(82) a(133,146) a(207,14) s(195,177) a(268,127) 
+	  0 d(127) d(70) s(226,237) s(65,61) s(127,55) d(68) a(133,146) a(207,14) s(195,177) a(15,234) 
+	  0 d(82) s(4,5) a(221,14) a(144,14) d(67) s(149,146) a(111,149) a(42,14) d(73) s(214,199) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000533/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000533/processor.i  a(9,225) a(123,54) d(221) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) s(81,82) s(209,186) s(255,257)  fails to compile
+	  0 a(9,225) a(123,54) d(221) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) s(81,82) s(209,186) s(255,257) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000534/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000534/processor.i  d(82) s(4,5) a(221,14) a(221,14) a(144,14) a(42,70) d(125) a(126,86) d(230) a(63,91) s(264,265) a(216,81)  fails to compile
+	  0 d(82) s(4,5) a(221,14) a(221,14) a(144,14) a(42,70) d(125) a(126,86) d(230) a(63,91) s(264,265) a(216,81) 
+	  0 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) s(216,211) a(227,223) d(231) 
+	  7 d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) a(241,91) a(32,146) 
+	  0 d(127) d(70) s(226,237) s(65,61) s(127,55) d(68) a(133,146) a(50,25) s(40,47) 
+	  0 d(82) d(58) a(108,261) s(69,123) a(42,14) a(154,148) d(258) 
+	  7 d(82) s(127,55) s(21,17) d(125) s(200,196) s(69,123) a(42,14) a(138,14) s(246,229) 
+	 25 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(26,38) 
+	 20 d(82) s(127,55) s(21,17) d(125) s(200,196) d(261) 
+	 20 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) a(42,14) a(138,14) d(219) 
+	  0 d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) a(241,91) s(266,263) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000544/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000544/processor.i  a(26,25) s(137,254) d(241) d(221) d(127) d(126) s(75,70) a(241,25)  fails to compile
+	  0 a(26,25) s(137,254) d(241) d(221) d(127) d(126) s(75,70) a(241,25) 
+	 25 d(82) s(4,5) d(195) a(143,25) a(144,14) d(67) s(9,10) d(202) a(81,50) a(176,229) a(239,236) d(23) 
+	  0 d(82) d(67) s(26,77) d(123) a(145,225) d(48) d(190) a(28,149) 
+	  0 a(196,213) a(266,91) a(115,50) s(26,77) d(123) a(145,225) d(48) s(262,259) s(247,241) 
+	  7 d(82) a(221,14) a(144,14) a(42,70) d(125) a(123,54) d(221) a(108,261) s(69,123) d(199) s(126,77) s(78,220) 
+	  0 d(82) a(221,14) a(144,14) a(42,70) d(125) a(123,54) d(51) s(48,43) d(88) 
+	  0 a(249,254) a(257,14) a(48,149) s(34,30) a(132,254) a(260,257) s(151,215) d(221) d(106) a(1,91) a(143,25) d(58) a(191,213) d(247) d(228) a(112,132) d(221) 
+	  2 d(82) a(221,14) a(144,14) a(42,70) d(125) a(123,54) d(221) d(106) a(1,91) a(143,25) d(58) a(191,213) d(247) d(228) a(112,132) d(4) 
+	  0 a(249,254) a(257,14) a(48,149) s(34,30) a(132,254) a(260,257) s(151,215) d(51) s(48,43) s(66,65) 
+	  0 d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) a(207,14) s(195,177) a(54,86) 
+	  0 d(127) d(70) s(226,237) s(65,61) s(127,55) d(68) a(133,146) a(241,91) a(208,202) 
+	  7 d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) a(241,91) d(126) 
+	  0 d(127) d(70) s(226,237) s(65,61) s(127,55) d(68) a(133,146) a(207,14) s(195,177) d(243) 
+	  0 a(9,225) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) a(81,123) a(200,229) s(67,53) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000558/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000558/processor.i  d(82) s(4,5) d(195) a(143,25) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) s(216,211) d(214) s(225,243)  fails to compile
+	  0 d(82) s(4,5) d(195) a(143,25) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) s(216,211) d(214) s(225,243) 
+	  0 d(82) s(4,5) d(195) a(143,25) a(247,137) a(49,38) a(249,238) d(15) a(42,14) a(154,148) a(258,26) 
+	  0 d(82) d(58) a(108,261) s(69,123) s(13,20) d(176) 
+	  0 d(82) s(4,5) d(195) a(143,25) a(247,137) a(49,38) a(249,238) d(15) s(13,20) a(149,219) 
+	  0 d(82) d(58) a(108,261) s(69,123) a(42,14) a(154,148) s(264,267) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000563/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000563/processor.i  a(9,225) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) s(10,12) s(87,86) d(228) a(10,254) s(66,52)  fails to compile
+	  0 a(9,225) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) s(10,12) s(87,86) d(228) a(10,254) s(66,52) 
+	 20 d(82) s(4,5) d(195) a(143,25) d(58) a(191,213) d(247) s(107,108) 
+	  7 a(9,225) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) s(10,12) s(87,86) d(10) 
+	  0 d(82) s(4,5) d(195) a(143,25) d(58) a(191,213) d(247) d(228) a(10,254) s(255,262) 
+	  0 d(82) s(127,55) s(21,17) d(125) s(200,196) d(213) 
+	  0 d(82) s(4,5) d(195) a(143,25) a(247,137) d(110) a(38,70) a(75,127) a(131,234) s(31,33) 
+	  0 d(82) s(4,5) d(195) s(65,66) a(204,219) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) s(72,76) a(74,55) 
+	 25 d(82) s(4,5) a(131,150) d(200) a(195,126) 
+	  0 d(82) s(4,5) d(195) s(65,66) a(204,219) a(131,150) d(200) a(246,238) 
+	  0 d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) s(72,76) a(127,254) 
+search: generation 10 (sizeof one variant = 0.0435591 MB)
+	  7 d(127) d(70) s(226,237) a(143,25) d(58) a(108,261) s(69,123) a(42,14) a(138,14) a(263,81) d(226) 
+	  0 d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) a(241,91) a(32,146) a(213,169) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000575/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000575/processor.i  d(82) s(127,55) s(21,17) d(125) s(200,196) s(69,123) a(42,14) a(144,14) a(42,70) d(125) a(123,54) d(221) a(108,261) s(69,123) d(199) s(126,77) s(78,220) a(87,234)  fails to compile
+	  0 d(82) s(127,55) s(21,17) d(125) s(200,196) s(69,123) a(42,14) a(144,14) a(42,70) d(125) a(123,54) d(221) a(108,261) s(69,123) d(199) s(126,77) s(78,220) a(87,234) 
+	  0 d(82) a(221,14) a(138,14) s(246,229) d(267) 
+	  7 d(82) s(127,55) s(21,17) d(125) s(200,196) s(69,123) a(42,14) a(138,14) s(246,229) d(63) 
+	  7 d(82) a(221,14) a(144,14) a(42,70) d(125) a(123,54) d(221) a(108,261) s(69,123) d(199) s(126,77) s(78,220) d(6) 
+	  0 d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) d(221) d(106) a(1,91) a(143,25) d(58) a(191,213) d(247) d(228) a(112,132) d(4) d(108) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000580/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000580/processor.i  d(82) a(221,14) a(144,14) a(42,70) d(125) a(123,54) a(145,225) d(48) a(241,91) d(126) a(144,148)  fails to compile
+	  0 d(82) a(221,14) a(144,14) a(42,70) d(125) a(123,54) a(145,225) d(48) a(241,91) d(126) a(144,148) 
+	  7 d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) a(241,91) d(126) d(39) 
+	  0 d(82) a(221,14) a(144,14) a(42,70) d(125) a(123,54) d(221) d(106) a(1,91) a(143,25) d(58) a(191,213) d(247) d(228) a(112,132) d(4) d(16) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000583/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000583/processor.i  d(82) s(4,5) a(221,14) a(144,14) s(127,55) d(68) s(4,5) a(221,14) a(144,14) d(67) s(149,146) a(111,149) a(42,14) d(73) d(111) s(111,107)  fails to compile
+	  0 d(82) s(4,5) a(221,14) a(144,14) s(127,55) d(68) s(4,5) a(221,14) a(144,14) d(67) s(149,146) a(111,149) a(42,14) d(73) d(111) s(111,107) 
+	  7 d(127) d(70) s(226,237) s(65,61) d(67) s(26,77) d(123) a(145,225) d(48) a(241,91) a(32,146) s(111,116) 
+	  7 d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) a(241,91) a(32,146) a(250,137) 
+	  0 d(127) d(70) s(226,237) s(65,61) s(127,55) d(68) s(4,5) a(221,14) a(144,14) d(67) s(149,146) a(111,149) a(42,14) d(73) d(111) d(87) 
+	  7 d(82) a(221,14) a(144,14) a(42,70) d(125) d(232) s(73,72) a(137,137) 
+	  7 d(82) a(123,54) d(221) a(108,261) s(69,123) d(199) s(126,77) s(78,220) a(194,129) 
+	  0 d(82) a(221,14) a(144,14) a(42,70) d(125) a(123,54) d(221) a(108,261) s(69,123) d(199) s(126,77) s(78,220) s(222,227) 
+	  0 d(82) d(232) s(73,72) s(176,170) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000591/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000591/processor.i  d(82) s(4,5) d(195) a(143,25) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) s(216,211) d(214) s(225,243) s(201,192)  fails to compile
+	  0 d(82) s(4,5) d(195) a(143,25) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) s(216,211) d(214) s(225,243) s(201,192) 
+	  0 d(82) d(58) a(108,261) s(69,123) a(42,14) a(154,148) a(14,15) s(127,146) 
+	  7 d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) a(241,91) d(126) d(241) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000594/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000594/processor.i  a(9,225) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) s(10,12) s(87,86) d(228) a(10,254) s(66,52) a(190,159)  fails to compile
+	  0 a(9,225) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) s(10,12) s(87,86) d(228) a(10,254) s(66,52) a(190,159) 
+	  0 d(82) s(4,5) d(195) s(65,66) a(204,219) a(176,229) a(239,236) d(23) s(262,258) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000596/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000596/processor.i  d(82) s(4,5) d(195) a(143,25) a(144,14) d(67) s(9,10) d(202) a(81,50) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) s(72,76) a(74,55) d(218)  fails to compile
+	  0 d(82) s(4,5) d(195) a(143,25) a(144,14) d(67) s(9,10) d(202) a(81,50) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) s(72,76) a(74,55) d(218) 
+	  0 d(82) s(4,5) d(195) s(65,66) a(204,219) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) s(72,76) a(74,55) a(60,147) 
+	  0 d(82) s(4,5) d(195) a(143,25) a(144,14) d(67) s(9,10) d(202) a(81,50) a(176,229) a(239,236) d(23) s(47,40) 
+	  7 d(82) s(4,5) d(195) a(143,25) s(4,5) d(195) a(241,91) a(32,146) d(192) 
+	  0 d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) a(143,25) d(58) a(108,261) s(69,123) s(216,211) d(214) s(215,193) s(249,245) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000601/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000601/processor.i  d(82) s(4,5) d(195) a(143,25) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) s(216,211) d(214) s(215,193) a(1,77)  fails to compile
+	  0 d(82) s(4,5) d(195) a(143,25) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) s(216,211) d(214) s(215,193) a(1,77) 
+	  7 d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) a(241,91) a(32,146) d(197) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000603/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000603/processor.i  d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) d(199) s(19,18) s(13,20) a(42,70) d(125) a(123,54) d(221) a(108,261) s(69,123) d(199) s(126,77) s(78,220) d(41)  fails to compile
+	  0 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) d(199) s(19,18) s(13,20) a(42,70) d(125) a(123,54) d(221) a(108,261) s(69,123) d(199) s(126,77) s(78,220) d(41) 
+	  7 d(82) a(221,14) a(144,14) d(248) 
+	  0 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) d(199) s(19,18) s(13,20) s(19,15) 
+	  0 d(82) a(221,14) a(144,14) a(42,70) d(125) a(123,54) d(221) a(108,261) s(69,123) d(199) s(126,77) s(78,220) d(216) 
+	  0 d(82) s(127,55) s(21,17) d(125) s(200,196) d(213) a(74,126) 
+	  0 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) d(199) s(19,18) s(13,20) d(217) 
+	 20 d(82) s(4,5) a(221,14) a(144,14) d(67) s(149,146) a(111,149) a(42,14) d(110) 
+	  0 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) a(42,14) a(138,14) d(219) d(73) s(214,199) d(216) 
+	  0 d(82) s(4,5) a(221,14) a(144,14) d(67) s(149,146) a(111,149) a(42,14) d(73) s(214,199) d(142) 
+	  7 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) a(42,14) a(138,14) d(219) d(34) 
+	 25 d(82) s(4,5) d(195) s(69,81) 
+	  7 d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) a(241,91) d(126) a(143,25) d(58) a(108,261) s(69,123) d(199) d(232) s(61,54) a(51,65) 
+	  0 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) d(199) d(232) s(61,54) d(259) 
+	  5 d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) a(241,91) d(126) d(248) 
+	  0 d(127) d(70) s(226,237) s(65,61) s(127,55) s(4,5) a(221,14) a(144,14) d(67) s(149,146) a(111,149) a(42,14) d(73) s(214,199) d(40) 
+	  0 d(82) d(68) a(133,146) a(241,91) a(208,202) a(44,137) 
+	  0 d(127) d(70) s(226,237) s(65,61) s(127,55) d(68) a(133,146) a(241,91) a(208,202) d(28) 
+	  0 d(82) s(4,5) a(221,14) a(144,14) d(67) s(149,146) a(111,149) a(42,14) d(73) s(214,199) s(246,237) 
+	  0 d(82) a(133,146) a(42,14) a(138,14) d(219) s(193,176) 
+	  0 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) a(207,14) s(195,177) a(268,127) a(70,147) 
+	  0 d(82) a(133,146) a(207,14) s(195,177) a(268,127) s(32,35) 
+	 20 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) a(42,14) a(138,14) d(219) a(32,33) 
+	  0 a(9,225) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) s(10,12) s(87,86) d(261) d(260) 
+	  7 d(82) s(127,55) s(21,17) d(125) s(200,196) d(10) s(43,38) 
+	  0 a(9,225) a(123,54) d(221) d(106) a(1,91) a(4,234) a(127,149) s(10,12) s(87,86) d(10) d(213) 
+	 20 d(82) s(127,55) s(21,17) d(125) s(200,196) d(261) d(193) 
+	  0 d(82) s(4,5) d(195) a(143,25) a(247,137) d(110) a(38,70) a(75,127) a(131,234) s(31,33) s(203,191) 
+	  0 d(82) s(4,5) d(195) a(143,25) d(58) a(108,261) s(69,123) d(199) d(232) s(61,54) d(15) 
+	  0 d(82) a(221,14) a(144,14) a(42,70) d(125) a(123,54) d(51) s(48,43) d(88) s(9,8) 
+	  0 d(82) s(127,55) s(21,17) d(125) s(200,196) s(69,123) a(42,14) a(138,14) s(246,229) s(77,74) 
+	  0 d(82) d(58) a(108,261) s(69,123) d(67) s(26,77) d(123) a(145,225) d(48) d(68) d(255) d(199) 
+	  0 d(82) s(4,5) a(221,14) a(144,14) d(67) s(149,146) a(111,149) a(42,14) d(73) s(214,199) d(60) 
+	  0 d(82) a(221,14) a(144,14) a(42,70) d(125) a(123,54) d(221) a(108,261) s(69,123) d(199) a(145,225) d(48) a(241,91) a(259,268) a(35,35) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000636/v2.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule/m2/000636/processor.i  d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) s(126,77) s(78,220) a(221,219)  fails to compile
+	  0 d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) s(126,77) s(78,220) a(221,219) 
+	  7 d(82) a(221,14) a(144,14) a(42,70) d(125) a(123,54) d(221) a(108,261) s(69,123) d(199) s(126,77) s(78,220) s(106,115) 
+	  0 d(82) s(4,5) a(221,14) a(144,14) d(67) s(26,77) d(123) a(145,225) d(48) a(241,91) a(259,268) d(192) 
+search: genetic algorithm ends
+Rep: saving test cache
+
+Variant Test Case Queries: 22400
+"Test Suite Evaluations": 640
+
+Compile Failures: 48
+Wall-Clock Seconds Elapsed: 2700.45
+  Activity Name                     Count Seconds = Percent of Total Time
+  compile                             641  50.635 = 1.89683%
+  test                              20790 2618.826 = 98.1028%
+  TOTAL                                   2669.472 = 98.8524% (avg CPU usage)

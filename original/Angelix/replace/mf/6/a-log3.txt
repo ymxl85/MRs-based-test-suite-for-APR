@@ -1,0 +1,1329 @@
+/home/mingyue/Documents/Angelix/angelix/TSE/3/MFCC/replace/6
+/home/mingyue/Documents/Angelix/angelix/TSE/3/MFCC/replace/golden
+/home/mingyue/Documents/Angelix/angelix/TSE/3/MFCC/replace/6/oracle
+INFO     synthesis       ==class Synthesizer
+INFO     project         configuring validation source
+INFO     project         building json compilation database from validation source
+gcc -c replace.c -o replace.o
+replace.c:14:0: warning: "NULL" redefined [enabled by default]
+ # define NULL 0
+ ^
+In file included from /usr/include/_G_config.h:15:0,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/stddef.h:402:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ ^
+replace.c: In function ‘omatch’:
+replace.c:338:6: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+      abort(); 
+      ^
+replace.c: In function ‘patsize’:
+replace.c:389:2: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+  abort();
+  ^
+gcc replace.o -o replace
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+INFO     testing         running test '3' of validation source
+INFO     testing         running test '4' of validation source
+INFO     testing         running test '5' of validation source
+INFO     testing         running test '6' of validation source
+INFO     testing         running test '7' of validation source
+INFO     testing         running test '8' of validation source
+INFO     testing         running test '9' of validation source
+INFO     testing         running test '10' of validation source
+INFO     testing         running test '11' of validation source
+INFO     testing         running test '12' of validation source
+INFO     testing         running test '13' of validation source
+INFO     testing         running test '14' of validation source
+INFO     testing         running test '15' of validation source
+INFO     testing         running test '16' of validation source
+INFO     testing         running test '17' of validation source
+INFO     testing         running test '18' of validation source
+INFO     testing         running test '19' of validation source
+INFO     testing         running test '20' of validation source
+INFO     testing         running test '21' of validation source
+INFO     testing         running test '22' of validation source
+INFO     testing         running test '23' of validation source
+INFO     testing         running test '24' of validation source
+INFO     testing         running test '25' of validation source
+INFO     testing         running test '26' of validation source
+INFO     testing         running test '27' of validation source
+INFO     testing         running test '28' of validation source
+INFO     testing         running test '29' of validation source
+INFO     testing         running test '30' of validation source
+INFO     testing         running test '31' of validation source
+INFO     testing         running test '32' of validation source
+INFO     testing         running test '33' of validation source
+INFO     testing         running test '34' of validation source
+INFO     testing         running test '35' of validation source
+INFO     testing         running test '36' of validation source
+INFO     testing         running test '37' of validation source
+INFO     testing         running test '38' of validation source
+INFO     testing         running test '39' of validation source
+INFO     testing         running test '40' of validation source
+INFO     project         configuring frontend source
+INFO     transformation  instrumenting repairable of frontend source
+INFO     project         building frontend source
+angelix-compiler --test -c replace.c -o replace.o
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h '-c' 'replace.c' '-o' 'replace.o' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+replace.c:14:0: warning: "NULL" redefined [enabled by default]
+ # define NULL 0
+ ^
+In file included from /usr/include/_G_config.h:15:0,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/stddef.h:402:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ ^
+replace.c: In function ‘omatch’:
+replace.c:338:6: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+      abort(); 
+      ^
+replace.c: In function ‘patsize’:
+replace.c:389:2: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+  abort();
+  ^
+angelix-compiler --test replace.o -o replace
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+INFO     repair          running positive tests for debugging
+INFO     testing         running test '1' of frontend source
+INFO     testing         running test '2' of frontend source
+INFO     testing         running test '3' of frontend source
+INFO     testing         running test '4' of frontend source
+INFO     testing         running test '5' of frontend source
+INFO     testing         running test '6' of frontend source
+INFO     testing         running test '7' of frontend source
+INFO     testing         running test '8' of frontend source
+INFO     testing         running test '9' of frontend source
+INFO     testing         running test '10' of frontend source
+INFO     testing         running test '11' of frontend source
+INFO     testing         running test '12' of frontend source
+INFO     testing         running test '13' of frontend source
+INFO     testing         running test '14' of frontend source
+INFO     testing         running test '15' of frontend source
+INFO     testing         running test '16' of frontend source
+INFO     testing         running test '17' of frontend source
+INFO     testing         running test '18' of frontend source
+INFO     testing         running test '19' of frontend source
+INFO     testing         running test '29' of frontend source
+INFO     testing         running test '31' of frontend source
+INFO     testing         running test '33' of frontend source
+INFO     testing         running test '36' of frontend source
+INFO     testing         running test '38' of frontend source
+INFO     testing         running test '40' of frontend source
+INFO     repair          running negative tests for debugging
+INFO     testing         running test '20' of frontend source
+INFO     project         configuring golden source
+INFO     project         building golden source
+angelix-compiler --test -c replace.c -o replace.o
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h '-c' 'replace.c' '-o' 'replace.o' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+replace.c:14:0: warning: "NULL" redefined [enabled by default]
+ # define NULL 0
+ ^
+In file included from /usr/include/_G_config.h:15:0,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/stddef.h:402:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ ^
+replace.c: In function ‘omatch’:
+replace.c:338:6: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+      abort(); 
+      ^
+replace.c: In function ‘patsize’:
+replace.c:389:2: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+  abort();
+  ^
+angelix-compiler --test replace.o -o replace
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+INFO     testing         running test '20' of golden source
+INFO     testing         running test '21' of frontend source
+INFO     testing         running test '21' of golden source
+INFO     testing         running test '22' of frontend source
+INFO     testing         running test '22' of golden source
+INFO     testing         running test '23' of frontend source
+INFO     testing         running test '23' of golden source
+INFO     testing         running test '24' of frontend source
+INFO     testing         running test '24' of golden source
+INFO     testing         running test '25' of frontend source
+INFO     testing         running test '25' of golden source
+INFO     testing         running test '26' of frontend source
+INFO     testing         running test '26' of golden source
+INFO     testing         running test '27' of frontend source
+INFO     testing         running test '27' of golden source
+INFO     testing         running test '28' of frontend source
+INFO     testing         running test '28' of golden source
+INFO     testing         running test '30' of frontend source
+INFO     testing         running test '30' of golden source
+INFO     testing         running test '32' of frontend source
+INFO     testing         running test '32' of golden source
+INFO     testing         running test '34' of frontend source
+INFO     testing         running test '34' of golden source
+INFO     testing         running test '35' of frontend source
+INFO     testing         running test '35' of golden source
+INFO     testing         running test '37' of frontend source
+INFO     testing         running test '37' of golden source
+INFO     testing         running test '39' of frontend source
+INFO     testing         running test '39' of golden source
+INFO     repair          repair test suite: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40']
+INFO     repair          validation test suite: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40']
+INFO     localization    selected expressions [(307, 12, 307, 12), (312, 13, 312, 13)] with group score 1.5966 
+INFO     localization    selected expressions [(315, 10, 315, 14), (361, 18, 361, 18)] with group score 1.581 
+INFO     localization    selected expressions [(497, 24, 497, 29), (502, 7, 502, 7)] with group score 1.21 
+INFO     localization    selected expressions [(375, 11, 375, 11), (462, 9, 462, 9)] with group score 1.1818 
+INFO     localization    selected expressions [(475, 6, 475, 10), (495, 11, 495, 11)] with group score 1.1818 
+INFO     localization    selected expressions [(232, 7, 232, 8), (235, 15, 235, 15)] with group score 0.76923 
+INFO     localization    selected expressions [(225, 7, 225, 8), (226, 10, 226, 14)] with group score 0.75962 
+INFO     localization    selected expressions [(54, 11, 54, 11), (194, 9, 194, 9)] with group score 0.75 
+INFO     localization    selected expressions [(198, 7, 198, 7), (224, 10, 224, 10)] with group score 0.75 
+INFO     localization    selected expressions [(262, 9, 262, 9), (280, 15, 280, 15)] with group score 0.75 
+INFO     repair          considering suspicious expressions [(307, 12, 307, 12), (312, 13, 312, 13)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['31']
+INFO     reduction       selected failing tests: ['20']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+angelix-compiler --klee -c replace.c -o replace.o
+[angelix-compiler] llvm-gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-c' 'replace.c' '-o' 'replace.o' 
+replace.c:14:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/home/mingyue/Documents/Angelix/angelix/build/llvm-gcc4.2-2.9-x86_64-linux/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.2.1/include/stddef.h:403:1: warning: this is the location of the previous definition
+replace.c: In function ‘omatch’:
+replace.c:338: warning: incompatible implicit declaration of built-in function ‘abort’
+replace.c: In function ‘patsize’:
+replace.c:389: warning: incompatible implicit declaration of built-in function ‘abort’
+angelix-compiler --klee replace.o -o replace
+[angelix-compiler] llvm-ld --disable-opt 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/klee -langelix 
+INFO     inference       inferring specification for test '20'
+INFO     testing         running test '20' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       expression (307, 12, 307, 12)[0]: angelic = 0
+INFO     inference       expression (307, 12, 307, 12)[1]: angelic = 0
+INFO     inference       expression (312, 13, 312, 13)[0]: angelic = 0
+INFO     inference       found 1 angelic paths for test '20'
+INFO     inference       inferring specification for test '31'
+INFO     testing         running test '31' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     inference       expression (307, 12, 307, 12)[0]: angelic = 0
+INFO     inference       expression (307, 12, 307, 12)[1]: angelic = 0
+INFO     inference       expression (312, 13, 312, 13)[0]: angelic = -1
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       UNSAT
+INFO     inference       found 1 angelic paths for test '31'
+INFO     synthesis       ==class Synthesizer:dump_angelic
+INFO     synthesis       synthesizing patch with component level 'alternatives'
+INFO     synthesis       synthesis failed
+INFO     synthesis       synthesizing patch with component level 'integer-constants'
+INFO     synthesis       synthesis failed
+INFO     synthesis       synthesizing patch with component level 'boolean-constants'
+INFO     synthesis       synthesis failed
+INFO     repair          cannot synthesize fix
+INFO     repair          considering suspicious expressions [(315, 10, 315, 14), (361, 18, 361, 18)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['16']
+INFO     reduction       selected failing tests: ['20']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+angelix-compiler --klee -c replace.c -o replace.o
+[angelix-compiler] llvm-gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-c' 'replace.c' '-o' 'replace.o' 
+replace.c:14:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/home/mingyue/Documents/Angelix/angelix/build/llvm-gcc4.2-2.9-x86_64-linux/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.2.1/include/stddef.h:403:1: warning: this is the location of the previous definition
+replace.c: In function ‘omatch’:
+replace.c:338: warning: incompatible implicit declaration of built-in function ‘abort’
+replace.c: In function ‘patsize’:
+replace.c:389: warning: incompatible implicit declaration of built-in function ‘abort’
+angelix-compiler --klee replace.o -o replace
+[angelix-compiler] llvm-ld --disable-opt 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/klee -langelix 
+INFO     inference       inferring specification for test '20'
+INFO     testing         running test '20' of backend source with KLEE
+WARNING  inference       No non-error paths explored
+INFO     repair          considering suspicious expressions [(497, 24, 497, 29), (502, 7, 502, 7)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['12']
+INFO     reduction       selected failing tests: ['20']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+angelix-compiler --klee -c replace.c -o replace.o
+[angelix-compiler] llvm-gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-c' 'replace.c' '-o' 'replace.o' 
+replace.c:14:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/home/mingyue/Documents/Angelix/angelix/build/llvm-gcc4.2-2.9-x86_64-linux/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.2.1/include/stddef.h:403:1: warning: this is the location of the previous definition
+replace.c: In function ‘omatch’:
+replace.c:338: warning: incompatible implicit declaration of built-in function ‘abort’
+replace.c: In function ‘patsize’:
+replace.c:389: warning: incompatible implicit declaration of built-in function ‘abort’
+angelix-compiler --klee replace.o -o replace
+[angelix-compiler] llvm-ld --disable-opt 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/klee -langelix 
+INFO     inference       inferring specification for test '20'
+INFO     testing         running test '20' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000041.smt2
+INFO     inference       value 'output' executed 5 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000019.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000022.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000030.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000011.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000042.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000014.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000040.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000010.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000036.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000016.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000007.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000045.smt2
+INFO     inference       value 'output' executed 4 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000049.smt2
+INFO     inference       value 'output' executed 4 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000038.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000046.smt2
+INFO     inference       value 'output' executed 3 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000029.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000031.smt2
+INFO     inference       value 'output' executed 3 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000051.smt2
+INFO     inference       value 'output' executed 4 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000015.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000032.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       value 'output' executed 3 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000037.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000018.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000024.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000023.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000048.smt2
+INFO     inference       value 'output' executed 3 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000035.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000033.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000026.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000020.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000039.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000009.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000006.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000012.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000043.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000044.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000028.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000047.smt2
+INFO     inference       value 'output' executed 3 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000050.smt2
+INFO     inference       value 'output' executed 4 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000021.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000025.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000013.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000008.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000005.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000027.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000017.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000034.smt2
+INFO     inference       value 'output' executed 4 times while 2 required
+INFO     inference       found 0 angelic paths for test '20'
+INFO     repair          considering suspicious expressions [(375, 11, 375, 11), (462, 9, 462, 9)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['11']
+INFO     reduction       selected failing tests: ['20']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+angelix-compiler --klee -c replace.c -o replace.o
+[angelix-compiler] llvm-gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-c' 'replace.c' '-o' 'replace.o' 
+replace.c:14:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/home/mingyue/Documents/Angelix/angelix/build/llvm-gcc4.2-2.9-x86_64-linux/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.2.1/include/stddef.h:403:1: warning: this is the location of the previous definition
+replace.c: In function ‘omatch’:
+replace.c:338: warning: incompatible implicit declaration of built-in function ‘abort’
+replace.c: In function ‘patsize’:
+replace.c:389: warning: incompatible implicit declaration of built-in function ‘abort’
+angelix-compiler --klee replace.o -o replace
+[angelix-compiler] llvm-ld --disable-opt 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/klee -langelix 
+INFO     inference       inferring specification for test '20'
+INFO     testing         running test '20' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000019.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000022.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000030.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000011.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000014.smt2
+INFO     inference       value 'output' executed 4 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000040.smt2
+INFO     inference       value 'output' executed 5 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000010.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000036.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000016.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000007.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000038.smt2
+INFO     inference       value 'output' executed 5 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000029.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000031.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000015.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000032.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (375, 11, 375, 11)[0]: angelic = 0
+INFO     inference       solving path .angelix/backend/klee-out-0/test000037.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000018.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000024.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000023.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000035.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000033.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000026.smt2
+INFO     inference       expression (462, 9, 462, 9)[0]: angelic = -209213
+INFO     inference       expression (375, 11, 375, 11)[0]: angelic = -1
+INFO     inference       solving path .angelix/backend/klee-out-0/test000020.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000039.smt2
+INFO     inference       value 'output' executed 4 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000009.smt2
+INFO     inference       value 'output' executed 5 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       expression (462, 9, 462, 9)[0]: angelic = -765
+INFO     inference       expression (375, 11, 375, 11)[0]: angelic = -1
+INFO     inference       solving path .angelix/backend/klee-out-0/test000006.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000012.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000028.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000021.smt2
+INFO     inference       expression (462, 9, 462, 9)[0]: angelic = -204669
+INFO     inference       expression (375, 11, 375, 11)[0]: angelic = -1
+INFO     inference       solving path .angelix/backend/klee-out-0/test000025.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000013.smt2
+INFO     inference       expression (462, 9, 462, 9)[0]: angelic = -164429
+INFO     inference       expression (375, 11, 375, 11)[0]: angelic = -1
+INFO     inference       solving path .angelix/backend/klee-out-0/test000008.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000005.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000027.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000017.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000034.smt2
+INFO     inference       UNSAT
+INFO     inference       found 5 angelic paths for test '20'
+INFO     inference       inferring specification for test '11'
+INFO     testing         running test '11' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000041.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000019.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000022.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000030.smt2
+INFO     inference       value 'output' executed 4 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000011.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000042.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000014.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000040.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000010.smt2
+INFO     inference       value 'output' executed 4 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000036.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000016.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000007.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000045.smt2
+INFO     inference       value 'output' executed 5 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000038.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000029.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000031.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000015.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000032.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000037.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     inference       value 'output' executed 5 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000018.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000024.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000023.smt2
+INFO     inference       value 'output' executed 4 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000035.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000033.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000026.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000020.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000039.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000009.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000006.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000012.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000043.smt2
+INFO     inference       value 'output' executed 4 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000044.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000028.smt2
+INFO     inference       value 'output' executed 6 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000021.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000025.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000013.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000008.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000005.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000027.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000017.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000034.smt2
+INFO     inference       value 'output' executed 4 times while 3 required
+INFO     inference       found 0 angelic paths for test '11'
+WARNING  repair          angelic forest for positive test 11 not found
+INFO     synthesis       ==class Synthesizer:dump_angelic
+INFO     synthesis       synthesizing patch with component level 'alternatives'
+INFO     synthesis       synthesis failed
+INFO     synthesis       synthesizing patch with component level 'integer-constants'
+INFO     synthesis       fixing expression (462, 9, 462, 9): 0 ---> 0
+INFO     synthesis       fixing expression (375, 11, 375, 11): 1 ---> 0
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+gcc -c replace.c -o replace.o
+replace.c:14:0: warning: "NULL" redefined [enabled by default]
+ # define NULL 0
+ ^
+In file included from /usr/include/_G_config.h:15:0,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/stddef.h:402:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ ^
+replace.c: In function ‘omatch’:
+replace.c:338:6: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+      abort(); 
+      ^
+replace.c: In function ‘patsize’:
+replace.c:389:2: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+  abort();
+  ^
+gcc replace.o -o replace
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+INFO     testing         running test '3' of validation source
+INFO     testing         running test '4' of validation source
+INFO     testing         running test '5' of validation source
+INFO     testing         running test '6' of validation source
+INFO     testing         running test '7' of validation source
+INFO     testing         running test '8' of validation source
+INFO     testing         running test '9' of validation source
+INFO     testing         running test '10' of validation source
+INFO     testing         running test '11' of validation source
+INFO     testing         running test '12' of validation source
+INFO     testing         running test '13' of validation source
+INFO     testing         running test '14' of validation source
+INFO     testing         running test '15' of validation source
+INFO     testing         running test '16' of validation source
+INFO     testing         running test '17' of validation source
+INFO     testing         running test '18' of validation source
+INFO     testing         running test '19' of validation source
+INFO     testing         running test '20' of validation source
+INFO     testing         running test '21' of validation source
+INFO     testing         running test '22' of validation source
+INFO     testing         running test '23' of validation source
+INFO     testing         running test '24' of validation source
+INFO     testing         running test '25' of validation source
+INFO     testing         running test '26' of validation source
+INFO     testing         running test '27' of validation source
+INFO     testing         running test '28' of validation source
+INFO     testing         running test '29' of validation source
+INFO     testing         running test '30' of validation source
+INFO     testing         running test '31' of validation source
+INFO     testing         running test '32' of validation source
+INFO     testing         running test '33' of validation source
+INFO     testing         running test '34' of validation source
+INFO     testing         running test '35' of validation source
+INFO     testing         running test '36' of validation source
+INFO     testing         running test '37' of validation source
+INFO     testing         running test '38' of validation source
+INFO     testing         running test '39' of validation source
+INFO     testing         running test '40' of validation source
+INFO     repair          counterexample test is 11
+INFO     inference       inferring specification for test '11'
+INFO     testing         running test '11' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000041.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000019.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000022.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000030.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000011.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000042.smt2
+INFO     inference       value 'output' executed 4 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000014.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000040.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000010.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000036.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000016.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000007.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000045.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000049.smt2
+INFO     inference       value 'output' executed 5 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000038.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000046.smt2
+INFO     inference       value 'output' executed 7 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000029.smt2
+INFO     inference       value 'output' executed 4 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000031.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000015.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000032.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000037.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000018.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000024.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000023.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000048.smt2
+INFO     inference       value 'output' executed 7 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000035.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000033.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000026.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000020.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000039.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000009.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000006.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000012.smt2
+INFO     inference       value 'output' executed 6 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000043.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000044.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000028.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000047.smt2
+INFO     inference       value 'output' executed 4 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000050.smt2
+INFO     inference       value 'output' executed 6 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000021.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000025.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000013.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000008.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000005.smt2
+INFO     inference       value 'output' executed 4 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000027.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000017.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000034.smt2
+INFO     inference       value 'output' executed 2 times while 3 required
+INFO     inference       found 0 angelic paths for test '11'
+INFO     repair          considering suspicious expressions [(475, 6, 475, 10), (495, 11, 495, 11)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['11']
+INFO     reduction       selected failing tests: ['20']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+angelix-compiler --klee -c replace.c -o replace.o
+[angelix-compiler] llvm-gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-c' 'replace.c' '-o' 'replace.o' 
+replace.c:14:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/home/mingyue/Documents/Angelix/angelix/build/llvm-gcc4.2-2.9-x86_64-linux/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.2.1/include/stddef.h:403:1: warning: this is the location of the previous definition
+replace.c: In function ‘omatch’:
+replace.c:338: warning: incompatible implicit declaration of built-in function ‘abort’
+replace.c: In function ‘patsize’:
+replace.c:389: warning: incompatible implicit declaration of built-in function ‘abort’
+angelix-compiler --klee replace.o -o replace
+[angelix-compiler] llvm-ld --disable-opt 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/klee -langelix 
+INFO     inference       inferring specification for test '20'
+INFO     testing         running test '20' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000041.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000019.smt2
+INFO     inference       value 'output' executed 5 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000022.smt2
+INFO     inference       value 'output' executed 3 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000030.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000011.smt2
+INFO     inference       value 'output' executed 5 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000042.smt2
+INFO     inference       value 'output' executed 3 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000014.smt2
+INFO     inference       value 'output' executed 5 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000040.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000010.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000036.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000016.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000007.smt2
+INFO     inference       value 'output' executed 6 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000045.smt2
+INFO     inference       value 'output' executed 3 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000049.smt2
+INFO     inference       value 'output' executed 3 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000038.smt2
+INFO     inference       value 'output' executed 3 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000046.smt2
+INFO     inference       value 'output' executed 4 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000029.smt2
+INFO     inference       value 'output' executed 5 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000031.smt2
+INFO     inference       value 'output' executed 3 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       value 'output' executed 3 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000051.smt2
+INFO     inference       value 'output' executed 7 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000015.smt2
+INFO     inference       value 'output' executed 3 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000032.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000037.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000018.smt2
+INFO     inference       value 'output' executed 3 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000024.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000023.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000048.smt2
+INFO     inference       value 'output' executed 3 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000035.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000033.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000026.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000020.smt2
+INFO     inference       value 'output' executed 3 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000039.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000009.smt2
+INFO     inference       value 'output' executed 4 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000006.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000012.smt2
+INFO     inference       value 'output' executed 4 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000043.smt2
+INFO     inference       value 'output' executed 3 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000044.smt2
+INFO     inference       value 'output' executed 4 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000028.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000047.smt2
+INFO     inference       value 'output' executed 3 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000050.smt2
+INFO     inference       value 'output' executed 6 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000021.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000025.smt2
+INFO     inference       value 'output' executed 3 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000013.smt2
+INFO     inference       value 'output' executed 3 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000008.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000005.smt2
+INFO     inference       value 'output' executed 10 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000027.smt2
+INFO     inference       value 'output' executed 3 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000017.smt2
+INFO     inference       value 'output' executed 4 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000034.smt2
+INFO     inference       value 'output' executed 3 times while 2 required
+INFO     inference       found 0 angelic paths for test '20'
+INFO     repair          considering suspicious expressions [(232, 7, 232, 8), (235, 15, 235, 15)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['1']
+INFO     reduction       selected failing tests: ['20']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+angelix-compiler --klee -c replace.c -o replace.o
+[angelix-compiler] llvm-gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-c' 'replace.c' '-o' 'replace.o' 
+replace.c:14:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/home/mingyue/Documents/Angelix/angelix/build/llvm-gcc4.2-2.9-x86_64-linux/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.2.1/include/stddef.h:403:1: warning: this is the location of the previous definition
+replace.c: In function ‘omatch’:
+replace.c:338: warning: incompatible implicit declaration of built-in function ‘abort’
+replace.c: In function ‘patsize’:
+replace.c:389: warning: incompatible implicit declaration of built-in function ‘abort’
+angelix-compiler --klee replace.o -o replace
+[angelix-compiler] llvm-ld --disable-opt 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/klee -langelix 
+INFO     inference       inferring specification for test '20'
+INFO     testing         running test '20' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       UNSAT
+INFO     inference       found 0 angelic paths for test '20'
+INFO     repair          considering suspicious expressions [(225, 7, 225, 8), (226, 10, 226, 14)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['1']
+INFO     reduction       selected failing tests: ['20']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+angelix-compiler --klee -c replace.c -o replace.o
+[angelix-compiler] llvm-gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-c' 'replace.c' '-o' 'replace.o' 
+replace.c:14:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/home/mingyue/Documents/Angelix/angelix/build/llvm-gcc4.2-2.9-x86_64-linux/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.2.1/include/stddef.h:403:1: warning: this is the location of the previous definition
+replace.c: In function ‘omatch’:
+replace.c:338: warning: incompatible implicit declaration of built-in function ‘abort’
+replace.c: In function ‘patsize’:
+replace.c:389: warning: incompatible implicit declaration of built-in function ‘abort’
+angelix-compiler --klee replace.o -o replace
+[angelix-compiler] llvm-ld --disable-opt 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/klee -langelix 
+INFO     inference       inferring specification for test '20'
+INFO     testing         running test '20' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000041.smt2
+INFO     inference       expression (225, 7, 225, 8)[0]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[1]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[2]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[3]: angelic = True
+INFO     inference       expression (226, 10, 226, 14)[0]: angelic = 271664
+INFO     inference       expression (226, 10, 226, 14)[1]: angelic = -113440
+INFO     inference       expression (226, 10, 226, 14)[2]: angelic = -113440
+INFO     inference       expression (226, 10, 226, 14)[3]: angelic = -5606130
+INFO     inference       solving path .angelix/backend/klee-out-0/test000019.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000022.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000030.smt2
+INFO     inference       expression (225, 7, 225, 8)[0]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[1]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[2]: angelic = True
+INFO     inference       expression (226, 10, 226, 14)[0]: angelic = -5606112
+INFO     inference       expression (226, 10, 226, 14)[1]: angelic = 0
+INFO     inference       expression (226, 10, 226, 14)[2]: angelic = -5606100
+INFO     inference       solving path .angelix/backend/klee-out-0/test000011.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000042.smt2
+INFO     inference       expression (225, 7, 225, 8)[0]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[1]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[2]: angelic = True
+INFO     inference       expression (226, 10, 226, 14)[0]: angelic = 2360765
+INFO     inference       expression (226, 10, 226, 14)[1]: angelic = -113419
+INFO     inference       solving path .angelix/backend/klee-out-0/test000014.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000040.smt2
+INFO     inference       expression (225, 7, 225, 8)[0]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[1]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[2]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[3]: angelic = True
+INFO     inference       expression (226, 10, 226, 14)[0]: angelic = 273856
+INFO     inference       expression (226, 10, 226, 14)[1]: angelic = -5606100
+INFO     inference       solving path .angelix/backend/klee-out-0/test000010.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000036.smt2
+INFO     inference       expression (225, 7, 225, 8)[0]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[1]: angelic = True
+INFO     inference       expression (226, 10, 226, 14)[0]: angelic = 2358336
+INFO     inference       expression (226, 10, 226, 14)[1]: angelic = -113419
+INFO     inference       solving path .angelix/backend/klee-out-0/test000016.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000007.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000045.smt2
+INFO     inference       expression (225, 7, 225, 8)[0]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[1]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[2]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[3]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[4]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[5]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[6]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[7]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[8]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[9]: angelic = True
+INFO     inference       expression (226, 10, 226, 14)[0]: angelic = 427856
+INFO     inference       expression (226, 10, 226, 14)[1]: angelic = 2
+INFO     inference       expression (226, 10, 226, 14)[2]: angelic = -113440
+INFO     inference       expression (226, 10, 226, 14)[3]: angelic = 0
+INFO     inference       expression (226, 10, 226, 14)[4]: angelic = 3
+INFO     inference       solving path .angelix/backend/klee-out-0/test000049.smt2
+INFO     inference       expression (225, 7, 225, 8)[0]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[1]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[2]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[3]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[4]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[5]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[6]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[7]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[8]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[9]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[10]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[11]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[12]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[13]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[14]: angelic = True
+INFO     inference       expression (226, 10, 226, 14)[0]: angelic = 2359280
+INFO     inference       expression (226, 10, 226, 14)[1]: angelic = -113440
+INFO     inference       expression (226, 10, 226, 14)[2]: angelic = -4981456
+INFO     inference       expression (226, 10, 226, 14)[3]: angelic = 2
+INFO     inference       expression (226, 10, 226, 14)[4]: angelic = 3
+INFO     inference       solving path .angelix/backend/klee-out-0/test000038.smt2
+INFO     inference       expression (225, 7, 225, 8)[0]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[1]: angelic = True
+INFO     inference       expression (226, 10, 226, 14)[0]: angelic = 8773008
+INFO     inference       expression (226, 10, 226, 14)[1]: angelic = -113419
+INFO     inference       solving path .angelix/backend/klee-out-0/test000046.smt2
+INFO     inference       expression (225, 7, 225, 8)[0]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[1]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[2]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[3]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[4]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[5]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[6]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[7]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[8]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[9]: angelic = True
+INFO     inference       expression (226, 10, 226, 14)[0]: angelic = 2355675
+INFO     inference       expression (226, 10, 226, 14)[1]: angelic = -810912
+INFO     inference       expression (226, 10, 226, 14)[2]: angelic = 2
+INFO     inference       expression (226, 10, 226, 14)[3]: angelic = 1
+INFO     inference       expression (226, 10, 226, 14)[4]: angelic = 3
+INFO     inference       solving path .angelix/backend/klee-out-0/test000029.smt2
+INFO     inference       expression (225, 7, 225, 8)[0]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[1]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[2]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[3]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[4]: angelic = True
+INFO     inference       expression (226, 10, 226, 14)[0]: angelic = -811440
+INFO     inference       expression (226, 10, 226, 14)[1]: angelic = -810912
+INFO     inference       expression (226, 10, 226, 14)[2]: angelic = -113440
+INFO     inference       expression (226, 10, 226, 14)[3]: angelic = 3
+INFO     inference       solving path .angelix/backend/klee-out-0/test000031.smt2
+INFO     inference       value 'output' executed 1 times while 2 required
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000051.smt2
+INFO     inference       expression (225, 7, 225, 8)[0]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[1]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[2]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[3]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[4]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[5]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[6]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[7]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[8]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[9]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[10]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[11]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[12]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[13]: angelic = True
+INFO     inference       expression (226, 10, 226, 14)[0]: angelic = 8770715
+INFO     inference       expression (226, 10, 226, 14)[1]: angelic = -4981456
+INFO     inference       expression (226, 10, 226, 14)[2]: angelic = -113440
+INFO     inference       expression (226, 10, 226, 14)[3]: angelic = 3
+INFO     inference       solving path .angelix/backend/klee-out-0/test000015.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000032.smt2
+INFO     inference       expression (225, 7, 225, 8)[0]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[1]: angelic = True
+INFO     inference       expression (226, 10, 226, 14)[0]: angelic = -6676944
+INFO     inference       expression (226, 10, 226, 14)[1]: angelic = -810910
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000037.smt2
+INFO     inference       expression (225, 7, 225, 8)[0]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[1]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[2]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[3]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[4]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[5]: angelic = True
+INFO     inference       expression (226, 10, 226, 14)[0]: angelic = 87200
+INFO     inference       expression (226, 10, 226, 14)[1]: angelic = -4981456
+INFO     inference       expression (226, 10, 226, 14)[2]: angelic = -5606112
+INFO     inference       expression (226, 10, 226, 14)[3]: angelic = 3
+INFO     inference       solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     inference       expression (225, 7, 225, 8)[0]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[1]: angelic = True
+INFO     inference       expression (226, 10, 226, 14)[0]: angelic = -810912
+INFO     inference       expression (226, 10, 226, 14)[1]: angelic = -4981406
+INFO     inference       solving path .angelix/backend/klee-out-0/test000018.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000024.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000023.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000048.smt2
+INFO     inference       expression (225, 7, 225, 8)[0]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[1]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[2]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[3]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[4]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[5]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[6]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[7]: angelic = True
+INFO     inference       expression (226, 10, 226, 14)[0]: angelic = 2362704
+INFO     inference       expression (226, 10, 226, 14)[1]: angelic = 1
+INFO     inference       expression (226, 10, 226, 14)[2]: angelic = -113440
+INFO     inference       expression (226, 10, 226, 14)[3]: angelic = 2
+INFO     inference       expression (226, 10, 226, 14)[4]: angelic = -810910
+INFO     inference       solving path .angelix/backend/klee-out-0/test000035.smt2
+INFO     inference       expression (225, 7, 225, 8)[0]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[1]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[2]: angelic = True
+INFO     inference       expression (226, 10, 226, 14)[0]: angelic = 87284
+INFO     inference       expression (226, 10, 226, 14)[1]: angelic = 3
+INFO     inference       solving path .angelix/backend/klee-out-0/test000033.smt2
+INFO     inference       expression (225, 7, 225, 8)[0]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[1]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[2]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[3]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[4]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[5]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[6]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[7]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[8]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[9]: angelic = True
+INFO     inference       expression (226, 10, 226, 14)[0]: angelic = -5606624
+INFO     inference       expression (226, 10, 226, 14)[1]: angelic = -113440
+INFO     inference       expression (226, 10, 226, 14)[2]: angelic = 2
+INFO     inference       expression (226, 10, 226, 14)[3]: angelic = -113419
+INFO     inference       solving path .angelix/backend/klee-out-0/test000026.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000020.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000039.smt2
+INFO     inference       expression (225, 7, 225, 8)[0]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[1]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[2]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[3]: angelic = True
+INFO     inference       expression (226, 10, 226, 14)[0]: angelic = 119728
+INFO     inference       expression (226, 10, 226, 14)[1]: angelic = -113440
+INFO     inference       expression (226, 10, 226, 14)[2]: angelic = 3
+INFO     inference       solving path .angelix/backend/klee-out-0/test000009.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000006.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000012.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000043.smt2
+INFO     inference       expression (225, 7, 225, 8)[0]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[1]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[2]: angelic = True
+INFO     inference       expression (226, 10, 226, 14)[0]: angelic = 8773056
+INFO     inference       expression (226, 10, 226, 14)[1]: angelic = -113419
+INFO     inference       solving path .angelix/backend/klee-out-0/test000044.smt2
+INFO     inference       expression (225, 7, 225, 8)[0]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[1]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[2]: angelic = True
+INFO     inference       expression (226, 10, 226, 14)[0]: angelic = 2361792
+INFO     inference       expression (226, 10, 226, 14)[1]: angelic = 1
+INFO     inference       expression (226, 10, 226, 14)[2]: angelic = -810910
+INFO     inference       solving path .angelix/backend/klee-out-0/test000028.smt2
+INFO     inference       expression (225, 7, 225, 8)[0]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[1]: angelic = True
+INFO     inference       expression (226, 10, 226, 14)[0]: angelic = -4982288
+INFO     inference       expression (226, 10, 226, 14)[1]: angelic = 3
+INFO     inference       solving path .angelix/backend/klee-out-0/test000047.smt2
+INFO     inference       expression (225, 7, 225, 8)[0]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[1]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[2]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[3]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[4]: angelic = True
+INFO     inference       expression (226, 10, 226, 14)[0]: angelic = 2363619
+INFO     inference       expression (226, 10, 226, 14)[1]: angelic = 2
+INFO     inference       expression (226, 10, 226, 14)[2]: angelic = -113440
+INFO     inference       expression (226, 10, 226, 14)[3]: angelic = 3
+INFO     inference       solving path .angelix/backend/klee-out-0/test000050.smt2
+INFO     inference       expression (225, 7, 225, 8)[0]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[1]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[2]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[3]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[4]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[5]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[6]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[7]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[8]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[9]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[10]: angelic = True
+INFO     inference       expression (226, 10, 226, 14)[0]: angelic = 2363136
+INFO     inference       expression (226, 10, 226, 14)[1]: angelic = 2
+INFO     inference       expression (226, 10, 226, 14)[2]: angelic = 0
+INFO     inference       expression (226, 10, 226, 14)[3]: angelic = -113440
+INFO     inference       expression (226, 10, 226, 14)[4]: angelic = 3
+INFO     inference       solving path .angelix/backend/klee-out-0/test000021.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000025.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000013.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000008.smt2
+INFO     inference       expression (225, 7, 225, 8)[0]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[1]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[2]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[3]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[4]: angelic = True
+INFO     inference       expression (226, 10, 226, 14)[0]: angelic = -810912
+INFO     inference       expression (226, 10, 226, 14)[1]: angelic = -810912
+INFO     inference       expression (226, 10, 226, 14)[2]: angelic = 3
+INFO     inference       solving path .angelix/backend/klee-out-0/test000005.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000027.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000017.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000034.smt2
+INFO     inference       expression (225, 7, 225, 8)[0]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[1]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[2]: angelic = False
+INFO     inference       expression (225, 7, 225, 8)[3]: angelic = True
+INFO     inference       expression (225, 7, 225, 8)[4]: angelic = True
+INFO     inference       expression (226, 10, 226, 14)[0]: angelic = -5608016
+INFO     inference       expression (226, 10, 226, 14)[1]: angelic = -810912
+INFO     inference       expression (226, 10, 226, 14)[2]: angelic = -811440
+INFO     inference       expression (226, 10, 226, 14)[3]: angelic = 3
+INFO     inference       found 25 angelic paths for test '20'
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       value 'output' executed 4 times while 2 required
+INFO     inference       found 0 angelic paths for test '1'
+WARNING  repair          angelic forest for positive test 1 not found
+INFO     synthesis       ==class Synthesizer:dump_angelic
+INFO     synthesis       synthesizing patch with component level 'alternatives'
+INFO     synthesis       synthesis failed
+INFO     synthesis       synthesizing patch with component level 'integer-constants'
+INFO     synthesis       synthesis failed
+INFO     synthesis       synthesizing patch with component level 'boolean-constants'
+INFO     synthesis       synthesis failed
+INFO     repair          cannot synthesize fix
+INFO     repair          considering suspicious expressions [(54, 11, 54, 11), (194, 9, 194, 9)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['1']
+INFO     reduction       selected failing tests: ['20']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+angelix-compiler --klee -c replace.c -o replace.o
+[angelix-compiler] llvm-gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-c' 'replace.c' '-o' 'replace.o' 
+replace.c:14:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/home/mingyue/Documents/Angelix/angelix/build/llvm-gcc4.2-2.9-x86_64-linux/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.2.1/include/stddef.h:403:1: warning: this is the location of the previous definition
+replace.c: In function ‘omatch’:
+replace.c:338: warning: incompatible implicit declaration of built-in function ‘abort’
+replace.c: In function ‘patsize’:
+replace.c:389: warning: incompatible implicit declaration of built-in function ‘abort’
+angelix-compiler --klee replace.o -o replace
+[angelix-compiler] llvm-ld --disable-opt 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/klee -langelix 
+INFO     inference       inferring specification for test '20'
+INFO     testing         running test '20' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000041.smt2
+ERROR    inference       inconsistent variables
+WARNING  repair          inference failed (error was raised)
+INFO     repair          considering suspicious expressions [(198, 7, 198, 7), (224, 10, 224, 10)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['1']
+INFO     reduction       selected failing tests: ['20']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+angelix-compiler --klee -c replace.c -o replace.o
+[angelix-compiler] llvm-gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-c' 'replace.c' '-o' 'replace.o' 
+replace.c:14:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/home/mingyue/Documents/Angelix/angelix/build/llvm-gcc4.2-2.9-x86_64-linux/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.2.1/include/stddef.h:403:1: warning: this is the location of the previous definition
+replace.c: In function ‘omatch’:
+replace.c:338: warning: incompatible implicit declaration of built-in function ‘abort’
+replace.c: In function ‘patsize’:
+replace.c:389: warning: incompatible implicit declaration of built-in function ‘abort’
+angelix-compiler --klee replace.o -o replace
+[angelix-compiler] llvm-ld --disable-opt 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/klee -langelix 
+INFO     inference       inferring specification for test '20'
+INFO     testing         running test '20' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       UNSAT
+INFO     inference       found 0 angelic paths for test '20'
+INFO     repair          considering suspicious expressions [(262, 9, 262, 9), (280, 15, 280, 15)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['1']
+INFO     reduction       selected failing tests: ['20']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+angelix-compiler --klee -c replace.c -o replace.o
+[angelix-compiler] llvm-gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-c' 'replace.c' '-o' 'replace.o' 
+replace.c:14:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/home/mingyue/Documents/Angelix/angelix/build/llvm-gcc4.2-2.9-x86_64-linux/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.2.1/include/stddef.h:403:1: warning: this is the location of the previous definition
+replace.c: In function ‘omatch’:
+replace.c:338: warning: incompatible implicit declaration of built-in function ‘abort’
+replace.c: In function ‘patsize’:
+replace.c:389: warning: incompatible implicit declaration of built-in function ‘abort’
+angelix-compiler --klee replace.o -o replace
+[angelix-compiler] llvm-ld --disable-opt 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/klee -langelix 
+INFO     inference       inferring specification for test '20'
+INFO     testing         running test '20' of backend source with KLEE
+WARNING  inference       No non-error paths explored
+INFO     repair          no patch generated in 12m 22s
+FAIL

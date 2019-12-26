@@ -1,0 +1,21 @@
+klee --allow-external-sym-calls --optimize --only-output-states-covering-new v26-f.o
+PID: 21830
+Started: 2015-04-29 17:20:46
+BEGIN searcher description
+<InterleavedSearcher> containing 2 searchers:
+RandomPathSearcher
+WeightedRandomSearcher::CoveringNew
+</InterleavedSearcher>
+END searcher description
+Finished: 2015-04-29 17:34:03
+Elapsed: 00:13:17
+KLEE: done: explored paths = 94
+KLEE: done: avg. constructs per query = 163
+KLEE: done: total queries = 1294
+KLEE: done: valid queries = 1170
+KLEE: done: invalid queries = 124
+KLEE: done: query cex = 1294
+
+KLEE: done: total instructions = 20498
+KLEE: done: completed paths = 94
+KLEE: done: generated tests = 21

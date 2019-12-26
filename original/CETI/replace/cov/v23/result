@@ -1,0 +1,554 @@
+***************coverageTC/v23
+gcc -D_GNUCC -E -DCIL=1 coverageTC/v23/replace23.c -o coverageTC/v23/replace23.i
+coverageTC/v23/replace23.c:11:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from coverageTC/v23/replace23.c:4:
+/usr/lib/gcc/i486-linux-gnu/4.4.3/include/stddef.h:400:1: warning: this is the location of the previous definition
+/usr/local/bin/cilly.native --out coverageTC/v23/replace23.cil.c --noPrintLn --useLogicalOperators coverageTC/v23/replace23.i
+gcc -D_GNUCC -E coverageTC/v23/replace23.cil.c -o coverageTC/v23/replace23.cil.i
+gcc -D_GNUCC -c -o coverageTC/v23/replace23.o coverageTC/v23/replace23.cil.i
+coverageTC/v23/replace23.cil.c:370: warning: conflicting types for built-in function ‘abort’
+gcc -D_GNUCC -o a.out coverageTC/v23/replace23.o
+$ cp coverageTC/v23/replace23.cil.i /tmp/CETI_d8b41c/replace23.cil.i
+input length='49' output length='49'
+*** Get good/bad tcs ***
+cmd 'gcc /tmp/CETI_d8b41c/replace23.cil.i -o /tmp/CETI_d8b41c/replace23.cil.i.exe >& /dev/null'
+$ gcc /tmp/CETI_d8b41c/replace23.cil.i -o /tmp/CETI_d8b41c/replace23.cil.i.exe >& /dev/null
+write_file_str: '/tmp/CETI_d8b41c/replace23.cil.i.sh'
+$ sh /tmp/CETI_d8b41c/replace23.cil.i.sh /tmp/CETI_d8b41c/replace23.cil.i.exe &> /dev/null
+[35mAlert: 3/49 tests failed. Processing ..
+[mwrite_src: '/tmp/CETI_d8b41c/replace23.cil.i.preproc.c'
+*** Fault Localization ***
+write_src: '/tmp/CETI_d8b41c/faultloc_eaa16c/replace23.cil.i.cov.c'
+cmd 'gcc /tmp/CETI_d8b41c/faultloc_eaa16c/replace23.cil.i.cov.c -o /tmp/CETI_d8b41c/faultloc_eaa16c/replace23.cil.i.cov.c.exe >& /dev/null'
+$ gcc /tmp/CETI_d8b41c/faultloc_eaa16c/replace23.cil.i.cov.c -o /tmp/CETI_d8b41c/faultloc_eaa16c/replace23.cil.i.cov.c.exe >& /dev/null
+goods length:46
+write_file_str: '/tmp/CETI_d8b41c/faultloc_eaa16c/replace23.cil.i.g.sh'
+$ sh /tmp/CETI_d8b41c/faultloc_eaa16c/replace23.cil.i.g.sh /tmp/CETI_d8b41c/faultloc_eaa16c/replace23.cil.i.cov.c.exe /tmp/CETI_d8b41c/faultloc_eaa16c/replace23.cil.i.outputs_g_dontcare &> /dev/null
+write_file_str: '/tmp/CETI_d8b41c/faultloc_eaa16c/replace23.cil.i.b.sh'
+$ sh /tmp/CETI_d8b41c/faultloc_eaa16c/replace23.cil.i.b.sh /tmp/CETI_d8b41c/faultloc_eaa16c/replace23.cil.i.cov.c.exe /tmp/CETI_d8b41c/faultloc_eaa16c/replace23.cil.i.outputs_bad_dontcare &> /dev/null
+0. sid 11 in fun 'esc' (score 0.707107)
+result = *(s + *i);
+1. sid 87 in fun 'makesub' (score 0.547723)
+junk = (bool )tmp___0;
+2. sid 12 in fun 'esc' (score 0.547723)
+__cil_tmp4 = (int )*(s + *i) == 116;
+3. sid 7 in fun 'esc' (score 0.480384)
+result = *(s + *i);
+4. sid 15 in fun 'esc' (score 0.46291)
+__cil_tmp6 = (int )*(s + *i) == 0;
+5. sid 14 in fun 'esc' (score 0.46291)
+__cil_tmp5 = (int )*(s + *i) == 110;
+6. sid 13 in fun 'esc' (score 0.46291)
+(*i) ++;
+7. sid 17 in fun 'esc' (score 0.369274)
+__cil_tmp8 = result;
+8. sid 16 in fun 'esc' (score 0.369274)
+__cil_tmp7 = (int )*(s + *i) != 64;
+9. sid 112 in fun 'omatch' (score 0.280056)
+advance = (char)1;
+10. sid 55 in fun 'makepat' (score 0.272166)
+junk = (bool )tmp;
+11. sid 152 in fun 'amatch' (score 0.258199)
+__cil_tmp16 = ! result;
+12. sid 9 in fun 'esc' (score 0.258199)
+result = (char)10;
+13. sid 183 in fun 'mainQ' (score 0.247436)
+__cil_tmp9 = tmp___0;
+14. sid 182 in fun 'mainQ' (score 0.247436)
+result = (bool )tmp;
+15. sid 181 in fun 'change' (score 0.247436)
+__cil_tmp5 = tmp;
+16. sid 180 in fun 'subline' (score 0.247436)
+__cil_tmp11 = O;
+17. sid 179 in fun 'subline' (score 0.247436)
+O[OL] = (char )'\000';
+18. sid 178 in fun 'subline' (score 0.247436)
+i = 0;
+19. sid 177 in fun 'subline' (score 0.247436)
+lastm = -1;
+20. sid 176 in fun 'subline' (score 0.247436)
+OL = 0;
+21. sid 175 in fun 'subline' (score 0.247436)
+__cil_tmp10 = m == -1 || m == i;
+22. sid 174 in fun 'subline' (score 0.247436)
+__cil_tmp9 = m >= 0 && lastm != m;
+23. sid 173 in fun 'subline' (score 0.247436)
+__cil_tmp8 = (int )*(lin + i) != 0;
+24. sid 156 in fun 'amatch' (score 0.247436)
+__cil_tmp19 = offset;
+25. sid 155 in fun 'amatch' (score 0.247436)
+done = (bool )0;
+26. sid 154 in fun 'amatch' (score 0.247436)
+__cil_tmp18 = (int )*(pat + j) == 42;
+27. sid 153 in fun 'amatch' (score 0.247436)
+__cil_tmp17 = ! done && (int )*(pat + j) != 0;
+28. sid 130 in fun 'omatch' (score 0.247436)
+__cil_tmp20 = result;
+29. sid 129 in fun 'omatch' (score 0.247436)
+__cil_tmp19 = (int )advance >= 0;
+30. sid 128 in fun 'omatch' (score 0.247436)
+__cil_tmp18 = (int )*(lin + *i) == 0;
+31. sid 127 in fun 'omatch' (score 0.247436)
+advance = (char)-1;
+32. sid 123 in fun 'omatch' (score 0.247436)
+__cil_tmp17 = tmp___1;
+33. sid 100 in fun 'getsub' (score 0.247436)
+__cil_tmp4 = (bool )(makeres > 0);
+34. sid 99 in fun 'makesub' (score 0.247436)
+__cil_tmp17 = result;
+35. sid 98 in fun 'makesub' (score 0.247436)
+__cil_tmp16 = (int )*(arg + i) != (int )delim;
+36. sid 97 in fun 'makesub' (score 0.247436)
+i = from;
+37. sid 96 in fun 'makesub' (score 0.247436)
+j = 0;
+38. sid 95 in fun 'makesub' (score 0.247436)
+__cil_tmp15 = ! junk;
+39. sid 94 in fun 'makesub' (score 0.247436)
+junk = (bool )tmp___1;
+40. sid 93 in fun 'makesub' (score 0.247436)
+result = i;
+41. sid 90 in fun 'makesub' (score 0.247436)
+i ++;
+42. sid 89 in fun 'makesub' (score 0.247436)
+__cil_tmp14 = (unsigned int )*(arg + i) == 38U;
+43. sid 88 in fun 'makesub' (score 0.247436)
+__cil_tmp13 = (int )*(arg + i) != (int )delim && (int )*(arg + i) != 0;
+44. sid 85 in fun 'getpat' (score 0.247436)
+__cil_tmp4 = makeres > 0;
+45. sid 84 in fun 'makepat' (score 0.247436)
+__cil_tmp31 = result;
+46. sid 83 in fun 'makepat' (score 0.247436)
+__cil_tmp30 = done || (int )*(arg + i) != (int )delim;
+47. sid 82 in fun 'makepat' (score 0.247436)
+junk = (bool )tmp___5;
+48. sid 81 in fun 'makepat' (score 0.247436)
+done = (bool )0;
+49. sid 80 in fun 'makepat' (score 0.247436)
+lastj = 0;
+50. sid 79 in fun 'makepat' (score 0.247436)
+i = start;
+51. sid 78 in fun 'makepat' (score 0.247436)
+j = 0;
+52. sid 73 in fun 'makepat' (score 0.247436)
+__cil_tmp28 = ! done;
+53. sid 72 in fun 'makepat' (score 0.247436)
+lastj = lj;
+54. sid 71 in fun 'makepat' (score 0.247436)
+__cil_tmp27 = (int )*(arg + i) == 63;
+55. sid 70 in fun 'makepat' (score 0.247436)
+lj = j;
+56. sid 69 in fun 'makepat' (score 0.247436)
+__cil_tmp26 = (! done && (int )*(arg + i) != (int )delim) && (int )*(arg + i) != 0;
+57. sid 54 in fun 'in_pat_set' (score 0.247436)
+__cil_tmp2 = (bool )(((((((int )c == 99 || (int )c == 37) || (int )c == 36) || (int )c == 63) || (int )c == 91) || (int )c == 33) || (int )c == 42);
+58. sid 6 in fun 'addstr' (score 0.247436)
+__cil_tmp7 = (int )result;
+59. sid 5 in fun 'addstr' (score 0.247436)
+__cil_tmp6 = *j >= maxset;
+60. sid 4 in fun 'addstr' (score 0.247436)
+result = (bool )1;
+61. sid 3 in fun 'addstr' (score 0.247436)
+(*j) ++;
+62. sid 2 in fun 'addstr' (score 0.247436)
+*(outset + *j) = c;
+63. sid 18 in fun 'dodash' (score 0.235702)
+junk = (bool )tmp;
+64. sid 116 in fun 'omatch' (score 0.218218)
+__cil_tmp10 = ! tmp___0;
+65. sid 102 in fun 'locate' (score 0.218218)
+i = offset;
+66. sid 101 in fun 'locate' (score 0.218218)
+flag = (bool )1;
+67. sid 74 in fun 'makepat' (score 0.218218)
+result = 0;
+68. sid 38 in fun 'getccl' (score 0.218218)
+(*i) ++;
+69. sid 37 in fun 'getccl' (score 0.218218)
+junk = (bool )tmp;
+70. sid 19 in fun 'dodash' (score 0.218218)
+junk = (bool )tmp___0;
+71. sid 172 in fun 'subline' (score 0.210819)
+i = m;
+72. sid 151 in fun 'amatch' (score 0.201008)
+j += tmp___1;
+73. sid 168 in fun 'subline' (score 0.19518)
+lastm = m;
+74. sid 167 in fun 'putsub' (score 0.19518)
+i = 0;
+75. sid 164 in fun 'putsub' (score 0.19518)
+__cil_tmp10 = (int )*(sub + i) != 0;
+76. sid 136 in fun 'patsize' (score 0.189832)
+__cil_tmp6 = size;
+77. sid 135 in fun 'patsize' (score 0.189832)
+__cil_tmp5 = tmp;
+78. sid 125 in fun 'omatch' (score 0.189832)
+result = (bool )1;
+79. sid 124 in fun 'omatch' (score 0.189832)
+*i += (int )advance;
+80. sid 103 in fun 'locate' (score 0.182574)
+i --;
+81. sid 77 in fun 'makepat' (score 0.178174)
+__cil_tmp29 = ! junk;
+82. sid 76 in fun 'makepat' (score 0.178174)
+result = i;
+83. sid 68 in fun 'makepat' (score 0.17609)
+i ++;
+84. sid 105 in fun 'locate' (score 0.160128)
+__cil_tmp7 = (int )c == (int )*(pat + i);
+85. sid 36 in fun 'dodash' (score 0.160128)
+(*i) ++;
+86. sid 35 in fun 'dodash' (score 0.160128)
+__cil_tmp24 = (int )*(src + (*i - 1)) == 64;
+87. sid 33 in fun 'dodash' (score 0.160128)
+__cil_tmp22 = (int )*(src + *i) != 45;
+88. sid 108 in fun 'locate' (score 0.136083)
+__cil_tmp8 = flag;
+89. sid 107 in fun 'locate' (score 0.136083)
+i = offset + (int )*(pat + offset);
+90. sid 106 in fun 'locate' (score 0.136083)
+flag = (bool )0;
+91. sid 104 in fun 'locate' (score 0.136083)
+__cil_tmp6 = i > offset;
+92. sid 58 in fun 'makepat' (score 0.136083)
+done = (bool )((int )getres == 0);
+93. sid 45 in fun 'getccl' (score 0.136083)
+__cil_tmp11 = (bool )((int )*(arg + *i) == 93);
+94. sid 44 in fun 'getccl' (score 0.136083)
+*(pat + jstart) = (char )((*j - jstart) - 1);
+95. sid 43 in fun 'getccl' (score 0.136083)
+junk = (bool )tmp___1;
+96. sid 42 in fun 'getccl' (score 0.136083)
+jstart = *j;
+97. sid 41 in fun 'getccl' (score 0.136083)
+__cil_tmp10 = (int )*(arg + *i) == 94;
+98. sid 40 in fun 'getccl' (score 0.136083)
+(*i) ++;
+99. sid 34 in fun 'dodash' (score 0.136083)
+__cil_tmp23 = (int )*(src + *i) != (int )delim && (int )*(src + *i) != 0;
+100. sid 171 in fun 'subline' (score 0.129099)
+i ++;
+101. sid 170 in fun 'subline' (score 0.129099)
+OL ++;
+102. sid 169 in fun 'subline' (score 0.129099)
+O[OL] = *(lin + i);
+103. sid 150 in fun 'amatch' (score 0.125988)
+done = (bool )1;
+104. sid 149 in fun 'amatch' (score 0.125988)
+offset = -1;
+105. sid 126 in fun 'omatch' (score 0.125988)
+result = (bool )0;
+106. sid 160 in fun 'putsub' (score 0.120386)
+j ++;
+107. sid 159 in fun 'putsub' (score 0.120386)
+(*OL) ++;
+108. sid 158 in fun 'putsub' (score 0.120386)
+*(output + *OL) = *(lin + j);
+109. sid 161 in fun 'putsub' (score 0.111111)
+j = s1;
+110. sid 157 in fun 'putsub' (score 0.111111)
+__cil_tmp9 = j < s2;
+111. sid 65 in fun 'makepat' (score 0.107211)
+__cil_tmp23 = (int )*(arg + i) == 91;
+112. sid 66 in fun 'makepat' (score 0.103695)
+__cil_tmp24 = (int )*(arg + i) == 36 && (int )*(arg + (i + 1)) == (int )delim;
+113. sid 166 in fun 'putsub' (score 0.0990148)
+i ++;
+114. sid 165 in fun 'putsub' (score 0.0990148)
+__cil_tmp11 = (int )*(sub + i) == -1;
+115. sid 67 in fun 'makepat' (score 0.09759)
+__cil_tmp25 = (int )*(arg + i) == 37 && i == start;
+116. sid 86 in fun 'makesub' (score 0.0912871)
+junk = (bool )tmp;
+[35mAlert: FL: found 117 stmts with sscores >= 0.01
+[m[35mAlert: Perform ** BugFix **
+[mwrite_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s11.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s87.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s12.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s7.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s15.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s14.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s13.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s17.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s16.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s112.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s55.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s152.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s9.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s183.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s182.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s181.t1.arr'
+[35mAlert: CONSTS: don't know how to deal with exp 'O' (sid 180)
+[m[35mAlert: OPS_PR: don't know how to deal with exp 'O' (sid 180)
+[mwrite_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s180.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s179.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s178.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s177.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s176.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s175.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s174.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s173.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s156.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s155.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s154.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s153.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s130.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s129.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s128.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s127.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s123.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s100.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s99.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s98.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s97.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s96.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s95.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s94.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s93.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s90.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s89.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s88.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s85.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s84.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s83.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s82.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s81.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s80.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s79.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s78.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s73.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s72.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s71.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s70.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s69.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s54.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s6.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s5.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s4.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s3.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s2.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s18.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s116.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s102.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s101.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s74.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s38.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s37.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s19.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s172.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s151.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s168.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s167.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s164.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s136.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s135.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s125.t1.arr'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.s124.t1.arr'
+[35mAlert: Spy: Got 148 info from 80 sids
+[minput length='49' output length='49'
+write_file_bin: '/tmp/CETI_d8b41c/replace23.cil.i.info'
+$ python kl.py /tmp/CETI_d8b41c/replace23.cil.i --do_tb "(11, 1, 4, 3); (87, 1, 4, 7); (12, 3, 1, 1); (12, 7, 2, 1); (12, 1, 4, 3); (7, 1, 4, 3); (15, 3, 1, 1); (15, 7, 2, 1); (15, 1, 4, 3); (14, 3, 1, 1); (14, 7, 2, 1); (14, 1, 4, 3); (13, 3, 1, 1); (13, 7, 2, 1); (13, 1, 4, 3); (17, 1, 4, 3); (16, 3, 1, 1); (16, 7, 2, 1); (16, 1, 4, 3); (112, 3, 1, 1); (112, 1, 4, 5); (55, 1, 4, 11); (152, 1, 4, 7); (9, 3, 1, 1); (9, 1, 4, 3); (183, 1, 4, 4); (182, 1, 4, 4); (181, 1, 4, 4); (180, 1, 4, 7); (179, 3, 1, 1); (179, 1, 4, 7); (178, 3, 1, 1); (178, 1, 4, 7); (177, 3, 1, 1); (177, 1, 4, 7); (176, 3, 1, 1); (176, 1, 4, 7); (175, 3, 1, 1); (175, 7, 2, 3); (175, 1, 4, 7); (174, 3, 1, 1); (174, 7, 2, 3); (174, 1, 4, 7); (173, 3, 1, 1); (173, 7, 2, 1); (173, 1, 4, 7); (156, 1, 4, 7); (155, 3, 1, 1); (155, 1, 4, 7); (154, 3, 1, 1); (154, 7, 2, 1); (154, 1, 4, 7); (153, 3, 1, 1); (153, 7, 2, 2); (153, 1, 4, 7); (130, 1, 4, 5); (129, 3, 1, 1); (129, 7, 2, 1); (129, 1, 4, 5); (128, 3, 1, 1); (128, 7, 2, 1); (128, 1, 4, 5); (127, 3, 1, 1); (127, 1, 4, 5); (123, 1, 4, 5); (100, 3, 1, 1); (100, 7, 2, 1); (100, 1, 4, 3); (99, 1, 4, 7); (98, 7, 2, 1); (98, 1, 4, 7); (97, 1, 4, 7); (96, 3, 1, 1); (96, 1, 4, 7); (95, 1, 4, 7); (94, 1, 4, 7); (93, 1, 4, 7); (90, 3, 1, 1); (90, 7, 2, 1); (90, 1, 4, 7); (89, 3, 1, 1); (89, 7, 2, 1); (89, 1, 4, 7); (88, 3, 1, 1); (88, 7, 2, 3); (88, 1, 4, 7); (85, 3, 1, 1); (85, 7, 2, 1); (85, 1, 4, 3); (84, 1, 4, 11); (83, 7, 2, 2); (83, 1, 4, 11); (82, 1, 4, 11); (81, 3, 1, 1); (81, 1, 4, 11); (80, 3, 1, 1); (80, 1, 4, 11); (79, 1, 4, 11); (78, 3, 1, 1); (78, 1, 4, 11); (73, 1, 4, 11); (72, 1, 4, 11); (71, 3, 1, 1); (71, 7, 2, 1); (71, 1, 4, 11); (70, 1, 4, 11); (69, 3, 1, 1); (69, 7, 2, 4); (69, 1, 4, 11); (54, 3, 1, 7); (54, 7, 2, 13); (54, 1, 4, 1); (6, 1, 4, 4); (5, 7, 2, 1); (5, 1, 4, 4); (4, 3, 1, 1); (4, 1, 4, 4); (3, 3, 1, 1); (3, 7, 2, 1); (3, 1, 4, 4); (2, 1, 4, 4); (18, 1, 4, 9); (116, 1, 4, 5); (102, 1, 4, 3); (101, 3, 1, 1); (101, 1, 4, 3); (74, 3, 1, 1); (74, 1, 4, 11); (38, 3, 1, 1); (38, 7, 2, 1); (38, 1, 4, 6); (37, 1, 4, 6); (19, 1, 4, 9); (172, 1, 4, 7); (151, 7, 2, 1); (151, 1, 4, 7); (168, 1, 4, 7); (167, 3, 1, 1); (167, 1, 4, 8); (164, 3, 1, 1); (164, 7, 2, 1); (164, 1, 4, 8); (136, 1, 4, 3); (135, 1, 4, 3); (125, 3, 1, 1); (125, 1, 4, 5); (124, 7, 2, 1); (124, 1, 4, 5)" --no_parallel
+KR: tasks 2361
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s90.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s13.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s13.t7_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s90.t1_z0_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s79.t1_z0_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s73.t1_z0_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s97.t1_z0_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s13.t1_z0_c0.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c5.tf.c:828: warning: conflicting types for built-in function ‘abort’
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c5.tf.c: In function ‘subline’:
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c5.tf.c:1104: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c5.tf.c: In function ‘main’:
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c5.tf.c:1245: warning: comparison between pointer and integer
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c5.tf.c:1348: warning: incompatible implicit declaration of built-in function ‘printf’
+
+worker 0: compile error:
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c1.tf.c:828: warning: conflicting types for built-in function ‘abort’
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c1.tf.c: In function ‘subline’:
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c1.tf.c:1104: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c1.tf.c:1245: warning: comparison between pointer and integer
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c1.tf.c:1348: warning: incompatible implicit declaration of built-in function ‘printf’
+
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s90.t1_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s97.t1_z1_c4.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s79.t1_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s78.t1_z1_c8.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z1_c2.tf.c:828: warning: conflicting types for built-in function ‘abort’
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z1_c2.tf.c: In function ‘change’:
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z1_c2.tf.c:1115: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z1_c2.tf.c:1245: warning: comparison between pointer and integer
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z1_c2.tf.c:1348: warning: incompatible implicit declaration of built-in function ‘printf’
+
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s73.t1_z1_c3.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s3.t1_z1_c1.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s73.t1_z1_c4.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s97.t1_z1_c6.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s73.t1_z1_c1.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s90.t1_z1_c2.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s97.t1_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s90.t1_z1_c6.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s97.t1_z1_c5.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_d8b41c/replace23.cil.i.s183.t1_z1_c0.tf.c:828: warning: conflicting types for built-in function ‘abort’
+/tmp/CETI_d8b41c/replace23.cil.i.s183.t1_z1_c0.tf.c: In function ‘mainQ’:
+/tmp/CETI_d8b41c/replace23.cil.i.s183.t1_z1_c0.tf.c:1133: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_d8b41c/replace23.cil.i.s183.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_d8b41c/replace23.cil.i.s183.t1_z1_c0.tf.c:1245: warning: comparison between pointer and integer
+/tmp/CETI_d8b41c/replace23.cil.i.s183.t1_z1_c0.tf.c:1348: warning: incompatible implicit declaration of built-in function ‘printf’
+
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s96.t1_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s79.t1_z1_c1.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s13.t1_z1_c2.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s73.t1_z1_c7.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c4.tf.c:828: warning: conflicting types for built-in function ‘abort’
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c4.tf.c: In function ‘subline’:
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c4.tf.c:1104: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c4.tf.c: In function ‘main’:
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c4.tf.c:1245: warning: comparison between pointer and integer
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c4.tf.c:1348: warning: incompatible implicit declaration of built-in function ‘printf’
+
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s97.t1_z1_c3.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s73.t1_z1_c5.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_d8b41c/replace23.cil.i.s183.t1_z1_c2.tf.c:828: warning: conflicting types for built-in function ‘abort’
+/tmp/CETI_d8b41c/replace23.cil.i.s183.t1_z1_c2.tf.c: In function ‘mainQ’:
+/tmp/CETI_d8b41c/replace23.cil.i.s183.t1_z1_c2.tf.c:1133: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_d8b41c/replace23.cil.i.s183.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_d8b41c/replace23.cil.i.s183.t1_z1_c2.tf.c:1245: warning: comparison between pointer and integer
+/tmp/CETI_d8b41c/replace23.cil.i.s183.t1_z1_c2.tf.c:1348: warning: incompatible implicit declaration of built-in function ‘printf’
+
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s13.t1_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s73.t1_z1_c2.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s90.t1_z1_c5.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s97.t1_z1_c1.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s90.t1_z1_c3.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s73.t1_z1_c6.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s78.t1_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s73.t1_z1_c9.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s3.t1_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s73.t1_z1_c8.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s79.t1_z1_c3.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s3.t1_z1_c3.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z1_c0.tf.c:828: warning: conflicting types for built-in function ‘abort’
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z1_c0.tf.c: In function ‘change’:
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z1_c0.tf.c:1115: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z1_c0.tf.c:1245: warning: comparison between pointer and integer
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z1_c0.tf.c:1348: warning: incompatible implicit declaration of built-in function ‘printf’
+
+worker 0: compile error:
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z1_c3.tf.c:828: warning: conflicting types for built-in function ‘abort’
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z1_c3.tf.c: In function ‘change’:
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z1_c3.tf.c:1115: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z1_c3.tf.c: In function ‘main’:
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z1_c3.tf.c:1245: warning: comparison between pointer and integer
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z1_c3.tf.c:1348: warning: incompatible implicit declaration of built-in function ‘printf’
+
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s73.t1_z1_c0.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c0.tf.c:828: warning: conflicting types for built-in function ‘abort’
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c0.tf.c: In function ‘subline’:
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c0.tf.c:1104: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c0.tf.c:1245: warning: comparison between pointer and integer
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c0.tf.c:1348: warning: incompatible implicit declaration of built-in function ‘printf’
+
+worker 0: compile error:
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c3.tf.c:828: warning: conflicting types for built-in function ‘abort’
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c3.tf.c: In function ‘subline’:
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c3.tf.c:1104: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c3.tf.c: In function ‘main’:
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c3.tf.c:1245: warning: comparison between pointer and integer
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c3.tf.c:1348: warning: incompatible implicit declaration of built-in function ‘printf’
+
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s73.t1_z2_c10.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s79.t1_z1_c5.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s13.t1_z1_c1.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s79.t1_z2_c10.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s96.t1_z1_c2.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s79.t1_z1_c2.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c6.tf.c:828: warning: conflicting types for built-in function ‘abort’
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c6.tf.c: In function ‘subline’:
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c6.tf.c:1104: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c6.tf.c: In function ‘main’:
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c6.tf.c:1245: warning: comparison between pointer and integer
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c6.tf.c:1348: warning: incompatible implicit declaration of built-in function ‘printf’
+
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s90.t1_z1_c1.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z1_c1.tf.c:828: warning: conflicting types for built-in function ‘abort’
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z1_c1.tf.c: In function ‘change’:
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z1_c1.tf.c:1115: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z1_c1.tf.c:1245: warning: comparison between pointer and integer
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z1_c1.tf.c:1348: warning: incompatible implicit declaration of built-in function ‘printf’
+
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s3.t1_z1_c2.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_d8b41c/replace23.cil.i.s183.t1_z1_c3.tf.c:828: warning: conflicting types for built-in function ‘abort’
+/tmp/CETI_d8b41c/replace23.cil.i.s183.t1_z1_c3.tf.c: In function ‘mainQ’:
+/tmp/CETI_d8b41c/replace23.cil.i.s183.t1_z1_c3.tf.c:1133: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_d8b41c/replace23.cil.i.s183.t1_z1_c3.tf.c: In function ‘main’:
+/tmp/CETI_d8b41c/replace23.cil.i.s183.t1_z1_c3.tf.c:1245: warning: comparison between pointer and integer
+/tmp/CETI_d8b41c/replace23.cil.i.s183.t1_z1_c3.tf.c:1348: warning: incompatible implicit declaration of built-in function ‘printf’
+
+worker 0: compile error:
+/tmp/CETI_d8b41c/replace23.cil.i.s183.t1_z1_c1.tf.c:828: warning: conflicting types for built-in function ‘abort’
+/tmp/CETI_d8b41c/replace23.cil.i.s183.t1_z1_c1.tf.c: In function ‘mainQ’:
+/tmp/CETI_d8b41c/replace23.cil.i.s183.t1_z1_c1.tf.c:1133: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_d8b41c/replace23.cil.i.s183.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_d8b41c/replace23.cil.i.s183.t1_z1_c1.tf.c:1245: warning: comparison between pointer and integer
+/tmp/CETI_d8b41c/replace23.cil.i.s183.t1_z1_c1.tf.c:1348: warning: incompatible implicit declaration of built-in function ‘printf’
+
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s79.t1_z1_c8.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c2.tf.c:828: warning: conflicting types for built-in function ‘abort’
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c2.tf.c: In function ‘subline’:
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c2.tf.c:1104: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c2.tf.c:1245: warning: comparison between pointer and integer
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z1_c2.tf.c:1348: warning: incompatible implicit declaration of built-in function ‘printf’
+
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s97.t1_z1_c2.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s90.t1_z1_c4.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s78.t1_z1_c3.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s79.t1_z1_c4.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s73.t1_z3_c15.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s97.t1_z3_c17.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s90.t1_z3_c9.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s79.t1_z3_c37.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s3.t1_z3_c2.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z3_c3.tf.c:830: warning: conflicting types for built-in function ‘abort’
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z3_c3.tf.c: In function ‘change’:
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z3_c3.tf.c:1117: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z3_c3.tf.c:1117: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z3_c3.tf.c: In function ‘main’:
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z3_c3.tf.c:1248: warning: comparison between pointer and integer
+/tmp/CETI_d8b41c/replace23.cil.i.s181.t1_z3_c3.tf.c:1354: warning: incompatible implicit declaration of built-in function ‘printf’
+
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s73.t1_z3_c22.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s78.t1_z3_c11.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z3_c5.tf.c:830: warning: conflicting types for built-in function ‘abort’
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z3_c5.tf.c: In function ‘subline’:
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z3_c5.tf.c:1106: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z3_c5.tf.c:1106: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z3_c5.tf.c: In function ‘main’:
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z3_c5.tf.c:1248: warning: comparison between pointer and integer
+/tmp/CETI_d8b41c/replace23.cil.i.s180.t1_z3_c5.tf.c:1354: warning: incompatible implicit declaration of built-in function ‘printf’
+
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s78.t1_z3_c31.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_d8b41c/replace23.cil.i.s79.t1_z3_c8.tf.c, timeout 10

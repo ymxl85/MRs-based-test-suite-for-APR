@@ -1,0 +1,123 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "[w-x]" "0" "x"
+      ;;
+    2)
+      test-replace  "[r-t]" "0" "t"
+      ;;
+    3)
+      test-replace  "[r-u]" "0" "u"
+      ;;
+    4)
+      test-replace  "¤v-w]" "0" "w"
+      ;;
+    5)
+      test-replace  "[n-o]" "0" "o"
+      ;;
+    6)
+      test-replace  "[v-w]" "0" "|"
+      ;;
+    7)
+      test-replace  "¤Ò{¢" "0" ""
+      ;;
+    8)
+      test-replace  "[vÒw]" "0" "w"
+      ;;
+    9)
+      test-replace  "[y-z]" "0" "z"
+      ;;
+    10)
+      test-replace  "[v-w¢" "0" "w"
+      ;;
+    11)
+      test-replace  "[v-w]" "0" "w"
+      ;;
+    12)
+      test-replace  "¤s-u]" "0" "u"
+      ;;
+    13)
+      test-replace  "[m-o]" "0" "o"
+      ;;
+    14)
+      test-replace  "[r-t]" "0" "p"
+      ;;
+    15)
+      test-replace  "¤Ò{¢" "0" "p"
+      ;;
+    16)
+      test-replace  "[sÒu]" "0" "u"
+      ;;
+    17)
+      test-replace  "[s-u¢" "0" "u"
+      ;;
+    18)
+      test-replace  "[s-u]" "0" "u"
+      ;;
+    19)
+      test-replace  "¤r-u]" "0" "u"
+      ;;
+    20)
+      test-replace  "[n-q]" "0" "q"
+      ;;
+    21)
+      test-replace  "[rÒu]" "0" "u"
+      ;;
+    22)
+      test-replace  "[r-u]" "0" "p"
+      ;;
+    23)
+      test-replace  "¤Ò{¢" "0" "t"
+      ;;
+    24)
+      test-replace  "[r-u¢" "0" "u"
+      ;;
+    25)
+      test-replace  "[wx]" "0" "x"
+      ;;
+    26)
+      test-replace  "[r-u]" "0" "t"
+      ;;
+    27)
+      test-replace  "[r-v]" "0" "u"
+      ;;
+    28)
+      test-replace  "[vw]" "0" "w"
+      ;;
+    29)
+      test-replace  "[no]" "0" "o"
+      ;;
+    30)
+      test-replace  "[vw]" "0" "|"
+      ;;
+    31)
+      test-replace  "[-Ò¢]" "0" ""
+      ;;
+    32)
+      test-replace  "[yz]" "0" "z"
+      ;;
+    33)
+      test-replace  "[s-v]" "0" "u"
+      ;;
+    34)
+      test-replace  "[m-p]" "0" "o"
+      ;;
+    35)
+      test-replace  "[-Ò¢]" "0" "p"
+      ;;
+    36)
+      test-replace  "[n-r]" "0" "q"
+      ;;
+    37)
+      test-replace  "[r-v]" "0" "p"
+      ;;
+    38)
+      test-replace  "[-{]" "0" "t"
+      ;;
+esac

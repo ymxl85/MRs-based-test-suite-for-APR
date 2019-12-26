@@ -1,0 +1,34 @@
+int main(int argc,char *argv[])
+{  
+    char rr[100]="";
+    char argv1[6];
+    klee_make_symbolic(&argv1,sizeof(argv1),"argv1");
+
+    klee_assume(argv1[0]>='0' & argv1[0]<='9');
+    klee_assume(argv1[1]=='\n');//first token: digit
+    klee_assume(argv1[2]>='0' & argv1[2]<='9');
+    klee_assume(argv1[3]>='a' & argv1[3]<='z');
+    klee_assume(argv1[4]=='\n');//second token: error
+    klee_assume(argv1[5]=='\0');
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////follw-up
+    char f[6];
+    klee_make_symbolic(&f,sizeof(f),"argv1");
+    f[0]=argv1[0];
+    f[1]='1';
+    f[2]=argv1[1];//first token
+    f[3]=argv1[2];
+    f[4]=argv1[4];//second token
+    f[5]=argv1[5];
+    klee_assume(f[0]==argv1[0]);
+    klee_assume(f[1]=='1');
+    klee_assume(f[2]==argv1[1]);
+    klee_assume(f[3]==argv1[2]);
+    klee_assume(f[4]==argv1[4]);
+    klee_assume(f[5]==argv1[5]);
+///////////////////////////////////////////////////////////////
+    mainQ(f,rr);
+////////////////////////////////////////////////////////
+    klee_print_expr("rr=",rr);
+   return 0;
+}

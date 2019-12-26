@@ -1,0 +1,116 @@
+/home/mingyuejiang/Documents/angelix/data/tcas/rds/38
+/home/mingyuejiang/Documents/angelix/data/tcas/rds/golden
+/home/mingyuejiang/Documents/angelix/data/tcas/rds/38/oracle1
+INFO     repair          src=/home/mingyuejiang/Documents/angelix/data/tcas/rds/38
+ buggy=tcas.c
+ oracle=/home/mingyuejiang/Documents/angelix/data/tcas/rds/38/oracle1
+ golden=/home/mingyuejiang/Documents/angelix/data/tcas/rds/golden
+
+INFO     project         configuring validation source
+INFO     project         building json compilation database from validation source
+INFO     project         --message=/tmp/tmpzytwi9u4/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data/.angelix/validation---cmd=bear make -e
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+INFO     testing         running test '3' of validation source
+INFO     testing         running test '4' of validation source
+INFO     testing         running test '5' of validation source
+INFO     testing         running test '6' of validation source
+INFO     testing         running test '7' of validation source
+INFO     testing         running test '8' of validation source
+INFO     testing         running test '9' of validation source
+INFO     testing         running test '10' of validation source
+INFO     testing         running test '11' of validation source
+INFO     testing         running test '12' of validation source
+INFO     testing         running test '13' of validation source
+INFO     testing         running test '14' of validation source
+INFO     testing         running test '15' of validation source
+INFO     testing         running test '16' of validation source
+INFO     testing         running test '17' of validation source
+INFO     project         configuring frontend source
+INFO     transformation  instrumenting repairable of frontend source
+INFO     project         building frontend source
+INFO     project         CC=angelix-compiler --test
+INFO     project         --message=/tmp/tmpbmp2bm3h/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data/.angelix/frontend---cmd=make -e
+INFO     repair          running positive tests for debugging
+INFO     testing         running test '1' of frontend source
+INFO     testing         running test '2' of frontend source
+INFO     testing         running test '3' of frontend source
+INFO     testing         running test '4' of frontend source
+INFO     testing         running test '5' of frontend source
+INFO     testing         running test '6' of frontend source
+INFO     testing         running test '8' of frontend source
+INFO     testing         running test '9' of frontend source
+INFO     testing         running test '10' of frontend source
+INFO     testing         running test '11' of frontend source
+INFO     testing         running test '12' of frontend source
+INFO     testing         running test '13' of frontend source
+INFO     testing         running test '14' of frontend source
+INFO     testing         running test '15' of frontend source
+INFO     testing         running test '16' of frontend source
+INFO     testing         running test '17' of frontend source
+INFO     repair          running negative tests for debugging
+INFO     testing         running test '7' of frontend source
+INFO     project         configuring golden source
+INFO     project         building golden source
+INFO     project         CC=angelix-compiler --test
+INFO     project         --message=/tmp/tmp_clrpgku/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data/.angelix/golden---cmd=make -e
+INFO     testing         running test '7' of golden source
+INFO     repair          repair test suite: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17']
+INFO     repair          validation test suite: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17']
+INFO     localization    selected expressions [(361, 16, 361, 16), (364, 12, 364, 12)] with group score 2.0 
+INFO     localization    selected expressions [(35, 7, 35, 26), (36, 12, 36, 31)] with group score 0.66667 
+INFO     localization    selected expressions [(89, 7, 89, 7), (184, 7, 184, 7)] with group score 0.66667 
+INFO     localization    selected expressions [(305, 7, 305, 72), (354, 11, 354, 29)] with group score 0.39216 
+INFO     localization    selected expressions [(359, 16, 359, 16), (360, 12, 360, 12)] with group score 0.33333 
+INFO     localization    selected expressions [(299, 13, 299, 88), (300, 19, 300, 39)] with group score 0.11765 
+INFO     localization    selected expressions [(301, 22, 301, 65), (303, 13, 303, 13)] with group score 0.11765 
+INFO     repair          considering suspicious expressions [(361, 16, 361, 16), (364, 12, 364, 12)]
+INFO     reduction       selected 1 tests
+INFO     reduction       selected passing tests: []
+INFO     reduction       selected failing tests: ['7']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmpz_c8zy1b/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data/.angelix/backend---cmd=make -e
+INFO     inference       inferring specification for test '7'
+INFO     testing         running test '7' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       UNSAT
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (361, 16, 361, 16)[0]: angelic = False
+INFO     inference       expression (364, 12, 364, 12)[0]: angelic = 1
+INFO     inference       found 1 angelic paths for test '7'
+INFO     synthesis       synthesizing patch with component level 'alternatives'
+INFO     synthesis       synthesis failed
+INFO     synthesis       synthesizing patch with component level 'integer-constants'
+INFO     synthesis       fixing expression (361, 16, 361, 16): need_downward_RA ---> need_downward_RA
+INFO     synthesis       fixing expression (364, 12, 364, 12): 0 ---> 1
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+INFO     project         --message=/tmp/tmprz_lnkze/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data/.angelix/validation---cmd=make -e
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+INFO     testing         running test '3' of validation source
+INFO     testing         running test '4' of validation source
+INFO     testing         running test '5' of validation source
+INFO     testing         running test '6' of validation source
+INFO     testing         running test '7' of validation source
+INFO     testing         running test '8' of validation source
+INFO     testing         running test '9' of validation source
+INFO     testing         running test '10' of validation source
+INFO     testing         running test '11' of validation source
+INFO     testing         running test '12' of validation source
+INFO     testing         running test '13' of validation source
+INFO     testing         running test '14' of validation source
+INFO     testing         running test '15' of validation source
+INFO     testing         running test '16' of validation source
+INFO     testing         running test '17' of validation source
+INFO     repair          patch successfully generated in 5s (see 38-2016-Jul30-042150.patch)
+SUCCESS

@@ -1,0 +1,61 @@
+int main()
+{
+    char argv1[15];
+     char rr[1000]="";
+     int j,x,i;
+     klee_make_symbolic(&argv1,sizeof(argv1),"argv1");
+
+
+     klee_assume(argv1[0]>='0' & argv1[0]<='2'); //a3
+     klee_assume(argv1[1]==' ');
+     klee_assume(argv1[2]>='0' & argv1[2]<='2'); //a2
+     klee_assume(argv1[3]==' ');
+     klee_assume(argv1[4]>='0' & argv1[4]<='2'); //a1
+     klee_assume(argv1[5]=='\n');
+     klee_assume(argv1[6]=='1');
+     klee_assume(argv1[7]==' ');
+     klee_assume(argv1[8]=='1');
+     klee_assume(argv1[9]=='\n');
+     klee_assume(argv1[10]=='7');
+     klee_assume(argv1[11]=='\n');
+      klee_assume(argv1[12]=='\0');
+     //------------------------------------------------------------------------follow-up
+      char argv2[35];
+     argv2[0]=argv1[0];
+     argv2[1]=argv1[1];
+     argv2[2]=argv1[2];
+     argv2[3]=argv1[3];
+     argv2[4]=argv1[4];
+     argv2[5]=argv1[5];
+     argv2[6]='2'; //upgrade q3
+     argv2[7]=' ';
+     argv2[8]='3';
+     argv2[9]=' ';
+     argv2[10]='2';
+     argv2[11]='2';
+     argv2[12]='\n';
+     argv2[13]='2'; //upgrade q1
+     argv2[14]=' ';
+     argv2[15]='1';
+     argv2[16]=' ';
+     argv2[17]='2';
+     argv2[18]='0';
+     argv2[19]='\n';
+     argv2[20]='1';//new job with prio=4
+     argv2[21]=' ';
+     argv2[22]='5';
+     argv2[23]='\n';
+     argv2[24]=argv1[6];
+     argv2[25]=argv1[7];
+     argv2[26]=argv1[8];
+     argv2[27]=argv1[9];
+     argv2[28]=argv1[10];
+     argv2[29]=argv1[11];
+     argv2[30]=argv1[12];
+     
+////////////////////////////////////////////////////////////////////////////
+     mainQ(argv2,rr);
+    klee_print_expr("rr=",rr);
+   return 0;
+     
+}

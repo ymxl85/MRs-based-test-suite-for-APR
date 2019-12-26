@@ -1,0 +1,200 @@
+/home/mingyue/Documents/Angelix/angelix/TSE/5/RDS/schedule2/1
+/home/mingyue/Documents/Angelix/angelix/TSE/5/RDS/schedule2/golden
+/home/mingyue/Documents/Angelix/angelix/TSE/5/RDS/schedule2/1/oracle2
+INFO     synthesis       ==class Synthesizer
+INFO     semfix_syn      ==class Semfix_Synthesizer
+INFO     project         configuring validation source
+INFO     project         building json compilation database from validation source
+gcc -c schedule2.c -o schedule2.o -std=c89 
+schedule2.c: In function ‘get_command’:
+schedule2.c:97:12: warning: incompatible implicit declaration of built-in function ‘strlen’ [enabled by default]
+  while(buf[strlen(buf)-1] != '\n' && fgets(buf, CMDSIZE, stdin));
+            ^
+gcc schedule2.o -o schedule2
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+INFO     testing         running test '3' of validation source
+INFO     testing         running test '4' of validation source
+INFO     testing         running test '5' of validation source
+INFO     testing         running test '6' of validation source
+INFO     project         configuring frontend source
+INFO     transformation  instrumenting repairable of frontend source
+INFO     project         building frontend source
+angelix-compiler --test -c schedule2.c -o schedule2.o -std=c89 
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h '-c' 'schedule2.c' '-o' 'schedule2.o' '-std=c89' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+schedule2.c: In function ‘get_command’:
+schedule2.c:97:45: warning: incompatible implicit declaration of built-in function ‘strlen’ [enabled by default]
+  while(({ angelix_trace(97, 8, 97, 63); buf[strlen(buf) - 1] != '\n' && fgets(buf, 20, stdin); }));
+                                             ^
+angelix-compiler --test schedule2.o -o schedule2
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h 'schedule2.o' '-o' 'schedule2' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+INFO     repair          running positive tests for debugging
+INFO     testing         running test '2' of frontend source
+INFO     testing         running test '3' of frontend source
+INFO     testing         running test '4' of frontend source
+INFO     testing         running test '5' of frontend source
+INFO     testing         running test '6' of frontend source
+INFO     repair          running negative tests for debugging
+INFO     testing         running test '1' of frontend source
+INFO     project         configuring golden source
+INFO     project         building golden source
+angelix-compiler --test -c schedule2.c -o schedule2.o -std=c89 
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h '-c' 'schedule2.c' '-o' 'schedule2.o' '-std=c89' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+schedule2.c: In function ‘get_command’:
+schedule2.c:97:12: warning: incompatible implicit declaration of built-in function ‘strlen’ [enabled by default]
+  while(buf[strlen(buf)-1] != '\n' && fgets(buf, CMDSIZE, stdin));
+            ^
+angelix-compiler --test schedule2.o -o schedule2
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h 'schedule2.o' '-o' 'schedule2' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+INFO     testing         running test '1' of golden source
+INFO     repair          repair test suite: ['1', '2', '3', '4', '5', '6']
+INFO     repair          validation test suite: ['1', '2', '3', '4', '5', '6']
+INFO     localization    selected expressions [(143, 21, 143, 28)] with group score 1.0 
+INFO     localization    selected expressions [(166, 54, 166, 64)] with group score 1.0 
+INFO     localization    selected expressions [(166, 14, 166, 48)] with group score 1.0 
+INFO     localization    selected expressions [(141, 49, 141, 59)] with group score 0.5 
+INFO     localization    selected expressions [(141, 14, 141, 43)] with group score 0.5 
+INFO     localization    selected expressions [(203, 11, 203, 19)] with group score 0.5 
+INFO     localization    selected expressions [(189, 8, 189, 8)] with group score 0.2 
+INFO     localization    selected expressions [(58, 11, 58, 40)] with group score 0.16667 
+INFO     localization    selected expressions [(58, 46, 58, 55)] with group score 0.16667 
+INFO     localization    selected expressions [(116, 11, 116, 19)] with group score 0.16667 
+INFO     localization    selected expressions [(118, 8, 118, 9)] with group score 0.16667 
+INFO     localization    selected expressions [(122, 26, 122, 26)] with group score 0.16667 
+INFO     localization    selected expressions [(125, 5, 125, 5)] with group score 0.16667 
+INFO     localization    selected expressions [(214, 13, 214, 13)] with group score 0.16667 
+INFO     localization    selected expressions [(216, 9, 216, 48)] with group score 0.16667 
+INFO     localization    selected expressions [(226, 8, 226, 43)] with group score 0.16667 
+INFO     localization    selected expressions [(280, 8, 280, 33)] with group score 0.16667 
+INFO     localization    selected expressions [(296, 8, 296, 33)] with group score 0.16667 
+INFO     localization    selected expressions [(298, 14, 298, 31)] with group score 0.16667 
+INFO     localization    selected expressions [(304, 8, 304, 9)] with group score 0.16667 
+INFO     repair          considering suspicious expressions [(143, 21, 143, 28)]
+INFO     reduction       selected 1 tests
+INFO     reduction       selected passing tests: []
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+angelix-compiler --klee -c schedule2.c -o schedule2.o -std=c89 
+[angelix-compiler] llvm-gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-c' 'schedule2.c' '-o' 'schedule2.o' '-std=c89' 
+schedule2.c: In function ‘get_command’:
+schedule2.c:97: warning: incompatible implicit declaration of built-in function ‘strlen’
+angelix-compiler --klee schedule2.o -o schedule2
+[angelix-compiler] llvm-ld --disable-opt 'schedule2.o' '-o' 'schedule2' -L/home/mingyue/Documents/Angelix/angelix/build/lib/klee -langelix 
+INFO     semfix_infer    inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    value 'output' executed 13 times while 14 required
+INFO     semfix_infer    found 0 angelic paths for test '1'
+INFO     repair          considering suspicious expressions [(166, 54, 166, 64)]
+INFO     reduction       selected 1 tests
+INFO     reduction       selected passing tests: []
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+angelix-compiler --klee -c schedule2.c -o schedule2.o -std=c89 
+[angelix-compiler] llvm-gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-c' 'schedule2.c' '-o' 'schedule2.o' '-std=c89' 
+schedule2.c: In function ‘get_command’:
+schedule2.c:97: warning: incompatible implicit declaration of built-in function ‘strlen’
+angelix-compiler --klee schedule2.o -o schedule2
+[angelix-compiler] llvm-ld --disable-opt 'schedule2.o' '-o' 'schedule2' -L/home/mingyue/Documents/Angelix/angelix/build/lib/klee -langelix 
+INFO     semfix_infer    inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     semfix_infer    value 'output' executed 13 times while 14 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    value 'output' executed 0 times while 14 required
+INFO     semfix_infer    found 0 angelic paths for test '1'
+INFO     repair          considering suspicious expressions [(166, 14, 166, 48)]
+INFO     reduction       selected 1 tests
+INFO     reduction       selected passing tests: []
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+angelix-compiler --klee -c schedule2.c -o schedule2.o -std=c89 
+[angelix-compiler] llvm-gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-c' 'schedule2.c' '-o' 'schedule2.o' '-std=c89' 
+schedule2.c: In function ‘get_command’:
+schedule2.c:97: warning: incompatible implicit declaration of built-in function ‘strlen’
+angelix-compiler --klee schedule2.o -o schedule2
+[angelix-compiler] llvm-ld --disable-opt 'schedule2.o' '-o' 'schedule2' -L/home/mingyue/Documents/Angelix/angelix/build/lib/klee -langelix 
+INFO     semfix_infer    inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     semfix_infer    value 'output' executed 13 times while 14 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    value 'output' executed 0 times while 14 required
+INFO     semfix_infer    found 0 angelic paths for test '1'
+INFO     repair          considering suspicious expressions [(141, 49, 141, 59)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['3']
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+angelix-compiler --klee -c schedule2.c -o schedule2.o -std=c89 
+[angelix-compiler] llvm-gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-c' 'schedule2.c' '-o' 'schedule2.o' '-std=c89' 
+schedule2.c: In function ‘get_command’:
+schedule2.c:97: warning: incompatible implicit declaration of built-in function ‘strlen’
+angelix-compiler --klee schedule2.o -o schedule2
+[angelix-compiler] llvm-ld --disable-opt 'schedule2.o' '-o' 'schedule2' -L/home/mingyue/Documents/Angelix/angelix/build/lib/klee -langelix 
+INFO     semfix_infer    inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 14 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    value 'output' executed 0 times while 14 required
+INFO     semfix_infer    found 0 angelic paths for test '1'
+INFO     repair          considering suspicious expressions [(141, 14, 141, 43)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['3']
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+angelix-compiler --klee -c schedule2.c -o schedule2.o -std=c89 
+[angelix-compiler] llvm-gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-c' 'schedule2.c' '-o' 'schedule2.o' '-std=c89' 
+schedule2.c: In function ‘get_command’:
+schedule2.c:97: warning: incompatible implicit declaration of built-in function ‘strlen’
+angelix-compiler --klee schedule2.o -o schedule2
+[angelix-compiler] llvm-ld --disable-opt 'schedule2.o' '-o' 'schedule2' -L/home/mingyue/Documents/Angelix/angelix/build/lib/klee -langelix 
+INFO     semfix_infer    inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     semfix_infer    expression (141, 14, 141, 43)[0]: angelic = -2130706432
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    value 'output' executed 0 times while 14 required
+INFO     semfix_infer    found 1 angelic paths for test '1'
+INFO     semfix_infer    inferring specification for test '3'
+INFO     testing         running test '3' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     semfix_infer    expression (141, 14, 141, 43)[0]: angelic = -2130706432
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    expression (141, 14, 141, 43)[0]: angelic = 16777216
+INFO     semfix_infer    found 2 angelic paths for test '3'
+INFO     semfix_syn      ==class semifix_Synthesizer:call
+INFO     semfix_syn      ==class semifix_Synthesizer:dump_angelic
+INFO     semfix_syn      ==class semifix_Synthesizer:dump_angelic==end
+INFO     semfix_syn      ==/tmp/tmpqbja_9ao/patch
+INFO     semfix_syn      ==1
+INFO     semfix_syn      ==/home/mingyue/Documents/Angelix/angelix/TSE/5/.angelix
+INFO     semfix_syn      synthesized expression (141, 14, 141, 43): 0
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+gcc -c schedule2.c -o schedule2.o -std=c89 
+schedule2.c: In function ‘get_command’:
+schedule2.c:97:12: warning: incompatible implicit declaration of built-in function ‘strlen’ [enabled by default]
+  while(buf[strlen(buf)-1] != '\n' && fgets(buf, CMDSIZE, stdin));
+            ^
+gcc schedule2.o -o schedule2
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+INFO     testing         running test '3' of validation source
+INFO     testing         running test '4' of validation source
+INFO     testing         running test '5' of validation source
+INFO     testing         running test '6' of validation source
+INFO     repair          patch successfully generated in 19s (see 1-2016-May31-113403.patch)
+SUCCESS

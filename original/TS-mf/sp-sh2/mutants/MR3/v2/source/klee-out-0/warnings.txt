@@ -1,0 +1,15 @@
+KLEE: WARNING: undefined reference to function: fcntl
+KLEE: WARNING: undefined reference to function: fstat
+KLEE: WARNING: undefined reference to function: ioctl
+KLEE: WARNING: undefined reference to function: lseek64
+KLEE: WARNING: undefined reference to function: open
+KLEE: WARNING: undefined reference to function: write
+KLEE: WARNING: executable has module level assembly (ignoring)
+KLEE: WARNING ONCE: calling external: ioctl(0, 21505, 181502472)
+KLEE: WARNING ONCE: silently concretizing (reason: floating point) expression (ReadLSB w32 24 U0:[N0:(Add w32 3
+                                N1:(Mul w32 8
+                                            (ZExt w32 (Add w8 208 (Read w8 8 argv1)))))=(Extract w8 24 N2:(Add w32 1
+                                                                                                                   (ReadLSB w32 N1 const_arr2))),
+                    N3:(Add w32 2 N1)=(Extract w8 16 N2),
+                    N4:(Add w32 1 N1)=(Extract w8 8 N2),
+                    N1=(Extract w8 0 N2)] @ const_arr2) to value 0 (/home/mingyue/experiments/ceti/schedule2/sp-SH/mutants/MR3/v2/source/v2-s.c:273)

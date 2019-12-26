@@ -1,0 +1,82 @@
+__tmpInt8  : BITVECTOR(8);
+__tmpInt16  : BITVECTOR(16);
+__tmpInt32  : BITVECTOR(32);
+__tmpInt64  : BITVECTOR(64);
+argv1_0xabb0d58  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+argv2_0xaeaefc8  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+argv3_0xad27630  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+const_arr1_0xabcf720  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+const_arr3_0xad43800  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+const_arr4_0xb023980  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+%----------------------------------------------------
+ASSERT( (0x5B = argv1_0xabb0d58[0x00000000]
+) );
+ASSERT( BVLT(BVPLUS(8, 
+0xB0, 
+argv1_0xabb0d58[0x00000001])
+,0x0B)
+ );
+ASSERT( (0x2D = argv1_0xabb0d58[0x00000002]
+) );
+ASSERT( (LET let_k_0 = BVSX(argv1_0xabb0d58[0x00000003],32)
+,
+let_k_1 = BVSX(argv1_0xabb0d58[0x00000001],32)
+ IN 
+( NOT( (( NOT( (let_k_0 = BVPLUS(32, 
+0x00000005, 
+let_k_1)
+
+))) AND ( NOT( (let_k_0 = BVPLUS(32, 
+0xFFFFFFFB, 
+let_k_1)
+
+)))
+))))  );
+ASSERT( (0x5D = argv1_0xabb0d58[0x00000004]
+) );
+ASSERT( (0x00 = argv1_0xabb0d58[0x00000005]
+) );
+ASSERT( BVLT(BVPLUS(8, 
+0x9F, 
+argv2_0xaeaefc8[0x00000000])
+,0x1A)
+ );
+ASSERT( (0x00 = argv2_0xaeaefc8[0x00000001]
+) );
+ASSERT( SBVLT(0x00,argv3_0xad27630[0x00000000])
+ );
+ASSERT( (0x00 = argv3_0xad27630[0x00000001]
+) );
+ASSERT( ( NOT( SBVLE(argv1_0xabb0d58[0x00000003],argv1_0xabb0d58[0x00000001])
+)) );
+ASSERT( ( NOT( SBVLT(0x5A,argv1_0xabb0d58[0x00000003])
+)) );
+ASSERT( ( NOT( (argv3_0xad27630[0x00000000] = BVPLUS(8, 
+0x05, 
+argv1_0xabb0d58[0x00000001])
+
+))) );
+ASSERT( ( NOT( (argv3_0xad27630[0x00000000] = BVPLUS(8, 
+0x04, 
+argv1_0xabb0d58[0x00000001])
+
+))) );
+ASSERT( ( NOT( (argv3_0xad27630[0x00000000] = BVPLUS(8, 
+0x03, 
+argv1_0xabb0d58[0x00000001])
+
+))) );
+ASSERT( ( NOT( (argv3_0xad27630[0x00000000] = BVPLUS(8, 
+0x02, 
+argv1_0xabb0d58[0x00000001])
+
+))) );
+ASSERT( ( NOT( (argv3_0xad27630[0x00000000] = BVPLUS(8, 
+0x01, 
+argv1_0xabb0d58[0x00000001])
+
+))) );
+ASSERT( ( NOT( (argv1_0xabb0d58[0x00000001] = argv3_0xad27630[0x00000000]
+))) );
+%----------------------------------------------------
+QUERY( FALSE  );

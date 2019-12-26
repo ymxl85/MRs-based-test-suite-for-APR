@@ -1,0 +1,111 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-pt2 () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./pt2 "$1") <(angelix-eval $SCRIPT_DIR/../golden/pt2 "$1")
+}
+
+case "$1" in
+    1)
+      test-pt2  "8.Ml 2& D"
+      ;;
+    2)
+      test-pt2  "[JNIMrG\"ZR+r:&l\`C1"
+      ;;
+    3)
+      test-pt2  "h7l^#PD{?\`P~A"
+      ;;
+    4)
+      test-pt2  "F"
+      ;;
+    5)
+      test-pt2  "8aNC*IIR?6EW"
+      ;;
+    6)
+      test-pt2  "n*_*R/\Q.ABQet"
+      ;;
+    7)
+      test-pt2  "9]/[T.L\$"
+      ;;
+    8)
+      test-pt2  "S+PGc0os<m.;7(e4v"
+      ;;
+    9)
+      test-pt2  "/E\",joa9@Y3OGRwLr"
+      ;;
+    10)
+      test-pt2  "G*NkNc\"5HqygP\%h9Vhe"
+      ;;
+    11)
+      test-pt2  "t{34f+vo*nDy[j;v"
+      ;;
+    12)
+      test-pt2  "S~|k?.\$xcbClG-l6\"~O"
+      ;;
+    13)
+      test-pt2  "v#pO2Dw"
+      ;;
+    14)
+      test-pt2  "u>7A/fu\$SWC?w\$uCup"
+      ;;
+    15)
+      test-pt2  "nxw|\fm!.;"
+      ;;
+    16)
+      test-pt2  "l[|^dDA:0\$Vp/o7{aM"
+      ;;
+    17)
+      test-pt2  "|@G?8U3~1Mka2[;\"ht"
+      ;;
+    18)
+      test-pt2  "\`~&js"
+      ;;
+    19)
+      test-pt2  "*~uo+@_VHG1{"
+      ;;
+    20)
+      test-pt2  "sx8*9CR_Z"
+      ;;
+    21)
+      test-pt2  " AwZ;nx\`z\"CcAImm0"
+      ;;
+    22)
+      test-pt2  "B/QKlk7UWMT"
+      ;;
+    23)
+      test-pt2  "[%J~d;"
+      ;;
+    24)
+      test-pt2  "H"
+      ;;
+    25)
+      test-pt2  "1M3rbSbn0+\}O"
+      ;;
+    26)
+      test-pt2  "s/j="
+      ;;
+    27)
+      test-pt2  "-S3."
+      ;;
+    28)
+      test-pt2  "XlrLKts5w3n\gkE"
+      ;;
+    29)
+      test-pt2  "15_|;n_"
+      ;;
+    30)
+      test-pt2  "\"*"
+      ;;
+    31)
+      test-pt2  "cwg[qo*uPlG.Dvy"
+      ;;
+    32)
+      test-pt2  "dU^|_6v0oH:c\`;\$R1X~["
+      ;;
+    33)
+      test-pt2  "w:j"
+      ;;
+    34)
+      test-pt2  "\$1"
+      ;;
+esac

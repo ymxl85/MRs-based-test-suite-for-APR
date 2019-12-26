@@ -1,0 +1,11 @@
+--- a/schedule.c
++++ b/schedule.c
+@@ -114,7 +114,7 @@
+     if (!f_list)
+ 	return NULL;
+     f_ele = f_list->first;
+-    for (i=1; f_ele && (i<n); i++)
++    for (i=1; ((n == 2) && (i < 3)); i++)
+ 	f_ele = f_ele->next;
+     return f_ele;
+ }

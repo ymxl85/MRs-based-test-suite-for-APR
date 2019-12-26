@@ -1,0 +1,696 @@
+/home/mingyue/Documents/Angelix/angelix/TSE/3/COV/replace/13
+/home/mingyue/Documents/Angelix/angelix/TSE/3/COV/replace/golden
+/home/mingyue/Documents/Angelix/angelix/TSE/3/COV/replace/13/oracle
+INFO     synthesis       ==class Synthesizer
+INFO     semfix_syn      ==class Semfix_Synthesizer
+INFO     project         configuring validation source
+INFO     project         building json compilation database from validation source
+gcc -c replace.c -o replace.o
+replace.c:14:0: warning: "NULL" redefined [enabled by default]
+ # define NULL 0
+ ^
+In file included from /usr/include/_G_config.h:15:0,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/stddef.h:402:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ ^
+replace.c: In function ‘omatch’:
+replace.c:338:6: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+      abort(); 
+      ^
+replace.c: In function ‘patsize’:
+replace.c:389:2: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+  abort();
+  ^
+gcc replace.o -o replace
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+INFO     testing         running test '3' of validation source
+INFO     testing         running test '4' of validation source
+INFO     testing         running test '5' of validation source
+INFO     testing         running test '6' of validation source
+INFO     testing         running test '7' of validation source
+INFO     testing         running test '8' of validation source
+INFO     testing         running test '9' of validation source
+INFO     testing         running test '10' of validation source
+INFO     testing         running test '11' of validation source
+INFO     testing         running test '12' of validation source
+INFO     testing         running test '13' of validation source
+INFO     testing         running test '14' of validation source
+INFO     testing         running test '15' of validation source
+INFO     testing         running test '16' of validation source
+INFO     testing         running test '17' of validation source
+INFO     testing         running test '18' of validation source
+INFO     testing         running test '19' of validation source
+INFO     testing         running test '20' of validation source
+INFO     testing         running test '21' of validation source
+INFO     testing         running test '22' of validation source
+INFO     testing         running test '23' of validation source
+INFO     testing         running test '24' of validation source
+INFO     testing         running test '25' of validation source
+INFO     testing         running test '26' of validation source
+INFO     testing         running test '27' of validation source
+INFO     testing         running test '28' of validation source
+INFO     testing         running test '29' of validation source
+INFO     testing         running test '30' of validation source
+INFO     testing         running test '31' of validation source
+INFO     testing         running test '32' of validation source
+INFO     testing         running test '33' of validation source
+INFO     testing         running test '34' of validation source
+INFO     testing         running test '35' of validation source
+INFO     testing         running test '36' of validation source
+INFO     testing         running test '37' of validation source
+INFO     testing         running test '38' of validation source
+INFO     testing         running test '39' of validation source
+INFO     testing         running test '40' of validation source
+INFO     testing         running test '41' of validation source
+INFO     testing         running test '42' of validation source
+INFO     testing         running test '43' of validation source
+INFO     testing         running test '44' of validation source
+INFO     testing         running test '45' of validation source
+INFO     testing         running test '46' of validation source
+INFO     testing         running test '47' of validation source
+INFO     testing         running test '48' of validation source
+INFO     testing         running test '49' of validation source
+INFO     testing         running test '50' of validation source
+INFO     testing         running test '51' of validation source
+INFO     testing         running test '52' of validation source
+INFO     testing         running test '53' of validation source
+INFO     testing         running test '54' of validation source
+INFO     project         configuring frontend source
+INFO     transformation  instrumenting repairable of frontend source
+INFO     project         building frontend source
+angelix-compiler --test -c replace.c -o replace.o
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h '-c' 'replace.c' '-o' 'replace.o' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+replace.c:14:0: warning: "NULL" redefined [enabled by default]
+ # define NULL 0
+ ^
+In file included from /usr/include/_G_config.h:15:0,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/stddef.h:402:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ ^
+replace.c: In function ‘omatch’:
+replace.c:337:6: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+      abort(); 
+      ^
+replace.c: In function ‘patsize’:
+replace.c:388:2: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+  abort();
+  ^
+angelix-compiler --test replace.o -o replace
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+INFO     repair          running positive tests for debugging
+INFO     testing         running test '1' of frontend source
+INFO     testing         running test '2' of frontend source
+INFO     testing         running test '3' of frontend source
+INFO     testing         running test '5' of frontend source
+INFO     testing         running test '6' of frontend source
+INFO     testing         running test '7' of frontend source
+INFO     testing         running test '8' of frontend source
+INFO     testing         running test '10' of frontend source
+INFO     testing         running test '11' of frontend source
+INFO     testing         running test '15' of frontend source
+INFO     testing         running test '16' of frontend source
+INFO     testing         running test '17' of frontend source
+INFO     testing         running test '18' of frontend source
+INFO     testing         running test '19' of frontend source
+INFO     testing         running test '20' of frontend source
+INFO     testing         running test '21' of frontend source
+INFO     testing         running test '22' of frontend source
+INFO     testing         running test '23' of frontend source
+INFO     testing         running test '24' of frontend source
+INFO     testing         running test '25' of frontend source
+INFO     testing         running test '26' of frontend source
+INFO     testing         running test '28' of frontend source
+INFO     testing         running test '29' of frontend source
+INFO     testing         running test '30' of frontend source
+INFO     testing         running test '31' of frontend source
+INFO     testing         running test '32' of frontend source
+INFO     testing         running test '33' of frontend source
+INFO     testing         running test '34' of frontend source
+INFO     testing         running test '35' of frontend source
+INFO     testing         running test '36' of frontend source
+INFO     testing         running test '37' of frontend source
+INFO     testing         running test '38' of frontend source
+INFO     testing         running test '39' of frontend source
+INFO     testing         running test '40' of frontend source
+INFO     testing         running test '41' of frontend source
+INFO     testing         running test '42' of frontend source
+INFO     testing         running test '43' of frontend source
+INFO     testing         running test '44' of frontend source
+INFO     testing         running test '45' of frontend source
+INFO     testing         running test '47' of frontend source
+INFO     testing         running test '48' of frontend source
+INFO     testing         running test '49' of frontend source
+INFO     testing         running test '50' of frontend source
+INFO     testing         running test '51' of frontend source
+INFO     testing         running test '52' of frontend source
+INFO     testing         running test '53' of frontend source
+INFO     testing         running test '54' of frontend source
+INFO     repair          running negative tests for debugging
+INFO     testing         running test '4' of frontend source
+INFO     project         configuring golden source
+INFO     project         building golden source
+angelix-compiler --test -c replace.c -o replace.o
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h '-c' 'replace.c' '-o' 'replace.o' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+replace.c:14:0: warning: "NULL" redefined [enabled by default]
+ # define NULL 0
+ ^
+In file included from /usr/include/_G_config.h:15:0,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/stddef.h:402:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ ^
+replace.c: In function ‘omatch’:
+replace.c:338:6: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+      abort(); 
+      ^
+replace.c: In function ‘patsize’:
+replace.c:389:2: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+  abort();
+  ^
+angelix-compiler --test replace.o -o replace
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+INFO     testing         running test '4' of golden source
+INFO     testing         running test '9' of frontend source
+INFO     testing         running test '9' of golden source
+INFO     testing         running test '12' of frontend source
+INFO     testing         running test '12' of golden source
+INFO     testing         running test '13' of frontend source
+INFO     testing         running test '13' of golden source
+INFO     testing         running test '14' of frontend source
+INFO     testing         running test '14' of golden source
+INFO     testing         running test '27' of frontend source
+INFO     testing         running test '27' of golden source
+INFO     testing         running test '46' of frontend source
+INFO     testing         running test '46' of golden source
+INFO     repair          repair test suite: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54']
+INFO     repair          validation test suite: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54']
+INFO     localization    selected expressions [(503, 11, 503, 15)] with group score 1.0 
+INFO     localization    selected expressions [(202, 13, 202, 40)] with group score 0.85714 
+INFO     localization    selected expressions [(348, 8, 348, 14)] with group score 0.85714 
+INFO     localization    selected expressions [(349, 18, 349, 18)] with group score 0.85714 
+INFO     localization    selected expressions [(500, 7, 500, 13)] with group score 0.29167 
+INFO     localization    selected expressions [(377, 11, 377, 11)] with group score 0.28 
+INFO     localization    selected expressions [(501, 11, 501, 15)] with group score 0.25 
+INFO     localization    selected expressions [(443, 12, 443, 13)] with group score 0.24 
+INFO     localization    selected expressions [(444, 10, 444, 10)] with group score 0.24 
+INFO     localization    selected expressions [(212, 11, 212, 11)] with group score 0.18182 
+INFO     localization    selected expressions [(213, 10, 213, 26)] with group score 0.18182 
+INFO     localization    selected expressions [(462, 9, 462, 9)] with group score 0.175 
+INFO     localization    selected expressions [(463, 12, 463, 29)] with group score 0.175 
+INFO     localization    selected expressions [(464, 6, 464, 22)] with group score 0.175 
+INFO     localization    selected expressions [(475, 6, 475, 10)] with group score 0.175 
+INFO     localization    selected expressions [(495, 11, 495, 11)] with group score 0.175 
+INFO     localization    selected expressions [(201, 11, 201, 41)] with group score 0.16667 
+INFO     localization    selected expressions [(387, 9, 387, 27)] with group score 0.16667 
+INFO     localization    selected expressions [(226, 10, 226, 14)] with group score 0.15556 
+INFO     localization    selected expressions [(446, 7, 446, 25)] with group score 0.15 
+INFO     repair          considering suspicious expressions [(503, 11, 503, 15)]
+INFO     reduction       selected 1 tests
+INFO     reduction       selected passing tests: []
+INFO     reduction       selected failing tests: ['4']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+angelix-compiler --klee -c replace.c -o replace.o
+[angelix-compiler] llvm-gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-c' 'replace.c' '-o' 'replace.o' 
+replace.c:14:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/home/mingyue/Documents/Angelix/angelix/build/llvm-gcc4.2-2.9-x86_64-linux/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.2.1/include/stddef.h:403:1: warning: this is the location of the previous definition
+replace.c: In function ‘omatch’:
+replace.c:338: warning: incompatible implicit declaration of built-in function ‘abort’
+replace.c: In function ‘patsize’:
+replace.c:389: warning: incompatible implicit declaration of built-in function ‘abort’
+angelix-compiler --klee replace.o -o replace
+[angelix-compiler] llvm-ld --disable-opt 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/klee -langelix 
+INFO     semfix_infer    inferring specification for test '4'
+INFO     testing         running test '4' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000041.smt2
+INFO     semfix_infer    value 'output' executed 2 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000019.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000022.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000030.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000011.smt2
+INFO     semfix_infer    value 'output' executed 3 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000042.smt2
+INFO     semfix_infer    value 'output' executed 3 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000014.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000040.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000010.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000036.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000016.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000007.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000045.smt2
+INFO     semfix_infer    value 'output' executed 2 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000049.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000038.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000046.smt2
+INFO     semfix_infer    value 'output' executed 2 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000029.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000031.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     semfix_infer    value 'output' executed 2 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000051.smt2
+INFO     semfix_infer    value 'output' executed 7 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000015.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000032.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000037.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000018.smt2
+INFO     semfix_infer    value 'output' executed 5 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000024.smt2
+INFO     semfix_infer    value 'output' executed 2 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000023.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000048.smt2
+INFO     semfix_infer    value 'output' executed 2 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000035.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000033.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000026.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000020.smt2
+INFO     semfix_infer    value 'output' executed 3 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000039.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000009.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000006.smt2
+INFO     semfix_infer    value 'output' executed 2 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000012.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000043.smt2
+INFO     semfix_infer    value 'output' executed 2 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000044.smt2
+INFO     semfix_infer    value 'output' executed 2 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000028.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000047.smt2
+INFO     semfix_infer    value 'output' executed 3 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000050.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000021.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000025.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000013.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000008.smt2
+INFO     semfix_infer    value 'output' executed 3 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000005.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000027.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000017.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000034.smt2
+INFO     semfix_infer    value 'output' executed 1 times while 4 required
+INFO     semfix_infer    found 0 angelic paths for test '4'
+INFO     repair          considering suspicious expressions [(202, 13, 202, 40)]
+INFO     reduction       selected 1 tests
+INFO     reduction       selected passing tests: []
+INFO     reduction       selected failing tests: ['4']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+angelix-compiler --klee -c replace.c -o replace.o
+[angelix-compiler] llvm-gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-c' 'replace.c' '-o' 'replace.o' 
+replace.c:14:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/home/mingyue/Documents/Angelix/angelix/build/llvm-gcc4.2-2.9-x86_64-linux/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.2.1/include/stddef.h:403:1: warning: this is the location of the previous definition
+replace.c: In function ‘omatch’:
+replace.c:338: warning: incompatible implicit declaration of built-in function ‘abort’
+replace.c: In function ‘patsize’:
+replace.c:389: warning: incompatible implicit declaration of built-in function ‘abort’
+angelix-compiler --klee replace.o -o replace
+[angelix-compiler] llvm-ld --disable-opt 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/klee -langelix 
+INFO     semfix_infer    inferring specification for test '4'
+INFO     testing         running test '4' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    value 'output' executed 2 times while 4 required
+INFO     semfix_infer    found 0 angelic paths for test '4'
+INFO     repair          considering suspicious expressions [(348, 8, 348, 14)]
+INFO     reduction       selected 1 tests
+INFO     reduction       selected passing tests: []
+INFO     reduction       selected failing tests: ['4']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+angelix-compiler --klee -c replace.c -o replace.o
+[angelix-compiler] llvm-gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-c' 'replace.c' '-o' 'replace.o' 
+replace.c:14:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/home/mingyue/Documents/Angelix/angelix/build/llvm-gcc4.2-2.9-x86_64-linux/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.2.1/include/stddef.h:403:1: warning: this is the location of the previous definition
+replace.c: In function ‘omatch’:
+replace.c:338: warning: incompatible implicit declaration of built-in function ‘abort’
+replace.c:348: warning: initialisation makes integer from pointer without a cast
+replace.c: In function ‘patsize’:
+replace.c:389: warning: incompatible implicit declaration of built-in function ‘abort’
+angelix-compiler --klee replace.o -o replace
+[angelix-compiler] llvm-ld --disable-opt 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/klee -langelix 
+INFO     semfix_infer    inferring specification for test '4'
+INFO     testing         running test '4' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     semfix_infer    value 'output' executed 0 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    value 'output' executed 2 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     semfix_infer    value 'output' executed 3 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     semfix_infer    value 'output' executed 3 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000006.smt2
+INFO     semfix_infer    expression (348, 8, 348, 14)[0]: angelic = False
+INFO     semfix_infer    expression (348, 8, 348, 14)[1]: angelic = False
+INFO     semfix_infer    expression (348, 8, 348, 14)[2]: angelic = False
+INFO     semfix_infer    expression (348, 8, 348, 14)[3]: angelic = False
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000005.smt2
+INFO     semfix_infer    value 'output' executed 3 times while 4 required
+INFO     semfix_infer    found 1 angelic paths for test '4'
+INFO     semfix_syn      ==class semifix_Synthesizer:call
+INFO     semfix_syn      ==class semifix_Synthesizer:dump_angelic
+INFO     semfix_syn      ==class semifix_Synthesizer:dump_angelic==end
+INFO     semfix_syn      ==/tmp/tmp_e2oym7d/patch
+INFO     semfix_syn      ==1
+INFO     semfix_syn      ==/home/mingyue/Documents/Angelix/angelix/TSE/3/.angelix
+INFO     semfix_syn      synthesized expression (348, 8, 348, 14): 0
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+gcc -c replace.c -o replace.o
+replace.c:14:0: warning: "NULL" redefined [enabled by default]
+ # define NULL 0
+ ^
+In file included from /usr/include/_G_config.h:15:0,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/stddef.h:402:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ ^
+replace.c: In function ‘omatch’:
+replace.c:338:6: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+      abort(); 
+      ^
+replace.c: In function ‘patsize’:
+replace.c:389:2: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+  abort();
+  ^
+gcc replace.o -o replace
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+INFO     testing         running test '3' of validation source
+INFO     testing         running test '4' of validation source
+INFO     testing         running test '5' of validation source
+INFO     testing         running test '6' of validation source
+INFO     testing         running test '7' of validation source
+INFO     testing         running test '8' of validation source
+INFO     testing         running test '9' of validation source
+INFO     testing         running test '10' of validation source
+INFO     testing         running test '11' of validation source
+INFO     testing         running test '12' of validation source
+INFO     testing         running test '13' of validation source
+INFO     testing         running test '14' of validation source
+INFO     testing         running test '15' of validation source
+INFO     testing         running test '16' of validation source
+INFO     testing         running test '17' of validation source
+INFO     testing         running test '18' of validation source
+INFO     testing         running test '19' of validation source
+INFO     testing         running test '20' of validation source
+INFO     testing         running test '21' of validation source
+INFO     testing         running test '22' of validation source
+INFO     testing         running test '23' of validation source
+INFO     testing         running test '24' of validation source
+INFO     testing         running test '25' of validation source
+INFO     testing         running test '26' of validation source
+INFO     testing         running test '27' of validation source
+INFO     testing         running test '28' of validation source
+INFO     testing         running test '29' of validation source
+INFO     testing         running test '30' of validation source
+INFO     testing         running test '31' of validation source
+INFO     testing         running test '32' of validation source
+INFO     testing         running test '33' of validation source
+INFO     testing         running test '34' of validation source
+INFO     testing         running test '35' of validation source
+INFO     testing         running test '36' of validation source
+INFO     testing         running test '37' of validation source
+INFO     testing         running test '38' of validation source
+INFO     testing         running test '39' of validation source
+INFO     testing         running test '40' of validation source
+INFO     testing         running test '41' of validation source
+INFO     testing         running test '42' of validation source
+INFO     testing         running test '43' of validation source
+INFO     testing         running test '44' of validation source
+INFO     testing         running test '45' of validation source
+INFO     testing         running test '46' of validation source
+INFO     testing         running test '47' of validation source
+INFO     testing         running test '48' of validation source
+INFO     testing         running test '49' of validation source
+INFO     testing         running test '50' of validation source
+INFO     testing         running test '51' of validation source
+INFO     testing         running test '52' of validation source
+INFO     testing         running test '53' of validation source
+INFO     testing         running test '54' of validation source
+INFO     repair          counterexample test is 46
+INFO     semfix_infer    inferring specification for test '46'
+INFO     testing         running test '46' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    value 'output' executed 2 times while 4 required
+INFO     semfix_infer    found 0 angelic paths for test '46'
+INFO     repair          considering suspicious expressions [(349, 18, 349, 18)]
+INFO     reduction       selected 1 tests
+INFO     reduction       selected passing tests: []
+INFO     reduction       selected failing tests: ['4']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+angelix-compiler --klee -c replace.c -o replace.o
+[angelix-compiler] llvm-gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-c' 'replace.c' '-o' 'replace.o' 
+replace.c:14:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/home/mingyue/Documents/Angelix/angelix/build/llvm-gcc4.2-2.9-x86_64-linux/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.2.1/include/stddef.h:403:1: warning: this is the location of the previous definition
+replace.c: In function ‘omatch’:
+replace.c:338: warning: incompatible implicit declaration of built-in function ‘abort’
+replace.c: In function ‘patsize’:
+replace.c:389: warning: incompatible implicit declaration of built-in function ‘abort’
+angelix-compiler --klee replace.o -o replace
+[angelix-compiler] llvm-ld --disable-opt 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/klee -langelix 
+INFO     semfix_infer    inferring specification for test '4'
+INFO     testing         running test '4' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000007.smt2
+INFO     semfix_infer    expression (349, 18, 349, 18)[0]: angelic = 67372036
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     semfix_infer    value 'output' executed 0 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    value 'output' executed 0 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     semfix_infer    value 'output' executed 3 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     semfix_infer    expression (349, 18, 349, 18)[0]: angelic = -1
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000006.smt2
+INFO     semfix_infer    expression (349, 18, 349, 18)[0]: angelic = 33686018
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000008.smt2
+INFO     semfix_infer    expression (349, 18, 349, 18)[0]: angelic = 50529027
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000005.smt2
+INFO     semfix_infer    expression (349, 18, 349, 18)[0]: angelic = 16843009
+INFO     semfix_infer    found 5 angelic paths for test '4'
+INFO     semfix_syn      ==class semifix_Synthesizer:call
+INFO     semfix_syn      ==class semifix_Synthesizer:dump_angelic
+INFO     semfix_syn      ==class semifix_Synthesizer:dump_angelic==end
+INFO     semfix_syn      ==/tmp/tmp6g3c7oy7/patch
+INFO     semfix_syn      ==1
+INFO     semfix_syn      ==/home/mingyue/Documents/Angelix/angelix/TSE/3/.angelix
+WARNING  semfix_syn      synthesis returned non-zero code
+INFO     semfix_syn      ==/tmp/tmp6g3c7oy7/patch
+INFO     semfix_syn      ==1
+INFO     semfix_syn      ==/home/mingyue/Documents/Angelix/angelix/TSE/3/.angelix
+WARNING  semfix_syn      synthesis returned non-zero code
+INFO     semfix_syn      ==/tmp/tmp6g3c7oy7/patch
+INFO     semfix_syn      ==1
+INFO     semfix_syn      ==/home/mingyue/Documents/Angelix/angelix/TSE/3/.angelix
+WARNING  semfix_syn      synthesis returned non-zero code
+INFO     repair          cannot synthesize fix
+INFO     repair          considering suspicious expressions [(500, 7, 500, 13)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['8']
+INFO     reduction       selected failing tests: ['4']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+angelix-compiler --klee -c replace.c -o replace.o
+[angelix-compiler] llvm-gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-c' 'replace.c' '-o' 'replace.o' 
+replace.c:14:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/home/mingyue/Documents/Angelix/angelix/build/llvm-gcc4.2-2.9-x86_64-linux/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.2.1/include/stddef.h:403:1: warning: this is the location of the previous definition
+replace.c: In function ‘omatch’:
+replace.c:338: warning: incompatible implicit declaration of built-in function ‘abort’
+replace.c: In function ‘patsize’:
+replace.c:389: warning: incompatible implicit declaration of built-in function ‘abort’
+angelix-compiler --klee replace.o -o replace
+[angelix-compiler] llvm-ld --disable-opt 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/klee -langelix 
+INFO     semfix_infer    inferring specification for test '4'
+INFO     testing         running test '4' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     semfix_infer    value 'output' executed 0 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    value 'output' executed 2 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     semfix_infer    value 'output' executed 3 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     semfix_infer    value 'output' executed 3 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000006.smt2
+INFO     semfix_infer    expression (500, 7, 500, 13)[0]: angelic = True
+INFO     semfix_infer    expression (500, 7, 500, 13)[1]: angelic = True
+INFO     semfix_infer    expression (500, 7, 500, 13)[2]: angelic = True
+INFO     semfix_infer    expression (500, 7, 500, 13)[3]: angelic = True
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000005.smt2
+INFO     semfix_infer    value 'output' executed 3 times while 4 required
+INFO     semfix_infer    found 1 angelic paths for test '4'
+INFO     semfix_infer    inferring specification for test '8'
+INFO     testing         running test '8' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     semfix_infer    value 'output' executed 0 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    value 'output' executed 2 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     semfix_infer    value 'output' executed 3 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     semfix_infer    value 'output' executed 3 times while 4 required
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000006.smt2
+INFO     semfix_infer    expression (500, 7, 500, 13)[0]: angelic = True
+INFO     semfix_infer    expression (500, 7, 500, 13)[1]: angelic = True
+INFO     semfix_infer    expression (500, 7, 500, 13)[2]: angelic = True
+INFO     semfix_infer    expression (500, 7, 500, 13)[3]: angelic = True
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000005.smt2
+INFO     semfix_infer    value 'output' executed 3 times while 4 required
+INFO     semfix_infer    found 1 angelic paths for test '8'
+INFO     semfix_syn      ==class semifix_Synthesizer:call
+INFO     semfix_syn      ==class semifix_Synthesizer:dump_angelic
+INFO     semfix_syn      ==class semifix_Synthesizer:dump_angelic==end
+INFO     semfix_syn      ==/tmp/tmp3vs8q3je/patch
+INFO     semfix_syn      ==1
+INFO     semfix_syn      ==/home/mingyue/Documents/Angelix/angelix/TSE/3/.angelix
+INFO     semfix_syn      synthesized expression (500, 7, 500, 13): 1
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+gcc -c replace.c -o replace.o
+replace.c:14:0: warning: "NULL" redefined [enabled by default]
+ # define NULL 0
+ ^
+In file included from /usr/include/_G_config.h:15:0,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/stddef.h:402:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ ^
+replace.c: In function ‘omatch’:
+replace.c:338:6: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+      abort(); 
+      ^
+replace.c: In function ‘patsize’:
+replace.c:389:2: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+  abort();
+  ^
+gcc replace.o -o replace
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+INFO     testing         running test '3' of validation source
+INFO     testing         running test '4' of validation source
+INFO     testing         running test '5' of validation source
+INFO     testing         running test '6' of validation source
+INFO     testing         running test '7' of validation source
+INFO     testing         running test '8' of validation source
+INFO     testing         running test '9' of validation source
+INFO     testing         running test '10' of validation source
+INFO     testing         running test '11' of validation source
+INFO     testing         running test '12' of validation source
+INFO     testing         running test '13' of validation source
+INFO     testing         running test '14' of validation source
+INFO     testing         running test '15' of validation source
+INFO     testing         running test '16' of validation source
+INFO     testing         running test '17' of validation source
+INFO     testing         running test '18' of validation source
+INFO     testing         running test '19' of validation source
+INFO     testing         running test '20' of validation source
+INFO     testing         running test '21' of validation source
+INFO     testing         running test '22' of validation source
+INFO     testing         running test '23' of validation source
+INFO     testing         running test '24' of validation source
+INFO     testing         running test '25' of validation source
+INFO     testing         running test '26' of validation source
+INFO     testing         running test '27' of validation source
+INFO     testing         running test '28' of validation source
+INFO     testing         running test '29' of validation source
+INFO     testing         running test '30' of validation source
+INFO     testing         running test '31' of validation source
+INFO     testing         running test '32' of validation source
+INFO     testing         running test '33' of validation source
+INFO     testing         running test '34' of validation source
+INFO     testing         running test '35' of validation source
+INFO     testing         running test '36' of validation source
+INFO     testing         running test '37' of validation source
+INFO     testing         running test '38' of validation source
+INFO     testing         running test '39' of validation source
+INFO     testing         running test '40' of validation source
+INFO     testing         running test '41' of validation source
+INFO     testing         running test '42' of validation source
+INFO     testing         running test '43' of validation source
+INFO     testing         running test '44' of validation source
+INFO     testing         running test '45' of validation source
+INFO     testing         running test '46' of validation source
+INFO     testing         running test '47' of validation source
+INFO     testing         running test '48' of validation source
+INFO     testing         running test '49' of validation source
+INFO     testing         running test '50' of validation source
+INFO     testing         running test '51' of validation source
+INFO     testing         running test '52' of validation source
+INFO     testing         running test '53' of validation source
+INFO     testing         running test '54' of validation source
+INFO     repair          patch successfully generated in 49s (see 13-2016-May27-143432.patch)
+SUCCESS

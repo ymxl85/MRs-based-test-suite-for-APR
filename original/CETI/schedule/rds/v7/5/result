@@ -1,0 +1,328 @@
+gcc -D_GNUCC -E -DCIL=1 randomTC/v7/5/v7.c -o randomTC/v7/5/v7.i
+randomTC/v7/5/v7.c:12:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from randomTC/v7/5/v7.c:4:
+/usr/lib/gcc/i486-linux-gnu/4.4.3/include/stddef.h:400:1: warning: this is the location of the previous definition
+/usr/local/bin/cilly.native --out randomTC/v7/5/v7.cil.c --noPrintLn --useLogicalOperators randomTC/v7/5/v7.i
+randomTC/v7/5/v7.c:193: Warning: Return statement without a value in function returning int 
+randomTC/v7/5/v7.c:187: Warning: Body of function schedule falls-through. Adding a return statement
+randomTC/v7/5/v7.c:377: Warning: Return statement without a value in function returning char *
+randomTC/v7/5/v7.c:390: Warning: Return statement without a value in function returning char *
+randomTC/v7/5/v7.c:406: Warning: Body of function main falls-through. Adding a return statement
+gcc -D_GNUCC -E randomTC/v7/5/v7.cil.c -o randomTC/v7/5/v7.cil.i
+gcc -D_GNUCC -c -o randomTC/v7/5/v7.o randomTC/v7/5/v7.cil.i
+randomTC/v7/5/v7.cil.c:71: warning: conflicting types for built-in function ‘malloc’
+randomTC/v7/5/v7.cil.c:160: warning: conflicting types for built-in function ‘free’
+randomTC/v7/5/v7.cil.c:176: warning: conflicting types for built-in function ‘strcat’
+gcc -D_GNUCC -E -DCIL=1 randomTC/v7/5/processor.c -o randomTC/v7/5/processor.i
+/usr/local/bin/cilly.native --out randomTC/v7/5/processor.cil.c --noPrintLn --useLogicalOperators randomTC/v7/5/processor.i
+gcc -D_GNUCC -E randomTC/v7/5/processor.cil.c -o randomTC/v7/5/processor.cil.i
+gcc -D_GNUCC -c -o randomTC/v7/5/processor.o randomTC/v7/5/processor.cil.i
+randomTC/v7/5/processor.cil.c:6: warning: conflicting types for built-in function ‘strlen’
+gcc -D_GNUCC -o a.out randomTC/v7/5/v7.o randomTC/v7/5/processor.o
+$ cp randomTC/v7/5/v7.cil.i /tmp/CETI_07272a/v7.cil.i
+$ cp randomTC/v7/5/processor.c /tmp/CETI_07272a/processor.c
+input length='15' output length='15'
+*** Get good/bad tcs ***
+cmd 'gcc /tmp/CETI_07272a/v7.cil.i randomTC/v7/5/processor.c -o /tmp/CETI_07272a/v7.cil.i.exe >& /dev/null'
+$ gcc /tmp/CETI_07272a/v7.cil.i randomTC/v7/5/processor.c -o /tmp/CETI_07272a/v7.cil.i.exe >& /dev/null
+write_file_str: '/tmp/CETI_07272a/v7.cil.i.sh'
+$ sh /tmp/CETI_07272a/v7.cil.i.sh /tmp/CETI_07272a/v7.cil.i.exe &> /dev/null
+[35mAlert: 1/15 tests failed. Processing ..
+[mrandomTC/v7/5/v7.cil.c:227: Warning: Return statement without a value in function returning int 
+randomTC/v7/5/v7.cil.c:438: Warning: Return statement without a value in function returning char *
+randomTC/v7/5/v7.cil.c:450: Warning: Return statement without a value in function returning char *
+write_src: '/tmp/CETI_07272a/v7.cil.i.preproc.c'
+*** Fault Localization ***
+write_src: '/tmp/CETI_07272a/faultloc_d4aee1/v7.cil.i.cov.c'
+cmd 'gcc /tmp/CETI_07272a/faultloc_d4aee1/v7.cil.i.cov.c randomTC/v7/5/processor.c -o /tmp/CETI_07272a/faultloc_d4aee1/v7.cil.i.cov.c.exe >& /dev/null'
+$ gcc /tmp/CETI_07272a/faultloc_d4aee1/v7.cil.i.cov.c randomTC/v7/5/processor.c -o /tmp/CETI_07272a/faultloc_d4aee1/v7.cil.i.cov.c.exe >& /dev/null
+goods length:14
+write_file_str: '/tmp/CETI_07272a/faultloc_d4aee1/v7.cil.i.g.sh'
+$ sh /tmp/CETI_07272a/faultloc_d4aee1/v7.cil.i.g.sh /tmp/CETI_07272a/faultloc_d4aee1/v7.cil.i.cov.c.exe /tmp/CETI_07272a/faultloc_d4aee1/v7.cil.i.outputs_g_dontcare &> /dev/null
+write_file_str: '/tmp/CETI_07272a/faultloc_d4aee1/v7.cil.i.b.sh'
+$ sh /tmp/CETI_07272a/faultloc_d4aee1/v7.cil.i.b.sh /tmp/CETI_07272a/faultloc_d4aee1/v7.cil.i.cov.c.exe /tmp/CETI_07272a/faultloc_d4aee1/v7.cil.i.outputs_bad_dontcare &> /dev/null
+0. sid 66 in fun 'unblock_process' (score 1)
+n --;
+1. sid 67 in fun 'unblock_process' (score 0.707107)
+prio = (int )proc->priority;
+2. sid 65 in fun 'upgrade_process_prio' (score 0.707107)
+__cil_tmp11 = count > 0;
+3. sid 64 in fun 'upgrade_process_prio' (score 0.707107)
+count = src_queue->mem_count;
+4. sid 63 in fun 'upgrade_process_prio' (score 0.707107)
+dest_queue = prio_queue[prio + 1];
+5. sid 62 in fun 'upgrade_process_prio' (score 0.707107)
+src_queue = prio_queue[prio];
+6. sid 71 in fun 'unblock_process' (score 0.57735)
+__cil_tmp7 = proc;
+7. sid 70 in fun 'unblock_process' (score 0.57735)
+__cil_tmp6 = (double )ratio == 1.0;
+8. sid 69 in fun 'unblock_process' (score 0.57735)
+n = (int )((float )count * ratio + (float )1);
+9. sid 68 in fun 'unblock_process' (score 0.57735)
+count = block_queue->mem_count;
+10. sid 27 in fun 'find_nth' (score 0.57735)
+__cil_tmp8 = f_ele;
+11. sid 26 in fun 'find_nth' (score 0.57735)
+i = 1;
+12. sid 25 in fun 'find_nth' (score 0.57735)
+f_ele = f_list->first;
+13. sid 24 in fun 'find_nth' (score 0.57735)
+__cil_tmp7 = ! f_list;
+14. sid 21 in fun 'find_nth' (score 0.57735)
+__cil_tmp6 = f_ele && i < n;
+15. sid 61 in fun 'upgrade_process_prio' (score 0.5)
+__cil_tmp10 = prio >= 3;
+16. sid 90 in fun 'mainQ' (score 0.447214)
+ratio = tmp___0;
+17. sid 72 in fun 'unblock_process' (score 0.447214)
+__cil_tmp8 = block_queue;
+18. sid 55 in fun 'schedule' (score 0.447214)
+__cil_tmp4 = 0;
+19. sid 48 in fun 'finish_all_processes' (score 0.408248)
+i = 0;
+20. sid 47 in fun 'finish_all_processes' (score 0.408248)
+total = num_processes;
+21. sid 46 in fun 'finish_all_processes' (score 0.408248)
+i ++;
+22. sid 45 in fun 'finish_all_processes' (score 0.408248)
+__cil_tmp5 = i < total;
+23. sid 30 in fun 'del_ele' (score 0.408248)
+d_list->last = d_ele->prev;
+24. sid 95 in fun 'mainQ' (score 0.377964)
+__cil_tmp19 = prio > 3 || prio <= 0;
+25. sid 94 in fun 'mainQ' (score 0.377964)
+__cil_tmp18 = (int )*(argv + pos) != 0;
+26. sid 91 in fun 'mainQ' (score 0.377964)
+ratio = tmp___1;
+27. sid 52 in fun 'schedule' (score 0.377964)
+i --;
+28. sid 97 in fun 'mainQ' (score 0.353553)
+__cil_tmp21 = prio > 3 || prio <= 0;
+29. sid 75 in fun 'block_process' (score 0.353553)
+__cil_tmp1 = cur_proc;
+30. sid 44 in fun 'finish_process' (score 0.353553)
+__cil_tmp6 = cur_proc;
+31. sid 43 in fun 'finish_process' (score 0.353553)
+tmp = 1U;
+32. sid 42 in fun 'finish_process' (score 0.353553)
+s[0] = (char )'\000';
+33. sid 41 in fun 'finish_process' (score 0.353553)
+num_processes --;
+34. sid 40 in fun 'finish_process' (score 0.353553)
+tmp ++;
+35. sid 39 in fun 'finish_process' (score 0.353553)
+s[tmp] = (char)0;
+36. sid 38 in fun 'finish_process' (score 0.353553)
+__cil_tmp5 = ! (tmp >= 10U);
+37. sid 54 in fun 'schedule' (score 0.288675)
+i = 3;
+38. sid 53 in fun 'schedule' (score 0.288675)
+cur_proc = (Ele *)0;
+39. sid 51 in fun 'schedule' (score 0.288675)
+__cil_tmp3 = (prio_queue[i])->mem_count > 0;
+40. sid 50 in fun 'schedule' (score 0.288675)
+__cil_tmp2 = i > 0;
+41. sid 49 in fun 'schedule' (score 0.288675)
+cur_proc = (prio_queue[i])->first;
+42. sid 37 in fun 'del_ele' (score 0.288675)
+__cil_tmp7 = d_list;
+43. sid 36 in fun 'del_ele' (score 0.288675)
+(d_list->mem_count) --;
+44. sid 35 in fun 'del_ele' (score 0.288675)
+__cil_tmp6 = d_ele->prev;
+45. sid 34 in fun 'del_ele' (score 0.288675)
+__cil_tmp5 = d_ele->next;
+46. sid 33 in fun 'del_ele' (score 0.288675)
+__cil_tmp4 = ! d_list || ! d_ele;
+47. sid 32 in fun 'del_ele' (score 0.288675)
+d_list->first = d_ele->next;
+48. sid 29 in fun 'del_ele' (score 0.288675)
+(d_ele->next)->prev = d_ele->prev;
+49. sid 104 in fun 'mainQ' (score 0.258199)
+tmp = 1U;
+50. sid 103 in fun 'mainQ' (score 0.258199)
+value[0] = (char )'\000';
+51. sid 102 in fun 'mainQ' (score 0.258199)
+pos = 0;
+52. sid 101 in fun 'mainQ' (score 0.258199)
+OL = 0;
+53. sid 100 in fun 'mainQ' (score 0.258199)
+r[0] = (char )'\000';
+54. sid 99 in fun 'mainQ' (score 0.258199)
+intF = (float )1.0;
+55. sid 98 in fun 'mainQ' (score 0.258199)
+__cil_tmp22 = (int )*(argv + pos) != 0;
+56. sid 89 in fun 'mainQ' (score 0.258199)
+tmp ++;
+57. sid 88 in fun 'mainQ' (score 0.258199)
+value[tmp] = (char)0;
+58. sid 87 in fun 'mainQ' (score 0.258199)
+__cil_tmp15 = ! (tmp >= 10U);
+59. sid 86 in fun 'initialize' (score 0.258199)
+num_processes = 0;
+60. sid 85 in fun 'initialize' (score 0.258199)
+alloc_proc_num = 0;
+61. sid 84 in fun 'init_prio_queue' (score 0.258199)
+prio_queue[prio] = queue;
+62. sid 83 in fun 'init_prio_queue' (score 0.258199)
+i = 0;
+63. sid 82 in fun 'init_prio_queue' (score 0.258199)
+i ++;
+64. sid 81 in fun 'init_prio_queue' (score 0.258199)
+__cil_tmp6 = i < num_proc;
+65. sid 80 in fun 'new_process' (score 0.258199)
+__cil_tmp4 = proc;
+66. sid 79 in fun 'new_process' (score 0.258199)
+num_processes ++;
+67. sid 78 in fun 'new_process' (score 0.258199)
+proc->priority = (short )prio;
+68. sid 77 in fun 'new_process' (score 0.258199)
+alloc_proc_num ++;
+69. sid 76 in fun 'new_process' (score 0.258199)
+tmp = alloc_proc_num;
+70. sid 19 in fun 'append_ele' (score 0.258199)
+__cil_tmp5 = a_list;
+71. sid 18 in fun 'append_ele' (score 0.258199)
+(a_list->mem_count) ++;
+72. sid 17 in fun 'append_ele' (score 0.258199)
+a_ele->next = (struct _job *)0;
+73. sid 16 in fun 'append_ele' (score 0.258199)
+a_list->last = a_ele;
+74. sid 15 in fun 'append_ele' (score 0.258199)
+__cil_tmp4 = a_list->last;
+75. sid 14 in fun 'append_ele' (score 0.258199)
+a_ele->prev = a_list->last;
+76. sid 13 in fun 'append_ele' (score 0.258199)
+__cil_tmp3 = ! a_list;
+77. sid 12 in fun 'append_ele' (score 0.258199)
+a_list->first = a_ele;
+78. sid 11 in fun 'append_ele' (score 0.258199)
+(a_list->last)->next = a_ele;
+79. sid 10 in fun 'new_list' (score 0.258199)
+__cil_tmp3 = list;
+80. sid 9 in fun 'new_list' (score 0.258199)
+list->mem_count = 0;
+81. sid 8 in fun 'new_list' (score 0.258199)
+list->last = (Ele *)0;
+82. sid 7 in fun 'new_list' (score 0.258199)
+list->first = (Ele *)0;
+83. sid 6 in fun 'new_list' (score 0.258199)
+list = (List *)tmp;
+84. sid 5 in fun 'new_ele' (score 0.258199)
+__cil_tmp4 = ele;
+85. sid 4 in fun 'new_ele' (score 0.258199)
+ele->val = new_num;
+86. sid 3 in fun 'new_ele' (score 0.258199)
+ele->prev = (struct _job *)0;
+87. sid 2 in fun 'new_ele' (score 0.258199)
+ele->next = (struct _job *)0;
+88. sid 1 in fun 'new_ele' (score 0.258199)
+ele = (Ele *)tmp;
+[35mAlert: FL: found 89 stmts with sscores >= 0.01
+[m[35mAlert: Perform ** BugFix **
+[mwrite_file_bin: '/tmp/CETI_07272a/v7.cil.i.s66.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s67.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s65.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s64.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s63.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s62.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s71.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s70.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s69.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s68.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s27.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s26.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s25.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s24.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s21.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s61.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s90.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s72.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s55.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s48.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s47.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s46.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s45.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s30.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s95.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s94.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s91.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s52.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s97.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s75.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s44.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s43.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s42.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s41.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s40.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s39.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s38.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s54.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s53.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s51.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s50.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s49.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s37.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s36.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s35.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s34.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s33.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s32.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s29.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s104.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s103.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s102.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s101.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s100.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s99.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s98.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s89.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s88.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s87.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s86.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s85.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s84.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s83.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s82.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s81.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s80.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s79.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s78.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s77.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s76.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s19.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s18.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s17.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s16.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s15.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s14.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s13.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s12.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s11.t1.arr'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.s10.t1.arr'
+[35mAlert: Spy: Got 149 info from 80 sids
+[minput length='15' output length='15'
+write_file_bin: '/tmp/CETI_07272a/v7.cil.i.info'
+$ python kl.py /tmp/CETI_07272a/v7.cil.i randomTC/v7/5/processor.c --do_tb "(66, 3, 1, 1); (66, 7, 2, 1); (66, 1, 4, 6); (67, 1, 4, 6); (65, 3, 1, 1); (65, 7, 2, 1); (65, 1, 4, 6); (64, 1, 4, 6); (63, 1, 4, 6); (62, 1, 4, 6); (71, 1, 4, 6); (70, 3, 1, 1); (70, 7, 2, 1); (70, 1, 4, 6); (69, 3, 1, 1); (69, 7, 2, 1); (69, 1, 4, 6); (68, 1, 4, 6); (27, 1, 4, 4); (26, 3, 1, 1); (26, 1, 4, 4); (25, 1, 4, 4); (24, 1, 4, 4); (21, 7, 2, 2); (21, 1, 4, 4); (61, 3, 1, 1); (61, 7, 2, 1); (61, 1, 4, 6); (90, 1, 4, 12); (72, 1, 4, 6); (55, 3, 1, 1); (55, 1, 4, 3); (48, 3, 1, 1); (48, 1, 4, 4); (47, 1, 4, 4); (46, 3, 1, 1); (46, 7, 2, 1); (46, 1, 4, 4); (45, 7, 2, 1); (45, 1, 4, 4); (30, 1, 4, 2); (95, 3, 1, 2); (95, 7, 2, 3); (95, 1, 4, 12); (94, 3, 1, 1); (94, 7, 2, 1); (94, 1, 4, 12); (91, 1, 4, 12); (52, 3, 1, 1); (52, 7, 2, 1); (52, 1, 4, 3); (97, 3, 1, 2); (97, 7, 2, 3); (97, 1, 4, 12); (75, 1, 4, 2); (44, 1, 4, 3); (43, 3, 1, 1); (43, 1, 4, 3); (42, 3, 1, 1); (42, 1, 4, 3); (41, 3, 1, 1); (41, 7, 2, 1); (41, 1, 4, 3); (40, 3, 1, 1); (40, 7, 2, 1); (40, 1, 4, 3); (39, 3, 1, 1); (39, 1, 4, 3); (38, 3, 1, 1); (38, 7, 2, 1); (38, 1, 4, 3); (54, 3, 1, 1); (54, 1, 4, 3); (53, 3, 1, 1); (53, 1, 4, 3); (51, 3, 1, 1); (51, 7, 2, 1); (51, 1, 4, 3); (50, 3, 1, 1); (50, 7, 2, 1); (50, 1, 4, 3); (49, 1, 4, 3); (37, 1, 4, 2); (36, 3, 1, 1); (36, 7, 2, 1); (36, 1, 4, 2); (35, 1, 4, 2); (34, 1, 4, 2); (33, 7, 2, 1); (33, 1, 4, 2); (32, 1, 4, 2); (29, 1, 4, 2); (104, 3, 1, 1); (104, 1, 4, 12); (103, 3, 1, 1); (103, 1, 4, 12); (102, 3, 1, 1); (102, 1, 4, 12); (101, 3, 1, 1); (101, 1, 4, 12); (100, 3, 1, 1); (100, 1, 4, 12); (99, 3, 1, 1); (99, 1, 4, 12); (98, 3, 1, 1); (98, 7, 2, 1); (98, 1, 4, 12); (89, 3, 1, 1); (89, 7, 2, 1); (89, 1, 4, 12); (88, 3, 1, 1); (88, 1, 4, 12); (87, 3, 1, 1); (87, 7, 2, 1); (87, 1, 4, 12); (86, 3, 1, 1); (86, 1, 4, 2); (85, 3, 1, 1); (85, 1, 4, 2); (84, 1, 4, 5); (83, 3, 1, 1); (83, 1, 4, 5); (82, 3, 1, 1); (82, 7, 2, 1); (82, 1, 4, 5); (81, 7, 2, 1); (81, 1, 4, 5); (80, 1, 4, 4); (79, 3, 1, 1); (79, 7, 2, 1); (79, 1, 4, 4); (78, 1, 4, 4); (77, 3, 1, 1); (77, 7, 2, 1); (77, 1, 4, 4); (76, 1, 4, 4); (19, 1, 4, 2); (18, 3, 1, 1); (18, 7, 2, 1); (18, 1, 4, 2); (17, 3, 1, 1); (17, 1, 4, 2); (16, 1, 4, 2); (15, 1, 4, 2); (14, 1, 4, 2); (13, 1, 4, 2); (12, 1, 4, 2); (11, 1, 4, 2); (10, 1, 4, 3)" --no_parallel
+KR: tasks 1926
+worker 0: stdout: /tmp/CETI_07272a/v7.cil.i.s41.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_07272a/v7.cil.i.s40.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_07272a/v7.cil.i.s86.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_07272a/v7.cil.i.s79.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_07272a/v7.cil.i.s52.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_07272a/v7.cil.i.s54.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_07272a/v7.cil.i.s89.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_07272a/v7.cil.i.s82.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_07272a/v7.cil.i.s48.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_07272a/v7.cil.i.s98.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_07272a/v7.cil.i.s83.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_07272a/v7.cil.i.s46.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_07272a/v7.cil.i.s102.t3_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_07272a/v7.cil.i.s81.t7_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_07272a/v7.cil.i.s46.t7_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_07272a/v7.cil.i.s82.t7_z1_c0.tf.c, timeout 30
+worker 0: stdout: /tmp/CETI_07272a/v7.cil.i.s45.t7_z1_c0.tf.c, timeout 30

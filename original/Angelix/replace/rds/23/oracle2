@@ -1,0 +1,135 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "xm9l" "" "hz3G5-(mq"
+      ;;
+    2)
+      test-replace  " " "k@<" "+.]\`6g"
+      ;;
+    3)
+      test-replace  "?" "N r" "f"
+      ;;
+    4)
+      test-replace  "bX" "" "6 j^Mo\`\$lXv!}2?pA1Uj"
+      ;;
+    5)
+      test-replace  "" "Si@" "odh{f6FH_"
+      ;;
+    6)
+      test-replace  "" "" "|Cog\$YKPqqnd]eGpx%"
+      ;;
+    7)
+      test-replace  "I" "I" "-G\`?m~v.!"
+      ;;
+    8)
+      test-replace  "ZH.t" "gNk" "z>u<)hV9/M*RB"
+      ;;
+    9)
+      test-replace  "" "j/" "<~##>X8uRACLRhoT5}"
+      ;;
+    10)
+      test-replace  "#*Cs" "bdv" "F"
+      ;;
+    11)
+      test-replace  "9Stz" "" "_.r%7E\`0nn:F)Y"
+      ;;
+    12)
+      test-replace  "Ago" "A" "Rc?IoZRSB"
+      ;;
+    13)
+      test-replace  "2Y=a" ">" "z1Oto"
+      ;;
+    14)
+      test-replace  "t" "U&&" "I<"
+      ;;
+    15)
+      test-replace  "" ":C" "ERPx+{1BI}/&Cm|"
+      ;;
+    16)
+      test-replace  "h" "=" "[?T=D[-?mA\$41+!>a"
+      ;;
+    17)
+      test-replace  "03Y" "+J1i" "L/xBR%Sxq5\\cdymBerQs"
+      ;;
+    18)
+      test-replace  "}.6" "2j0\`" "6mW:0Yia{\`}oTZ#Tj*"
+      ;;
+    19)
+      test-replace  "k6lX" "vfc!" "J4LQw&akG{x<{u\"J_2S1"
+      ;;
+    20)
+      test-replace  "&PV" "" ";-(S+:"
+      ;;
+    21)
+      test-replace  "," "2" "-R<8<=mPkKyM"
+      ;;
+    22)
+      test-replace  "#o" "" ">z*]wNHj3y^<"
+      ;;
+    23)
+      test-replace  "" "" "tl([M\`MD*b\`n"
+      ;;
+    24)
+      test-replace  "L" "wG&" "6qI!Z)[RRxre\"^O"
+      ;;
+    25)
+      test-replace  "k" "e" "E59o{R"
+      ;;
+    26)
+      test-replace  "" "y\"" "}{2UayN"
+      ;;
+    27)
+      test-replace  "Q" "p]\\" "yrRF4(9C4,M[/I~"
+      ;;
+    28)
+      test-replace  "H5" "G~" "~\$eJY6vW8S}a&E]_="
+      ;;
+    29)
+      test-replace  "" "ac" "_#>l)O8dAT"
+      ;;
+    30)
+      test-replace  "uzdx" "6IE" "K\`O&n~r8\"(V8{DB2h"
+      ;;
+    31)
+      test-replace  "a*" "r" "="
+      ;;
+    32)
+      test-replace  "X>" "3:\\" "jd)|o&j^@5NU1"
+      ;;
+    33)
+      test-replace  ")}" "" "i .px"
+      ;;
+    34)
+      test-replace  "" "" "G*<.Q))L88"
+      ;;
+    35)
+      test-replace  "\$G" "dd1" "E^[O[s45\$Nsh"
+      ;;
+    36)
+      test-replace  "-+B" "~~ZN" " lS(&L(:Na{u2S"
+      ;;
+    37)
+      test-replace  "lO>G" "i>;" "^fqa{xIx@q%n>J"
+      ;;
+    38)
+      test-replace  "" "=7 " "k/u {=BL#2&0PEf8ob3"
+      ;;
+    39)
+      test-replace  "Oxzr" "" "RNA#H)="
+      ;;
+    40)
+      test-replace  "m" "Ytb)" "Y|"
+      ;;
+    41)
+      test-replace  "b\`" "n@ " "K5%J"
+      ;;
+    42)
+      test-replace  "" "Z|x0" "Iu4NJbS6-"
+      ;;
+esac

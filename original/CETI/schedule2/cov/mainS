@@ -1,0 +1,60 @@
+int main()
+{
+     char argv1[50];
+     char rr[1000]="";
+     int x,i;
+     char c;
+     klee_make_symbolic(&argv1,sizeof(argv1),"argv1");
+     klee_assume(argv1[0]>='0' & argv1[0]<='9');
+     klee_assume(argv1[1]==' ');
+     klee_assume(argv1[2]>='0' & argv1[2]<='9');
+     klee_assume(argv1[3]==' ');
+     klee_assume(argv1[4]>='0' & argv1[4]<='9');
+     klee_assume(argv1[5]=='\n');
+     x=6;
+     for(i=0;i<3;i++)
+     {
+       klee_assume(argv1[x]>='1' & argv1[x]<='7'); //command
+       c=argv1[x];
+       x++;
+       klee_assume(argv1[x]==' ');
+       x++;
+       if(c=='3' || c=='5' || c=='6' || c=='7')
+         continue;
+       if(c=='1')
+       { klee_assume(argv1[x]>='0' & argv1[x]<='9');
+         x++;
+         klee_assume(argv1[x]=='\n');
+         x++;
+       }
+       if(c=='4')
+       {
+         klee_assume(argv1[x]>='0' & argv1[x]<='9');
+         x++;
+         klee_assume((argv1[x]>='0' & argv1[x]<='9') | argv1[x]==' ');
+         x++;
+         klee_assume(argv1[x]=='\n');
+         x++;
+       }
+       if(c=='2')
+       {
+         klee_assume(argv1[x]>='0' & argv1[x]<='9');
+         x++;
+         klee_assume(argv1[x]==' ');
+         x++;
+         klee_assume(argv1[x]>='0' & argv1[x]<='9');
+         x++;
+         klee_assume((argv1[x]>='0' & argv1[x]<='9') | argv1[x]==' ');
+         x++;
+          klee_assume(argv1[x]=='\n');
+         x++;
+       }
+     }
+
+     klee_assume(argv1[x]=='\0');
+    
+    ////////////////////////////////////////////////////////////////////////////
+     mainQ(argv1,rr);
+    klee_print_expr("rr=",rr);
+   return 0;
+}

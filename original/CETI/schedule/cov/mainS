@@ -1,0 +1,105 @@
+main()
+{
+    int command;
+    int prio;
+    float ratio;
+    int status;
+    int index=0;
+
+    int result[10];
+    int length=0;
+    int size=7;
+    int argv1,argv2,argv3,argv4,argv5,argv6,argv7,argv8,argv9,argv10;
+    int arg[20];
+    int i,j;
+     klee_make_symbolic(&argv1,sizeof(argv1),"argv1");
+     klee_make_symbolic(&argv2,sizeof(argv2),"argv2");
+     klee_make_symbolic(&argv3,sizeof(argv3),"argv3");
+     klee_make_symbolic(&argv4,sizeof(argv4),"argv4");
+     klee_make_symbolic(&argv5,sizeof(argv5),"argv5");
+     klee_make_symbolic(&argv6,sizeof(argv6),"argv6");
+     klee_make_symbolic(&argv7,sizeof(argv7),"argv7");
+     //klee_make_symbolic(&argv8,sizeof(argv8),"argv8");
+     //klee_make_symbolic(&argv9,sizeof(argv9),"argv9");
+     //klee_make_symbolic(&argv10,sizeof(argv10),"argv10");
+    klee_assume(argv1>=0 & argv1<=20);
+    klee_assume(argv2>=0 & argv2<=20);
+    klee_assume(argv3>=0 & argv3<=20);
+    klee_assume(argv4>=0 & argv4<=20);
+    klee_assume(argv5>=0 & argv5<=20);
+    klee_assume(argv6>=0 & argv6<=20);
+    klee_assume(argv7>=0 & argv7<=20);
+     arg[0]=argv1;
+     arg[1]=argv2;
+     arg[2]=argv3;
+     arg[3]=argv4;
+     arg[4]=argv5;
+     arg[5]=argv6;
+     arg[6]=argv7;
+     //arg[7]=argv8;
+     //arg[8]=argv9;
+     //arg[9]=argv10;
+     i=7;
+    //------------------------------------------------------------------------
+    initialize();
+    for (prio=MAXPRIO-1; prio >= 0; prio--)
+    {
+	init_prio_queue(prio+1, arg[prio]);
+    }
+    index=3;
+    while(index<size)
+    {
+        command=arg[index];
+        index++;
+	switch(command)
+	{
+	case FINISH:
+	    finish_process(result,&length);
+	    break;
+	case BLOCK:
+	    block_process();
+	    break;
+	case QUANTUM_EXPIRE:
+	    quantum_expire();
+	    break;
+	case UNBLOCK:
+            if(index<size){
+            ratio=(float)(getOperand(arg[index]));
+            index++;}
+	    unblock_process(ratio);
+	    break;
+	case UPGRADE_PRIO:
+            if(index<size){
+	    prio=arg[index];
+            index++;}
+            
+            if(index<size){
+            ratio=(float)(getOperand(arg[index]));
+            index++;}
+            //printf("%d\n",prio);
+	    if (prio > MAXPRIO || prio <= 0) { 
+		fprintf(stdout, "** invalid priority\n");
+		return;
+	    }
+	    else 
+		upgrade_process_prio(prio, ratio);
+	    break;
+	case NEW_JOB:
+            if(index<size){
+            prio=arg[index];
+            index++;}
+	    if (prio > MAXPRIO || prio <= 0) {
+		fprintf(stdout, "** invalid priority\n");
+		return;
+	    }
+	    else 
+	     add_process(prio);
+	    break;
+	case FLUSH:
+	    finish_all_processes(result,&length);
+	    break;
+	}
+}
+    //------------------------------------------------------------------------------------
+      klee_print_expr("Intrr=",result);
+}

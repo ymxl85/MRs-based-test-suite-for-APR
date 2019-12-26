@@ -1,0 +1,15 @@
+/home/mingyue/Documents/Angelix/angelix/TSE/5/RDS/schedule2/10
+/home/mingyue/Documents/Angelix/angelix/TSE/5/RDS/schedule2/golden
+/home/mingyue/Documents/Angelix/angelix/TSE/5/RDS/schedule2/10/oracle1
+INFO     synthesis       ==class Synthesizer
+INFO     project         configuring validation source
+INFO     project         building json compilation database from validation source
+gcc -c schedule2.c -o schedule2.o -std=c89 
+schedule2.c: In function ‘get_command’:
+schedule2.c:97:12: warning: incompatible implicit declaration of built-in function ‘strlen’ [enabled by default]
+  while(buf[strlen(buf)-1] != '\n' && fgets(buf, CMDSIZE, stdin));
+            ^
+gcc schedule2.o -o schedule2
+INFO     testing         running test '1' of validation source
+INFO     repair          failed to generate patch (timeout)
+TIMEOUT

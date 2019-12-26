@@ -1,0 +1,16 @@
+Error: memory error: out of bound pointer
+File: /home/mingyue/experiments/ceti/schedule2/coverageTC/v8/v8.c
+Line: 297
+Stack: 
+	#0 00001472 in __user_main () at /home/mingyue/experiments/ceti/schedule2/coverageTC/v8/v8.c:297
+	#1 00006502 in main (=1, =177870648)
+Info: 
+	address: (Add w32 173755892
+         (Mul w32 8
+                  (ZExt w32 (Add w8 208 (Read w8 8 argv1)))))
+	example: 173755924
+	range: [173755924, 173755964]
+	next: object at 173779184 of size 35
+		MO2[35] allocated at main():  %newcol.i.i.i = alloca %struct.__collate_t, align 8
+	prev: object at 173755888 of size 32
+		MO53[32] allocated at global:prio_queue

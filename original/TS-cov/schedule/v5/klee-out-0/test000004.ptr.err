@@ -1,0 +1,18 @@
+Error: memory error: out of bound pointer
+File: /home/mingyue/experiments/ceti/schedule/coverageTC/v5/v5.c
+Line: 396
+Stack: 
+	#0 00000844 in __user_main () at /home/mingyue/experiments/ceti/schedule/coverageTC/v5/v5.c:396
+	#1 00002478 in main (=1, =153718568)
+Info: 
+	address: (Add w32 12
+         (ReadLSB w32 (Add w32 4140649552
+                               N0:(ReadLSB w32 (Add w32 4140666616
+                                                        N1:(ReadLSB w32 N2:(Mul w32 4
+                                                                                    (ReadLSB w32 0 argv5)) const_arr13))
+                                               const_arr18))
+                      const_arr66))
+	example: 12
+	range: [12, 12]
+	next: object at 10965856 of size 768
+		MO44[768] (no allocation info)

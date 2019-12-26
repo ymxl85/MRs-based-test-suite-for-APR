@@ -1,0 +1,18 @@
+KLEE: WARNING: undefined reference to function: fcntl
+KLEE: WARNING: undefined reference to function: fstat
+KLEE: WARNING: undefined reference to function: ioctl
+KLEE: WARNING: undefined reference to function: lseek64
+KLEE: WARNING: undefined reference to function: open
+KLEE: WARNING: undefined reference to function: write
+KLEE: WARNING: executable has module level assembly (ignoring)
+KLEE: WARNING ONCE: calling external: ioctl(0, 21505, 184040608)
+KLEE: WARNING ONCE: silently concretizing (reason: floating point) expression (ReadLSB w32 24 U0:[N0:(Add w32 3
+                                N1:(Mul w32 8
+                                            (ZExt w32 (Add w8 208 (Read w8 8 argv1)))))=(Extract w8 24 N2:(Add w32 1
+                                                                                                                   (ReadLSB w32 N1 U1:[(Add w32 7 N1)=11,
+                                                                                                                                       (Add w32 6 N1)=105,
+                                                                                                                                       (Add w32 5 N1)=58,
+                                                                                                                                       (Add w32 4 N1)=184] @ const_arr2))),
+                    N3:(Add w32 2 N1)=(Extract w8 16 N2),
+                    N4:(Add w32 1 N1)=(Extract w8 8 N2),
+                    N1=(Extract w8 0 N2)] @ U1) to value 0 (/home/mingyue/experiments/ceti/schedule2/coverageTC/v6/v6.c:279)

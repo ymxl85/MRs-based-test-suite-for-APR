@@ -1,0 +1,21 @@
+gcc -D_GNUCC -E -DCIL=1 /home/mingyue/experiments/ceti/TCAS/coverageTC/v19/m19.c -o /home/mingyue/experiments/ceti/TCAS/coverageTC/v19/m19.i
+/usr/local/bin/cilly.native --out /home/mingyue/experiments/ceti/TCAS/coverageTC/v19/m19.cil.c --noPrintLn --useLogicalOperators /home/mingyue/experiments/ceti/TCAS/coverageTC/v19/m19.i
+gcc -D_GNUCC -E /home/mingyue/experiments/ceti/TCAS/coverageTC/v19/m19.cil.c -o /home/mingyue/experiments/ceti/TCAS/coverageTC/v19/m19.cil.i
+gcc -D_GNUCC -c -o /home/mingyue/experiments/ceti/TCAS/coverageTC/v19/m19.o /home/mingyue/experiments/ceti/TCAS/coverageTC/v19/m19.cil.i
+gcc -D_GNUCC -o a.out /home/mingyue/experiments/ceti/TCAS/coverageTC/v19/m19.o
+**Begin v19**
+$ cp /home/mingyue/experiments/ceti/TCAS/coverageTC/v19/m19.cil.i /tmp/CETI_61a954/m19.cil.i
+*** Get good/bad tcs ***
+cmd 'gcc /tmp/CETI_61a954/m19.cil.i -o /tmp/CETI_61a954/m19.cil.i.exe >& /dev/null'
+$ gcc /tmp/CETI_61a954/m19.cil.i -o /tmp/CETI_61a954/m19.cil.i.exe >& /dev/null
+write_file_str: '/tmp/CETI_61a954/m19.cil.i.sh'
+$ sh /tmp/CETI_61a954/m19.cil.i.sh /tmp/CETI_61a954/m19.cil.i.exe /tmp/CETI_61a954/m19.cil.i.routputs &> /dev/null
+[35mAlert: All tests passed. No bug found. Exit!
+[mNote: temp files created in dir '/tmp/CETI_61a954'
+0.06user 0.02system 0:00.07elapsed 103%CPU (0avgtext+0avgdata 24720maxresident)k
+0inputs+112outputs (0major+10354minor)pagefaults 0swaps
+
+real	0m0.079s
+user	0m0.060s
+sys	0m0.020s
+**Done v19**

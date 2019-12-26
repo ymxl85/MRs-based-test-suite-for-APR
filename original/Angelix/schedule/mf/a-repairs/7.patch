@@ -1,0 +1,15 @@
+--- a/schedule.c
++++ b/schedule.c
+@@ -214,9 +214,9 @@
+ 	goto RET;
+     src_queue = prio_queue[prio];
+     dest_queue = prio_queue[prio+1];
+-    count = src_queue->mem_count;
+-
+-    if (count > 0)
++    count = 0;
++
++    if ((1 > 0))
+     {
+ 	upgrade = 1; n = (int) (count*ratio + 1);
+ 	if(ratio == 1.0) n--; /* Correct original */

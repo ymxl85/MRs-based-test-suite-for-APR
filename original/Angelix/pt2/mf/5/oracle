@@ -1,0 +1,240 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-pt2 () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./pt2 "$1") <(angelix-eval $SCRIPT_DIR/../golden/pt2 "$1")
+}
+
+case "$1" in
+    1)
+      test-pt2  "and
+aÿd
+\"p
+0p
+"
+      ;;
+    2)
+      test-pt2  "andõa¯b
+\"p
+0p
+"
+      ;;
+    3)
+      test-pt2  "and
+üÿh
+\"h
+0p
+"
+      ;;
+    4)
+      test-pt2  "and
+d¯b
+\"põ0p
+"
+      ;;
+    5)
+      test-pt2  "and
+dp
+\"h
+p
+"
+      ;;
+    6)
+      test-pt2  "and
+ph
+\"p
+0ü
+"
+      ;;
+    7)
+      test-pt2  "and
+d¯b
+\"p
+0põ"
+      ;;
+    8)
+      test-pt2  "and
+d¯b
+\"p
+0p
+"
+      ;;
+    9)
+      test-pt2  "and
+p0p
+\"b
+0p
+"
+      ;;
+    10)
+      test-pt2  "nd
+d¯b
+\"p
+0p
+"
+      ;;
+    11)
+      test-pt2  "ad
+d¯b
+\"p
+0p
+"
+      ;;
+    12)
+      test-pt2  "and
+h y
+\"d
+0p
+"
+      ;;
+    13)
+      test-pt2  "an
+d¯b
+\"p
+0p
+"
+      ;;
+    14)
+      test-pt2  " z¤Jd"
+      ;;
+    15)
+      test-pt2  "and
+h
+y
+\"d
+0p
+"
+      ;;
+    16)
+      test-pt2  "and
+hy
+\"d
+0p
+"
+      ;;
+    17)
+      test-pt2  "and
+dÿü
+\"h
+0p
+"
+      ;;
+    18)
+      test-pt2  "and
+d¯bõ\"p
+0p
+"
+      ;;
+    19)
+      test-pt2  "and
+d¯b
+Ýp
+0p
+"
+      ;;
+    20)
+      test-pt2  "and
+dÿh
+\"ü
+0p
+"
+      ;;
+    21)
+      test-pt2  "andx
+ad
+p
+p
+"
+      ;;
+    22)
+      test-pt2  "andx
+üh
+h
+p
+"
+      ;;
+    23)
+      test-pt2  "andx
+dp
+h
+p
+"
+      ;;
+    24)
+      test-pt2  "andx
+ph
+p
+ü
+"
+      ;;
+    25)
+      test-pt2  "andx
+db
+p
+põ
+"
+      ;;
+    26)
+      test-pt2  "andx
+db
+p
+p
+"
+      ;;
+    27)
+      test-pt2  "andx
+pp
+b
+p
+"
+      ;;
+    28)
+      test-pt2  "ndx
+db
+p
+p
+"
+      ;;
+    29)
+      test-pt2  "adx
+db
+p
+p
+"
+      ;;
+    30)
+      test-pt2  "andx
+hy
+d
+p
+"
+      ;;
+    31)
+      test-pt2  "anx
+db
+p
+p
+"
+      ;;
+    32)
+      test-pt2  "andx
+h
+d
+p
+"
+      ;;
+    33)
+      test-pt2  "andx
+dü
+h
+p
+"
+      ;;
+    34)
+      test-pt2  "andx
+dh
+ü
+p
+"
+      ;;
+esac

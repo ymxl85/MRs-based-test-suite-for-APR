@@ -1,0 +1,99 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "r " "_P" "vi(c6~>T"
+      ;;
+    2)
+      test-replace  "?*|" "" "[@v@%o8cm\`9j\""
+      ;;
+    3)
+      test-replace  "K" "1v ^" "vfX5eJ"
+      ;;
+    4)
+      test-replace  "Bn<" "" "A|B\`fYz"
+      ;;
+    5)
+      test-replace  ";H" "NHpa" "^IwJu"
+      ;;
+    6)
+      test-replace  "}lqw" "a\\z" "dv|.{60A]"
+      ;;
+    7)
+      test-replace  "s6Pt" "t~" "*8QjLD]:DA[BX("
+      ;;
+    8)
+      test-replace  "h:}P" "EPCi" "#\\QYCEDMcrzL_ED@v2"
+      ;;
+    9)
+      test-replace  "uG4" " ]+9" ")\$aab."
+      ;;
+    10)
+      test-replace  "" "qw" "el\`QDyW_)h%-6#=@"
+      ;;
+    11)
+      test-replace  "Aa" "-<" "w]"
+      ;;
+    12)
+      test-replace  "" "4P" "p_;Q+MZ,Lp"
+      ;;
+    13)
+      test-replace  "q1D." "b" "\$wK9INi,@5voJj1^VX"
+      ;;
+    14)
+      test-replace  "" "h*" "t%d\\{&=Z"
+      ;;
+    15)
+      test-replace  "" "," "},)Y%k5J2J}=_|\$g+"
+      ;;
+    16)
+      test-replace  "[," "_" "H@"
+      ;;
+    17)
+      test-replace  "H" "Ur~I" "r"
+      ;;
+    18)
+      test-replace  ";8\\S" ">\`k" ";Z0"
+      ;;
+    19)
+      test-replace  ":" ",TG(" "nl"
+      ;;
+    20)
+      test-replace  "d" "2/U" "^uSX!p%"
+      ;;
+    21)
+      test-replace  "\"<.P" "" "o[[HOG~6M7X>_:bqcSY9"
+      ;;
+    22)
+      test-replace  "=~]" "" "!\$Q\$tE)"
+      ;;
+    23)
+      test-replace  "w=C" "C" "B{Ff{sTYadC7{\`di8|sI"
+      ;;
+    24)
+      test-replace  "m" "G" ".[7\`;Q|Kf"
+      ;;
+    25)
+      test-replace  "" "#" "i55T)!K^?PP["
+      ;;
+    26)
+      test-replace  "(A;(" "t" "mYLo%_T}.}{#~J~Q"
+      ;;
+    27)
+      test-replace  "a;H" "xm0" ":LDA\$z(IT"
+      ;;
+    28)
+      test-replace  "" "Tr-." "RVg"
+      ;;
+    29)
+      test-replace  "p>q" "Tz+\$" "<kb5i\`)\$."
+      ;;
+    30)
+      test-replace  "B/\`" "77G}" "tKk\$%i3Rfqz"
+      ;;
+esac

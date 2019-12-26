@@ -1,0 +1,40 @@
+/home/mingyue/Documents/Angelix/angelix/TSE/5/RDS/schedule2/2
+/home/mingyue/Documents/Angelix/angelix/TSE/5/RDS/schedule2/golden
+/home/mingyue/Documents/Angelix/angelix/TSE/5/RDS/schedule2/2/oracle6
+INFO     synthesis       ==class Synthesizer
+INFO     semfix_syn      ==class Semfix_Synthesizer
+INFO     project         configuring validation source
+INFO     project         building json compilation database from validation source
+gcc -c schedule2.c -o schedule2.o -std=c89 
+schedule2.c: In function ‘get_command’:
+schedule2.c:97:12: warning: incompatible implicit declaration of built-in function ‘strlen’ [enabled by default]
+  while(buf[strlen(buf)-1] != '\n' && fgets(buf, CMDSIZE, stdin));
+            ^
+gcc schedule2.o -o schedule2
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+INFO     testing         running test '3' of validation source
+INFO     testing         running test '4' of validation source
+INFO     testing         running test '5' of validation source
+INFO     testing         running test '6' of validation source
+INFO     project         configuring frontend source
+INFO     transformation  instrumenting repairable of frontend source
+INFO     project         building frontend source
+angelix-compiler --test -c schedule2.c -o schedule2.o -std=c89 
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h '-c' 'schedule2.c' '-o' 'schedule2.o' '-std=c89' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+schedule2.c: In function ‘get_command’:
+schedule2.c:97:45: warning: incompatible implicit declaration of built-in function ‘strlen’ [enabled by default]
+  while(({ angelix_trace(97, 8, 97, 63); buf[strlen(buf) - 1] != '\n' && fgets(buf, 20, stdin); }));
+                                             ^
+angelix-compiler --test schedule2.o -o schedule2
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h 'schedule2.o' '-o' 'schedule2' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+INFO     repair          running positive tests for debugging
+INFO     testing         running test '1' of frontend source
+INFO     testing         running test '2' of frontend source
+INFO     testing         running test '3' of frontend source
+INFO     testing         running test '4' of frontend source
+INFO     testing         running test '5' of frontend source
+INFO     testing         running test '6' of frontend source
+INFO     repair          repair test suite: ['1', '2', '3', '4', '5', '6']
+INFO     repair          validation test suite: ['1', '2', '3', '4', '5', '6']
+INFO     localization    No negative test exists

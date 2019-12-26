@@ -1,0 +1,11 @@
+--- a/replace.c
++++ b/replace.c
+@@ -309,7 +309,7 @@
+     while ((i >= offset)) /* off by 1 BUG! fault*/
+     {
+ 	if (c == pat[i]) {
+-	    flag = true;
++	    flag = (511 + i);
+ 	    break; /*i = offset;*/
+ 	} else
+ 	    i = i - 1;

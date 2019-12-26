@@ -1,0 +1,250 @@
+ulimit -t 1
+echo $1 $2 $3 $4 $5 >> testruns.txt
+case $2 in
+  p1) $1 534 1 729 95 579 3489 3 487 697 0 1 0 | diff outputP/O1 - && exit 0 ;;
+  p2) $1 675 0 798 221 762 1991 1 281 470 0 1 0 | diff outputP/O2 - && exit 0 ;;
+  p3) $1 900 1 869 498 831 3607 1 558 946 1 1 1 | diff outputP/O3 - && exit 0 ;;
+  p4) $1 61 0 198 387 993 8535 2 825 823 0 1 0 | diff outputP/O4 - && exit 0 ;;
+  p5) $1 912 1 889 995 915 6096 0 770 576 1 0 1 | diff outputP/O5 - && exit 0 ;;
+  p6) $1 7 0 803 65 477 7162 3 429 329 0 0 0 | diff outputP/O6 - && exit 0 ;;
+  p7) $1 962 0 982 348 976 2434 1 697 446 1 1 1 | diff outputP/O7 - && exit 0 ;;
+  p8) $1 10 0 185 434 902 5786 1 299 342 0 1 0 | diff outputP/O8 - && exit 0 ;;
+  p9) $1 691 1 207 272 616 895 2 278 110 1 0 1 | diff outputP/O9 - && exit 0 ;;
+  p10) $1 556 0 610 415 230 140 0 104 516 0 0 1 | diff outputP/O10 - && exit 0 ;;
+  p11) $1 894 1 503 735 193 1254 0 784 953 1 1 1 | diff outputP/O11 - && exit 0 ;;
+  p12) $1 731 0 473 850 104 3288 2 414 685 1 0 0 | diff outputP/O12 - && exit 0 ;;
+  p13) $1 917 0 118 560 576 394 2 153 901 0 1 0 | diff outputP/O13 - && exit 0 ;;
+  p14) $1 995 1 791 227 709 9814 3 799 493 1 1 1 | diff outputP/O14 - && exit 0 ;;
+  p15) $1 831 1 182 278 725 9341 2 921 368 0 1 0 | diff outputP/O15 - && exit 0 ;;
+  p16) $1 568 0 236 857 731 9247 2 863 180 1 0 1 | diff outputP/O16 - && exit 0 ;;
+  p17) $1 383 1 598 75 246 4429 3 906 938 0 0 1 | diff outputP/O17 - && exit 0 ;;
+  p18) $1 854 0 327 330 251 4140 3 423 740 1 0 0 | diff outputP/O18 - && exit 0 ;;
+  p19) $1 319 1 15 796 876 9280 2 8 104 1 1 0 | diff outputP/O19 - && exit 0 ;;
+  p20) $1 617 1 681 377 622 742 2 326 884 0 1 1 | diff outputP/O20 - && exit 0 ;;
+  p21) $1 899 1 885 249 97 6771 1 725 635 1 1 1 | diff outputP/O21 - && exit 0 ;;
+  p22) $1 849 1 444 485 682 2685 2 634 522 1 0 0 | diff outputP/O22 - && exit 0 ;;
+  p23) $1 671 0 871 283 334 2673 0 248 408 0 1 1 | diff outputP/O23 - && exit 0 ;;
+  p24) $1 532 0 305 871 857 617 3 151 702 0 0 0 | diff outputP/O24 - && exit 0 ;;
+  p25) $1 837 1 121 372 426 5143 1 230 754 1 0 1 | diff outputP/O25 - && exit 0 ;;
+  p26) $1 754 1 722 669 991 3220 0 527 212 0 0 1 | diff outputP/O26 - && exit 0 ;;
+  p27) $1 781 0 166 683 322 6742 3 597 678 0 1 0 | diff outputP/O27 - && exit 0 ;;
+  p28) $1 854 1 241 441 961 7527 1 420 291 1 0 0 | diff outputP/O28 - && exit 0 ;;
+  p29) $1 582 1 452 865 208 8161 2 993 487 0 1 0 | diff outputP/O29 - && exit 0 ;;
+  p30) $1 572 1 57 360 425 8980 2 443 148 1 0 1 | diff outputP/O30 - && exit 0 ;;
+  p31) $1 592 0 774 31 512 5346 2 724 687 0 0 1 | diff outputP/O31 - && exit 0 ;;
+  p32) $1 384 1 198 678 254 4154 0 883 243 0 0 1 | diff outputP/O32 - && exit 0 ;;
+  p33) $1 395 1 112 674 473 4178 3 304 197 1 0 0 | diff outputP/O33 - && exit 0 ;;
+  p34) $1 479 0 963 329 485 1579 1 412 524 1 0 1 | diff outputP/O34 - && exit 0 ;;
+  p35) $1 727 0 651 483 246 9414 1 961 220 0 0 1 | diff outputP/O35 - && exit 0 ;;
+  p36) $1 82 0 512 770 869 8583 2 283 65 1 1 1 | diff outputP/O36 - && exit 0 ;;
+  p37) $1 184 1 970 304 723 7047 2 697 331 0 0 0 | diff outputP/O37 - && exit 0 ;;
+  p38) $1 60 0 732 432 333 4599 2 726 820 1 0 1 | diff outputP/O38 - && exit 0 ;;
+  p39) $1 779 0 688 718 528 1784 0 774 622 1 1 0 | diff outputP/O39 - && exit 0 ;;
+  p40) $1 17 0 780 358 933 3847 0 548 428 0 0 1 | diff outputP/O40 - && exit 0 ;;
+  p41) $1 691 1 57 969 884 3799 3 723 971 1 0 0 | diff outputP/O41 - && exit 0 ;;
+  p42) $1 332 1 929 912 120 2839 3 136 267 1 1 1 | diff outputP/O42 - && exit 0 ;;
+  p43) $1 762 0 282 223 303 1466 3 224 752 0 0 0 | diff outputP/O43 - && exit 0 ;;
+  p44) $1 831 0 602 649 400 628 1 373 220 0 1 1 | diff outputP/O44 - && exit 0 ;;
+  p45) $1 581 0 564 384 293 9232 3 483 570 0 1 1 | diff outputP/O45 - && exit 0 ;;
+  p46) $1 46 1 747 700 705 2226 1 181 841 1 0 1 | diff outputP/O46 - && exit 0 ;;
+  p47) $1 220 0 135 957 531 2315 0 938 848 1 1 0 | diff outputP/O47 - && exit 0 ;;
+  p48) $1 257 0 915 286 50 8133 3 673 868 0 1 0 | diff outputP/O48 - && exit 0 ;;
+  p49) $1 947 0 806 676 218 2418 2 416 327 0 0 1 | diff outputP/O49 - && exit 0 ;;
+  p50) $1 776 1 702 217 305 5393 1 149 299 1 1 0 | diff outputP/O50 - && exit 0 ;;
+  p51) $1 500 1 768 890 533 1116 3 87 810 1 0 1 | diff outputP/O51 - && exit 0 ;;
+  p52) $1 158 0 425 466 148 8123 3 415 454 0 1 1 | diff outputP/O52 - && exit 0 ;;
+  p53) $1 725 1 674 928 420 122 3 830 735 1 1 0 | diff outputP/O53 - && exit 0 ;;
+  p54) $1 298 1 177 193 538 7921 0 157 749 1 1 0 | diff outputP/O54 - && exit 0 ;;
+  p55) $1 683 1 264 926 130 86 1 858 380 1 0 1 | diff outputP/O55 - && exit 0 ;;
+  p56) $1 613 1 642 814 259 7114 1 339 113 1 1 0 | diff outputP/O56 - && exit 0 ;;
+  p57) $1 515 0 38 852 237 2131 2 703 789 1 0 1 | diff outputP/O57 - && exit 0 ;;
+  p58) $1 750 0 316 972 387 243 2 875 252 0 1 1 | diff outputP/O58 - && exit 0 ;;
+  p59) $1 673 1 734 700 63 8787 2 941 743 1 1 1 | diff outputP/O59 - && exit 0 ;;
+  p60) $1 530 1 6 514 727 1740 0 41 216 1 0 0 | diff outputP/O60 - && exit 0 ;;
+  p61) $1 314 1 644 92 719 3507 3 224 342 0 0 1 | diff outputP/O61 - && exit 0 ;;
+  p62) $1 73 1 763 835 569 213 2 362 959 1 1 1 | diff outputP/O62 - && exit 0 ;;
+  p63) $1 950 0 1 759 207 458 0 513 32 0 1 1 | diff outputP/O63 - && exit 0 ;;
+  p64) $1 296 0 614 189 315 2275 0 953 843 1 1 0 | diff outputP/O64 - && exit 0 ;;
+  p65) $1 664 1 971 649 287 8742 1 593 139 0 0 1 | diff outputP/O65 - && exit 0 ;;
+  p66) $1 248 0 750 823 817 1341 0 546 292 0 1 0 | diff outputP/O66 - && exit 0 ;;
+  p67) $1 482 1 7 617 54 7756 0 229 248 0 0 1 | diff outputP/O67 - && exit 0 ;;
+  p68) $1 965 1 43 41 498 9328 0 686 34 1 0 0 | diff outputP/O68 - && exit 0 ;;
+  p69) $1 704 0 562 948 428 2838 0 581 994 0 0 1 | diff outputP/O69 - && exit 0 ;;
+  p70) $1 808 0 34 557 569 1689 2 820 645 0 0 0 | diff outputP/O70 - && exit 0 ;;
+  p71) $1 294 1 450 190 999 2914 2 714 85 0 0 0 | diff outputP/O71 - && exit 0 ;;
+  p72) $1 476 0 775 735 929 8697 1 263 327 1 0 1 | diff outputP/O72 - && exit 0 ;;
+  p73) $1 630 0 333 18 935 4293 1 330 642 0 0 1 | diff outputP/O73 - && exit 0 ;;
+  p74) $1 140 1 175 574 569 8432 0 278 134 0 1 0 | diff outputP/O74 - && exit 0 ;;
+  p75) $1 203 0 133 117 898 7314 3 60 169 0 1 1 | diff outputP/O75 - && exit 0 ;;
+  p76) $1 412 0 712 549 550 9382 1 729 86 1 0 1 | diff outputP/O76 - && exit 0 ;;
+  p77) $1 78 0 346 316 168 5007 3 924 738 0 1 1 | diff outputP/O77 - && exit 0 ;;
+  p78) $1 73 1 674 656 881 3088 0 73 875 1 1 0 | diff outputP/O78 - && exit 0 ;;
+  p79) $1 208 0 545 447 418 5466 1 830 203 0 1 0 | diff outputP/O79 - && exit 0 ;;
+  p80) $1 790 1 297 269 875 9776 3 631 109 0 1 1 | diff outputP/O80 - && exit 0 ;;
+  p81) $1 901 1 568 667 858 2095 3 197 527 0 0 0 | diff outputP/O81 - && exit 0 ;;
+  p82) $1 246 1 446 670 805 2399 2 405 298 1 0 0 | diff outputP/O82 - && exit 0 ;;
+  p83) $1 42 1 160 215 669 8417 1 65 531 0 0 1 | diff outputP/O83 - && exit 0 ;;
+  p84) $1 390 0 725 344 928 7006 2 891 23 1 0 0 | diff outputP/O84 - && exit 0 ;;
+  p85) $1 867 0 85 843 951 6625 1 308 667 1 0 0 | diff outputP/O85 - && exit 0 ;;
+  p86) $1 767 1 148 410 214 9893 2 642 999 0 1 0 | diff outputP/O86 - && exit 0 ;;
+  p87) $1 386 0 955 395 623 1555 1 787 600 1 0 0 | diff outputP/O87 - && exit 0 ;;
+  p88) $1 111 0 760 786 341 4444 2 547 965 0 0 0 | diff outputP/O88 - && exit 0 ;;
+  p89) $1 763 0 305 265 974 4256 3 563 716 1 1 1 | diff outputP/O89 - && exit 0 ;;
+  p90) $1 657 1 851 939 792 3098 2 62 623 0 1 1 | diff outputP/O90 - && exit 0 ;;
+  p91) $1 239 1 661 726 818 1843 0 519 841 1 0 0 | diff outputP/O91 - && exit 0 ;;
+  p92) $1 874 1 638 336 115 2383 3 875 46 0 1 0 | diff outputP/O92 - && exit 0 ;;
+  p93) $1 410 1 625 336 448 2804 3 994 777 0 1 1 | diff outputP/O93 - && exit 0 ;;
+  p94) $1 569 0 563 942 686 1423 3 731 285 1 0 0 | diff outputP/O94 - && exit 0 ;;
+  p95) $1 951 0 227 928 845 9457 1 296 457 1 0 1 | diff outputP/O95 - && exit 0 ;;
+  p96) $1 550 0 584 375 536 6876 3 398 100 0 1 0 | diff outputP/O96 - && exit 0 ;;
+  p97) $1 90 0 70 901 830 1711 1 187 806 0 1 0 | diff outputP/O97 - && exit 0 ;;
+  p98) $1 310 0 101 575 71 9706 2 10 26 1 1 0 | diff outputP/O98 - && exit 0 ;;
+  p99) $1 420 0 12 786 123 8843 0 694 623 0 1 1 | diff outputP/O99 - && exit 0 ;;
+  p100) $1 428 0 408 90 759 1740 2 261 223 0 1 1 | diff outputP/O100 - && exit 0 ;;
+  p101) $1 876 1 412 340 493 8435 3 872 72 0 0 1 | diff outputP/O101 - && exit 0 ;;
+  p102) $1 631 0 798 328 116 2423 0 183 803 1 1 1 | diff outputP/O102 - && exit 0 ;;
+  p103) $1 937 0 196 619 459 4186 0 346 590 1 0 0 | diff outputP/O103 - && exit 0 ;;
+  p104) $1 721 1 714 398 544 8718 3 492 591 0 0 1 | diff outputP/O104 - && exit 0 ;;
+  p105) $1 385 0 252 786 239 6750 0 760 293 0 1 1 | diff outputP/O105 - && exit 0 ;;
+  p106) $1 813 1 580 378 872 3560 2 724 513 0 0 0 | diff outputP/O106 - && exit 0 ;;
+  p107) $1 206 1 918 623 889 4296 2 478 211 0 0 0 | diff outputP/O107 - && exit 0 ;;
+  p108) $1 595 0 200 122 655 815 2 647 67 1 0 1 | diff outputP/O108 - && exit 0 ;;
+  p109) $1 429 1 580 973 847 1965 1 139 914 1 0 1 | diff outputP/O109 - && exit 0 ;;
+  p110) $1 533 1 867 962 562 7156 0 684 560 0 0 1 | diff outputP/O110 - && exit 0 ;;
+  p111) $1 13 1 631 604 310 1903 2 938 364 1 0 0 | diff outputP/O111 - && exit 0 ;;
+  p112) $1 251 1 553 916 426 3794 3 320 91 0 1 0 | diff outputP/O112 - && exit 0 ;;
+  p113) $1 78 1 311 214 162 8050 2 716 58 1 1 1 | diff outputP/O113 - && exit 0 ;;
+  p114) $1 516 1 839 240 783 3498 3 718 442 0 1 1 | diff outputP/O114 - && exit 0 ;;
+  p115) $1 64 0 188 572 392 2368 2 234 794 1 1 0 | diff outputP/O115 - && exit 0 ;;
+  p116) $1 527 1 449 453 972 827 3 46 357 0 0 1 | diff outputP/O116 - && exit 0 ;;
+  p117) $1 645 1 286 5 208 1681 0 223 632 0 1 0 | diff outputP/O117 - && exit 0 ;;
+  n1) $1 610 1 526 589 301 2128 0 619 364 1 0 1 | diff outputF/O1 - && exit 0 ;;
+  s) # single-valued fitness 
+let fit=0
+  $1 534 1 729 95 579 3489 3 487 697 0 1 0 | diff outputP/O1 - && let fit=$fit+1
+  $1 675 0 798 221 762 1991 1 281 470 0 1 0 | diff outputP/O2 - && let fit=$fit+1
+  $1 900 1 869 498 831 3607 1 558 946 1 1 1 | diff outputP/O3 - && let fit=$fit+1
+  $1 61 0 198 387 993 8535 2 825 823 0 1 0 | diff outputP/O4 - && let fit=$fit+1
+  $1 912 1 889 995 915 6096 0 770 576 1 0 1 | diff outputP/O5 - && let fit=$fit+1
+  $1 7 0 803 65 477 7162 3 429 329 0 0 0 | diff outputP/O6 - && let fit=$fit+1
+  $1 962 0 982 348 976 2434 1 697 446 1 1 1 | diff outputP/O7 - && let fit=$fit+1
+  $1 10 0 185 434 902 5786 1 299 342 0 1 0 | diff outputP/O8 - && let fit=$fit+1
+  $1 691 1 207 272 616 895 2 278 110 1 0 1 | diff outputP/O9 - && let fit=$fit+1
+  $1 556 0 610 415 230 140 0 104 516 0 0 1 | diff outputP/O10 - && let fit=$fit+1
+  $1 894 1 503 735 193 1254 0 784 953 1 1 1 | diff outputP/O11 - && let fit=$fit+1
+  $1 731 0 473 850 104 3288 2 414 685 1 0 0 | diff outputP/O12 - && let fit=$fit+1
+  $1 917 0 118 560 576 394 2 153 901 0 1 0 | diff outputP/O13 - && let fit=$fit+1
+  $1 995 1 791 227 709 9814 3 799 493 1 1 1 | diff outputP/O14 - && let fit=$fit+1
+  $1 831 1 182 278 725 9341 2 921 368 0 1 0 | diff outputP/O15 - && let fit=$fit+1
+  $1 568 0 236 857 731 9247 2 863 180 1 0 1 | diff outputP/O16 - && let fit=$fit+1
+  $1 383 1 598 75 246 4429 3 906 938 0 0 1 | diff outputP/O17 - && let fit=$fit+1
+  $1 854 0 327 330 251 4140 3 423 740 1 0 0 | diff outputP/O18 - && let fit=$fit+1
+  $1 319 1 15 796 876 9280 2 8 104 1 1 0 | diff outputP/O19 - && let fit=$fit+1
+  $1 617 1 681 377 622 742 2 326 884 0 1 1 | diff outputP/O20 - && let fit=$fit+1
+  $1 899 1 885 249 97 6771 1 725 635 1 1 1 | diff outputP/O21 - && let fit=$fit+1
+  $1 849 1 444 485 682 2685 2 634 522 1 0 0 | diff outputP/O22 - && let fit=$fit+1
+  $1 671 0 871 283 334 2673 0 248 408 0 1 1 | diff outputP/O23 - && let fit=$fit+1
+  $1 532 0 305 871 857 617 3 151 702 0 0 0 | diff outputP/O24 - && let fit=$fit+1
+  $1 837 1 121 372 426 5143 1 230 754 1 0 1 | diff outputP/O25 - && let fit=$fit+1
+  $1 754 1 722 669 991 3220 0 527 212 0 0 1 | diff outputP/O26 - && let fit=$fit+1
+  $1 781 0 166 683 322 6742 3 597 678 0 1 0 | diff outputP/O27 - && let fit=$fit+1
+  $1 854 1 241 441 961 7527 1 420 291 1 0 0 | diff outputP/O28 - && let fit=$fit+1
+  $1 582 1 452 865 208 8161 2 993 487 0 1 0 | diff outputP/O29 - && let fit=$fit+1
+  $1 572 1 57 360 425 8980 2 443 148 1 0 1 | diff outputP/O30 - && let fit=$fit+1
+  $1 592 0 774 31 512 5346 2 724 687 0 0 1 | diff outputP/O31 - && let fit=$fit+1
+  $1 384 1 198 678 254 4154 0 883 243 0 0 1 | diff outputP/O32 - && let fit=$fit+1
+  $1 395 1 112 674 473 4178 3 304 197 1 0 0 | diff outputP/O33 - && let fit=$fit+1
+  $1 479 0 963 329 485 1579 1 412 524 1 0 1 | diff outputP/O34 - && let fit=$fit+1
+  $1 727 0 651 483 246 9414 1 961 220 0 0 1 | diff outputP/O35 - && let fit=$fit+1
+  $1 82 0 512 770 869 8583 2 283 65 1 1 1 | diff outputP/O36 - && let fit=$fit+1
+  $1 184 1 970 304 723 7047 2 697 331 0 0 0 | diff outputP/O37 - && let fit=$fit+1
+  $1 60 0 732 432 333 4599 2 726 820 1 0 1 | diff outputP/O38 - && let fit=$fit+1
+  $1 779 0 688 718 528 1784 0 774 622 1 1 0 | diff outputP/O39 - && let fit=$fit+1
+  $1 17 0 780 358 933 3847 0 548 428 0 0 1 | diff outputP/O40 - && let fit=$fit+1
+  $1 691 1 57 969 884 3799 3 723 971 1 0 0 | diff outputP/O41 - && let fit=$fit+1
+  $1 332 1 929 912 120 2839 3 136 267 1 1 1 | diff outputP/O42 - && let fit=$fit+1
+  $1 762 0 282 223 303 1466 3 224 752 0 0 0 | diff outputP/O43 - && let fit=$fit+1
+  $1 831 0 602 649 400 628 1 373 220 0 1 1 | diff outputP/O44 - && let fit=$fit+1
+  $1 581 0 564 384 293 9232 3 483 570 0 1 1 | diff outputP/O45 - && let fit=$fit+1
+  $1 46 1 747 700 705 2226 1 181 841 1 0 1 | diff outputP/O46 - && let fit=$fit+1
+  $1 220 0 135 957 531 2315 0 938 848 1 1 0 | diff outputP/O47 - && let fit=$fit+1
+  $1 257 0 915 286 50 8133 3 673 868 0 1 0 | diff outputP/O48 - && let fit=$fit+1
+  $1 947 0 806 676 218 2418 2 416 327 0 0 1 | diff outputP/O49 - && let fit=$fit+1
+  $1 776 1 702 217 305 5393 1 149 299 1 1 0 | diff outputP/O50 - && let fit=$fit+1
+  $1 500 1 768 890 533 1116 3 87 810 1 0 1 | diff outputP/O51 - && let fit=$fit+1
+  $1 158 0 425 466 148 8123 3 415 454 0 1 1 | diff outputP/O52 - && let fit=$fit+1
+  $1 725 1 674 928 420 122 3 830 735 1 1 0 | diff outputP/O53 - && let fit=$fit+1
+  $1 298 1 177 193 538 7921 0 157 749 1 1 0 | diff outputP/O54 - && let fit=$fit+1
+  $1 683 1 264 926 130 86 1 858 380 1 0 1 | diff outputP/O55 - && let fit=$fit+1
+  $1 613 1 642 814 259 7114 1 339 113 1 1 0 | diff outputP/O56 - && let fit=$fit+1
+  $1 515 0 38 852 237 2131 2 703 789 1 0 1 | diff outputP/O57 - && let fit=$fit+1
+  $1 750 0 316 972 387 243 2 875 252 0 1 1 | diff outputP/O58 - && let fit=$fit+1
+  $1 673 1 734 700 63 8787 2 941 743 1 1 1 | diff outputP/O59 - && let fit=$fit+1
+  $1 530 1 6 514 727 1740 0 41 216 1 0 0 | diff outputP/O60 - && let fit=$fit+1
+  $1 314 1 644 92 719 3507 3 224 342 0 0 1 | diff outputP/O61 - && let fit=$fit+1
+  $1 73 1 763 835 569 213 2 362 959 1 1 1 | diff outputP/O62 - && let fit=$fit+1
+  $1 950 0 1 759 207 458 0 513 32 0 1 1 | diff outputP/O63 - && let fit=$fit+1
+  $1 296 0 614 189 315 2275 0 953 843 1 1 0 | diff outputP/O64 - && let fit=$fit+1
+  $1 664 1 971 649 287 8742 1 593 139 0 0 1 | diff outputP/O65 - && let fit=$fit+1
+  $1 248 0 750 823 817 1341 0 546 292 0 1 0 | diff outputP/O66 - && let fit=$fit+1
+  $1 482 1 7 617 54 7756 0 229 248 0 0 1 | diff outputP/O67 - && let fit=$fit+1
+  $1 965 1 43 41 498 9328 0 686 34 1 0 0 | diff outputP/O68 - && let fit=$fit+1
+  $1 704 0 562 948 428 2838 0 581 994 0 0 1 | diff outputP/O69 - && let fit=$fit+1
+  $1 808 0 34 557 569 1689 2 820 645 0 0 0 | diff outputP/O70 - && let fit=$fit+1
+  $1 294 1 450 190 999 2914 2 714 85 0 0 0 | diff outputP/O71 - && let fit=$fit+1
+  $1 476 0 775 735 929 8697 1 263 327 1 0 1 | diff outputP/O72 - && let fit=$fit+1
+  $1 630 0 333 18 935 4293 1 330 642 0 0 1 | diff outputP/O73 - && let fit=$fit+1
+  $1 140 1 175 574 569 8432 0 278 134 0 1 0 | diff outputP/O74 - && let fit=$fit+1
+  $1 203 0 133 117 898 7314 3 60 169 0 1 1 | diff outputP/O75 - && let fit=$fit+1
+  $1 412 0 712 549 550 9382 1 729 86 1 0 1 | diff outputP/O76 - && let fit=$fit+1
+  $1 78 0 346 316 168 5007 3 924 738 0 1 1 | diff outputP/O77 - && let fit=$fit+1
+  $1 73 1 674 656 881 3088 0 73 875 1 1 0 | diff outputP/O78 - && let fit=$fit+1
+  $1 208 0 545 447 418 5466 1 830 203 0 1 0 | diff outputP/O79 - && let fit=$fit+1
+  $1 790 1 297 269 875 9776 3 631 109 0 1 1 | diff outputP/O80 - && let fit=$fit+1
+  $1 901 1 568 667 858 2095 3 197 527 0 0 0 | diff outputP/O81 - && let fit=$fit+1
+  $1 246 1 446 670 805 2399 2 405 298 1 0 0 | diff outputP/O82 - && let fit=$fit+1
+  $1 42 1 160 215 669 8417 1 65 531 0 0 1 | diff outputP/O83 - && let fit=$fit+1
+  $1 390 0 725 344 928 7006 2 891 23 1 0 0 | diff outputP/O84 - && let fit=$fit+1
+  $1 867 0 85 843 951 6625 1 308 667 1 0 0 | diff outputP/O85 - && let fit=$fit+1
+  $1 767 1 148 410 214 9893 2 642 999 0 1 0 | diff outputP/O86 - && let fit=$fit+1
+  $1 386 0 955 395 623 1555 1 787 600 1 0 0 | diff outputP/O87 - && let fit=$fit+1
+  $1 111 0 760 786 341 4444 2 547 965 0 0 0 | diff outputP/O88 - && let fit=$fit+1
+  $1 763 0 305 265 974 4256 3 563 716 1 1 1 | diff outputP/O89 - && let fit=$fit+1
+  $1 657 1 851 939 792 3098 2 62 623 0 1 1 | diff outputP/O90 - && let fit=$fit+1
+  $1 239 1 661 726 818 1843 0 519 841 1 0 0 | diff outputP/O91 - && let fit=$fit+1
+  $1 874 1 638 336 115 2383 3 875 46 0 1 0 | diff outputP/O92 - && let fit=$fit+1
+  $1 410 1 625 336 448 2804 3 994 777 0 1 1 | diff outputP/O93 - && let fit=$fit+1
+  $1 569 0 563 942 686 1423 3 731 285 1 0 0 | diff outputP/O94 - && let fit=$fit+1
+  $1 951 0 227 928 845 9457 1 296 457 1 0 1 | diff outputP/O95 - && let fit=$fit+1
+  $1 550 0 584 375 536 6876 3 398 100 0 1 0 | diff outputP/O96 - && let fit=$fit+1
+  $1 90 0 70 901 830 1711 1 187 806 0 1 0 | diff outputP/O97 - && let fit=$fit+1
+  $1 310 0 101 575 71 9706 2 10 26 1 1 0 | diff outputP/O98 - && let fit=$fit+1
+  $1 420 0 12 786 123 8843 0 694 623 0 1 1 | diff outputP/O99 - && let fit=$fit+1
+  $1 428 0 408 90 759 1740 2 261 223 0 1 1 | diff outputP/O100 - && let fit=$fit+1
+  $1 876 1 412 340 493 8435 3 872 72 0 0 1 | diff outputP/O101 - && let fit=$fit+1
+  $1 631 0 798 328 116 2423 0 183 803 1 1 1 | diff outputP/O102 - && let fit=$fit+1
+  $1 937 0 196 619 459 4186 0 346 590 1 0 0 | diff outputP/O103 - && let fit=$fit+1
+  $1 721 1 714 398 544 8718 3 492 591 0 0 1 | diff outputP/O104 - && let fit=$fit+1
+  $1 385 0 252 786 239 6750 0 760 293 0 1 1 | diff outputP/O105 - && let fit=$fit+1
+  $1 813 1 580 378 872 3560 2 724 513 0 0 0 | diff outputP/O106 - && let fit=$fit+1
+  $1 206 1 918 623 889 4296 2 478 211 0 0 0 | diff outputP/O107 - && let fit=$fit+1
+  $1 595 0 200 122 655 815 2 647 67 1 0 1 | diff outputP/O108 - && let fit=$fit+1
+  $1 429 1 580 973 847 1965 1 139 914 1 0 1 | diff outputP/O109 - && let fit=$fit+1
+  $1 533 1 867 962 562 7156 0 684 560 0 0 1 | diff outputP/O110 - && let fit=$fit+1
+  $1 13 1 631 604 310 1903 2 938 364 1 0 0 | diff outputP/O111 - && let fit=$fit+1
+  $1 251 1 553 916 426 3794 3 320 91 0 1 0 | diff outputP/O112 - && let fit=$fit+1
+  $1 78 1 311 214 162 8050 2 716 58 1 1 1 | diff outputP/O113 - && let fit=$fit+1
+  $1 516 1 839 240 783 3498 3 718 442 0 1 1 | diff outputP/O114 - && let fit=$fit+1
+  $1 64 0 188 572 392 2368 2 234 794 1 1 0 | diff outputP/O115 - && let fit=$fit+1
+  $1 527 1 449 453 972 827 3 46 357 0 0 1 | diff outputP/O116 - && let fit=$fit+1
+  $1 645 1 286 5 208 1681 0 223 632 0 1 0 | diff outputP/O117 - && let fit=$fit+1
+  $1 610 1 526 589 301 2128 0 619 364 1 0 1 | diff outputF/O1 - && let fit=$fit+1
+  let passed_all_so_stop_search="$fit >=118 "
+  echo $fit > $5
+  if [ $passed_all_so_stop_search -eq 1 ] ; then 
+    exit 0 
+  else
+    exit 1
+  fi;;
+esac
+exit 1

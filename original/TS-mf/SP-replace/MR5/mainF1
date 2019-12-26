@@ -1,0 +1,84 @@
+//all matched: ss
+int main()
+{
+   char argv1[3];
+   char argv2[2];
+   char argv3[3];
+   char rr[1000];
+   klee_make_symbolic(&argv1,sizeof(argv1),"argv1");
+   klee_make_symbolic(&argv2,sizeof(argv2),"argv2");
+   klee_make_symbolic(&argv3,sizeof(argv3),"argv3");
+
+    //ts.pat=c1
+    klee_assume(argv1[0]>0 & argv1[0]<128 & argv1[0]!='%' & argv1[0]!='$' & argv1[0]!=']' & argv1[0]!='[' & argv1[0]!='^' & argv1[0]!='-');
+    klee_assume(argv1[1]=='\0');
+    //ts.substitution=s
+    klee_assume(argv2[0]>='0' & argv2[0]<='9');
+    klee_assume(argv2[1]=='\0');
+    //ts.text=a1a2
+    klee_assume(argv3[0]>0 & argv3[0]<128 & argv3[0]!='$' & argv3[0]!='[');
+    klee_assume(argv3[1]>0 & argv3[1]<128);
+    klee_assume(argv3[2]=='\0');
+///////////////////////////////////////////////////////////////////////////
+   char f1[5];
+   char f3[7];
+   if(argv1[0]=='@')
+   {
+    f1[0]=argv1[0];
+    f1[1]=argv3[0];
+    f1[2]=argv1[1];
+
+    f3[0]=argv3[0];
+    f3[1]=argv3[1];
+    f3[2]=argv3[2];
+   }
+   else
+   {
+    if(argv3[0]=='@') //c1 @x => c1x@ @x@xx@
+    {
+      if(argv3[1]=='@')
+      {
+         f1[0]=argv1[0];
+         f1[1]=argv3[1];
+         f1[2]=argv3[0];
+         f1[3]=argv3[0];
+         f1[4]=argv1[1];
+      }
+      else
+      {
+        f1[0]=argv1[0];
+        f1[1]=argv3[1];
+        f1[2]=argv3[0];
+        f1[3]=argv1[1];
+      }
+      f3[0]=argv3[0];
+      f3[1]=argv3[1];
+      f3[2]=argv3[0];
+      f3[3]=argv3[1];
+      f3[4]=argv3[1];
+      f3[5]=argv3[0];
+      f3[6]=argv3[2];
+    }
+    else
+    {
+      f1[0]=argv1[0];
+      f1[1]=argv3[0];
+      f1[2]=argv3[1];
+      f1[3]=argv1[1];
+
+      f3[0]=argv3[0];
+      f3[1]=argv3[0];
+      f3[2]=argv3[1];
+      f3[3]=argv3[1];
+      f3[4]=argv3[0];
+      f3[5]=argv3[1];
+      f3[6]=argv3[2];
+    }
+   }
+   
+//////////////////////////////////////////////////////////////////////////////////////
+   mainQ(f1,argv2,f3,rr);
+   klee_print_expr("rr=",rr);
+   
+   return 0;
+}

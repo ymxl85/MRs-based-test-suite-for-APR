@@ -1,0 +1,29 @@
+__tmpInt8  : BITVECTOR(8);
+__tmpInt16  : BITVECTOR(16);
+__tmpInt32  : BITVECTOR(32);
+__tmpInt64  : BITVECTOR(64);
+argv1_0x9fa9ee8  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+argv2_0x9fc25f8  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+argv3_0xa0241a0  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+%----------------------------------------------------
+ASSERT( (0x00 = argv1_0x9fa9ee8[0x00000001]
+) );
+ASSERT( BVLT(BVPLUS(8, 
+0xD0, 
+argv2_0x9fc25f8[0x00000000])
+,0x0A)
+ );
+ASSERT( (0x00 = argv2_0x9fc25f8[0x00000001]
+) );
+ASSERT( SBVLT(0x00,argv3_0xa0241a0[0x00000001])
+ );
+ASSERT( (0x00 = argv3_0xa0241a0[0x00000002]
+) );
+ASSERT( (0x40 = argv1_0x9fa9ee8[0x00000000]
+) );
+ASSERT( (0x6E = argv3_0xa0241a0[0x00000000]
+) );
+ASSERT( ( NOT( (0x0A = argv3_0xa0241a0[0x00000001]
+))) );
+%----------------------------------------------------
+QUERY( FALSE  );

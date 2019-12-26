@@ -1,0 +1,541 @@
+        -:    0:Source:m10.c
+        -:    0:Graph:m10.gcno
+        -:    0:Data:m10.gcda
+        -:    0:Runs:48
+        -:    0:Programs:1
+        -:    1:
+        -:    2:/* $Log: schedule.c,v $
+        -:    3: * Revision 1.4  1993/05/04  12:23:58  foster
+        -:    4: * Debug stuff removed
+        -:    5: *
+        -:    6: * Revision 1.3  1993/05/03  20:27:04  foster
+        -:    7: * Full Functionality
+        -:    8: *
+        -:    9: * Revision 1.2  1993/05/03  15:41:01  foster
+        -:   10: * Restructure functions
+        -:   11: *
+        -:   12: * Revision 1.1  1993/05/01  11:38:04  foster
+        -:   13: * Initial revision
+        -:   14: * */
+        -:   15:
+        -:   16:#include <stdio.h>
+        -:   17:#include "schedule2.h"
+        -:   18:#include "processor.h"
+        -:   19:
+        -:   20:extern float getOperand(char * str);
+        -:   21:
+        -:   22:extern void getAdata(char * str,int *pos, char * s);
+        -:   23:
+        -:   24:static struct process * current_job;
+        -:   25:static int next_pid = 0;
+        -:   26:
+        -:   27:int
+function enqueue called 169 returned 100% blocks executed 100%
+      169:   28:enqueue(prio, new_process)
+        -:   29:     int prio;
+        -:   30:     struct process *new_process;
+        -:   31:{
+        -:   32:    int status;
+      169:   33:    put_end(prio, new_process); /* removed status code */
+call    0 returned 100%
+        -:   34:    //if(status = put_end(prio, new_process)) 
+        -:   35:   //   return(status); /* Error */ fautl missing code
+      169:   36:    return(reschedule(prio));
+call    0 returned 100%
+        -:   37:}
+        -:   38:
+        -:   39:struct queue
+        -:   40:{
+        -:   41:    int length;
+        -:   42:    struct process *head;
+        -:   43:};
+        -:   44:
+        -:   45:static struct queue prio_queue[MAXPRIO + 1]; /* blocked queue is [0] */
+        -:   46:
+        -:   47:
+        -:   48://-----------------------------------------------------------------
+        -:   49:
+        -:   50:		
+        -:   51:
+function mainQ called 48 returned 100% blocks executed 83%
+       48:   52:char *mainQ(char *argv) /* n3, n2, n1 : # of processes at prio3 ... */
+        -:   53:{
+        -:   54:    int command, prio;
+        -:   55:    float ratio;
+        -:   56:    int nprocs, status, pid;
+        -:   57:    struct process *process;
+        -:   58:    static char r[2000]=""; 
+       48:   59:    char value[10]="";
+        -:   60:    int a3,a2,a1;
+       48:   61:    int pos=0;
+        -:   62:    //--------------------------------------------------------------------
+       48:   63:    getAdata(argv,&pos,value);
+call    0 returned 100%
+       48:   64:    a3=atoi(value);
+call    0 returned 100%
+       48:   65:    getAdata(argv,&pos,value);
+call    0 returned 100%
+       48:   66:    a2=atoi(value);
+call    0 returned 100%
+       48:   67:    getAdata(argv,&pos,value);
+call    0 returned 100%
+       48:   68:    a1=atoi(value);
+call    0 returned 100%
+        -:   69:
+       48:   70:        prio=3;
+       48:   71:	if(a3 < 0) exit_here(BADARG);
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+call    2 never executed
+      115:   72:	for(; a3 > 0; a3--)
+branch  0 taken 58%
+branch  1 taken 42% (fallthrough)
+        -:   73:	{
+       67:   74:	    if(status = new_job(prio)) exit_here(status);
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+call    3 never executed
+        -:   75:	}
+       48:   76:        prio=2;
+       48:   77:	if(a2 < 0) exit_here(BADARG);
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+call    2 never executed
+       85:   78:	for(; a2 > 0; a2--)
+branch  0 taken 44%
+branch  1 taken 56% (fallthrough)
+        -:   79:	{
+       37:   80:	    if(status = new_job(prio)) exit_here(status);
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+call    3 never executed
+        -:   81:	}
+       48:   82:        prio=1;
+       48:   83:	if(a1 < 0) exit_here(BADARG);
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+call    2 never executed
+       84:   84:	for(; a1 > 0; a1--)
+branch  0 taken 43%
+branch  1 taken 57% (fallthrough)
+        -:   85:	{
+       36:   86:	    if(status = new_job(prio)) exit_here(status);
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+call    3 never executed
+        -:   87:	}
+       48:   88:        while(argv[pos]!='\0' && argv[pos]!='\n'){ (pos)++;}
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 0%
+branch  3 taken 100% (fallthrough)
+       48:   89:        if(argv[pos]=='\n') (pos)++;
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        -:   90:    //----------------------------------------------------------------
+        -:   91:    /* while there are commands, schedule it */
+      201:   92:    while((status = get_command(&command, &prio, &ratio,argv,&pos)) > 0)
+call    0 returned 100%
+branch  1 taken 69%
+branch  2 taken 31% (fallthrough)
+        -:   93:    {
+      105:   94:	schedule(command, prio, ratio,r);
+call    0 returned 100%
+        -:   95:    }
+        -:   96:
+       48:   97:    return r;
+        -:   98:    if(status < 0) {exit_here(status);} /* Real bad error */
+        -:   99:    exit_here(OK);
+        -:  100:
+        -:  101:    
+        -:  102:}
+function main called 48 returned 100% blocks executed 100%
+       48:  103:main(argc, argv)
+        -:  104:int argc;
+        -:  105:char *argv[];
+        -:  106:{
+       48:  107:      fprintf(stdout,"%s",mainQ(argv[1]));
+call    0 returned 100%
+call    1 returned 100%
+       48:  108:}
+        -:  109://--------------------------------------------------------------------------------
+        -:  110:int 
+function get_command called 153 returned 100% blocks executed 100%
+      153:  111:get_command(int *command, int *prio, float *ratio,char *argv,int *pos)
+        -:  112:{
+      153:  113:    int status = OK;
+      153:  114:    char value[10]="";
+        -:  115:
+        -:  116:    char buf[CMDSIZE];
+        -:  117:    //if(fgets(buf, CMDSIZE, stdin))
+      153:  118:    if(argv[*pos]!='\0')
+branch  0 taken 69% (fallthrough)
+branch  1 taken 31%
+        -:  119:    {
+      105:  120:	*prio = *command = -1; *ratio =-1.0;
+        -:  121:	//sscanf(buf, "%d", command);
+      105:  122:        getAdata(argv,pos,value);
+call    0 returned 100%
+      105:  123:        *command=atoi(value);
+call    0 returned 100%
+      105:  124:	switch(*command)
+branch  0 taken 11%
+branch  1 taken 32%
+branch  2 taken 30%
+branch  3 taken 27%
+        -:  125:	{
+        -:  126:	  case NEW_JOB :
+        -:  127:	    //sscanf(buf, "%*s%d", prio);
+       12:  128:            getAdata(argv,pos,value);
+call    0 returned 100%
+       12:  129:            *prio=atoi(value);
+call    0 returned 100%
+       12:  130:	    break;
+        -:  131:	  case UNBLOCK :
+        -:  132:	    //sscanf(buf, "%*s%f", ratio);
+       34:  133:            getAdata(argv,pos,value);
+call    0 returned 100%
+       34:  134:            *ratio=(float)(getOperand(value));
+call    0 returned 100%
+       34:  135:	    break;
+        -:  136:	  case UPGRADE_PRIO :
+       31:  137:            getAdata(argv,pos,value);
+call    0 returned 100%
+       31:  138:            *prio=atoi(value);
+call    0 returned 100%
+       31:  139:            getAdata(argv,pos,value);
+call    0 returned 100%
+       31:  140:            *ratio=(float)(getOperand(value));
+call    0 returned 100%
+        -:  141:	    //sscanf(buf, "%*s%d%f", prio, ratio);
+        -:  142:	    break;
+        -:  143:	}
+        -:  144:	 /* Find end of  line of input if no EOF */
+        -:  145:	//while(buf[strlen(buf)-1] != '\n' && fgets(buf, CMDSIZE, stdin));
+      105:  146:        while(argv[*pos]!='\0' && argv[*pos]!='\n'){ (*pos)++;}
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 53%
+branch  3 taken 47% (fallthrough)
+      105:  147:        if(argv[*pos]=='\n') (*pos)++;
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+      105:  148:	return(TRUE);
+        -:  149:    }
+       48:  150:    else return(FALSE);
+        -:  151:}
+        -:  152:
+function exit_here called 0 returned 0% blocks executed 0%
+    #####:  153:exit_here(status)
+        -:  154:     int status;
+        -:  155:{
+    #####:  156:    exit(abs(status));
+call    0 never executed
+        -:  157:}
+        -:  158:
+        -:  159:
+        -:  160:int 
+function new_job called 152 returned 100% blocks executed 63%
+      152:  161:new_job(prio) /* allocate new pid and process block. Stick at end */
+        -:  162:     int prio;
+        -:  163:{
+      152:  164:    int pid, status = OK;
+        -:  165:    struct process *new_process;
+      152:  166:    pid = next_pid++;
+      152:  167:    new_process = (struct process *) malloc(sizeof(struct process));
+      152:  168:    if(!new_process) status = MALLOC_ERR;
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+        -:  169:    else
+        -:  170:    {
+      152:  171:	new_process->pid = pid;
+      152:  172:	new_process->priority = prio;
+      152:  173:	new_process->next = (struct process *) 0;
+      152:  174:	status = enqueue(prio, new_process);
+call    0 returned 100%
+      152:  175:	if(status)
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+        -:  176:	{
+    #####:  177:	    free(new_process); /* Return process block */
+        -:  178:	}
+        -:  179:    }
+      152:  180:    if(status) next_pid--; /* Unsuccess. Restore pid */
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+      152:  181:    return(status);
+        -:  182:}
+        -:  183:
+function upgrade_prio called 31 returned 100% blocks executed 100%
+       31:  184:int upgrade_prio(prio, ratio) /* increment priority at ratio in queue */
+        -:  185:     int prio;
+        -:  186:     float ratio;
+        -:  187:{
+        -:  188:    int status;
+        -:  189:    struct process * job;
+       31:  190:    if(prio < 1 || prio > MAXLOPRIO) return(BADPRIO);
+branch  0 taken 26% (fallthrough)
+branch  1 taken 74%
+branch  2 taken 75% (fallthrough)
+branch  3 taken 25%
+        2:  191:    if((status = get_process(prio, ratio, &job)) <= 0) return(status);
+call    0 returned 100%
+branch  1 taken 50% (fallthrough)
+branch  2 taken 50%
+        -:  192:    /* We found a job in that queue. Upgrade it */
+        1:  193:    job->priority = prio + 1;
+        1:  194:    return(enqueue(prio + 1, job));
+call    0 returned 100%
+        -:  195:}
+        -:  196:
+        -:  197:int
+function block called 9 returned 100% blocks executed 100%
+        9:  198:block() /* Put current job in blocked queue */
+        -:  199:{
+        -:  200:    struct process * job;
+        9:  201:    job = get_current();
+call    0 returned 100%
+        9:  202:    if(job)
+branch  0 taken 78% (fallthrough)
+branch  1 taken 22%
+        -:  203:    {
+        7:  204:	current_job = (struct process *)0; /* remove it */
+        7:  205:	return(enqueue(BLOCKPRIO, job)); /* put into blocked queue */
+call    0 returned 100%
+        -:  206:    }
+        2:  207:    return(OK);
+        -:  208:}
+        -:  209:
+        -:  210:int
+function unblock called 34 returned 100% blocks executed 100%
+       34:  211:unblock(ratio) /* Restore job @ ratio in blocked queue to its queue */
+        -:  212:     float ratio;
+        -:  213:{
+        -:  214:    int status;
+        -:  215:    struct process * job;
+       34:  216:    if((status = get_process(BLOCKPRIO, ratio, &job)) <= 0) return(status);
+call    0 returned 100%
+branch  1 taken 82% (fallthrough)
+branch  2 taken 18%
+        -:  217:    /* We found a blocked process. Put it where it belongs. */
+        6:  218:    return(enqueue(job->priority, job));
+call    0 returned 100%
+        -:  219:}
+        -:  220:
+        -:  221:int
+function quantum_expire called 5 returned 100% blocks executed 100%
+        5:  222:quantum_expire() /* put current job at end of its queue */
+        -:  223:{
+        -:  224:    struct process * job;
+        5:  225:    job = get_current();
+call    0 returned 100%
+        5:  226:    if(job)
+branch  0 taken 60% (fallthrough)
+branch  1 taken 40%
+        -:  227:    {
+        3:  228:	current_job = (struct process *)0; /* remove it */
+        3:  229:	return(enqueue(job->priority, job));
+call    0 returned 100%
+        -:  230:    }
+        2:  231:    return(OK);
+        -:  232:}
+        -:  233:
+        -:  234:int
+function finish called 25 returned 100% blocks executed 100%
+       25:  235:finish(char *r) /* Get current job, print it, and zap it. */
+        -:  236:{
+        -:  237:    struct process * job;
+       25:  238:    char s[10]="";
+       25:  239:    job = get_current();
+call    0 returned 100%
+       25:  240:    if(job)
+branch  0 taken 44% (fallthrough)
+branch  1 taken 56%
+        -:  241:    {
+       11:  242:	current_job = (struct process *)0;
+       11:  243:	reschedule(0);
+call    0 returned 100%
+        -:  244:	//fprintf(stdout, " %d", job->pid);
+       11:  245:        snprintf(s,10,"%d",job->pid);
+       11:  246:        strcat(r," ");
+       11:  247:        strcat(r,s);
+       11:  248:	free(job);
+       11:  249:	return(FALSE);
+        -:  250:    }
+       14:  251:    else return(TRUE);
+        -:  252:}
+        -:  253:
+        -:  254:int
+function flush called 12 returned 100% blocks executed 100%
+       23:  255:flush(char *r) /* Get all jobs in priority queues & zap them */
+        -:  256:{
+       23:  257:    while(!finish(r));
+call    0 returned 100%
+branch  1 taken 48%
+branch  2 taken 52% (fallthrough)
+        -:  258:    //fprintf(stdout, "\n");
+        -:  259:    //strcat(r,"\n");
+       12:  260:    return(OK);
+        -:  261:}
+        -:  262:
+        -:  263:struct process * 
+function get_current called 219 returned 100% blocks executed 100%
+      219:  264:get_current() /* If no current process, get it. Return it */
+        -:  265:{
+        -:  266:    int prio;
+      219:  267:    if(!current_job)
+branch  0 taken 34% (fallthrough)
+branch  1 taken 66%
+        -:  268:    {
+      195:  269:	for(prio = MAXPRIO; prio > 0; prio--)
+branch  0 taken 84%
+branch  1 taken 16% (fallthrough)
+        -:  270:	{ /* find head of highest queue with a process */
+      163:  271:	    if(get_process(prio, 0.0, &current_job) > 0) break;
+call    0 returned 100%
+branch  1 taken 26% (fallthrough)
+branch  2 taken 74%
+        -:  272:	}
+        -:  273:    }
+      219:  274:    return(current_job);
+        -:  275:}
+        -:  276:
+        -:  277:int
+function reschedule called 180 returned 100% blocks executed 100%
+      180:  278:reschedule(prio) /* Put highest priority job into current_job */
+        -:  279:     int prio;
+        -:  280:{
+      180:  281:    if(current_job && prio > current_job->priority)
+branch  0 taken 71% (fallthrough)
+branch  1 taken 29%
+branch  2 taken 2% (fallthrough)
+branch  3 taken 98%
+        -:  282:    {
+        3:  283:	put_end(current_job->priority, current_job);
+call    0 returned 100%
+        3:  284:	current_job = (struct process *)0;
+        -:  285:    }
+      180:  286:    get_current(); /* Reschedule */
+call    0 returned 100%
+      180:  287:    return(OK);
+        -:  288:}
+        -:  289:
+function schedule called 105 returned 100% blocks executed 94%
+      105:  290:int schedule(int command, int prio, float ratio, char *r)
+        -:  291:{
+      105:  292:    int status = OK;
+      105:  293:    switch(command)
+branch  0 taken 11%
+branch  1 taken 5%
+branch  2 taken 30%
+branch  3 taken 9%
+branch  4 taken 32%
+branch  5 taken 2%
+branch  6 taken 11%
+branch  7 taken 0%
+        -:  294:    {
+        -:  295:      case NEW_JOB :
+       12:  296:        status = new_job(prio);
+call    0 returned 100%
+       12:  297:	break;
+        -:  298:      case QUANTUM_EXPIRE :
+        5:  299:        status = quantum_expire();
+call    0 returned 100%
+        5:  300:	break;
+        -:  301:      case UPGRADE_PRIO :
+       31:  302:        status = upgrade_prio(prio, ratio);
+call    0 returned 100%
+       31:  303:	break;
+        -:  304:      case BLOCK :
+        9:  305:        status = block();
+call    0 returned 100%
+        9:  306:	break;
+        -:  307:      case UNBLOCK :
+       34:  308:        status = unblock(ratio);
+call    0 returned 100%
+       34:  309:	break;
+        -:  310:      case FINISH :
+        2:  311:        finish(r);
+call    0 returned 100%
+        -:  312:	//fprintf(stdout, "\n");
+        -:  313:    //strcat(r,"\n");
+        2:  314:	break;
+        -:  315:      case FLUSH :
+       12:  316:        status = flush(r);
+call    0 returned 100%
+       12:  317:	break;
+        -:  318:      default:
+    #####:  319:	status = NO_COMMAND;
+        -:  320:    }
+      105:  321:    return(status);
+        -:  322:}
+        -:  323:
+        -:  324:
+        -:  325:
+        -:  326:
+        -:  327:int 
+function put_end called 172 returned 100% blocks executed 100%
+      172:  328:put_end(prio, process) /* Put process at end of queue */
+        -:  329:     int prio;
+        -:  330:     struct process *process;
+        -:  331:{
+        -:  332:    struct process **next;
+      172:  333:    if(prio > MAXPRIO || prio < 0) return(BADPRIO); /* Somebody goofed */
+branch  0 taken 98% (fallthrough)
+branch  1 taken 2%
+branch  2 taken 0% (fallthrough)
+branch  3 taken 100%
+        -:  334:     /* find end of queue */
+      168:  335:    for(next = &prio_queue[prio].head; *next; next = &(*next)->next);
+branch  0 taken 69%
+branch  1 taken 31% (fallthrough)
+      168:  336:    *next = process;
+      168:  337:    prio_queue[prio].length++;
+      168:  338:    return(OK);
+        -:  339:}
+        -:  340:
+        -:  341:int 
+function get_process called 199 returned 100% blocks executed 82%
+      199:  342:get_process(prio, ratio, job)
+        -:  343:     int prio;
+        -:  344:     float ratio;
+        -:  345:     struct process ** job;
+        -:  346:{
+        -:  347:    int length, index;
+        -:  348:    struct process **next;
+      199:  349:    if(prio > MAXPRIO || prio < 0) return(BADPRIO); /* Somebody goofed */
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 0% (fallthrough)
+branch  3 taken 100%
+      199:  350:    if(ratio < 0.0 || ratio > 1.0) return(BADRATIO); /* Somebody else goofed */
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 0% (fallthrough)
+branch  3 taken 100%
+      199:  351:    length = prio_queue[prio].length;
+      199:  352:    index = ratio * length;
+      199:  353:    index = index >= length ? length -1 : index; /* If ratio == 1.0 */
+branch  0 taken 75% (fallthrough)
+branch  1 taken 25%
+      199:  354:    for(next = &prio_queue[prio].head; index && *next; index--)
+branch  0 taken 75% (fallthrough)
+branch  1 taken 25%
+branch  2 taken 0%
+branch  3 taken 100% (fallthrough)
+    #####:  355:        next = &(*next)->next; /* Count up to it */
+      199:  356:    *job = *next;
+      199:  357:    if(*job)
+branch  0 taken 25% (fallthrough)
+branch  1 taken 75%
+        -:  358:    {
+       49:  359:	*next = (*next)->next; /* Mend the chain */
+       49:  360:	(*job)->next = (struct process *) 0; /* break this link */
+       49:  361:	prio_queue[prio].length--;
+       49:  362:	return(TRUE);
+        -:  363:    }
+      150:  364:    else return(FALSE);
+        -:  365:}

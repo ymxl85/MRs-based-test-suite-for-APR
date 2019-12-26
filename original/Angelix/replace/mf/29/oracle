@@ -1,0 +1,99 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "?*" "d" "
+
+"
+      ;;
+    2)
+      test-replace  "?*" "a" "
+u"
+      ;;
+    3)
+      test-replace  "?*" "b" "
+
+"
+      ;;
+    4)
+      test-replace  "À*" "b" "
+
+"
+      ;;
+    5)
+      test-replace  "?Õ" "b" "
+
+"
+      ;;
+    6)
+      test-replace  "ÀÕ" "b" "
+
+"
+      ;;
+    7)
+      test-replace  "?*" "b" "
+u"
+      ;;
+    8)
+      test-replace  "À*" "b" "
+u"
+      ;;
+    9)
+      test-replace  "?Õ" "b" "
+u"
+      ;;
+    10)
+      test-replace  "ÀÕ" "b" "
+u"
+      ;;
+    11)
+      test-replace  "[^]*" "d" "
+
+"
+      ;;
+    12)
+      test-replace  "[^]*" "a" "
+u"
+      ;;
+    13)
+      test-replace  "[^]*" "b" "
+
+"
+      ;;
+    14)
+      test-replace  "[À]*" "b" "
+
+"
+      ;;
+    15)
+      test-replace  "[^]Õ" "b" "
+
+"
+      ;;
+    16)
+      test-replace  "[À]Õ" "b" "
+
+"
+      ;;
+    17)
+      test-replace  "[^]*" "b" "
+u"
+      ;;
+    18)
+      test-replace  "[À]*" "b" "
+u"
+      ;;
+    19)
+      test-replace  "[^]Õ" "b" "
+u"
+      ;;
+    20)
+      test-replace  "[À]Õ" "b" "
+u"
+      ;;
+esac

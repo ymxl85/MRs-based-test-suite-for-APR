@@ -1,0 +1,72 @@
+***************coverageTC/v7
+gcc -D_GNUCC -E -DCIL=1 coverageTC/v7/pt7.c -o coverageTC/v7/pt7.i
+coverageTC/v7/pt7.c:20:1: warning: "EOF" redefined
+In file included from /usr/include/stdio.h:75,
+                 from coverageTC/v7/pt7.c:14:
+/usr/include/libio.h:90:1: warning: this is the location of the previous definition
+/usr/local/bin/cilly.native --out coverageTC/v7/pt7.cil.c --noPrintLn --useLogicalOperators coverageTC/v7/pt7.i
+coverageTC/v7/pt7.c:276: Warning: Body of function print_token falls-through. Adding a return statement
+coverageTC/v7/pt7.c:417: Warning: Body of function unget_error falls-through. Adding a return statement
+gcc -D_GNUCC -E coverageTC/v7/pt7.cil.c -o coverageTC/v7/pt7.cil.i
+gcc -D_GNUCC -c -o coverageTC/v7/pt7.o coverageTC/v7/pt7.cil.i
+coverageTC/v7/pt7.cil.c: In function ‘get_token’:
+coverageTC/v7/pt7.cil.c:141: warning: passing argument 1 of ‘unget_error’ from incompatible pointer type
+coverageTC/v7/pt7.cil.c:29: note: expected ‘char **’ but argument is of type ‘token_stream’
+coverageTC/v7/pt7.cil.c:149: warning: passing argument 1 of ‘unget_error’ from incompatible pointer type
+coverageTC/v7/pt7.cil.c:29: note: expected ‘char **’ but argument is of type ‘token_stream’
+coverageTC/v7/pt7.cil.c:161: warning: passing argument 1 of ‘unget_error’ from incompatible pointer type
+coverageTC/v7/pt7.cil.c:29: note: expected ‘char **’ but argument is of type ‘token_stream’
+coverageTC/v7/pt7.cil.c: At top level:
+coverageTC/v7/pt7.cil.c:575: warning: conflicting types for built-in function ‘exit’
+gcc -D_GNUCC -o a.out coverageTC/v7/pt7.o
+$ cp coverageTC/v7/pt7.cil.i /tmp/CETI_85666d/pt7.cil.i
+Read tcs from 'coverageTC/v7/Outer.inputs' and 'coverageTC/v7/outputs/' for '/tmp/CETI_85666d/pt7.cil.i'
+input length='29' output length='29'
+|tcs|=29
+*** Get good/bad tcs ***
+cmd 'gcc /tmp/CETI_85666d/pt7.cil.i -o /tmp/CETI_85666d/pt7.cil.i.exe >& /dev/null'
+$ gcc /tmp/CETI_85666d/pt7.cil.i -o /tmp/CETI_85666d/pt7.cil.i.exe >& /dev/null
+Script /tmp/CETI_85666d/pt7.cil.i.sh
+#!/bin/bash
+mkdir /tmp/CETI_85666d/output
+($1 '\n' >> /tmp/CETI_85666d/output/O1) ;
+($1 '\n\n' >> /tmp/CETI_85666d/output/O2) ;
+($1 '"' >> /tmp/CETI_85666d/output/O3) ;
+($1 'w' >> /tmp/CETI_85666d/output/O4) ;
+($1 '9' >> /tmp/CETI_85666d/output/O5) ;
+($1 '#' >> /tmp/CETI_85666d/output/O6) ;
+($1 ';' >> /tmp/CETI_85666d/output/O7) ;
+($1 '"\xfd' >> /tmp/CETI_85666d/output/O8) ;
+($1 '""' >> /tmp/CETI_85666d/output/O9) ;
+($1 '"\n' >> /tmp/CETI_85666d/output/O10) ;
+($1 ';\xff' >> /tmp/CETI_85666d/output/O11) ;
+($1 '"\xfd"' >> /tmp/CETI_85666d/output/O12) ;
+($1 ';\xff\xff' >> /tmp/CETI_85666d/output/O13) ;
+($1 'xx' >> /tmp/CETI_85666d/output/O14) ;
+($1 'x_' >> /tmp/CETI_85666d/output/O15) ;
+($1 'x9' >> /tmp/CETI_85666d/output/O16) ;
+($1 '"""' >> /tmp/CETI_85666d/output/O17) ;
+($1 '97' >> /tmp/CETI_85666d/output/O18) ;
+($1 '"\n"' >> /tmp/CETI_85666d/output/O19) ;
+($1 '#{' >> /tmp/CETI_85666d/output/O20) ;
+($1 '#x' >> /tmp/CETI_85666d/output/O21) ;
+($1 '#\n' >> /tmp/CETI_85666d/output/O22) ;
+($1 '""w' >> /tmp/CETI_85666d/output/O23) ;
+($1 '""9' >> /tmp/CETI_85666d/output/O24) ;
+($1 ';\n;' >> /tmp/CETI_85666d/output/O25) ;
+($1 '""""' >> /tmp/CETI_85666d/output/O26) ;
+($1 '#;' >> /tmp/CETI_85666d/output/O27) ;
+($1 '#x\xd5' >> /tmp/CETI_85666d/output/O28) ;
+($1 '"\n#x' >> /tmp/CETI_85666d/output/O29) ;
+wait
+exit 0
+
+write_file_str: '/tmp/CETI_85666d/pt7.cil.i.sh'
+$ sh /tmp/CETI_85666d/pt7.cil.i.sh /tmp/CETI_85666d/pt7.cil.i.exe &> /dev/null
+[35mAlert: All tests passed. Exit!
+[mNote: temp files created in dir '/tmp/CETI_85666d'
+
+real	0m0.101s
+user	0m0.080s
+sys	0m0.020s
+/home/mingyue/experiments/ceti/printtoken2/coverageTC

@@ -1,0 +1,58 @@
+__tmpInt8  : BITVECTOR(8);
+__tmpInt16  : BITVECTOR(16);
+__tmpInt32  : BITVECTOR(32);
+__tmpInt64  : BITVECTOR(64);
+argv1_0xa597b20  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+const_arr1_0xa655298  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+%----------------------------------------------------
+ASSERT( ( NOT( (0x0A = argv1_0xa597b20[0x00000001]
+))) );
+ASSERT( ( NOT( (0x00 = argv1_0xa597b20[0x00000001]
+))) );
+ASSERT( ( NOT( (0x22 = argv1_0xa597b20[0x00000001]
+))) );
+ASSERT( SBVLT(0x00,argv1_0xa597b20[0x00000001])
+ );
+ASSERT( (0x3B = argv1_0xa597b20[0x00000002]
+) );
+ASSERT( ( NOT( (0x0A = argv1_0xa597b20[0x00000003]
+))) );
+ASSERT( ( NOT( (0x00 = argv1_0xa597b20[0x00000003]
+))) );
+ASSERT( SBVLT(0x00,argv1_0xa597b20[0x00000003])
+ );
+ASSERT( ( NOT( (0x0A = argv1_0xa597b20[0x00000004]
+))) );
+ASSERT( ( NOT( (0x00 = argv1_0xa597b20[0x00000004]
+))) );
+ASSERT( SBVLT(0x00,argv1_0xa597b20[0x00000004])
+ );
+ASSERT( (0x0A = argv1_0xa597b20[0x00000005]
+) );
+ASSERT( ( NOT( (0x0A = argv1_0xa597b20[0x00000006]
+))) );
+ASSERT( ( NOT( (0x00 = argv1_0xa597b20[0x00000006]
+))) );
+ASSERT( SBVLT(0x00,argv1_0xa597b20[0x00000006])
+ );
+ASSERT( (0x00 = argv1_0xa597b20[0x00000008]
+) );
+ASSERT( (0x3B = argv1_0xa597b20[0x00000000]
+) );
+ASSERT( ( NOT( (0x20 = argv1_0xa597b20[0x00000006]
+))) );
+ASSERT( (LET let_k_0 = argv1_0xa597b20[0x00000006] IN 
+(0x00000001 = IF((0x3B = let_k_0
+))
+THEN 0x00000002
+ELSE IF((0x22 = let_k_0
+))
+THEN 0x00000001
+ELSE 0x00000000
+ENDIF
+ENDIF
+))  );
+ASSERT( (0x22 = argv1_0xa597b20[0x00000007]
+) );
+%----------------------------------------------------
+QUERY( FALSE  );

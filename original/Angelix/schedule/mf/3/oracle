@@ -1,0 +1,114 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-schedule () {
+    diff <(${ANGELIX_RUN:-eval} ./schedule $2 $1) <($SCRIPT_DIR/../golden/schedule $2 $1)
+}
+
+case "$1" in
+    1)
+      test-schedule  "0 2 0" "$SCRIPT_DIR/inputs/in1"
+      ;;
+    2)
+      test-schedule  "1 2 0" "$SCRIPT_DIR/inputs/in2"
+      ;;
+    3)
+      test-schedule  "0 2 1" "$SCRIPT_DIR/inputs/in3"
+      ;;
+    4)
+      test-schedule  "2 2 0" "$SCRIPT_DIR/inputs/in4"
+      ;;
+    5)
+      test-schedule  "3 2 0" "$SCRIPT_DIR/inputs/in5"
+      ;;
+    6)
+      test-schedule  "0 2 0" "$SCRIPT_DIR/inputs/in6"
+      ;;
+    7)
+      test-schedule  "0 2 0" "$SCRIPT_DIR/inputs/in7"
+      ;;
+    8)
+      test-schedule  "1 2 0" "$SCRIPT_DIR/inputs/in8"
+      ;;
+    9)
+      test-schedule  "1 2 0" "$SCRIPT_DIR/inputs/in9"
+      ;;
+    10)
+      test-schedule  "0 2 1" "$SCRIPT_DIR/inputs/in10"
+      ;;
+    11)
+      test-schedule  "0 2 1" "$SCRIPT_DIR/inputs/in11"
+      ;;
+    12)
+      test-schedule  "2 2 0" "$SCRIPT_DIR/inputs/in12"
+      ;;
+    13)
+      test-schedule  "2 2 0" "$SCRIPT_DIR/inputs/in13"
+      ;;
+    14)
+      test-schedule  "3 2 0" "$SCRIPT_DIR/inputs/in14"
+      ;;
+    15)
+      test-schedule  "3 2 0" "$SCRIPT_DIR/inputs/in15"
+      ;;
+    16)
+      test-schedule  "0 2 0" "$SCRIPT_DIR/inputs/in16"
+      ;;
+    17)
+      test-schedule  "1 2 0" "$SCRIPT_DIR/inputs/in17"
+      ;;
+    18)
+      test-schedule  "0 2 1" "$SCRIPT_DIR/inputs/in18"
+      ;;
+    19)
+      test-schedule  "2 2 0" "$SCRIPT_DIR/inputs/in19"
+      ;;
+    20)
+      test-schedule  "3 2 0" "$SCRIPT_DIR/inputs/in20"
+      ;;
+    21)
+      test-schedule  "0 2 0" "$SCRIPT_DIR/inputs/in21"
+      ;;
+    22)
+      test-schedule  "0 2 0" "$SCRIPT_DIR/inputs/in22"
+      ;;
+    23)
+      test-schedule  "0 2 0" "$SCRIPT_DIR/inputs/in23"
+      ;;
+    24)
+      test-schedule  "1 2 0" "$SCRIPT_DIR/inputs/in24"
+      ;;
+    25)
+      test-schedule  "1 2 0" "$SCRIPT_DIR/inputs/in25"
+      ;;
+    26)
+      test-schedule  "1 2 0" "$SCRIPT_DIR/inputs/in26"
+      ;;
+    27)
+      test-schedule  "0 2 1" "$SCRIPT_DIR/inputs/in27"
+      ;;
+    28)
+      test-schedule  "0 2 1" "$SCRIPT_DIR/inputs/in28"
+      ;;
+    29)
+      test-schedule  "0 2 1" "$SCRIPT_DIR/inputs/in29"
+      ;;
+    30)
+      test-schedule  "2 2 0" "$SCRIPT_DIR/inputs/in30"
+      ;;
+    31)
+      test-schedule  "2 2 0" "$SCRIPT_DIR/inputs/in31"
+      ;;
+    32)
+      test-schedule  "2 2 0" "$SCRIPT_DIR/inputs/in32"
+      ;;
+    33)
+      test-schedule  "3 2 0" "$SCRIPT_DIR/inputs/in33"
+      ;;
+    34)
+      test-schedule  "3 2 0" "$SCRIPT_DIR/inputs/in34"
+      ;;
+    35)
+      test-schedule  "3 2 0" "$SCRIPT_DIR/inputs/in35"
+      ;;
+esac

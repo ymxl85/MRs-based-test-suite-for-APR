@@ -1,0 +1,20 @@
+--- a/schedule.c
++++ b/schedule.c
+@@ -216,7 +216,7 @@
+     dest_queue = prio_queue[prio+1];
+     count = src_queue->mem_count;
+ 
+-    if (count > 1) {
++    if ((count > 1)) {
+       upgrade = 1;
+       n = (int) (count*ratio + 1);
+       proc = find_nth(src_queue, n);
+@@ -226,7 +226,7 @@
+         proc->priority = prio;
+         dest_queue = append_ele(dest_queue, proc);
+       }
+-    } else if (count > 1) { /* FIX: count > 0 */
++    } else if ((count >= 1)) { /* FIX: count > 0 */
+       upgrade = 1;
+       n = (int) (count*ratio + 1);
+       proc = find_nth(src_queue, n);

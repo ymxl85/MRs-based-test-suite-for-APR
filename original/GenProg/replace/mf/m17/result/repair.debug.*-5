@@ -1,0 +1,266 @@
+--allow-coverage-fail false
+--appp 0.33333
+--asm-code-only false
+--best-edit-rule "1 * fault_loc_weight ; 1 * max_test_fail_prob ; -1 * num_tests"
+--best-test-rule "1 * test_fail_prob ; 1 * test_fail_count ; -1 * test_pass_count"
+--compiler "gcc"
+--compiler-command ""
+--compiler-opts ""
+--continue false
+--coverage-info ""
+--coverage-per-test false
+--crossover "one"
+--crossp 0.5
+--delp 0.33333
+--describe-machine false
+--diversity-selection 0
+--edit-script false
+--elf-risc false
+--exclude-edits ""
+--exp-diff false
+--fault-file ""
+--fault-path "coverage.path.neg"
+--fault-scheme "path"
+--fitness-in-parallel 1
+--fix-file ""
+--fix-oracle ""
+--fix-path "coverage.path.pos"
+--fix-scheme "default"
+--flatten-path ""
+--format "txt"
+--gen-per-exchange 1
+--generations 10
+--gui false
+--hostname "127.0.0.1"
+--ignore-dead-code false
+--ignore-equiv-appends false
+--ignore-standard-headers false
+--ignore-string-equiv-fixes false
+--ignore-untyped-returns false
+--incoming-pop ""
+--keep-source false
+--label-repair true
+--max-evals 0
+--minimization false
+--mt-cov false
+--multiopt-minimize false
+--multiopt-no-inf false
+--neg-tests 5
+--neg-weight 1
+--negative-test-weight 2
+--neutral-walk-max-size 0
+--neutral-walk-weight ""
+--nht-id "global"
+--nht-port 51000
+--nht-server ""
+--no-rep-cache false
+--no-test-cache false
+--num-comps 2
+--num-objectives 2
+--oracle-genome ""
+--popsize 40
+--port 60000
+--pos-tests 18
+--pos-weight 0.1
+--prefix "./"
+--preprocessor ""
+--print-incremental-evals false
+--print-source-name false
+--program "replace17.i"
+--promut 1
+--quiet false
+--regen-paths false
+--rep ""
+--rep-cache ""
+--repp 0
+--samp-strat "variant"
+--sample 1
+--sample-runs 100
+--sanity "default"
+--search "ga"
+--seed 400004035
+--semantic-check "scope"
+--single-fitness false
+--skip-failed-sanity-tests false
+--skip-tests ""
+--split-search 0
+--sport 65000
+--subatom-constp 0.5
+--subatom-mutp 0
+--super-mutant false
+--super-mutant-size 50
+--swap-bug false
+--swapp 0.33333
+--template-cache ""
+--templates ""
+--test-command ""
+--test-script "/bin/sh test.sh"
+--tournament-size 2
+--tweet false
+--uniq false
+--valgrind false
+--variants-exchanged 50
+cilRep: preprocessing IO function signatures: /tmp/tmp953687.c /tmp/tmp46658c.c
+cilRep: done preprocessing IO function signatures
+Exception in loading: Sys_error("replace17.cache: No such file or directory")
+cilrep: from_source: pre: stmt_count = 1
+cilRep: replace17.i: parsing
+cilRep: replace17.i: parsed (0.0457621 MB)
+cilrep: from_source: post: stmt_count: 331
+cachingRepresentation: sanity checking begins
+	p1: true (1)
+	p2: true (1)
+	p3: true (1)
+	p4: true (1)
+	p5: true (1)
+	p6: true (1)
+	p7: true (1)
+	p8: true (1)
+	p9: true (1)
+	p10: true (1)
+	p11: true (1)
+	p12: true (1)
+	p13: true (1)
+	p14: true (1)
+	p15: true (1)
+	p16: true (1)
+	p17: true (1)
+	p18: true (1)
+	n1: false (0)
+	n2: false (0)
+	n3: false (0)
+	n4: false (0)
+	n5: false (0)
+cachingRepresentation: sanity checking passed (time_taken = 0.343033)
+faultLocRep: compute_localization: fault_scheme: path, fix_scheme: default
+Rep: coverage_sourcename: /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/replace/m17/./coverage.c
+cilRep: instrumenting for fault localization
+cilRep: done instrumenting for fault localization
+coverage negative:
+	test: 1
+	test: 2
+	test: 3
+	test: 4
+	test: 5
+coverage positive:
+	test: 1
+	test: 2
+	test: 3
+	test: 4
+	test: 5
+	test: 6
+	test: 7
+	test: 8
+	test: 9
+	test: 10
+	test: 11
+	test: 12
+	test: 13
+	test: 14
+	test: 15
+	test: 16
+	test: 17
+	test: 18
+cilRep: replace17.cache: saved
+cachingRep: replace17.cache: saved
+faultlocRep: replace17.cache: saved
+cilrep done serialize
+cilRep: stmt_count = 331
+cilRep: stmts in weighted_path = 129
+cilRep: total weight = 17.4
+cilRep: stmts in weighted_path with weight >= 1.0 = 5
+cilRep: replace17.i (code bank/base file; atoms [1,331])
+cilRep: 1 file(s) total in representation
+search: genetic algorithm begins (|original| = 0.0327759 MB)
+search: initial population (sizeof one variant = 0.00781536 MB)
+	 18 d(323) 
+	 18 d(183) 
+	 18 d(183) 
+	 10 s(106,143) 
+	 18 a(167,173) 
+	 18 d(194) 
+	 12 d(128) 
+	 18 a(181,18) 
+	 18 d(14) 
+	 18 a(270,196) 
+	46.8 s(14,8) 
+	  0 s(329,104) 
+	 10 a(266,329) 
+	46.8 s(12,15) 
+	 10 a(166,177) 
+	 18 s(12,14) 
+	 18 a(148,158) 
+	 18 a(325,275) 
+	  7 s(274,269) 
+	 18 s(11,12) 
+	  0 d(168) 
+	 15 d(199) 
+	 10 s(6,3) 
+	 18 d(162) 
+	 10 s(194,227) 
+	 10 d(226) 
+	  0 s(160,159) 
+	 18 d(175) 
+	 10 a(225,329) 
+	 10 s(13,7) 
+	 18 a(6,329) 
+	 12 d(128) 
+	 18 a(265,271) 
+	 18 d(194) 
+	 18 d(12) 
+	  0 a(105,294) 
+	 18 s(8,17) 
+	  0 d(317) 
+	 18 a(300,310) 
+	 18 original
+search: generation 1 (sizeof one variant = 0.0330305 MB)
+	 18 a(265,271) a(3,196) 
+	 18 a(300,310) a(103,100) 
+	  0 a(265,271) s(104,158) 
+	 18 a(300,310) s(153,150) 
+	 18 d(194) d(14) 
+	  0 d(199) s(266,264) 
+	  0 d(194) s(4,5) 
+	 15 d(199) a(329,295) 
+	  0 d(183) d(150) 
+	 10 s(13,7) s(195,224) 
+	 14 a(148,158) a(237,55) 
+	 12 d(128) a(270,275) 
+	 18 a(148,158) d(329) 
+	 12 d(128) a(317,204) 
+	 18 a(6,329) a(170,104) 
+	 10 a(148,158) s(225,196) 
+	 18 a(6,329) s(13,14) 
+	 18 a(148,158) a(319,300) 
+	 18 d(183) a(108,151) 
+	 10 a(300,310) d(155) 
+	 15 d(183) d(99) 
+	  0 a(300,310) s(5,6) 
+	 10 s(12,15) d(226) 
+	 10 s(12,15) s(166,181) 
+	 15 a(167,173) d(91) 
+	 18 a(300,310) d(12) 
+	 18 d(183) a(13,11) 
+	 10 a(270,196) s(161,329) 
+	 12 d(183) s(132,133) 
+	 10 a(270,196) s(182,183) 
+	  0 d(316) 
+	 54 s(14,8) s(11,14) 
+
+Repair Found: s(14,8) s(11,14)
+Repair Name: s(14,8) s(11,14) 
+Test Condition: 0
+Test Cases Skipped: ""
+Current Time: 1430702113.197607
+Rep: saving test cache
+
+Variant Test Case Queries: 1656
+"Test Suite Evaluations": 72
+
+Compile Failures: 0
+Wall-Clock Seconds Elapsed: 33.4981
+  Activity Name                     Count Seconds = Percent of Total Time
+  sanity_check                          1   0.011 = 0.0352505%
+  compile                              73   6.579 = 21.8871%
+  test                               1702  23.470 = 78.0776%
+  TOTAL                                    30.060 = 89.6947% (avg CPU usage)

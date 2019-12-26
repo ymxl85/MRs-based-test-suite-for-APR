@@ -1,0 +1,207 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "[V-[]" "d" "Z"
+      ;;
+    2)
+      test-replace  "[Z-_]" "p" "]"
+      ;;
+    3)
+      test-replace  "[Z-_]" "h" "-"
+      ;;
+    4)
+      test-replace  "¤V-[]" "p" "Z"
+      ;;
+    5)
+      test-replace  "[\\-a]" "p" "\`"
+      ;;
+    6)
+      test-replace  "[T-Y]" "a" "X"
+      ;;
+    7)
+      test-replace  "¤yÒ¢" "p" ""
+      ;;
+    8)
+      test-replace  "[VÒ[]" "p" "Z"
+      ;;
+    9)
+      test-replace  "[X-]]" "z" "\\"
+      ;;
+    10)
+      test-replace  "[V-[¢" "p" "Z"
+      ;;
+    11)
+      test-replace  "[V-[]" "p" "Z"
+      ;;
+    12)
+      test-replace  "[Z-U]" "p" "^"
+      ;;
+    13)
+      test-replace  "[Y-^]" "p" "'"
+      ;;
+    14)
+      test-replace  "¤W-\\]" "d" "Z"
+      ;;
+    15)
+      test-replace  "[]-b]" "p" "\`"
+      ;;
+    16)
+      test-replace  "[Z-_]" "h" " "
+      ;;
+    17)
+      test-replace  "[P-U]" "a" "S"
+      ;;
+    18)
+      test-replace  "¤]Ò¢" "p" ""
+      ;;
+    19)
+      test-replace  "[WÒ\\]" "d" "Z"
+      ;;
+    20)
+      test-replace  "[X-]]" "z" "["
+      ;;
+    21)
+      test-replace  "[W-\\¢" "d" "Z"
+      ;;
+    22)
+      test-replace  "[W-\\]" "d" "Z"
+      ;;
+    23)
+      test-replace  "[Z-U]" "h" "]"
+      ;;
+    24)
+      test-replace  "¤Z-_]" "p" "-"
+      ;;
+    25)
+      test-replace  "[\`-e]" "y" "-"
+      ;;
+    26)
+      test-replace  "[S-X]" "t" "-"
+      ;;
+    27)
+      test-replace  "[Z-_]" "y" ""
+      ;;
+    28)
+      test-replace  "¤\`Ò¢" "p" ""
+      ;;
+    29)
+      test-replace  "[ZÒ_]" "p" "-"
+      ;;
+    30)
+      test-replace  "[X-]]" "z" "-"
+      ;;
+    31)
+      test-replace  "[Z-_¢" "p" "-"
+      ;;
+    32)
+      test-replace  "[Z-_]" "p" "-"
+      ;;
+    33)
+      test-replace  "[Z-U]" "p" "-"
+      ;;
+    34)
+      test-replace  "[-V[]" "d" "Z"
+      ;;
+    35)
+      test-replace  "[-Z_]" "p" "]"
+      ;;
+    36)
+      test-replace  "[-Z_]" "h" "-"
+      ;;
+    37)
+      test-replace  "[-V[]" "p" "Z"
+      ;;
+    38)
+      test-replace  "[-\\a]" "p" "\`"
+      ;;
+    39)
+      test-replace  "[TUVWXY]" "a" "X"
+      ;;
+    40)
+      test-replace  "[-y]" "p" ""
+      ;;
+    41)
+      test-replace  "[-V[]" "p" "Z"
+      ;;
+    42)
+      test-replace  "[-X]]" "z" "\\"
+      ;;
+    43)
+      test-replace  "[-V[]" "p" "Z"
+      ;;
+    44)
+      test-replace  "[-V[]" "p" "Z"
+      ;;
+    45)
+      test-replace  "[-ZU]" "p" "^"
+      ;;
+    46)
+      test-replace  "[-Y^]" "p" "'"
+      ;;
+    47)
+      test-replace  "[-W\\]" "d" "Z"
+      ;;
+    48)
+      test-replace  "[-]b]" "p" "\`"
+      ;;
+    49)
+      test-replace  "[-Z_]" "h" " "
+      ;;
+    50)
+      test-replace  "[PQRSTU]" "a" "S"
+      ;;
+    51)
+      test-replace  "[-]]" "p" ""
+      ;;
+    52)
+      test-replace  "[-W\\]" "d" "Z"
+      ;;
+    53)
+      test-replace  "[-X]]" "z" "["
+      ;;
+    54)
+      test-replace  "[-W\\]" "d" "Z"
+      ;;
+    55)
+      test-replace  "[-W\\]" "d" "Z"
+      ;;
+    56)
+      test-replace  "[-ZU]" "h" "]"
+      ;;
+    57)
+      test-replace  "[-Z_]" "p" "-"
+      ;;
+    58)
+      test-replace  "[-\`e]" "y" "-"
+      ;;
+    59)
+      test-replace  "[STUVWX]" "t" "-"
+      ;;
+    60)
+      test-replace  "[-Z_]" "y" ""
+      ;;
+    61)
+      test-replace  "[-\`¢]" "p" ""
+      ;;
+    62)
+      test-replace  "[-Z_]" "p" "-"
+      ;;
+    63)
+      test-replace  "[-X]]" "z" "-"
+      ;;
+    64)
+      test-replace  "[-Z_]" "p" "-"
+      ;;
+    65)
+      test-replace  "[-Z_]" "p" "-"
+      ;;
+    66)
+      test-replace  "[-ZU]" "p" "-"
+      ;;
+esac

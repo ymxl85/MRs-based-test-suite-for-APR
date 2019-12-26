@@ -1,0 +1,90 @@
+#!/bin/bash
+
+subject="tcas"
+
+#subdir="T0"
+#tar=$subdir/$subject
+#for v in {1..41..1}
+#do
+#  rm *.patch
+
+#  t1=$(($(date +%s%N)/1000000))
+#  /bin/sh repair_t0 $subject $subdir $v > $tar/$v/log.txt 2>&1
+#  t2=$(($(date +%s%N)/1000000))
+#  t=$(($t2-$t1))
+#  echo $t > $tar/repairs/$v.time
+
+#  for repair in *.patch
+#  do
+#    cp $repair $tar/repairs/$v.patch
+#  done
+#done
+
+#############################################################################
+#subdir="MFCC"
+#tar=$subdir/$subject
+#for v in {1..41..1}
+#do
+#  rm *.patch
+
+#  t1=$(($(date +%s%N)/1000000))
+
+#  if [ -e $tar/$v/oracle ]
+#  then
+#    /bin/sh repair_mf $subject $subdir $v > $tar/$v/log.txt 2>&1
+#    t2=$(($(date +%s%N)/1000000))
+#    t=$(($t2-$t1))
+#    echo $t > $tar/repairs/$v.time
+
+#    for repair in *.patch
+#    do
+#     cp $repair $tar/repairs/$v.patch
+#    done
+# fi
+#done
+
+#subdir="COV"
+#tar=$subdir/$subject
+#for v in {22..22..1}
+#do
+#  rm *.patch
+
+#  t1=$(($(date +%s%N)/1000000))
+
+#  if [ -e $tar/$v/oracle ]
+#  then
+#    /bin/sh repair_mf $subject $subdir $v > $tar/$v/log.txt 2>&1
+#    t2=$(($(date +%s%N)/1000000))
+#    t=$(($t2-$t1))
+#    echo $t > $tar/repairs/$v.time
+
+#    for repair in *.patch
+#    do
+#     cp $repair $tar/repairs/$v.patch
+#    done
+# fi
+#done
+
+
+subdir="RDS"
+tar=$subdir/$subject
+for v in {1..41..1}
+do
+  rm *.patch
+  for i in {1..10..1}
+  do
+	  if [ -e $tar/$v/oracle$i ]
+	  then
+             t1=$(($(date +%s%N)/1000000))
+	    /bin/sh repair_rds $subject $subdir $v $i > $tar/$v/log$i.txt 2>&1
+	    t2=$(($(date +%s%N)/1000000))
+	    t=$(($t2-$t1))
+	    echo $t > $tar/repairs/$v-$i.time
+
+	    for repair in *.patch
+	    do
+	     cp $repair $tar/repairs/$v-$i.patch
+	    done
+	 fi
+  done
+done

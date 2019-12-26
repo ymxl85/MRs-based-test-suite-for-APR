@@ -1,0 +1,573 @@
+--allow-coverage-fail false
+--appp 0.33333
+--asm-code-only false
+--best-edit-rule "1 * fault_loc_weight ; 1 * max_test_fail_prob ; -1 * num_tests"
+--best-test-rule "1 * test_fail_prob ; 1 * test_fail_count ; -1 * test_pass_count"
+--compiler "gcc"
+--compiler-command ""
+--compiler-opts ""
+--continue false
+--coverage-info ""
+--coverage-per-test false
+--crossover "one"
+--crossp 0.5
+--delp 0.33333
+--describe-machine false
+--diversity-selection 0
+--edit-script false
+--elf-risc false
+--exclude-edits ""
+--exp-diff false
+--fault-file ""
+--fault-path "coverage.path.neg"
+--fault-scheme "path"
+--fitness-in-parallel 1
+--fix-file ""
+--fix-oracle ""
+--fix-path "coverage.path.pos"
+--fix-scheme "default"
+--flatten-path ""
+--format "txt"
+--gen-per-exchange 1
+--generations 10
+--gui false
+--hostname "127.0.0.1"
+--ignore-dead-code false
+--ignore-equiv-appends false
+--ignore-standard-headers false
+--ignore-string-equiv-fixes false
+--ignore-untyped-returns false
+--incoming-pop ""
+--keep-source false
+--label-repair true
+--max-evals 0
+--minimization false
+--mt-cov false
+--multiopt-minimize false
+--multiopt-no-inf false
+--neg-tests 1
+--neg-weight 1
+--negative-test-weight 2
+--neutral-walk-max-size 0
+--neutral-walk-weight ""
+--nht-id "global"
+--nht-port 51000
+--nht-server ""
+--no-rep-cache false
+--no-test-cache false
+--num-comps 2
+--num-objectives 2
+--oracle-genome ""
+--popsize 40
+--port 60000
+--pos-tests 5
+--pos-weight 0.1
+--prefix "processed"
+--preprocessor ""
+--print-incremental-evals false
+--print-source-name false
+--program "source.txt"
+--promut 1
+--quiet false
+--regen-paths false
+--rep "c"
+--rep-cache ""
+--repp 0
+--samp-strat "variant"
+--sample 1
+--sample-runs 100
+--sanity "default"
+--search "ga"
+--seed 562454418
+--semantic-check "scope"
+--single-fitness false
+--skip-failed-sanity-tests false
+--skip-tests ""
+--split-search 0
+--sport 65000
+--subatom-constp 0.5
+--subatom-mutp 0
+--super-mutant false
+--super-mutant-size 50
+--swap-bug false
+--swapp 0.33333
+--template-cache ""
+--templates ""
+--test-command ""
+--test-script "/bin/sh test.sh"
+--tournament-size 2
+--tweet false
+--uniq false
+--valgrind false
+--variants-exchanged 50
+cilRep: preprocessing IO function signatures: /tmp/tmpe6406a.c /tmp/tmpe27114.c
+cilRep: done preprocessing IO function signatures
+Exception in loading: Sys_error("source.cache: No such file or directory")
+cilrep: from_source: pre: stmt_count = 1
+cilRep: processed/v10.i: parsing
+cilRep: processed/v10.i: parsed (0.0372705 MB)
+cilRep: processed/processor.i: parsing
+cilRep: processed/processor.i: parsed (0.025856 MB)
+cilrep: from_source: post: stmt_count: 311
+cachingRepresentation: sanity checking begins
+	p1: true (1)
+	p2: true (1)
+	p3: true (1)
+	p4: true (1)
+	p5: true (1)
+	n1: false (0)
+cachingRepresentation: sanity checking passed (time_taken = 0.12431)
+faultLocRep: compute_localization: fault_scheme: path, fix_scheme: default
+Rep: coverage_sourcename: /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule2/randomTC/v10/1/coverage/coverage.c
+cilRep: instrumenting for fault localization
+cilRep: done instrumenting for fault localization
+coverage negative:
+	test: 1
+coverage positive:
+	test: 1
+	test: 2
+	test: 3
+	test: 4
+	test: 5
+cilRep: source.cache: saved
+cachingRep: source.cache: saved
+faultlocRep: source.cache: saved
+cilrep done serialize
+cilRep: stmt_count = 311
+cilRep: stmts in weighted_path = 248
+cilRep: total weight = 33.8
+cilRep: stmts in weighted_path with weight >= 1.0 = 10
+cilRep: processor.i (code bank/base file; atoms [265,311])
+cilRep: v10.i (code bank/base file; atoms [1,264])
+cilRep: 2 file(s) total in representation
+search: genetic algorithm begins (|original| = 0.0420218 MB)
+search: initial population (sizeof one variant = 0.00914383 MB)
+	  5 d(123) 
+	  5 d(190) 
+	  5 a(193,162) 
+	  5 s(66,17) 
+	  3 s(138,26) 
+	  5 s(24,195) 
+	  5 d(64) 
+	  5 a(277,291) 
+	  3 a(90,149) 
+	  5 s(206,255) 
+	  5 a(205,37) 
+	  5 d(18) 
+	  3 a(177,72) 
+	  5 s(289,279) 
+	  3 a(50,311) 
+	  5 d(103) 
+	  5 d(84) 
+	  5 d(176) 
+	  5 s(111,94) 
+	  5 s(44,5) 
+	  3 a(112,72) 
+	  5 s(66,24) 
+	  5 a(124,24) 
+	  3 s(176,179) 
+	  5 d(253) 
+	  3 s(223,231) 
+	  3 a(257,251) 
+	  3 s(174,187) 
+	  3 s(205,102) 
+	  5 a(86,26) 
+	  5 d(176) 
+	  5 a(247,176) 
+	  5 d(55) 
+	  5 s(183,187) 
+	  3 s(261,258) 
+	  4 s(167,163) 
+	  5 a(205,142) 
+	  5 s(206,193) 
+	  5 d(189) 
+	  5 original
+search: generation 1 (sizeof one variant = 0.0422506 MB)
+	  3 d(190) d(248) 
+	  4 d(176) s(130,133) 
+	  5 d(190) s(86,96) 
+	  5 d(176) d(88) 
+	  5 d(64) a(169,297) 
+	  5 s(183,187) a(233,231) 
+	  5 d(18) d(281) 
+	  5 a(277,291) s(205,24) 
+	  5 a(277,291) a(223,235) 
+	  5 a(247,176) s(190,191) 
+	  5 a(277,291) s(37,43) 
+	  5 a(247,176) a(255,204) 
+	  5 a(193,162) d(138) 
+	  4 s(66,17) s(55,24) 
+	  5 a(193,162) a(176,184) 
+	  5 s(66,17) s(109,108) 
+	  5 s(44,5) a(60,88) 
+	  3 a(247,176) s(180,169) 
+	  3 s(44,5) s(138,202) 
+	  3 a(247,176) s(67,51) 
+	  5 d(84) d(2) 
+	  5 a(277,291) a(289,242) 
+	  5 s(66,24) d(191) 
+	  5 s(206,255) d(43) 
+	  5 s(111,94) s(47,43) 
+	  3 s(66,24) s(205,26) 
+	  3 s(111,94) a(239,193) 
+	  5 s(66,24) a(133,127) 
+	  5 d(176) d(113) 
+	  3 a(205,37) s(173,178) 
+	  5 d(55) d(183) 
+	  3 s(174,187) s(262,251) 
+	  5 d(55) d(206) 
+	  3 s(174,187) s(303,299) 
+	  5 s(24,195) s(256,257) 
+	  3 a(90,149) s(191,189) 
+	  5 a(193,162) a(192,24) 
+	  3 s(226,223) 
+	  5 a(193,162) a(75,149) 
+	  5 a(189,202) 
+	  5 d(18) s(192,190) 
+	  3 s(223,231) d(173) 
+	  3 s(66,24) s(306,301) 
+	  5 s(183,187) s(24,56) 
+	  5 s(289,279) d(67) 
+	  5 d(176) s(82,85) 
+	  5 s(289,279) s(191,190) 
+	  5 d(176) d(180) 
+	  5 d(253) a(263,6) 
+	  3 s(223,231) s(192,193) 
+	  5 d(253) s(5,209) 
+	  3 s(223,231) a(211,304) 
+	  5 d(176) a(193,272) 
+	  5 d(253) a(280,189) 
+	  5 d(176) s(97,111) 
+	  5 d(253) a(279,280) 
+	  5 a(205,37) s(275,290) 
+	  5 a(86,26) d(186) 
+	  5 a(205,37) d(138) 
+	  5 a(86,26) d(88) 
+	  5 d(253) d(56) 
+	  5 s(206,193) a(270,286) 
+search: generation 2 (sizeof one variant = 0.0427637 MB)
+	  5 d(176) a(193,242) 
+	  5 s(183,187) s(24,56) a(193,272) d(181) 
+	  5 d(176) a(193,272) a(66,62) 
+	  5 s(183,187) s(24,56) d(206) 
+	  5 a(205,37) d(138) d(205) 
+	  5 d(176) d(88) a(138,77) 
+	  5 a(277,291) s(205,24) d(138) 
+	  5 a(189,202) a(223,234) 
+	  5 d(18) d(281) a(82,109) 
+	  5 a(277,291) s(205,24) d(174) 
+	  5 d(253) d(253) 
+	  5 d(55) d(183) d(56) d(191) 
+	  3 d(253) d(56) s(11,52) 
+	  4 d(55) d(183) d(57) 
+	  5 d(253) a(279,280) d(138) d(266) 
+	  5 a(205,37) a(192,206) 
+	  5 d(253) a(279,280) a(188,137) 
+	  5 a(205,37) d(138) s(189,24) 
+	  4 d(18) d(281) s(251,264) 
+	  5 s(111,94) s(47,43) d(15) 
+	  5 d(55) a(192,24) a(138,297) 
+	  3 a(193,162) d(183) s(205,225) 
+	  5 d(55) d(183) s(37,51) 
+	  3 a(193,162) a(192,24) s(205,238) 
+	  5 a(193,162) a(192,24) s(256,257) d(191) 
+	  3 s(24,195) d(173) 
+	  5 a(193,162) a(192,24) s(70,43) 
+	  3 s(24,195) s(256,257) s(306,301) 
+	  3 a(193,162) d(138) d(12) 
+	  5 d(84) d(2) s(11,12) 
+	  3 a(277,291) s(37,43) s(192,190) a(56,235) 
+	  3 d(18) s(77,14) 
+	  5 a(277,291) s(37,43) d(17) 
+	  5 d(18) s(192,190) s(286,277) 
+	  5 d(253) a(279,280) d(46) 
+	  5 a(193,162) a(192,24) a(159,24) 
+	  5 d(55) a(192,36) 
+	  5 d(176) d(113) d(183) a(292,242) 
+	  5 d(55) d(183) a(172,5) 
+	  5 d(176) d(113) a(205,93) 
+	  5 a(277,291) s(205,24) d(47) 
+	  5 d(176) d(180) a(258,243) 
+	  3 s(66,24) s(206,17) 
+	  5 d(176) d(88) d(191) s(45,5) 
+	  5 s(66,24) d(191) d(108) 
+	  5 d(176) d(88) d(55) 
+	  5 d(176) a(289,242) a(191,149) 
+	  5 a(277,291) d(180) d(138) 
+	  5 d(176) d(180) s(298,299) 
+	  5 a(277,291) a(289,242) a(176,235) 
+	  5 s(206,193) a(270,286) d(227) 
+	  5 s(111,94) s(47,43) d(204) 
+	  5 d(176) d(191) a(193,149) 
+	  5 s(66,24) s(97,111) a(205,120) 
+	  5 d(176) s(97,111) a(75,207) 
+	  4 s(66,24) d(191) s(71,43) 
+	  5 d(253) a(280,189) a(190,207) 
+	  5 s(289,279) d(67) d(190) 
+	  5 d(190) d(196) 
+	  4 d(55) d(206) s(86,96) s(57,37) 
+	  5 d(190) s(86,96) a(209,227) 
+	  5 d(55) d(206) s(55,70) 
+search: generation 3 (sizeof one variant = 0.0433035 MB)
+	  3 d(176) a(193,272) a(66,62) s(206,127) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule2/randomTC/v10/1/000163/v10.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule2/randomTC/v10/1/000163/processor.i  a(205,37) a(192,206) a(205,162)  fails to compile
+	  0 a(205,37) a(192,206) a(205,162) 
+	  5 d(253) a(279,280) a(188,137) a(189,225) 
+	  5 a(205,37) a(192,206) a(294,272) 
+	  5 d(176) a(193,242) a(96,113) 
+	  5 a(277,291) d(180) d(138) d(62) 
+	  5 d(176) a(193,242) s(195,5) 
+	  3 a(277,291) d(180) d(138) a(133,206) 
+	  5 d(176) a(193,242) s(228,227) 
+	  4 a(277,291) s(205,24) d(138) s(196,199) 
+	  5 d(176) d(113) d(183) a(292,242) a(193,162) 
+	  5 d(176) a(193,272) a(66,62) a(223,254) 
+	  5 d(18) s(192,190) s(286,277) s(309,297) 
+	  5 s(206,193) a(270,286) d(227) d(111) 
+	  5 d(18) s(192,190) s(286,277) a(206,130) 
+	  5 s(206,193) a(270,286) d(227) d(266) 
+	  5 d(176) d(113) a(177,211) 
+	  3 d(176) d(180) a(258,243) a(205,93) s(64,60) 
+	  3 d(176) d(113) a(205,93) d(301) 
+	  5 d(176) d(180) a(258,243) a(1,37) 
+	  5 s(111,94) s(277,88) 
+	  5 d(176) d(180) a(258,243) s(47,43) d(204) s(205,176) 
+	  5 s(111,94) s(47,43) d(204) a(176,14) 
+	  5 d(176) d(180) a(258,243) a(289,15) 
+	  5 d(176) a(289,242) a(191,149) d(191) 
+	  3 d(176) d(180) a(258,243) s(188,183) 
+	  5 d(176) a(289,242) a(191,149) a(306,102) 
+	  5 d(176) d(180) a(258,243) s(280,295) 
+	  4 d(84) d(2) a(270,286) d(227) d(121) 
+	  5 s(206,193) s(11,12) a(257,149) 
+	  3 d(84) d(2) s(11,12) s(261,251) 
+	  5 s(206,193) a(270,286) d(227) s(176,193) 
+	  5 s(66,24) d(191) d(108) s(304,176) 
+	  5 a(205,37) d(138) s(189,24) d(56) 
+	  3 d(176) d(229) 
+	  5 d(176) a(289,242) a(191,149) d(180) a(258,243) s(223,194) 
+	  3 d(176) d(180) a(258,243) s(115,91) 
+	  5 d(176) a(289,242) a(191,149) d(176) 
+	  3 s(24,195) s(256,257) s(306,301) s(286,277) s(190,193) 
+	  5 d(18) s(192,190) d(193) 
+	  3 s(24,195) s(256,257) s(306,301) s(131,124) 
+	  4 d(18) s(192,190) s(286,277) a(39,38) 
+	  5 a(193,162) a(192,24) s(256,257) d(191) a(8,211) 
+	  3 d(190) d(196) d(229) 
+	  5 d(253) a(280,189) a(190,207) d(223) 
+	  5 d(55) a(192,24) a(138,297) s(193,127) 
+	  5 d(253) a(280,189) a(190,207) a(272,278) 
+	  5 d(55) a(192,24) a(138,297) s(192,189) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule2/randomTC/v10/1/000210/v10.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule2/randomTC/v10/1/000210/processor.i  d(176) d(88) d(253) a(176,211)  fails to compile
+	  0 d(176) d(88) d(253) a(176,211) 
+	  5 d(253) d(191) s(45,5) d(24) 
+	  5 d(176) d(88) d(191) s(45,5) d(190) 
+	  5 d(253) d(253) a(207,255) 
+	  3 s(183,187) s(24,56) d(206) s(233,229) 
+	  5 a(205,37) d(138) d(205) a(191,130) 
+	  4 d(176) d(191) a(193,149) d(17) s(130,5) 
+	  5 a(277,291) s(37,43) s(297,207) 
+	  5 d(176) d(191) a(193,149) d(192) 
+	  5 a(277,291) s(37,43) d(17) s(140,143) 
+	  5 d(176) a(289,242) a(191,149) a(270,293) 
+	  3 a(277,291) s(37,43) d(17) d(72) 
+	  5 d(55) d(183) s(37,51) a(286,254) 
+	  3 d(253) a(279,280) a(188,137) s(302,301) 
+search: generation 4 (sizeof one variant = 0.0438995 MB)
+	  5 d(55) a(192,24) a(138,297) s(193,127) d(79) 
+	  5 d(253) a(280,189) a(190,207) d(223) s(270,273) 
+	  5 d(55) d(183) s(37,51) a(286,254) s(181,183) 
+	  5 d(55) d(183) s(37,51) a(286,254) s(284,295) 
+	  3 s(183,187) s(24,56) d(206) s(233,229) a(176,93) 
+	  5 s(66,24) d(191) d(108) s(304,176) a(138,202) 
+	  5 s(206,193) a(270,286) d(227) d(266) d(207) 
+	  5 d(18) s(192,190) s(286,277) s(309,297) d(24) 
+	  5 d(253) a(279,280) a(188,137) a(189,225) d(209) 
+	  3 a(205,37) d(138) s(189,24) d(56) a(179,204) 
+	  5 s(66,24) d(191) a(270,293) a(46,49) 
+	  5 d(176) a(289,242) a(191,149) d(108) s(304,176) d(164) 
+	  5 s(66,24) d(191) d(108) s(304,176) d(192) 
+	  5 d(176) a(289,242) a(191,149) a(270,293) a(183,182) 
+	  5 s(24,195) s(256,257) s(256,257) d(191) a(8,211) d(274) 
+	  3 a(193,162) a(192,24) s(306,301) s(131,124) s(6,72) 
+	  3 s(24,195) s(256,257) s(306,301) s(131,124) s(191,189) 
+	  5 a(193,162) a(192,24) s(256,257) d(191) a(8,211) a(32,130) 
+	  5 a(205,37) d(138) d(205) a(191,130) d(77) 
+	  3 d(176) a(193,242) a(96,113) s(60,67) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule2/randomTC/v10/1/000244/v10.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule2/randomTC/v10/1/000244/processor.i  a(205,37) d(138) d(205) a(191,130) a(205,238)  fails to compile
+	  0 a(205,37) d(138) d(205) a(191,130) a(205,238) 
+	  5 d(176) a(193,242) a(96,113) d(125) 
+	  5 d(176) d(180) s(192,189) d(282) 
+	  5 d(55) a(192,24) a(138,297) a(258,243) a(289,15) a(227,127) 
+	  3 d(176) d(180) a(258,243) a(289,15) a(60,38) 
+	  5 d(55) a(192,24) a(138,297) s(192,189) d(205) 
+	  5 d(176) a(289,242) a(191,149) a(306,102) s(192,190) s(286,277) s(309,297) s(10,28) 
+	  4 d(18) d(130) 
+	  5 d(176) a(289,242) a(191,149) a(306,102) a(232,36) 
+	  5 d(18) s(192,190) s(286,277) s(309,297) s(14,93) 
+	  5 s(206,193) a(270,286) s(11,12) a(257,149) d(190) 
+	  5 s(206,193) d(227) d(266) a(231,297) 
+	  3 s(206,193) a(270,286) d(227) d(266) s(175,180) 
+	  3 s(206,193) s(11,12) a(257,149) s(257,254) 
+	  5 d(176) a(193,242) a(96,113) a(255,102) 
+	  3 a(277,291) d(180) d(138) d(62) d(201) 
+	  5 a(277,291) s(205,24) d(138) d(113) a(177,211) d(176) 
+	  3 d(176) s(196,199) d(30) 
+	  4 a(277,291) s(205,24) d(138) s(196,199) d(45) 
+	  5 d(176) d(113) a(177,211) s(191,189) 
+	  5 s(206,193) s(11,12) a(257,149) s(278,275) 
+	  3 d(176) d(180) a(258,243) s(47,43) d(204) s(205,176) s(12,71) 
+	  5 d(253) d(266) s(277,138) 
+	  5 s(206,193) a(270,286) d(227) a(280,189) a(190,207) d(223) d(206) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule2/randomTC/v10/1/000268/v10.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule2/randomTC/v10/1/000268/processor.i  d(253) a(280,189) a(190,207) d(223) a(190,204)  fails to compile
+	  0 d(253) a(280,189) a(190,207) d(223) a(190,204) 
+	  3 s(206,193) a(270,286) d(227) d(266) a(71,103) 
+	  5 d(176) d(180) a(258,243) a(1,37) d(193) s(190,191) 
+	  5 d(18) s(192,190) a(39,120) 
+	  3 d(176) d(180) a(258,243) a(1,37) s(223,127) 
+	  5 d(18) s(192,190) d(193) d(207) 
+	  5 d(18) s(192,190) s(286,277) a(206,130) d(311) 
+	  5 d(55) a(192,24) a(138,297) s(193,127) s(82,88) 
+	  3 d(176) a(270,286) d(227) d(121) s(221,222) 
+	  5 d(84) d(2) a(289,242) a(191,149) d(176) d(206) 
+	  5 d(176) a(289,242) a(191,149) d(176) d(5) 
+	  4 d(84) d(2) a(270,286) d(227) d(121) d(205) 
+	  5 s(206,193) s(11,12) a(192,206) a(294,272) a(10,51) 
+	  5 a(205,37) a(257,149) d(53) 
+	  5 s(206,193) s(11,12) a(257,149) a(132,202) 
+	  5 a(205,37) a(192,206) a(294,272) s(192,193) 
+	  3 a(205,37) a(192,206) a(294,272) s(131,122) 
+	  5 d(253) d(253) a(207,255) d(37) 
+search: generation 5 (sizeof one variant = 0.0441427 MB)
+	  3 s(206,193) d(56) a(179,204) d(109) 
+	  5 a(205,37) d(138) s(189,24) s(11,12) a(257,149) s(278,275) a(293,189) 
+	  3 s(206,193) s(11,12) a(257,149) s(278,275) d(197) 
+	  3 a(205,37) d(138) s(189,24) d(56) a(179,204) a(264,254) 
+	  3 d(176) a(289,242) a(191,149) s(11,12) a(257,149) s(257,254) d(247) 
+	  3 s(206,193) d(176) d(5) s(187,188) 
+	  5 d(176) a(289,242) a(191,149) d(176) d(5) d(67) 
+	  3 s(206,193) s(11,12) a(257,149) s(257,254) s(176,202) 
+	  5 d(18) s(192,190) s(286,277) a(206,130) d(311) a(258,243) a(289,15) a(227,127) d(286) 
+	  5 d(55) a(192,24) a(138,297) d(156) 
+	  5 d(18) s(192,190) s(286,277) a(206,130) d(311) d(278) 
+	  5 d(55) a(192,24) a(138,297) a(258,243) a(289,15) a(227,127) d(176) 
+	  5 d(176) a(289,242) a(191,149) a(138,202) a(247,256) 
+	  5 s(66,24) d(191) d(108) s(304,176) a(306,102) a(232,36) s(182,170) 
+	  3 d(176) a(289,242) a(191,149) a(306,102) a(232,36) s(193,26) 
+	  3 s(66,24) d(191) d(108) s(304,176) a(138,202) s(221,222) 
+	  5 d(176) a(289,242) a(191,149) a(270,293) a(183,182) d(192) 
+	  5 a(205,37) a(257,149) d(53) d(195) 
+	  3 s(66,24) d(191) d(108) s(304,176) d(192) s(205,211) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule2/randomTC/v10/1/000305/v10.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule2/randomTC/v10/1/000305/processor.i  d(253) a(280,189) a(190,207) d(223) a(190,204) a(256,194)  fails to compile
+	  0 d(253) a(280,189) a(190,207) d(223) a(190,204) a(256,194) 
+	  5 d(176) a(289,242) a(191,149) d(108) s(304,176) d(164) d(189) 
+	  3 d(253) a(280,189) a(190,207) d(223) s(270,273) s(222,221) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule2/randomTC/v10/1/000308/v10.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule2/randomTC/v10/1/000308/processor.i  d(55) d(183) s(37,51) a(286,254) d(121) d(205) a(205,169)  fails to compile
+	  0 d(55) d(183) s(37,51) a(286,254) d(121) d(205) a(205,169) 
+	  5 d(84) d(2) a(270,286) d(227) s(284,295) d(202) 
+	  5 d(55) d(183) s(37,51) a(286,254) s(284,295) a(69,49) 
+	  4 d(84) d(2) a(270,286) d(227) d(121) d(205) a(177,120) 
+	  3 a(205,37) d(138) d(205) a(191,130) d(77) s(11,12) a(192,206) a(294,272) a(10,51) s(198,195) 
+	  5 s(206,193) a(82,204) 
+	  5 a(205,37) d(138) d(205) a(191,130) d(77) s(296,289) 
+	  5 s(206,193) s(11,12) a(192,206) a(294,272) a(10,51) a(223,23) 
+	  3 s(206,193) a(270,286) d(227) d(266) s(175,180) s(273,274) 
+	  5 d(253) d(253) a(207,255) d(37) s(190,189) 
+	  3 d(55) a(192,24) a(138,297) s(193,127) s(82,88) a(62,130) 
+	  5 d(176) a(193,242) a(96,113) a(255,102) a(33,202) 
+	  5 d(253) d(253) d(77) s(86,79) 
+	  5 a(205,37) d(138) d(205) a(191,130) a(207,255) d(37) a(190,169) 
+	  5 d(253) d(253) a(207,255) d(37) a(189,242) 
+	  4 a(205,37) d(138) d(205) a(191,130) d(77) s(233,232) 
+	  3 d(176) a(289,242) a(191,149) a(270,293) a(183,182) a(112,193) 
+	  3 d(176) a(193,242) a(96,113) s(60,67) d(176) 
+	  5 d(84) s(11,12) a(257,149) s(278,275) s(138,304) 
+	  5 s(206,193) d(2) a(289,242) a(191,149) d(176) d(206) a(190,192) 
+	  5 d(84) d(2) a(289,242) a(191,149) d(176) d(206) s(206,8) 
+	  5 s(206,193) s(11,12) a(257,149) s(278,275) a(67,56) 
+	  5 d(18) s(192,190) s(286,277) s(309,297) s(14,93) d(123) 
+	  5 d(55) a(192,24) a(138,297) s(192,189) d(205) s(176,304) 
+	  5 d(176) a(289,242) a(191,149) d(108) s(304,176) d(164) s(223,138) 
+	  5 d(176) a(193,242) a(96,113) a(255,102) s(206,195) 
+	  3 d(176) d(180) a(258,243) a(1,37) d(193) s(190,191) s(55,72) 
+	  5 s(206,193) s(11,12) a(257,149) a(132,202) a(176,177) 
+	  5 d(55) a(192,24) a(138,297) s(192,189) d(205) a(107,104) 
+	  3 d(176) a(270,286) d(227) d(121) s(221,222) d(244) 
+	  5 a(205,37) a(192,206) a(294,272) s(192,193) a(308,242) 
+	  5 d(176) a(289,242) a(191,149) d(176) d(5) d(189) 
+	  5 a(205,37) a(192,206) a(294,272) s(192,193) s(275,266) 
+	  5 d(176) a(289,242) a(191,149) d(176) d(5) s(270,275) 
+	  3 s(206,193) s(11,12) a(257,149) a(132,202) s(239,264) 
+	  3 d(176) a(289,242) a(191,149) a(306,102) a(232,36) d(308) 
+	  5 s(206,193) s(11,12) a(257,149) a(132,202) s(1,2) 
+	  5 d(176) a(289,242) a(191,149) a(306,102) a(232,36) s(243,260) 
+search: generation 6 (sizeof one variant = 0.0443592 MB)
+	  5 s(206,193) s(11,12) a(257,149) a(132,202) a(176,177) s(206,195) d(206) 
+	  3 d(176) a(193,242) a(96,113) a(255,102) a(109,255) 
+	  5 s(206,193) s(11,12) a(257,149) a(132,202) a(176,177) d(29) 
+	  5 d(176) a(193,242) a(96,113) a(255,102) s(206,195) s(189,14) 
+	  5 s(206,193) s(11,12) a(257,149) s(278,275) a(67,56) a(47,297) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule2/randomTC/v10/1/000351/v10.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule2/randomTC/v10/1/000351/processor.i  s(206,193) d(2) a(289,242) a(191,149) d(176) d(206) a(190,192) a(190,207)  fails to compile
+	  0 s(206,193) d(2) a(289,242) a(191,149) d(176) d(206) a(190,192) a(190,207) 
+	  5 s(206,193) s(11,12) a(257,149) s(285,290) 
+	  5 a(205,37) a(192,206) a(294,272) s(192,193) a(308,242) a(132,202) a(176,177) d(45) 
+	  5 s(206,193) s(11,12) a(257,149) a(132,202) a(176,177) d(290) 
+	  5 a(205,37) a(192,206) a(294,272) s(192,193) a(308,242) s(191,190) 
+	  4 d(176) a(289,242) a(191,149) s(167,164) 
+	  5 d(176) a(289,242) a(191,149) d(108) s(304,176) d(164) d(189) a(138,202) a(247,256) d(252) 
+	  5 d(176) a(289,242) a(191,149) a(138,202) a(247,256) s(107,104) 
+	  5 d(176) a(289,242) a(191,149) d(108) s(304,176) d(164) d(189) s(190,189) 
+	  5 s(206,193) s(86,79) s(206,170) 
+	  3 d(253) d(253) d(77) s(11,12) a(257,149) s(257,254) s(176,202) a(193,242) 
+	  3 s(206,193) s(11,12) a(257,149) s(257,254) s(176,202) a(92,14) 
+	  5 d(253) d(253) d(77) s(86,79) a(193,72) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule2/randomTC/v10/1/000364/v10.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule2/randomTC/v10/1/000364/processor.i  d(176) a(193,242) a(96,113) a(255,102) a(33,202) a(10,51) a(223,23) a(176,120)  fails to compile
+	  0 d(176) a(193,242) a(96,113) a(255,102) a(33,202) a(10,51) a(223,23) a(176,120) 
+	  3 s(206,193) s(11,12) a(192,206) a(294,272) d(198) 
+	  3 d(176) a(193,242) a(96,113) a(255,102) a(33,202) s(54,28) 
+	  3 s(206,193) s(11,12) a(192,206) a(294,272) a(10,51) a(223,23) a(14,212) 
+	  5 d(176) a(289,242) a(191,149) a(270,293) a(183,182) d(192) a(227,127) d(176) a(235,272) 
+	  5 d(55) a(192,24) a(138,297) a(258,243) a(289,15) d(110) 
+	  3 d(176) a(289,242) a(191,149) a(270,293) a(183,182) d(192) s(134,123) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule2/randomTC/v10/1/000371/v10.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule2/randomTC/v10/1/000371/processor.i  d(55) a(192,24) a(138,297) a(258,243) a(289,15) a(227,127) d(176) a(138,17)  fails to compile
+	  0 d(55) a(192,24) a(138,297) a(258,243) a(289,15) a(227,127) d(176) a(138,17) 
+	  4 a(205,37) d(37) a(190,169) a(70,53) 
+	  5 a(205,37) d(138) d(205) a(191,130) a(207,255) a(192,206) a(294,272) s(192,193) s(275,266) a(203,26) 
+	  3 a(205,37) a(192,206) a(294,272) s(192,193) s(275,266) d(248) 
+	  5 a(205,37) d(138) d(205) a(191,130) a(207,255) d(37) a(190,169) s(120,121) 
+	  5 a(205,37) a(192,206) s(206,195) a(6,9) 
+	  5 d(176) a(193,242) a(96,113) a(255,102) a(294,272) s(192,193) a(308,242) a(59,24) 
+	  5 a(205,37) a(192,206) a(294,272) s(192,193) a(308,242) d(140) 
+	  5 d(176) a(193,242) a(96,113) a(255,102) s(206,195) s(2,3) 
+	  5 s(206,193) s(11,12) a(257,149) a(132,202) a(289,242) a(191,149) d(176) d(5) s(270,275) s(104,101) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule2/randomTC/v10/1/000381/v10.i /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/schedule2/randomTC/v10/1/000381/processor.i  d(176) a(176,177) d(254)  fails to compile
+	  0 d(176) a(176,177) d(254) 
+	  3 s(206,193) s(11,12) a(257,149) a(132,202) a(176,177) s(206,210) 
+	  5 d(176) a(289,242) a(191,149) d(176) d(5) s(270,275) a(45,14) 
+	  3 d(176) a(289,242) s(138,304) s(256,252) 
+	  5 d(84) s(11,12) a(257,149) s(278,275) a(191,149) d(176) d(5) d(189) s(120,24) 
+	  5 d(176) a(289,242) a(191,149) d(176) d(5) d(189) s(190,189) 
+	  4 d(84) s(11,12) a(257,149) s(278,275) s(138,304) s(89,88) 
+	  5 d(176) a(289,242) a(191,149) d(108) s(304,176) d(164) d(189) d(107) 
+	  5 d(176) a(289,242) a(191,149) d(176) d(5) d(67) a(123,129) 
+	  5 d(176) a(289,242) a(191,149) a(270,293) a(183,182) d(192) a(95,225) 
+	  5 d(176) a(289,242) a(191,149) a(306,102) a(232,36) s(243,260) d(138) 
+	  3 a(205,37) d(138) d(205) a(191,130) d(77) s(296,289) d(39) 
+	 15 s(206,193) s(11,12) a(192,206) a(294,272) a(10,51) a(223,23) d(205) 
+
+Repair Found: s(206,193) s(11,12) a(192,206) a(294,272) a(10,51) a(223,23) d(205)
+Repair Name: s(206,193) s(11,12) a(192,206) a(294,272) a(10,51) a(223,23) d(205) 
+Test Condition: 0
+Test Cases Skipped: ""
+Current Time: 1439114672.116161
+Rep: saving test cache
+
+Variant Test Case Queries: 2364
+"Test Suite Evaluations": 394
+
+Compile Failures: 10
+Wall-Clock Seconds Elapsed: 214.984
+  Activity Name                     Count Seconds = Percent of Total Time
+  compile                             396  32.388 = 16.7616%
+  test                               2316 160.833 = 83.2346%
+  TOTAL                                   193.228 = 89.8768% (avg CPU usage)

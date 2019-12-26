@@ -1,0 +1,21 @@
+gcc -D_GNUCC -E -DCIL=1 /home/mingyue/experiments/ceti/TCAS/coverageTC/v1/m1.c -o /home/mingyue/experiments/ceti/TCAS/coverageTC/v1/m1.i
+/usr/local/bin/cilly.native --out /home/mingyue/experiments/ceti/TCAS/coverageTC/v1/m1.cil.c --noPrintLn --useLogicalOperators /home/mingyue/experiments/ceti/TCAS/coverageTC/v1/m1.i
+gcc -D_GNUCC -E /home/mingyue/experiments/ceti/TCAS/coverageTC/v1/m1.cil.c -o /home/mingyue/experiments/ceti/TCAS/coverageTC/v1/m1.cil.i
+gcc -D_GNUCC -c -o /home/mingyue/experiments/ceti/TCAS/coverageTC/v1/m1.o /home/mingyue/experiments/ceti/TCAS/coverageTC/v1/m1.cil.i
+gcc -D_GNUCC -o a.out /home/mingyue/experiments/ceti/TCAS/coverageTC/v1/m1.o
+**Begin v1**
+$ cp /home/mingyue/experiments/ceti/TCAS/coverageTC/v1/m1.cil.i /tmp/CETI_aedac2/m1.cil.i
+*** Get good/bad tcs ***
+cmd 'gcc /tmp/CETI_aedac2/m1.cil.i -o /tmp/CETI_aedac2/m1.cil.i.exe >& /dev/null'
+$ gcc /tmp/CETI_aedac2/m1.cil.i -o /tmp/CETI_aedac2/m1.cil.i.exe >& /dev/null
+write_file_str: '/tmp/CETI_aedac2/m1.cil.i.sh'
+$ sh /tmp/CETI_aedac2/m1.cil.i.sh /tmp/CETI_aedac2/m1.cil.i.exe /tmp/CETI_aedac2/m1.cil.i.routputs &> /dev/null
+[35mAlert: All tests passed. No bug found. Exit!
+[mNote: temp files created in dir '/tmp/CETI_aedac2'
+0.06user 0.00system 0:00.07elapsed 107%CPU (0avgtext+0avgdata 24736maxresident)k
+0inputs+112outputs (0major+11160minor)pagefaults 0swaps
+
+real	0m0.073s
+user	0m0.068s
+sys	0m0.008s
+**Done v1**

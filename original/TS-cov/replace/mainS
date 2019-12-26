@@ -1,0 +1,25 @@
+int main()
+{
+   char argv1[10];
+   char argv2[3];
+   char argv3[10];
+   char rr[1000];
+   klee_make_symbolic(&argv1,sizeof(argv1),"argv1");
+   klee_make_symbolic(&argv2,sizeof(argv2),"argv2");
+   klee_make_symbolic(&argv3,sizeof(argv3),"argv3");
+
+    
+    klee_assume(argv1[0]!='\0');
+    klee_assume(argv2[0]!='\0');
+    klee_assume(argv3[0]!='\0');
+    klee_assume(argv1[9]=='\0');
+    
+    klee_assume(argv2[2]=='\0');
+    
+    klee_assume(argv3[9]=='\0');
+///////////////////////////////////////////////////////////////////////////
+    
+   mainQ(argv1,argv2,argv3,rr);
+   
+   return 0;
+}

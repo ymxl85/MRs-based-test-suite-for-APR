@@ -1,0 +1,119 @@
+5
+klee
+#constrains--stp:
+__tmpInt8  : BITVECTOR(8);
+__tmpInt16  : BITVECTOR(16);
+__tmpInt32  : BITVECTOR(32);
+__tmpInt64  : BITVECTOR(64);
+argv1_0xa0d6638  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+const_arr1_0xa1b09f8  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+%----------------------------------------------------
+ASSERT( BVLT(BVPLUS(8, 
+0xD0, 
+argv1_0xa0d6638[0x00000000])
+,0x0A)
+ );
+ASSERT( (0x0A = argv1_0xa0d6638[0x00000001]
+) );
+ASSERT( BVLT(BVPLUS(8, 
+0xD0, 
+argv1_0xa0d6638[0x00000002])
+,0x0A)
+ );
+ASSERT( BVLT(BVPLUS(8, 
+0x9F, 
+argv1_0xa0d6638[0x00000003])
+,0x1A)
+ );
+ASSERT( (0x0A = argv1_0xa0d6638[0x00000004]
+) );
+ASSERT( (0x00 = argv1_0xa0d6638[0x00000005]
+) );
+ASSERT( ( NOT( (0x20 = argv1_0xa0d6638[BVPLUS(32, 
+0xF5E61350, 
+IF((0x00 = argv1_0xa0d6638[0x00000000]
+))
+THEN 0x00000000
+ELSE 0x0A19ECB0
+ENDIF)
+]
+))) );
+ASSERT( ( NOT( (0x0A = argv1_0xa0d6638[BVPLUS(32, 
+0xF5E61350, 
+IF((0x00 = argv1_0xa0d6638[0x00000000]
+))
+THEN 0x00000000
+ELSE 0x0A19ECB0
+ENDIF)
+]
+))) );
+ASSERT( ( NOT( (0x20 = argv1_0xa0d6638[BVPLUS(32, 
+0xF5E61352, 
+IF((0x00 = argv1_0xa0d6638[0x00000000]
+))
+THEN 0x00000000
+ELSE 0x0A19ECB0
+ENDIF)
+]
+))) );
+ASSERT( ( NOT( (0x0A = argv1_0xa0d6638[BVPLUS(32, 
+0xF5E61352, 
+IF((0x00 = argv1_0xa0d6638[0x00000000]
+))
+THEN 0x00000000
+ELSE 0x0A19ECB0
+ENDIF)
+]
+))) );
+ASSERT( ( NOT( (0x3B = argv1_0xa0d6638[BVPLUS(32, 
+0xF5E61353, 
+IF((0x00 = argv1_0xa0d6638[0x00000000]
+))
+THEN 0x00000000
+ELSE 0x0A19ECB0
+ENDIF)
+]
+))) );
+ASSERT( ( NOT( (0x20 = argv1_0xa0d6638[BVPLUS(32, 
+0xF5E61353, 
+IF((0x00 = argv1_0xa0d6638[0x00000000]
+))
+THEN 0x00000000
+ELSE 0x0A19ECB0
+ENDIF)
+]
+))) );
+ASSERT( ( NOT( (0x0A = argv1_0xa0d6638[BVPLUS(32, 
+0xF5E61353, 
+IF((0x00 = argv1_0xa0d6638[0x00000000]
+))
+THEN 0x00000000
+ELSE 0x0A19ECB0
+ENDIF)
+]
+))) );
+%----------------------------------------------------
+QUERY( FALSE  );
+
+#variable value:
+numeric,-
+(Read w8 (Add w32 4125496144
+                  (Select w32 (Eq 0 (Read w8 0 argv1))
+                              0
+                              169471152))
+         argv1)
+.
+error,"-
+(Read w8 (Add w32 4125496146
+                  (Select w32 (Eq 0 (Read w8 0 argv1))
+                              0
+                              169471152))
+         argv1)
+-
+(Read w8 (Add w32 4125496147
+                  (Select w32 (Eq 0 (Read w8 0 argv1))
+                              0
+                              169471152))
+         argv1)
+".
+eof.

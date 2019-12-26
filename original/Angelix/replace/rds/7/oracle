@@ -1,0 +1,99 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "?*d" "z2+" "|fX)"
+      ;;
+    2)
+      test-replace  "hVNV" "" "TriS+D,a"
+      ;;
+    3)
+      test-replace  "+w1" "" "<0K&<W+O\\"
+      ;;
+    4)
+      test-replace  "skRs" "nx/" "~.n_^&xLtRj g"
+      ;;
+    5)
+      test-replace  "\\9yP" "A" "AmMNP\$v8"
+      ;;
+    6)
+      test-replace  "wA" "zd" "%\\5bQ#S.]9AZA"
+      ;;
+    7)
+      test-replace  "f" "" "1)i[TQ|VPqb"
+      ;;
+    8)
+      test-replace  "(a" "" "RO}_1"
+      ;;
+    9)
+      test-replace  "hCk]" "y" "Ad7[l?N!"
+      ;;
+    10)
+      test-replace  "" "5:Q" "))Rw;+j)"
+      ;;
+    11)
+      test-replace  "<" "DV" "7(Vi=q5]z]00_bJ"
+      ;;
+    12)
+      test-replace  "^-" "pc" "_@xmJ<2DxEeTt6we"
+      ;;
+    13)
+      test-replace  "" "" "R}xNhY*Dl*Wub6oX|B!}"
+      ;;
+    14)
+      test-replace  ",h@" "3j^" "F{;x)\`Xyg3W\"L)h;d@"
+      ;;
+    15)
+      test-replace  "l]" "pY#" " "
+      ;;
+    16)
+      test-replace  "Y" "]^4" "*jMQs?IQ"
+      ;;
+    17)
+      test-replace  "fD" "#" "=>IUvyN-PW"
+      ;;
+    18)
+      test-replace  "6,;[" "yT@" "^"
+      ;;
+    19)
+      test-replace  "ui" "n^5[" "gSrz?LL:k;)FC~I7O"
+      ;;
+    20)
+      test-replace  "Y|S" "" "|Z"
+      ;;
+    21)
+      test-replace  "8M " "" "%SGn:*Ibf\$TH\$d"
+      ;;
+    22)
+      test-replace  "k" ".q" "SljGQmyJAV5cPz"
+      ;;
+    23)
+      test-replace  "/*2" "" "%lN"
+      ;;
+    24)
+      test-replace  "@s-" "-w" "b\$yM8wq{hm\"p"
+      ;;
+    25)
+      test-replace  "^a\"" "ue!" "zwSa"
+      ;;
+    26)
+      test-replace  "1a=" "/" "s\"DIEcwzJXD\""
+      ;;
+    27)
+      test-replace  "!6" "bYUW" "J|hn?S"
+      ;;
+    28)
+      test-replace  ")\"" "" "J(^MY~4[Pz"
+      ;;
+    29)
+      test-replace  "|cg<" "W" "?@}4(bb_wn1["
+      ;;
+    30)
+      test-replace  "wNM" "" "SE:zn(dLgKMl"
+      ;;
+esac

@@ -1,0 +1,36 @@
+int main(int argc,char *argv[])
+{  
+     char rr[100]="";
+    char argv1[9];
+     klee_make_symbolic(&argv1,sizeof(argv1),"argv1");
+
+    klee_assume(argv1[0]!='\n' & argv1[0]!='\0' & argv1[0]!='"' & argv1[0]>0 & argv1[0]<255);
+    klee_assume(argv1[1]!='\n' & argv1[1]!='\0' & argv1[1]!='"' & argv1[1]>0 & argv1[1]<255);
+    klee_assume(argv1[2]==';');
+    klee_assume(argv1[3]!='\n' & argv1[3]!='\0' & argv1[3]>0 & argv1[3]<255);
+    klee_assume(argv1[4]!='\n' & argv1[4]!='\0' & argv1[4]>0 & argv1[4]<255);
+    klee_assume(argv1[5]=='\n');
+    klee_assume(argv1[6]!='\n' & argv1[6]!='\0' & argv1[6]>0 & argv1[6]<255);
+    klee_assume(argv1[7]!='\n' & argv1[7]!='\0' & argv1[7]>0 & argv1[7]<255);
+    klee_assume(argv1[8]=='\0');
+////////////////////////////////////////////////////////follow-up
+   char f[6];
+klee_make_symbolic(&f,sizeof(f),"argv1");
+   f[0]=argv1[0];
+   f[1]=argv1[1];
+   f[2]=argv1[5];
+   f[3]=argv1[6];
+   f[4]=argv1[7];
+   f[5]=argv1[8];
+   klee_assume(f[0]==argv1[0]);
+   klee_assume(f[1]==argv1[1]);
+   klee_assume(f[2]==argv1[5]);
+   klee_assume(f[3]==argv1[6]);
+   klee_assume(f[4]==argv1[7]);
+   klee_assume(f[5]==argv1[8]);
+/////////////////////////////////////////////////////////
+   mainQ(f,rr);
+////////////////////////////////////////////////////////
+   klee_print_expr("rr=",rr);
+   return 0;
+}

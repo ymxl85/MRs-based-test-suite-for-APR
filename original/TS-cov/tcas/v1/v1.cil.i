@@ -1,0 +1,382 @@
+# 1 "/home/mingyue/experiments/ceti/TCAS/coverageTC/v1/v1.cil.c"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/home/mingyue/experiments/ceti/TCAS/coverageTC/v1/v1.cil.c"
+
+
+
+int ALIM(int Cur_Vertical_Sep , int High_Confidence , int Two_of_Three_Reports_Valid ,
+         int Own_Tracked_Alt , int Own_Tracked_Alt_Rate , int Other_Tracked_Alt ,
+         int Alt_Layer_Value , int Up_Separation , int Down_Separation , int Other_RAC ,
+         int Other_Capability , int Climb_Inhibit )
+{
+
+
+  {
+  if (Alt_Layer_Value == 0) {
+    return (400);
+  } else
+  if (Alt_Layer_Value == 1) {
+    return (500);
+  } else
+  if (Alt_Layer_Value == 2) {
+    return (640);
+  } else {
+    return (740);
+  }
+}
+}
+int Inhibit_Biased_Climb(int Cur_Vertical_Sep , int High_Confidence , int Two_of_Three_Reports_Valid ,
+                         int Own_Tracked_Alt , int Own_Tracked_Alt_Rate , int Other_Tracked_Alt ,
+                         int Alt_Layer_Value , int Up_Separation , int Down_Separation ,
+                         int Other_RAC , int Other_Capability , int Climb_Inhibit )
+{
+
+
+  {
+  return (Climb_Inhibit ? 100 + Up_Separation : Up_Separation);
+}
+}
+int Own_Below_Threat(int Cur_Vertical_Sep , int High_Confidence , int Two_of_Three_Reports_Valid ,
+                     int Own_Tracked_Alt , int Own_Tracked_Alt_Rate , int Other_Tracked_Alt ,
+                     int Alt_Layer_Value , int Up_Separation , int Down_Separation ,
+                     int Other_RAC , int Other_Capability , int Climb_Inhibit ) ;
+int Own_Above_Threat(int Cur_Vertical_Sep , int High_Confidence , int Two_of_Three_Reports_Valid ,
+                     int Own_Tracked_Alt , int Own_Tracked_Alt_Rate , int Other_Tracked_Alt ,
+                     int Alt_Layer_Value , int Up_Separation , int Down_Separation ,
+                     int Other_RAC , int Other_Capability , int Climb_Inhibit ) ;
+int Non_Crossing_Biased_Climb(int Cur_Vertical_Sep , int High_Confidence , int Two_of_Three_Reports_Valid ,
+                              int Own_Tracked_Alt , int Own_Tracked_Alt_Rate , int Other_Tracked_Alt ,
+                              int Alt_Layer_Value , int Up_Separation , int Down_Separation ,
+                              int Other_RAC , int Other_Capability , int Climb_Inhibit )
+{
+  int upward_preferred ;
+  int result ;
+  int tmp ;
+  int tmp___0 ;
+  int tmp___1 ;
+  int tmp___2 ;
+  int tmp___3 ;
+  int tmp___4 ;
+  int tmp___5 ;
+  int tmp___6 ;
+
+  {
+  tmp = Inhibit_Biased_Climb(Cur_Vertical_Sep, High_Confidence, Two_of_Three_Reports_Valid,
+                             Own_Tracked_Alt, Own_Tracked_Alt_Rate, Other_Tracked_Alt,
+                             Alt_Layer_Value, Up_Separation, Down_Separation, Other_RAC,
+                             Other_Capability, Climb_Inhibit);
+  upward_preferred = tmp > Down_Separation;
+  if (upward_preferred) {
+    tmp___0 = Own_Below_Threat(Cur_Vertical_Sep, High_Confidence, Two_of_Three_Reports_Valid,
+                               Own_Tracked_Alt, Own_Tracked_Alt_Rate, Other_Tracked_Alt,
+                               Alt_Layer_Value, Up_Separation, Down_Separation, Other_RAC,
+                               Other_Capability, Climb_Inhibit);
+    if (tmp___0) {
+      tmp___1 = Own_Below_Threat(Cur_Vertical_Sep, High_Confidence, Two_of_Three_Reports_Valid,
+                                 Own_Tracked_Alt, Own_Tracked_Alt_Rate, Other_Tracked_Alt,
+                                 Alt_Layer_Value, Up_Separation, Down_Separation,
+                                 Other_RAC, Other_Capability, Climb_Inhibit);
+      if (tmp___1) {
+        tmp___2 = ALIM(Cur_Vertical_Sep, High_Confidence, Two_of_Three_Reports_Valid,
+                       Own_Tracked_Alt, Own_Tracked_Alt_Rate, Other_Tracked_Alt, Alt_Layer_Value,
+                       Up_Separation, Down_Separation, Other_RAC, Other_Capability,
+                       Climb_Inhibit);
+        if (Down_Separation > tmp___2) {
+          tmp___3 = 0;
+        } else {
+          tmp___3 = 1;
+        }
+      } else {
+        tmp___3 = 0;
+      }
+    } else {
+      tmp___3 = 1;
+    }
+    result = tmp___3;
+  } else {
+    tmp___4 = Own_Above_Threat(Cur_Vertical_Sep, High_Confidence, Two_of_Three_Reports_Valid,
+                               Own_Tracked_Alt, Own_Tracked_Alt_Rate, Other_Tracked_Alt,
+                               Alt_Layer_Value, Up_Separation, Down_Separation, Other_RAC,
+                               Other_Capability, Climb_Inhibit);
+    if (tmp___4 && Cur_Vertical_Sep >= 300) {
+      tmp___5 = ALIM(Cur_Vertical_Sep, High_Confidence, Two_of_Three_Reports_Valid,
+                     Own_Tracked_Alt, Own_Tracked_Alt_Rate, Other_Tracked_Alt, Alt_Layer_Value,
+                     Up_Separation, Down_Separation, Other_RAC, Other_Capability,
+                     Climb_Inhibit);
+      if (Up_Separation >= tmp___5) {
+        tmp___6 = 1;
+      } else {
+        tmp___6 = 0;
+      }
+    } else {
+      tmp___6 = 0;
+    }
+    result = tmp___6;
+  }
+  return (result);
+}
+}
+int Non_Crossing_Biased_Descend(int Cur_Vertical_Sep , int High_Confidence , int Two_of_Three_Reports_Valid ,
+                                int Own_Tracked_Alt , int Own_Tracked_Alt_Rate , int Other_Tracked_Alt ,
+                                int Alt_Layer_Value , int Up_Separation , int Down_Separation ,
+                                int Other_RAC , int Other_Capability , int Climb_Inhibit )
+{
+  int upward_preferred ;
+  int result ;
+  int tmp ;
+  int tmp___0 ;
+  int tmp___1 ;
+  int tmp___2 ;
+  int tmp___3 ;
+  int tmp___4 ;
+  int tmp___5 ;
+  int tmp___6 ;
+
+  {
+  tmp = Inhibit_Biased_Climb(Cur_Vertical_Sep, High_Confidence, Two_of_Three_Reports_Valid,
+                             Own_Tracked_Alt, Own_Tracked_Alt_Rate, Other_Tracked_Alt,
+                             Alt_Layer_Value, Up_Separation, Down_Separation, Other_RAC,
+                             Other_Capability, Climb_Inhibit);
+  upward_preferred = tmp > Down_Separation;
+  if (upward_preferred) {
+    tmp___0 = Own_Below_Threat(Cur_Vertical_Sep, High_Confidence, Two_of_Three_Reports_Valid,
+                               Own_Tracked_Alt, Own_Tracked_Alt_Rate, Other_Tracked_Alt,
+                               Alt_Layer_Value, Up_Separation, Down_Separation, Other_RAC,
+                               Other_Capability, Climb_Inhibit);
+    if (tmp___0 && Cur_Vertical_Sep >= 300) {
+      tmp___1 = ALIM(Cur_Vertical_Sep, High_Confidence, Two_of_Three_Reports_Valid,
+                     Own_Tracked_Alt, Own_Tracked_Alt_Rate, Other_Tracked_Alt, Alt_Layer_Value,
+                     Up_Separation, Down_Separation, Other_RAC, Other_Capability,
+                     Climb_Inhibit);
+      if (Down_Separation >= tmp___1) {
+        tmp___2 = 1;
+      } else {
+        tmp___2 = 0;
+      }
+    } else {
+      tmp___2 = 0;
+    }
+    result = tmp___2;
+  } else {
+    tmp___3 = Own_Above_Threat(Cur_Vertical_Sep, High_Confidence, Two_of_Three_Reports_Valid,
+                               Own_Tracked_Alt, Own_Tracked_Alt_Rate, Other_Tracked_Alt,
+                               Alt_Layer_Value, Up_Separation, Down_Separation, Other_RAC,
+                               Other_Capability, Climb_Inhibit);
+    if (tmp___3) {
+      tmp___4 = Own_Above_Threat(Cur_Vertical_Sep, High_Confidence, Two_of_Three_Reports_Valid,
+                                 Own_Tracked_Alt, Own_Tracked_Alt_Rate, Other_Tracked_Alt,
+                                 Alt_Layer_Value, Up_Separation, Down_Separation,
+                                 Other_RAC, Other_Capability, Climb_Inhibit);
+      if (tmp___4) {
+        tmp___5 = ALIM(Cur_Vertical_Sep, High_Confidence, Two_of_Three_Reports_Valid,
+                       Own_Tracked_Alt, Own_Tracked_Alt_Rate, Other_Tracked_Alt, Alt_Layer_Value,
+                       Up_Separation, Down_Separation, Other_RAC, Other_Capability,
+                       Climb_Inhibit);
+        if (Up_Separation >= tmp___5) {
+          tmp___6 = 1;
+        } else {
+          tmp___6 = 0;
+        }
+      } else {
+        tmp___6 = 0;
+      }
+    } else {
+      tmp___6 = 1;
+    }
+    result = tmp___6;
+  }
+  return (result);
+}
+}
+int Own_Below_Threat(int Cur_Vertical_Sep , int High_Confidence , int Two_of_Three_Reports_Valid ,
+                     int Own_Tracked_Alt , int Own_Tracked_Alt_Rate , int Other_Tracked_Alt ,
+                     int Alt_Layer_Value , int Up_Separation , int Down_Separation ,
+                     int Other_RAC , int Other_Capability , int Climb_Inhibit )
+{
+
+
+  {
+  return (Own_Tracked_Alt < Other_Tracked_Alt);
+}
+}
+int Own_Above_Threat(int Cur_Vertical_Sep , int High_Confidence , int Two_of_Three_Reports_Valid ,
+                     int Own_Tracked_Alt , int Own_Tracked_Alt_Rate , int Other_Tracked_Alt ,
+                     int Alt_Layer_Value , int Up_Separation , int Down_Separation ,
+                     int Other_RAC , int Other_Capability , int Climb_Inhibit )
+{
+
+
+  {
+  return (Other_Tracked_Alt < Own_Tracked_Alt);
+}
+}
+int alt_sep_test(int Cur_Vertical_Sep , int High_Confidence , int Two_of_Three_Reports_Valid ,
+                 int Own_Tracked_Alt , int Own_Tracked_Alt_Rate , int Other_Tracked_Alt ,
+                 int Alt_Layer_Value , int Up_Separation , int Down_Separation , int Other_RAC ,
+                 int Other_Capability , int Climb_Inhibit )
+{
+  int enabled ;
+  int tcas_equipped ;
+  int intent_not_known ;
+  int need_upward_RA ;
+  int need_downward_RA ;
+  int alt_sep ;
+  int tmp ;
+  int tmp___0 ;
+  int tmp___1 ;
+  int tmp___2 ;
+  int tmp___3 ;
+  int tmp___4 ;
+
+  {
+  enabled = (High_Confidence && Own_Tracked_Alt_Rate <= 600) && Cur_Vertical_Sep > 600;
+  tcas_equipped = Other_Capability == 1;
+  intent_not_known = Two_of_Three_Reports_Valid && Other_RAC == 0;
+  alt_sep = 0;
+  if (enabled && ((tcas_equipped && intent_not_known) || ! tcas_equipped)) {
+    tmp = Non_Crossing_Biased_Climb(Cur_Vertical_Sep, High_Confidence, Two_of_Three_Reports_Valid,
+                                    Own_Tracked_Alt, Own_Tracked_Alt_Rate, Other_Tracked_Alt,
+                                    Alt_Layer_Value, Up_Separation, Down_Separation,
+                                    Other_RAC, Other_Capability, Climb_Inhibit);
+    if (tmp) {
+      tmp___0 = Own_Below_Threat(Cur_Vertical_Sep, High_Confidence, Two_of_Three_Reports_Valid,
+                                 Own_Tracked_Alt, Own_Tracked_Alt_Rate, Other_Tracked_Alt,
+                                 Alt_Layer_Value, Up_Separation, Down_Separation,
+                                 Other_RAC, Other_Capability, Climb_Inhibit);
+      if (tmp___0) {
+        tmp___1 = 1;
+      } else {
+        tmp___1 = 0;
+      }
+    } else {
+      tmp___1 = 0;
+    }
+    need_upward_RA = tmp___1;
+    tmp___2 = Non_Crossing_Biased_Descend(Cur_Vertical_Sep, High_Confidence, Two_of_Three_Reports_Valid,
+                                          Own_Tracked_Alt, Own_Tracked_Alt_Rate, Other_Tracked_Alt,
+                                          Alt_Layer_Value, Up_Separation, Down_Separation,
+                                          Other_RAC, Other_Capability, Climb_Inhibit);
+    if (tmp___2) {
+      tmp___3 = Own_Above_Threat(Cur_Vertical_Sep, High_Confidence, Two_of_Three_Reports_Valid,
+                                 Own_Tracked_Alt, Own_Tracked_Alt_Rate, Other_Tracked_Alt,
+                                 Alt_Layer_Value, Up_Separation, Down_Separation,
+                                 Other_RAC, Other_Capability, Climb_Inhibit);
+      if (tmp___3) {
+        tmp___4 = 1;
+      } else {
+        tmp___4 = 0;
+      }
+    } else {
+      tmp___4 = 0;
+    }
+    need_downward_RA = tmp___4;
+    if (need_upward_RA && need_downward_RA) {
+      alt_sep = 0;
+    } else
+    if (need_upward_RA) {
+      alt_sep = 1;
+    } else
+    if (need_downward_RA) {
+      alt_sep = 2;
+    } else {
+      alt_sep = 0;
+    }
+  }
+  return (alt_sep);
+}
+}
+int mainQ(int Cur_Vertical_Sep , int High_Confidence , int Two_of_Three_Reports_Valid ,
+          int Own_Tracked_Alt , int Own_Tracked_Alt_Rate , int Other_Tracked_Alt ,
+          int Alt_Layer_Value , int Up_Separation , int Down_Separation , int Other_RAC ,
+          int Other_Capability , int Climb_Inhibit )
+{
+  int tmp ;
+
+  {
+  tmp = alt_sep_test(Cur_Vertical_Sep, High_Confidence, Two_of_Three_Reports_Valid,
+                     Own_Tracked_Alt, Own_Tracked_Alt_Rate, Other_Tracked_Alt, Alt_Layer_Value,
+                     Up_Separation, Down_Separation, Other_RAC, Other_Capability,
+                     Climb_Inhibit);
+  return (tmp);
+}
+}
+extern int ( klee_make_symbolic)() ;
+extern int ( klee_assume)() ;
+extern int ( klee_print_expr)() ;
+extern int ( exit)() ;
+int main(void)
+{
+  int Cur_Vertical_Sep ;
+  int High_Confidence ;
+  int Two_of_Three_Reports_Valid ;
+  int Own_Tracked_Alt ;
+  int Own_Tracked_Alt_Rate ;
+  int Other_Tracked_Alt ;
+  int Alt_Layer_Value ;
+  int Up_Separation ;
+  int Down_Separation ;
+  int Other_RAC ;
+  int Other_Capability ;
+  int Climb_Inhibit ;
+  int argv1 ;
+  int argv2 ;
+  int argv3 ;
+  int argv4 ;
+  int argv5 ;
+  int argv6 ;
+  int argv7 ;
+  int argv8 ;
+  int argv9 ;
+  int argv10 ;
+  int argv11 ;
+  int argv12 ;
+  int result ;
+  int tmp ;
+
+  {
+  klee_make_symbolic(& argv1, sizeof(argv1), "argv1");
+  klee_make_symbolic(& argv2, sizeof(argv2), "argv2");
+  klee_make_symbolic(& argv3, sizeof(argv3), "argv3");
+  klee_make_symbolic(& argv4, sizeof(argv4), "argv4");
+  klee_make_symbolic(& argv5, sizeof(argv5), "argv5");
+  klee_make_symbolic(& argv6, sizeof(argv6), "argv6");
+  klee_make_symbolic(& argv7, sizeof(argv7), "argv7");
+  klee_make_symbolic(& argv8, sizeof(argv8), "argv8");
+  klee_make_symbolic(& argv9, sizeof(argv9), "argv9");
+  klee_make_symbolic(& argv10, sizeof(argv10), "argv10");
+  klee_make_symbolic(& argv11, sizeof(argv11), "argv11");
+  klee_make_symbolic(& argv12, sizeof(argv12), "argv12");
+  klee_assume((argv7 >= 0) & (argv7 <= 3));
+  klee_assume((argv2 == 1) | (argv2 == 0));
+  klee_assume((argv3 == 1) | (argv3 == 0));
+  klee_assume((argv1 >= -10000) & (argv1 <= 10000));
+  klee_assume((argv4 >= -10000) & (argv4 <= 10000));
+  klee_assume((argv5 >= -10000) & (argv5 <= 10000));
+  klee_assume((argv6 >= -10000) & (argv6 <= 10000));
+  klee_assume((argv8 >= -10000) & (argv8 <= 10000));
+  klee_assume((argv9 >= -10000) & (argv9 <= 10000));
+  klee_assume(((argv10 == 0) | (argv10 == 1)) | (argv10 == 2));
+  klee_assume((argv11 == 1) | (argv11 == 2));
+  klee_assume((argv12 == 1) | (argv12 == 0));
+  Cur_Vertical_Sep = argv1;
+  High_Confidence = argv2;
+  Two_of_Three_Reports_Valid = argv3;
+  Own_Tracked_Alt = argv4;
+  Own_Tracked_Alt_Rate = argv5;
+  Other_Tracked_Alt = argv6;
+  Alt_Layer_Value = argv7;
+  Up_Separation = argv8;
+  Down_Separation = argv9;
+  Other_RAC = argv10;
+  Other_Capability = argv11;
+  Climb_Inhibit = argv12;
+  tmp = alt_sep_test(Cur_Vertical_Sep, High_Confidence, Two_of_Three_Reports_Valid,
+                     Own_Tracked_Alt, Own_Tracked_Alt_Rate, Other_Tracked_Alt, Alt_Layer_Value,
+                     Up_Separation, Down_Separation, Other_RAC, Other_Capability,
+                     Climb_Inhibit);
+  result = tmp;
+  klee_print_expr("output=", result);
+  exit(0);
+}
+}

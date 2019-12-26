@@ -1,0 +1,11 @@
+--- a/schedule.c
++++ b/schedule.c
+@@ -242,7 +242,7 @@
+     if (block_queue)
+     {
+ 	count = block_queue->mem_count + 1;
+-	n = (int) (count*ratio); /* change in where +1 was added - logic change */
++	n = (count + -1); /* change in where +1 was added - logic change */
+ 	proc = find_nth(block_queue, n);
+ 	if (proc) {
+ 	    block_queue = del_ele(block_queue, proc);

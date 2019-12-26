@@ -1,0 +1,125 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "s" "0" "rs"
+      ;;
+    2)
+      test-replace  "s" "0" "sr"
+      ;;
+    3)
+      test-replace  "@" "0" "s@"
+      ;;
+    4)
+      test-replace  "@" "0" "@s"
+      ;;
+    5)
+      test-replace  "%" "0" "S%"
+      ;;
+    6)
+      test-replace  "s" "0" "ss"
+      ;;
+    7)
+      test-replace  "r" "0" "ss"
+      ;;
+    8)
+      test-replace  "
+" "0" "ss"
+      ;;
+    9)
+      test-replace  "^" "0" "a^"
+      ;;
+    10)
+      test-replace  "%" "0" "%S"
+      ;;
+    11)
+      test-replace  "^" "0" "^a"
+      ;;
+    12)
+      test-replace  "2" "0" "s@"
+      ;;
+    13)
+      test-replace  "=" "0" "s@"
+      ;;
+    14)
+      test-replace  "2" "0" "@s"
+      ;;
+    15)
+      test-replace  "=" "0" "@s"
+      ;;
+    16)
+      test-replace  "[^s]" "0" "rs"
+      ;;
+    17)
+      test-replace  "[^r]" "0" "rs"
+      ;;
+    18)
+      test-replace  "[^r]" "0" "sr"
+      ;;
+    19)
+      test-replace  "[^s]" "0" "sr"
+      ;;
+    20)
+      test-replace  "[^@]" "0" "s@"
+      ;;
+    21)
+      test-replace  "[^s]" "0" "s@"
+      ;;
+    22)
+      test-replace  "[^s]" "0" "@s"
+      ;;
+    23)
+      test-replace  "[^@]" "0" "@s"
+      ;;
+    24)
+      test-replace  "[^%]" "0" "S%"
+      ;;
+    25)
+      test-replace  "[^S]" "0" "S%"
+      ;;
+    26)
+      test-replace  "sss" "0" "ssssss"
+      ;;
+    27)
+      test-replace  "[r]" "0" "ss"
+      ;;
+    28)
+      test-replace  "[
+]" "0" "ss"
+      ;;
+    29)
+      test-replace  "[^^]" "0" "a^"
+      ;;
+    30)
+      test-replace  "[^a]" "0" "a^"
+      ;;
+    31)
+      test-replace  "[^S]" "0" "%S"
+      ;;
+    32)
+      test-replace  "[^%]" "0" "%S"
+      ;;
+    33)
+      test-replace  "[^a]" "0" "^a"
+      ;;
+    34)
+      test-replace  "[^^]" "0" "^a"
+      ;;
+    35)
+      test-replace  "[2]" "0" "s@"
+      ;;
+    36)
+      test-replace  "[=]" "0" "s@"
+      ;;
+    37)
+      test-replace  "[2]" "0" "@s"
+      ;;
+    38)
+      test-replace  "[=]" "0" "@s"
+      ;;
+esac

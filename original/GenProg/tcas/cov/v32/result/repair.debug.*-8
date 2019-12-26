@@ -1,0 +1,168 @@
+--allow-coverage-fail false
+--appp 0.33333
+--asm-code-only false
+--best-edit-rule "1 * fault_loc_weight ; 1 * max_test_fail_prob ; -1 * num_tests"
+--best-test-rule "1 * test_fail_prob ; 1 * test_fail_count ; -1 * test_pass_count"
+--compiler "gcc"
+--compiler-command ""
+--compiler-opts ""
+--continue false
+--coverage-info ""
+--coverage-per-test false
+--crossover "one"
+--crossp 0.5
+--delp 0.33333
+--describe-machine false
+--diversity-selection 0
+--edit-script false
+--elf-risc false
+--exclude-edits ""
+--exp-diff false
+--fault-file ""
+--fault-path "coverage.path.neg"
+--fault-scheme "path"
+--fitness-in-parallel 1
+--fix-file ""
+--fix-oracle ""
+--fix-path "coverage.path.pos"
+--fix-scheme "default"
+--flatten-path ""
+--format "txt"
+--gen-per-exchange 1
+--generations 10
+--gui false
+--hostname "127.0.0.1"
+--ignore-dead-code false
+--ignore-equiv-appends false
+--ignore-standard-headers false
+--ignore-string-equiv-fixes false
+--ignore-untyped-returns false
+--incoming-pop ""
+--keep-source false
+--label-repair true
+--max-evals 0
+--minimization false
+--mt-cov false
+--multiopt-minimize false
+--multiopt-no-inf false
+--neg-tests 1
+--neg-weight 1
+--negative-test-weight 2
+--neutral-walk-max-size 0
+--neutral-walk-weight ""
+--nht-id "global"
+--nht-port 51000
+--nht-server ""
+--no-rep-cache false
+--no-test-cache false
+--num-comps 2
+--num-objectives 2
+--oracle-genome ""
+--popsize 40
+--port 60000
+--pos-tests 20
+--pos-weight 0.1
+--prefix "./"
+--preprocessor ""
+--print-incremental-evals false
+--print-source-name false
+--program "m32.i"
+--promut 1
+--quiet false
+--regen-paths false
+--rep ""
+--rep-cache ""
+--repp 0
+--samp-strat "variant"
+--sample 1
+--sample-runs 100
+--sanity "default"
+--search "ga"
+--seed 146394
+--semantic-check "scope"
+--single-fitness false
+--skip-failed-sanity-tests false
+--skip-tests ""
+--split-search 0
+--sport 65000
+--subatom-constp 0.5
+--subatom-mutp 0
+--super-mutant false
+--super-mutant-size 50
+--swap-bug false
+--swapp 0.33333
+--template-cache ""
+--templates ""
+--test-command ""
+--test-script "/bin/sh test.sh"
+--tournament-size 2
+--tweet false
+--uniq false
+--valgrind false
+--variants-exchanged 50
+cilRep: preprocessing IO function signatures: /tmp/tmp9f60c9.c /tmp/tmpf5c018.c
+cilRep: done preprocessing IO function signatures
+cachingRep: m32.cache: loaded
+faultlocRep: m32.cache: loaded
+cilRep: m32.cache: loaded
+cilRep: m32.cache: saved
+cachingRep: m32.cache: saved
+faultlocRep: m32.cache: saved
+cilrep done serialize
+cilRep: stmt_count = 132
+cilRep: stmts in weighted_path = 65
+cilRep: total weight = 6.5
+cilRep: stmts in weighted_path with weight >= 1.0 = 0
+cilRep: m32.i (code bank/base file; atoms [1,132])
+cilRep: 1 file(s) total in representation
+search: genetic algorithm begins (|original| = 0.00633717 MB)
+search: initial population (sizeof one variant = 0.00675678 MB)
+	 20 s(129,119) 
+	 52 d(125) 
+	 46 s(98,100) 
+	 20 a(75,4) 
+	 20 a(76,101) 
+	 20 s(33,29) 
+	 20 d(82) 
+	 20 a(97,97) 
+	 20 a(106,78) 
+	  0 s(124,131) 
+	 20 d(31) 
+	 16 d(121) 
+	  0 d(116) 
+	 56 s(11,10) 
+	 56 s(11,10) 
+	 16 d(68) 
+	 20 d(60) 
+	 20 d(123) 
+	 20 d(73) 
+	 15 s(100,82) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/coverageTC/v32/./000020.c d(105)  fails to compile
+	  0 d(105) 
+	  0 a(118,3) 
+	 12 d(122) 
+	 20 d(33) 
+	 20 a(35,35) 
+	  0 s(132,125) 
+	 12 d(122) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/coverageTC/v32/./000027.c d(105)  fails to compile
+	  0 d(105) 
+	 20 a(60,39) 
+	 60 d(8) 
+
+Repair Found: d(8)
+Repair Name: d(8) 
+Test Condition: 0
+Test Cases Skipped: ""
+Current Time: 1431080159.381526
+Rep: saving test cache
+
+Variant Test Case Queries: 630
+"Test Suite Evaluations": 30
+
+Compile Failures: 2
+Wall-Clock Seconds Elapsed: 8.4368
+  Activity Name                     Count Seconds = Percent of Total Time
+  compile                              30   1.929 = 26.6341%
+  test                                588   5.312 = 73.3659%
+  TOTAL                                     7.241 = 85.7191% (avg CPU usage)

@@ -1,0 +1,21 @@
+klee --allow-external-sym-calls --only-output-states-covering-new --max-time=120 --libc=uclibc --optimize v1.o
+PID: 2783
+Started: 2015-08-10 10:36:19
+BEGIN searcher description
+<InterleavedSearcher> containing 2 searchers:
+RandomPathSearcher
+WeightedRandomSearcher::CoveringNew
+</InterleavedSearcher>
+END searcher description
+Finished: 2015-08-10 10:38:20
+Elapsed: 00:02:01
+KLEE: done: explored paths = 5403
+KLEE: done: avg. constructs per query = 84
+KLEE: done: total queries = 5643
+KLEE: done: valid queries = 3867
+KLEE: done: invalid queries = 1776
+KLEE: done: query cex = 5643
+
+KLEE: done: total instructions = 103272
+KLEE: done: completed paths = 5403
+KLEE: done: generated tests = 42

@@ -1,0 +1,36 @@
+array argv4[4] : w32 -> w8 = symbolic
+array argv5[4] : w32 -> w8 = symbolic
+array argv3[4] : w32 -> w8 = symbolic
+array argv1[4] : w32 -> w8 = symbolic
+array argv2[4] : w32 -> w8 = symbolic
+array argv6[4] : w32 -> w8 = symbolic
+array argv7[4] : w32 -> w8 = symbolic
+array const_arr15[16] : w32 -> w8 = [0 0 0 0 72 100 153 9 8 121 211 9 144 145 144 9]
+array const_arr18[12] : w32 -> w8 = [144 82 146 9 232 30 216 9 3 0 0 0]
+(query [(Ult N0:(ReadLSB w32 0 argv1)
+             21)
+        (Ult N1:(ReadLSB w32 0 argv3)
+             21)
+        (Ult N2:(ReadLSB w32 0 argv5)
+             21)
+        (Ult (ReadLSB w32 0 argv7)
+             21)
+        (Eq false (Slt 0 N1))
+        (Eq 3
+            (ReadLSB w32 0 argv2))
+        (Eq false (Slt 0 N0))
+        (Eq 2
+            (ReadLSB w32 0 argv4))
+        (Eq 20
+            (ReadLSB w32 0 argv6))
+        (Eq false
+            (Ult 2 (Add w32 4294967295 N2)))
+        (Eq false (Slt 2 N2))
+        (Eq false
+            (Ult (Add w32 4133919680
+                          N3:(ReadLSB w32 N4:(Mul w32 4 N2) const_arr15))
+                 9))
+        (Eq 3
+            (ReadLSB w32 (Add w32 4130113280 N3)
+                         const_arr18))]
+       false)

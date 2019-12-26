@@ -1,0 +1,29 @@
+#!/bin/bash
+set -euo pipefail
+subjectProg=$1
+subdir=$2
+version=$3
+
+subject=$subdir/$subjectProg
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+
+usage="Usage: repair VERSION"
+
+SUBJECT_DIR=${SCRIPT_DIR}/${subject}
+
+
+arguments="$@"
+
+if [ ! -f $SUBJECT_DIR/golden/$subject ]; then
+   (cd $SUBJECT_DIR/golden/; make &> /dev/null)
+fi
+
+src=$SUBJECT_DIR/$version
+golden=$SUBJECT_DIR/golden
+oracle=$SUBJECT_DIR/oracle.sh
+
+test_suite=`cat $SUBJECT_DIR/$version/semfix-tests-50`
+
+angelix $src $subject.c $oracle $test_suite --golden $golden \
+    `./get-options $subject $version` \
+    $arguments

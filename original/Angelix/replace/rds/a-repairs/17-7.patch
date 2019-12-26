@@ -1,0 +1,20 @@
+--- a/replace.c
++++ b/replace.c
+@@ -66,7 +66,7 @@
+ 	result = s[*i];
+     else
+ 	if (s[*i + 1] == ENDSTR)
+-	    result = NEWLINE;//fault ESCAPE
++	    result = 1077952576;//fault ESCAPE
+ 	else 
+ 	{
+ 	    *i = *i + 1;
+@@ -195,7 +195,7 @@
+     lastj = 0;
+     done = false;
+     while ((!done) && (arg[i] != delim) && (arg[i] != ENDSTR)) {
+-	lj = j;
++	lj = 0;
+ 	if ((arg[i] == ANY))
+ 	    junk = addstr(ANY, pat, &j, MAXPAT);
+ 	else if ((arg[i] == BOL) && (i == start))

@@ -1,0 +1,91 @@
+array argv1[100] : w32 -> w8 = symbolic
+(query [(Ult (Add w8 208 N0:(Read w8 0 argv1))
+             4)
+        (Eq 32 (Read w8 1 argv1))
+        (Eq 50 (Read w8 2 argv1))
+        (Eq 32 (Read w8 3 argv1))
+        (Ult N1:(Add w8 208 N2:(Read w8 4 argv1))
+             3)
+        (Eq 10 (Read w8 5 argv1))
+        (Eq 49 (Read w8 6 argv1))
+        (Eq 32 (Read w8 7 argv1))
+        (Eq 50 (Read w8 8 argv1))
+        (Eq 10 (Read w8 9 argv1))
+        (Slt 0
+             (Add w32 4294967248 N3:(SExt w32 N0)))
+        (Eq 54 (Read w8 10 argv1))
+        (Eq 10 (Read w8 11 argv1))
+        (Eq false (Eq 49 N0))
+        (Eq 54 (Read w8 12 argv1))
+        (Eq 10 (Read w8 13 argv1))
+        (Eq false (Eq 50 N0))
+        (Eq 54 (Read w8 14 argv1))
+        (Eq 10 (Read w8 15 argv1))
+        (Eq 51
+            (Read w8 N4:(Add w32 4294967210 N5:(Shl w32 N3 1)) argv1))
+        (Eq 10
+            (Read w8 (Or w32 N4 1)
+                     argv1))
+        (Eq 51
+            (Read w8 N6:(Add w32 4294967212 N5) argv1))
+        (Eq 10
+            (Read w8 (Or w32 N6 1)
+                     argv1))
+        (Eq 51
+            (Read w8 N7:(Add w32 4294967214 N5) argv1))
+        (Eq 10
+            (Read w8 (Or w32 N7 1)
+                     argv1))
+        (Eq 52
+            (Read w8 N8:(Add w32 4294967216 N5) argv1))
+        (Eq 32
+            (Read w8 (Or w32 N8 1)
+                     argv1))
+        (Eq 49
+            (Read w8 (Add w32 4294967218 N5)
+                     argv1))
+        (Eq 48
+            (Read w8 (Add w32 4294967219 N5)
+                     argv1))
+        (Eq 10
+            (Read w8 (Add w32 4294967220 N5)
+                     argv1))
+        (Eq 52
+            (Read w8 (Add w32 4294967221 N5)
+                     argv1))
+        (Eq 32
+            (Read w8 (Add w32 4294967222 N5)
+                     argv1))
+        (Eq 48
+            (Read w8 (Add w32 4294967223 N5)
+                     argv1))
+        (Eq 10
+            (Read w8 (Add w32 4294967224 N5)
+                     argv1))
+        (Eq 52
+            (Read w8 (Add w32 4294967225 N5)
+                     argv1))
+        (Eq 32
+            (Read w8 (Add w32 4294967226 N5)
+                     argv1))
+        (Eq 48
+            (Read w8 (Add w32 4294967227 N5)
+                     argv1))
+        (Eq 10
+            (Read w8 (Add w32 4294967228 N5)
+                     argv1))
+        (Eq 55
+            (Read w8 (Add w32 4294967229 N5)
+                     argv1))
+        (Eq 10
+            (Read w8 (Add w32 4294967230 N5)
+                     argv1))
+        (Eq 0
+            (Read w8 (Add w32 4294967231 N5)
+                     argv1))
+        (Eq false (Eq 43 N2))
+        (Eq false (Eq 45 N2))
+        (Slt 0 N9:(ZExt w32 N1))
+        (Eq false
+            (Slt 0 (Add w32 4294967295 N9)))]
+       false)

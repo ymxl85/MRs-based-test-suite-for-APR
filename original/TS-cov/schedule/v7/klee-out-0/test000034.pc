@@ -1,0 +1,35 @@
+array argv2[4] : w32 -> w8 = symbolic
+array argv3[4] : w32 -> w8 = symbolic
+array argv4[4] : w32 -> w8 = symbolic
+array argv7[4] : w32 -> w8 = symbolic
+array argv6[4] : w32 -> w8 = symbolic
+array argv5[4] : w32 -> w8 = symbolic
+array argv1[4] : w32 -> w8 = symbolic
+(query [(Ult N0:(ReadLSB w32 0 argv1)
+             21)
+        (Ult N1:(ReadLSB w32 0 argv2)
+             21)
+        (Ult N2:(ReadLSB w32 0 argv3)
+             21)
+        (Ult N3:(ReadLSB w32 0 argv5)
+             21)
+        (Ult N4:(ReadLSB w32 0 argv7)
+             21)
+        (Eq false (Slt 0 N2))
+        (Eq false (Slt 0 N1))
+        (Eq false (Slt 0 N0))
+        (Eq 2
+            (ReadLSB w32 0 argv4))
+        (Eq 20
+            (ReadLSB w32 0 argv6))
+        (Eq false
+            (Ult 2 (Add w32 4294967295 N3)))
+        (Slt 2 N3)
+        (Eq false (Eq 1 N4))
+        (Eq false (Eq 2 N4))
+        (Eq false (Eq 3 N4))
+        (Eq false (Eq 4 N4))
+        (Eq false (Eq 5 N4))
+        (Eq false (Eq 6 N4))
+        (Eq false (Eq 7 N4))]
+       false)

@@ -1,0 +1,204 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-pt2 () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./pt2 "$1") <(angelix-eval $SCRIPT_DIR/../golden/pt2 "$1")
+}
+
+case "$1" in
+    1)
+      test-pt2  "and
+h	y
+\"d
+0p
+"
+      ;;
+    2)
+      test-pt2  "andõb	p
+\"h
+0p
+"
+      ;;
+    3)
+      test-pt2  "and
+ü	h
+\"p
+0b
+"
+      ;;
+    4)
+      test-pt2  "and
+b	p
+\"h
+0p
+"
+      ;;
+    5)
+      test-pt2  "and
+b/p
+\"d
+0p
+"
+      ;;
+    6)
+      test-pt2  "and
+h	ü
+\"p
+0p
+"
+      ;;
+    7)
+      test-pt2  "nd
+p	p
+\"h
+0p
+"
+      ;;
+    8)
+      test-pt2  "ad
+p	p
+\"h
+0p
+"
+      ;;
+    9)
+      test-pt2  "an
+p	p
+\"h
+0p
+"
+      ;;
+    10)
+      test-pt2  "and
+b	põ\"h
+0p
+"
+      ;;
+    11)
+      test-pt2  "p¤J¤"
+      ;;
+    12)
+      test-pt2  "and
+b	p
+Ýh
+0p
+"
+      ;;
+    13)
+      test-pt2  "and
+p	p
+\"ü
+0p
+"
+      ;;
+    14)
+      test-pt2  "and
+b	p
+\"hõ0p
+"
+      ;;
+    15)
+      test-pt2  "and
+z	t
+\"b
+p
+"
+      ;;
+    16)
+      test-pt2  "and
+p	p
+\"p
+0ü
+"
+      ;;
+    17)
+      test-pt2  "and
+b	p
+\"h
+0põ"
+      ;;
+    18)
+      test-pt2  "andx
+hy
+d
+p
+"
+      ;;
+    19)
+      test-pt2  "andx
+üh
+p
+b
+"
+      ;;
+    20)
+      test-pt2  "andx
+bp
+h
+p
+"
+      ;;
+    21)
+      test-pt2  "andx
+bp
+d
+p
+"
+      ;;
+    22)
+      test-pt2  "andx
+hü
+p
+p
+"
+      ;;
+    23)
+      test-pt2  "ndx
+pp
+h
+p
+"
+      ;;
+    24)
+      test-pt2  "adx
+pp
+h
+p
+"
+      ;;
+    25)
+      test-pt2  "anx
+pp
+h
+p
+"
+      ;;
+    26)
+      test-pt2  "andx
+pp
+ü
+p
+"
+      ;;
+    27)
+      test-pt2  "andx
+zt
+b
+p
+"
+      ;;
+    28)
+      test-pt2  "andx
+pp
+p
+ü
+"
+      ;;
+    29)
+      test-pt2  "andx
+bp
+h
+põ
+"
+      ;;
+esac

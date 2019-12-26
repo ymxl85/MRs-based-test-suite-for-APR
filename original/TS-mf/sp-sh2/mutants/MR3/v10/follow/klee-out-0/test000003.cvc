@@ -1,0 +1,206 @@
+__tmpInt8  : BITVECTOR(8);
+__tmpInt16  : BITVECTOR(16);
+__tmpInt32  : BITVECTOR(32);
+__tmpInt64  : BITVECTOR(64);
+argv1_0xa81f8e8  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+const_arr1_0xa9c3c98  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+%----------------------------------------------------
+ASSERT( BVLT(BVPLUS(8, 
+0xCF, 
+argv1_0xa81f8e8[0x00000000])
+,0x03)
+ );
+ASSERT( (0x20 = argv1_0xa81f8e8[0x00000001]
+) );
+ASSERT( (0x32 = argv1_0xa81f8e8[0x00000002]
+) );
+ASSERT( (0x20 = argv1_0xa81f8e8[0x00000003]
+) );
+ASSERT( (0x30 = argv1_0xa81f8e8[0x00000004]
+) );
+ASSERT( (0x0A = argv1_0xa81f8e8[0x00000005]
+) );
+ASSERT( (0x31 = argv1_0xa81f8e8[0x00000006]
+) );
+ASSERT( (0x20 = argv1_0xa81f8e8[0x00000007]
+) );
+ASSERT( (0x32 = argv1_0xa81f8e8[0x00000008]
+) );
+ASSERT( (0x0A = argv1_0xa81f8e8[0x00000009]
+) );
+ASSERT( (0x36 = argv1_0xa81f8e8[0x0000000A]
+) );
+ASSERT( (0x0A = argv1_0xa81f8e8[0x0000000B]
+) );
+ASSERT( ( NOT( (0x31 = argv1_0xa81f8e8[0x00000000]
+))) );
+ASSERT( (0x36 = argv1_0xa81f8e8[0x0000000C]
+) );
+ASSERT( (0x0A = argv1_0xa81f8e8[0x0000000D]
+) );
+ASSERT( ( NOT( (0x32 = argv1_0xa81f8e8[0x00000000]
+))) );
+ASSERT( (0x36 = argv1_0xa81f8e8[0x0000000E]
+) );
+ASSERT( (0x0A = argv1_0xa81f8e8[0x0000000F]
+) );
+ASSERT( (0x33 = argv1_0xa81f8e8[BVPLUS(32, 
+0xFFFFFFAA, 
+(BVSX(argv1_0xa81f8e8[0x00000000],32)
+[30:0] @ 0b0
+))
+]
+) );
+ASSERT( (0x0A = argv1_0xa81f8e8[(0x00000001 | BVPLUS(32, 
+0xFFFFFFAA, 
+(BVSX(argv1_0xa81f8e8[0x00000000],32)
+[30:0] @ 0b0
+))
+
+)]
+) );
+ASSERT( (0x33 = argv1_0xa81f8e8[BVPLUS(32, 
+0xFFFFFFAC, 
+(BVSX(argv1_0xa81f8e8[0x00000000],32)
+[30:0] @ 0b0
+))
+]
+) );
+ASSERT( (0x0A = argv1_0xa81f8e8[(0x00000001 | BVPLUS(32, 
+0xFFFFFFAC, 
+(BVSX(argv1_0xa81f8e8[0x00000000],32)
+[30:0] @ 0b0
+))
+
+)]
+) );
+ASSERT( (0x33 = argv1_0xa81f8e8[BVPLUS(32, 
+0xFFFFFFAE, 
+(BVSX(argv1_0xa81f8e8[0x00000000],32)
+[30:0] @ 0b0
+))
+]
+) );
+ASSERT( (0x0A = argv1_0xa81f8e8[(0x00000001 | BVPLUS(32, 
+0xFFFFFFAE, 
+(BVSX(argv1_0xa81f8e8[0x00000000],32)
+[30:0] @ 0b0
+))
+
+)]
+) );
+ASSERT( (0x34 = argv1_0xa81f8e8[BVPLUS(32, 
+0xFFFFFFB0, 
+(BVSX(argv1_0xa81f8e8[0x00000000],32)
+[30:0] @ 0b0
+))
+]
+) );
+ASSERT( (0x20 = argv1_0xa81f8e8[(0x00000001 | BVPLUS(32, 
+0xFFFFFFB0, 
+(BVSX(argv1_0xa81f8e8[0x00000000],32)
+[30:0] @ 0b0
+))
+
+)]
+) );
+ASSERT( (0x31 = argv1_0xa81f8e8[BVPLUS(32, 
+0xFFFFFFB2, 
+(BVSX(argv1_0xa81f8e8[0x00000000],32)
+[30:0] @ 0b0
+))
+]
+) );
+ASSERT( (0x30 = argv1_0xa81f8e8[BVPLUS(32, 
+0xFFFFFFB3, 
+(BVSX(argv1_0xa81f8e8[0x00000000],32)
+[30:0] @ 0b0
+))
+]
+) );
+ASSERT( (0x0A = argv1_0xa81f8e8[BVPLUS(32, 
+0xFFFFFFB4, 
+(BVSX(argv1_0xa81f8e8[0x00000000],32)
+[30:0] @ 0b0
+))
+]
+) );
+ASSERT( (0x34 = argv1_0xa81f8e8[BVPLUS(32, 
+0xFFFFFFB5, 
+(BVSX(argv1_0xa81f8e8[0x00000000],32)
+[30:0] @ 0b0
+))
+]
+) );
+ASSERT( (0x20 = argv1_0xa81f8e8[BVPLUS(32, 
+0xFFFFFFB6, 
+(BVSX(argv1_0xa81f8e8[0x00000000],32)
+[30:0] @ 0b0
+))
+]
+) );
+ASSERT( (0x30 = argv1_0xa81f8e8[BVPLUS(32, 
+0xFFFFFFB7, 
+(BVSX(argv1_0xa81f8e8[0x00000000],32)
+[30:0] @ 0b0
+))
+]
+) );
+ASSERT( (0x0A = argv1_0xa81f8e8[BVPLUS(32, 
+0xFFFFFFB8, 
+(BVSX(argv1_0xa81f8e8[0x00000000],32)
+[30:0] @ 0b0
+))
+]
+) );
+ASSERT( (0x34 = argv1_0xa81f8e8[BVPLUS(32, 
+0xFFFFFFB9, 
+(BVSX(argv1_0xa81f8e8[0x00000000],32)
+[30:0] @ 0b0
+))
+]
+) );
+ASSERT( (0x20 = argv1_0xa81f8e8[BVPLUS(32, 
+0xFFFFFFBA, 
+(BVSX(argv1_0xa81f8e8[0x00000000],32)
+[30:0] @ 0b0
+))
+]
+) );
+ASSERT( (0x30 = argv1_0xa81f8e8[BVPLUS(32, 
+0xFFFFFFBB, 
+(BVSX(argv1_0xa81f8e8[0x00000000],32)
+[30:0] @ 0b0
+))
+]
+) );
+ASSERT( (0x0A = argv1_0xa81f8e8[BVPLUS(32, 
+0xFFFFFFBC, 
+(BVSX(argv1_0xa81f8e8[0x00000000],32)
+[30:0] @ 0b0
+))
+]
+) );
+ASSERT( (0x37 = argv1_0xa81f8e8[BVPLUS(32, 
+0xFFFFFFBD, 
+(BVSX(argv1_0xa81f8e8[0x00000000],32)
+[30:0] @ 0b0
+))
+]
+) );
+ASSERT( (0x0A = argv1_0xa81f8e8[BVPLUS(32, 
+0xFFFFFFBE, 
+(BVSX(argv1_0xa81f8e8[0x00000000],32)
+[30:0] @ 0b0
+))
+]
+) );
+ASSERT( (0x00 = argv1_0xa81f8e8[BVPLUS(32, 
+0xFFFFFFBF, 
+(BVSX(argv1_0xa81f8e8[0x00000000],32)
+[30:0] @ 0b0
+))
+]
+) );
+%----------------------------------------------------
+QUERY( FALSE  );

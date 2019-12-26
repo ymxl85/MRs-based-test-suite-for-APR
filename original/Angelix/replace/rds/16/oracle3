@@ -1,0 +1,99 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "" "a" "r]I,t"
+      ;;
+    2)
+      test-replace  "K" "" "XZ>\\\`5+"
+      ;;
+    3)
+      test-replace  "qC%" "|" "^~\\qo&]fW}~2"
+      ;;
+    4)
+      test-replace  "/eh" "8" "/2kj"
+      ;;
+    5)
+      test-replace  "\"x" "]8" ">*VpfG0xU"
+      ;;
+    6)
+      test-replace  "LTi" "O*Y*" "VJC}Q8NC{cURL36GA|"
+      ;;
+    7)
+      test-replace  "" "3%" "w\`"
+      ;;
+    8)
+      test-replace  "" "VPa" "+NqeYl31O1Zh3Uuua;0\\"
+      ;;
+    9)
+      test-replace  "u" "" "</@~P_tI<m\\l6ouxBf"
+      ;;
+    10)
+      test-replace  "8" "J" "4>\`.E<qpY_6)/"
+      ;;
+    11)
+      test-replace  "\`6" "Z" "??"
+      ;;
+    12)
+      test-replace  "?*V" ">;{" "%&Gt"
+      ;;
+    13)
+      test-replace  "aOg-" "B*]" "aK._<w{}kQtZt4VGt"
+      ;;
+    14)
+      test-replace  ":xzJ" "*,l" "<> "
+      ;;
+    15)
+      test-replace  "6Gs" "K!E" "a:.d}!x"
+      ;;
+    16)
+      test-replace  "n:3\"" "l}M" ":"
+      ;;
+    17)
+      test-replace  "c" "\"Wl" "vo<rz7&QJ<n+7iw>6"
+      ;;
+    18)
+      test-replace  "" "W:9" "_\`LW?YjnT \`3_Q>6_"
+      ;;
+    19)
+      test-replace  "y0d>" "" "mze("
+      ;;
+    20)
+      test-replace  "Vih" "TBQc" "a6+Sk]\\nS*3va8k"
+      ;;
+    21)
+      test-replace  "" "" "<^S = N"
+      ;;
+    22)
+      test-replace  "" "" "{mgPV(Uf\\4_G|p(A"
+      ;;
+    23)
+      test-replace  ":LD6" "" "XCpX[NgK0:.%"
+      ;;
+    24)
+      test-replace  "a<%N" "ZjX" "3~U4es;!n\\R.+p1+l"
+      ;;
+    25)
+      test-replace  ".{0" "\$" "T\$7Nxqgy~]&(+"
+      ;;
+    26)
+      test-replace  "N\`-u" "" "EV5S2MA=<"
+      ;;
+    27)
+      test-replace  "#A6#" "" "VP;1j+|=Uzu&daT &"
+      ;;
+    28)
+      test-replace  "(LC" "" "uz?"
+      ;;
+    29)
+      test-replace  "Sd" "" "G!1}u51<<JvI\`l>wg[s;"
+      ;;
+    30)
+      test-replace  "" "" "cda\$1}v?Qt-VT"
+      ;;
+esac

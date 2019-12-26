@@ -1,0 +1,284 @@
+gcc -D_GNUCC -E -DCIL=1 coverageTC/v8/1/v8.c -o coverageTC/v8/1/v8.i
+/usr/local/bin/cilly.native --out coverageTC/v8/1/v8.cil.c --noPrintLn --useLogicalOperators coverageTC/v8/1/v8.i
+coverageTC/v8/1/v8.c:103: Warning: Body of function main falls-through. Adding a return statement
+gcc -D_GNUCC -E coverageTC/v8/1/v8.cil.c -o coverageTC/v8/1/v8.cil.i
+gcc -D_GNUCC -c -o coverageTC/v8/1/v8.o coverageTC/v8/1/v8.cil.i
+coverageTC/v8/1/v8.cil.c:241: warning: conflicting types for built-in function ‘exit’
+coverageTC/v8/1/v8.cil.c:252: warning: conflicting types for built-in function ‘malloc’
+coverageTC/v8/1/v8.cil.c:253: warning: conflicting types for built-in function ‘free’
+coverageTC/v8/1/v8.cil.c:350: warning: conflicting types for built-in function ‘strcat’
+gcc -D_GNUCC -E -DCIL=1 coverageTC/v8/1/processor.c -o coverageTC/v8/1/processor.i
+/usr/local/bin/cilly.native --out coverageTC/v8/1/processor.cil.c --noPrintLn --useLogicalOperators coverageTC/v8/1/processor.i
+gcc -D_GNUCC -E coverageTC/v8/1/processor.cil.c -o coverageTC/v8/1/processor.cil.i
+gcc -D_GNUCC -c -o coverageTC/v8/1/processor.o coverageTC/v8/1/processor.cil.i
+coverageTC/v8/1/processor.cil.c:6: warning: conflicting types for built-in function ‘strlen’
+gcc -D_GNUCC -o a.out coverageTC/v8/1/v8.o coverageTC/v8/1/processor.o
+$ cp coverageTC/v8/1/v8.cil.i /tmp/CETI_47d467/v8.cil.i
+$ cp coverageTC/v8/1/processor.c /tmp/CETI_47d467/processor.c
+input length='57' output length='57'
+*** Get good/bad tcs ***
+cmd 'gcc /tmp/CETI_47d467/v8.cil.i coverageTC/v8/1/processor.c -o /tmp/CETI_47d467/v8.cil.i.exe >& /dev/null'
+$ gcc /tmp/CETI_47d467/v8.cil.i coverageTC/v8/1/processor.c -o /tmp/CETI_47d467/v8.cil.i.exe >& /dev/null
+write_file_str: '/tmp/CETI_47d467/v8.cil.i.sh'
+$ sh /tmp/CETI_47d467/v8.cil.i.sh /tmp/CETI_47d467/v8.cil.i.exe &> /dev/null
+[35mAlert: 1/57 tests failed. Processing ..
+[mwrite_src: '/tmp/CETI_47d467/v8.cil.i.preproc.c'
+*** Fault Localization ***
+write_src: '/tmp/CETI_47d467/faultloc_45f865/v8.cil.i.cov.c'
+cmd 'gcc /tmp/CETI_47d467/faultloc_45f865/v8.cil.i.cov.c coverageTC/v8/1/processor.c -o /tmp/CETI_47d467/faultloc_45f865/v8.cil.i.cov.c.exe >& /dev/null'
+$ gcc /tmp/CETI_47d467/faultloc_45f865/v8.cil.i.cov.c coverageTC/v8/1/processor.c -o /tmp/CETI_47d467/faultloc_45f865/v8.cil.i.cov.c.exe >& /dev/null
+goods length:56
+write_file_str: '/tmp/CETI_47d467/faultloc_45f865/v8.cil.i.g.sh'
+$ sh /tmp/CETI_47d467/faultloc_45f865/v8.cil.i.g.sh /tmp/CETI_47d467/faultloc_45f865/v8.cil.i.cov.c.exe /tmp/CETI_47d467/faultloc_45f865/v8.cil.i.outputs_g_dontcare &> /dev/null
+write_file_str: '/tmp/CETI_47d467/faultloc_45f865/v8.cil.i.b.sh'
+$ sh /tmp/CETI_47d467/faultloc_45f865/v8.cil.i.b.sh /tmp/CETI_47d467/faultloc_45f865/v8.cil.i.cov.c.exe /tmp/CETI_47d467/faultloc_45f865/v8.cil.i.outputs_bad_dontcare &> /dev/null
+0. sid 76 in fun 'unblock' (score 0.208514)
+__cil_tmp5 = status;
+1. sid 96 in fun 'get_current' (score 0.179605)
+prio --;
+2. sid 77 in fun 'unblock' (score 0.179605)
+__cil_tmp6 = status <= 0;
+3. sid 36 in fun 'get_command' (score 0.179605)
+*ratio = tmp___1;
+4. sid 111 in fun 'put_end' (score 0.174078)
+__cil_tmp5 = 0;
+5. sid 110 in fun 'put_end' (score 0.174078)
+(prio_queue[prio].length) ++;
+6. sid 109 in fun 'put_end' (score 0.174078)
+*next = process;
+7. sid 108 in fun 'put_end' (score 0.174078)
+next = & prio_queue[prio].head;
+8. sid 106 in fun 'put_end' (score 0.174078)
+__cil_tmp4 = *next;
+9. sid 102 in fun 'reschedule' (score 0.174078)
+__cil_tmp3 = 0;
+10. sid 101 in fun 'reschedule' (score 0.174078)
+__cil_tmp2 = current_job && prio > current_job->priority;
+11. sid 65 in fun 'new_job' (score 0.174078)
+__cil_tmp10 = status;
+12. sid 64 in fun 'new_job' (score 0.174078)
+__cil_tmp9 = status;
+13. sid 63 in fun 'new_job' (score 0.174078)
+__cil_tmp8 = ! new_process;
+14. sid 62 in fun 'new_job' (score 0.174078)
+new_process = (struct process *)tmp___0;
+15. sid 61 in fun 'new_job' (score 0.174078)
+pid = tmp;
+16. sid 60 in fun 'new_job' (score 0.174078)
+next_pid ++;
+17. sid 59 in fun 'new_job' (score 0.174078)
+tmp = next_pid;
+18. sid 58 in fun 'new_job' (score 0.174078)
+status = 0;
+19. sid 56 in fun 'new_job' (score 0.174078)
+__cil_tmp7 = status;
+20. sid 55 in fun 'new_job' (score 0.174078)
+new_process->next = (struct process *)0;
+21. sid 54 in fun 'new_job' (score 0.174078)
+new_process->priority = prio;
+22. sid 53 in fun 'new_job' (score 0.174078)
+new_process->pid = (unsigned int )pid;
+23. sid 3 in fun 'enqueue' (score 0.174078)
+__cil_tmp7 = tmp;
+24. sid 2 in fun 'enqueue' (score 0.174078)
+__cil_tmp6 = status;
+25. sid 123 in fun 'get_process' (score 0.150756)
+__cil_tmp11 = 0;
+26. sid 114 in fun 'get_process' (score 0.150756)
+index = length - 1;
+27. sid 99 in fun 'get_current' (score 0.145865)
+__cil_tmp6 = current_job;
+28. sid 98 in fun 'get_current' (score 0.145865)
+__cil_tmp5 = ! current_job;
+29. sid 97 in fun 'get_current' (score 0.145865)
+prio = 3;
+30. sid 95 in fun 'get_current' (score 0.145865)
+__cil_tmp4 = tmp > 0;
+31. sid 94 in fun 'get_current' (score 0.145865)
+__cil_tmp3 = prio > 0;
+32. sid 105 in fun 'schedule' (score 0.13484)
+__cil_tmp6 = status;
+33. sid 104 in fun 'schedule' (score 0.13484)
+status = 0;
+34. sid 46 in fun 'get_command' (score 0.13484)
+__cil_tmp15 = 1;
+35. sid 45 in fun 'get_command' (score 0.13484)
+__cil_tmp14 = (int )*(argv + *pos) == 10;
+36. sid 44 in fun 'get_command' (score 0.13484)
+*ratio = (float )(- 1.0);
+37. sid 43 in fun 'get_command' (score 0.13484)
+*prio = tmp___0;
+38. sid 42 in fun 'get_command' (score 0.13484)
+*command = tmp___0;
+39. sid 41 in fun 'get_command' (score 0.13484)
+tmp___0 = -1;
+40. sid 40 in fun 'get_command' (score 0.13484)
+(*pos) ++;
+41. sid 38 in fun 'get_command' (score 0.13484)
+__cil_tmp13 = (int )*(argv + *pos) != 0 && (int )*(argv + *pos) != 10;
+42. sid 131 in fun 'get_process' (score 0.133631)
+__cil_tmp15 = *job;
+43. sid 130 in fun 'get_process' (score 0.133631)
+*job = *next;
+44. sid 129 in fun 'get_process' (score 0.133631)
+next = & prio_queue[prio].head;
+45. sid 128 in fun 'get_process' (score 0.133631)
+__cil_tmp14 = index >= length;
+46. sid 127 in fun 'get_process' (score 0.133631)
+index = (int )(ratio * (float )length);
+47. sid 126 in fun 'get_process' (score 0.133631)
+length = prio_queue[prio].length;
+48. sid 125 in fun 'get_process' (score 0.133631)
+__cil_tmp13 = (double )ratio < 0.0 || (double )ratio > 1.0;
+49. sid 124 in fun 'get_process' (score 0.133631)
+__cil_tmp12 = prio > 3 || prio < 0;
+50. sid 116 in fun 'get_process' (score 0.133631)
+__cil_tmp9 = index && *next;
+51. sid 51 in fun 'get_command' (score 0.132453)
+__cil_tmp17 = (int )*(argv + *pos) != 0;
+52. sid 50 in fun 'get_command' (score 0.132453)
+tmp = 1U;
+53. sid 49 in fun 'get_command' (score 0.132453)
+value[0] = (char )'\000';
+54. sid 48 in fun 'get_command' (score 0.132453)
+status = 0;
+55. sid 47 in fun 'get_command' (score 0.132453)
+__cil_tmp16 = 0;
+56. sid 35 in fun 'get_command' (score 0.132453)
+tmp ++;
+57. sid 34 in fun 'get_command' (score 0.132453)
+value[tmp] = (char)0;
+58. sid 33 in fun 'get_command' (score 0.132453)
+__cil_tmp12 = ! (tmp >= 10U);
+59. sid 30 in fun 'mainQ' (score 0.132453)
+__cil_tmp25 = r;
+60. sid 29 in fun 'mainQ' (score 0.132453)
+__cil_tmp24 = (int )*(argv + pos) == 10;
+61. sid 28 in fun 'mainQ' (score 0.132453)
+__cil_tmp23 = a1 < 0;
+62. sid 27 in fun 'mainQ' (score 0.132453)
+prio = 1;
+63. sid 26 in fun 'mainQ' (score 0.132453)
+__cil_tmp22 = a2 < 0;
+64. sid 25 in fun 'mainQ' (score 0.132453)
+prio = 2;
+65. sid 24 in fun 'mainQ' (score 0.132453)
+__cil_tmp21 = a3 < 0;
+66. sid 23 in fun 'mainQ' (score 0.132453)
+prio = 3;
+67. sid 22 in fun 'mainQ' (score 0.132453)
+pos = 0;
+68. sid 21 in fun 'mainQ' (score 0.132453)
+tmp = 1U;
+69. sid 20 in fun 'mainQ' (score 0.132453)
+value[0] = (char )'\000';
+70. sid 19 in fun 'mainQ' (score 0.132453)
+__cil_tmp20 = ! (status > 0);
+71. sid 18 in fun 'mainQ' (score 0.132453)
+pos ++;
+72. sid 16 in fun 'mainQ' (score 0.132453)
+__cil_tmp19 = (int )*(argv + pos) != 0 && (int )*(argv + pos) != 10;
+73. sid 13 in fun 'mainQ' (score 0.132453)
+__cil_tmp17 = a1 > 0;
+74. sid 10 in fun 'mainQ' (score 0.132453)
+__cil_tmp15 = a2 > 0;
+75. sid 7 in fun 'mainQ' (score 0.132453)
+__cil_tmp13 = a3 > 0;
+76. sid 6 in fun 'mainQ' (score 0.132453)
+tmp ++;
+77. sid 5 in fun 'mainQ' (score 0.132453)
+value[tmp] = (char)0;
+78. sid 4 in fun 'mainQ' (score 0.132453)
+__cil_tmp12 = ! (tmp >= 10U);
+[35mAlert: FL: found 79 stmts with sscores >= 0.01
+[m[35mAlert: Perform ** BugFix **
+[mwrite_file_bin: '/tmp/CETI_47d467/v8.cil.i.s76.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s96.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s77.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s36.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s111.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s110.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s109.t1.arr'
+[35mAlert: CONSTS: don't know how to deal with exp '& prio_queue[prio].head' (sid 108)
+[m[35mAlert: OPS_PR: don't know how to deal with exp '& prio_queue[prio].head' (sid 108)
+[mwrite_file_bin: '/tmp/CETI_47d467/v8.cil.i.s108.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s106.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s102.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s101.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s65.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s64.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s63.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s62.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s61.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s60.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s59.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s58.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s56.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s55.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s54.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s53.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s3.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s2.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s123.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s114.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s99.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s98.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s97.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s95.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s94.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s105.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s104.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s46.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s45.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s44.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s43.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s42.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s41.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s40.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s38.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s131.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s130.t1.arr'
+[35mAlert: CONSTS: don't know how to deal with exp '& prio_queue[prio].head' (sid 129)
+[m[35mAlert: OPS_PR: don't know how to deal with exp '& prio_queue[prio].head' (sid 129)
+[mwrite_file_bin: '/tmp/CETI_47d467/v8.cil.i.s129.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s128.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s127.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s126.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s125.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s124.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s116.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s51.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s50.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s49.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s48.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s47.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s35.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s34.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s33.t1.arr'
+[35mAlert: CONSTS: don't know how to deal with exp 'r' (sid 30)
+[m[35mAlert: OPS_PR: don't know how to deal with exp 'r' (sid 30)
+[mwrite_file_bin: '/tmp/CETI_47d467/v8.cil.i.s30.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s29.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s28.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s27.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s26.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s25.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s24.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s23.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s22.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s21.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s20.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s19.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s18.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s16.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s13.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s10.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s7.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s6.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s5.t1.arr'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.s4.t1.arr'
+[35mAlert: Spy: Got 158 info from 79 sids
+[minput length='57' output length='57'
+write_file_bin: '/tmp/CETI_47d467/v8.cil.i.info'
+$ python kl.py /tmp/CETI_47d467/v8.cil.i coverageTC/v8/1/processor.c --do_tb "(76, 1, 4, 4); (96, 3, 1, 1); (96, 7, 2, 1); (96, 1, 4, 3); (77, 3, 1, 1); (77, 7, 2, 1); (77, 1, 4, 4); (36, 1, 4, 3); (111, 3, 1, 1); (111, 1, 4, 2); (110, 3, 1, 1); (110, 7, 2, 1); (110, 1, 4, 2); (109, 1, 4, 2); (108, 1, 4, 2); (106, 1, 4, 2); (102, 3, 1, 1); (102, 1, 4, 2); (101, 7, 2, 2); (101, 1, 4, 2); (65, 1, 4, 5); (64, 1, 4, 5); (63, 1, 4, 5); (62, 1, 4, 5); (61, 1, 4, 5); (60, 3, 1, 1); (60, 7, 2, 1); (60, 1, 4, 5); (59, 1, 4, 5); (58, 3, 1, 1); (58, 1, 4, 5); (56, 1, 4, 5); (55, 3, 1, 1); (55, 1, 4, 5); (54, 1, 4, 5); (53, 1, 4, 5); (3, 1, 4, 4); (2, 1, 4, 4); (123, 3, 1, 1); (123, 1, 4, 5); (114, 3, 1, 1); (114, 7, 2, 1); (114, 1, 4, 5); (99, 1, 4, 3); (98, 1, 4, 3); (97, 3, 1, 1); (97, 1, 4, 3); (95, 3, 1, 1); (95, 7, 2, 1); (95, 1, 4, 3); (94, 3, 1, 1); (94, 7, 2, 1); (94, 1, 4, 3); (105, 1, 4, 5); (104, 3, 1, 1); (104, 1, 4, 5); (46, 3, 1, 1); (46, 1, 4, 3); (45, 3, 1, 1); (45, 7, 2, 1); (45, 1, 4, 3); (44, 3, 1, 1); (44, 1, 4, 3); (43, 1, 4, 3); (42, 1, 4, 3); (41, 3, 1, 1); (41, 1, 4, 3); (40, 3, 1, 1); (40, 7, 2, 1); (40, 1, 4, 3); (38, 3, 1, 2); (38, 7, 2, 3); (38, 1, 4, 3); (131, 1, 4, 5); (130, 1, 4, 5); (129, 1, 4, 5); (128, 7, 2, 1); (128, 1, 4, 5); (127, 1, 4, 5); (126, 1, 4, 5); (125, 3, 1, 2); (125, 7, 2, 3); (125, 1, 4, 5); (124, 3, 1, 2); (124, 7, 2, 3); (124, 1, 4, 5); (116, 7, 2, 1); (116, 1, 4, 5); (51, 3, 1, 1); (51, 7, 2, 1); (51, 1, 4, 3); (50, 3, 1, 1); (50, 1, 4, 3); (49, 3, 1, 1); (49, 1, 4, 3); (48, 3, 1, 1); (48, 1, 4, 3); (47, 3, 1, 1); (47, 1, 4, 3); (35, 3, 1, 1); (35, 7, 2, 1); (35, 1, 4, 3); (34, 3, 1, 1); (34, 1, 4, 3); (33, 3, 1, 1); (33, 7, 2, 1); (33, 1, 4, 3); (30, 1, 4, 10); (29, 3, 1, 1); (29, 7, 2, 1); (29, 1, 4, 10); (28, 3, 1, 1); (28, 7, 2, 1); (28, 1, 4, 10); (27, 3, 1, 1); (27, 1, 4, 10); (26, 3, 1, 1); (26, 7, 2, 1); (26, 1, 4, 10); (25, 3, 1, 1); (25, 1, 4, 10); (24, 3, 1, 1); (24, 7, 2, 1); (24, 1, 4, 10); (23, 3, 1, 1); (23, 1, 4, 10); (22, 3, 1, 1); (22, 1, 4, 10); (21, 3, 1, 1); (21, 1, 4, 10); (20, 3, 1, 1); (20, 1, 4, 10); (19, 3, 1, 1); (19, 7, 2, 1); (19, 1, 4, 10); (18, 3, 1, 1); (18, 7, 2, 1); (18, 1, 4, 10); (16, 3, 1, 2); (16, 7, 2, 3); (16, 1, 4, 10); (13, 3, 1, 1); (13, 7, 2, 1); (13, 1, 4, 10); (10, 3, 1, 1); (10, 7, 2, 1); (10, 1, 4, 10); (7, 3, 1, 1); (7, 7, 2, 1); (7, 1, 4, 10); (6, 3, 1, 1); (6, 7, 2, 1); (6, 1, 4, 10); (5, 3, 1, 1); (5, 1, 4, 10); (4, 3, 1, 1); (4, 7, 2, 1); (4, 1, 4, 10)" --no_parallel
+KR: tasks 1841

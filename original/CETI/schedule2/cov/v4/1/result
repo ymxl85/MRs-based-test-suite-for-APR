@@ -1,0 +1,23 @@
+gcc -D_GNUCC -E -DCIL=1 coverageTC/v4/1/v4.c -o coverageTC/v4/1/v4.i
+/usr/local/bin/cilly.native --out coverageTC/v4/1/v4.cil.c --noPrintLn --useLogicalOperators coverageTC/v4/1/v4.i
+coverageTC/v4/1/v4.c:104: Warning: Body of function main falls-through. Adding a return statement
+gcc -D_GNUCC -E coverageTC/v4/1/v4.cil.c -o coverageTC/v4/1/v4.cil.i
+gcc -D_GNUCC -c -o coverageTC/v4/1/v4.o coverageTC/v4/1/v4.cil.i
+coverageTC/v4/1/v4.cil.c:235: warning: conflicting types for built-in function ‘exit’
+coverageTC/v4/1/v4.cil.c:246: warning: conflicting types for built-in function ‘malloc’
+coverageTC/v4/1/v4.cil.c:247: warning: conflicting types for built-in function ‘free’
+coverageTC/v4/1/v4.cil.c:344: warning: conflicting types for built-in function ‘strcat’
+gcc -D_GNUCC -E -DCIL=1 coverageTC/v4/1/processor.c -o coverageTC/v4/1/processor.i
+/usr/local/bin/cilly.native --out coverageTC/v4/1/processor.cil.c --noPrintLn --useLogicalOperators coverageTC/v4/1/processor.i
+gcc -D_GNUCC -E coverageTC/v4/1/processor.cil.c -o coverageTC/v4/1/processor.cil.i
+gcc -D_GNUCC -c -o coverageTC/v4/1/processor.o coverageTC/v4/1/processor.cil.i
+coverageTC/v4/1/processor.cil.c:6: warning: conflicting types for built-in function ‘strlen’
+gcc -D_GNUCC -o a.out coverageTC/v4/1/v4.o coverageTC/v4/1/processor.o
+$ cp coverageTC/v4/1/v4.cil.i /tmp/CETI_b84fae/v4.cil.i
+$ cp coverageTC/v4/1/processor.c /tmp/CETI_b84fae/processor.c
+input length='36' output length='36'
+*** Get good/bad tcs ***
+cmd 'gcc /tmp/CETI_b84fae/v4.cil.i coverageTC/v4/1/processor.c -o /tmp/CETI_b84fae/v4.cil.i.exe >& /dev/null'
+$ gcc /tmp/CETI_b84fae/v4.cil.i coverageTC/v4/1/processor.c -o /tmp/CETI_b84fae/v4.cil.i.exe >& /dev/null
+write_file_str: '/tmp/CETI_b84fae/v4.cil.i.sh'
+$ sh /tmp/CETI_b84fae/v4.cil.i.sh /tmp/CETI_b84fae/v4.cil.i.exe &> /dev/null

@@ -1,0 +1,17 @@
+gcc -D_GNUCC -E -DCIL=1 /home/mingyue/experiments/ceti/TCAS/randomTC/v6/10/bug6.c -o /home/mingyue/experiments/ceti/TCAS/randomTC/v6/10/bug6.i
+/usr/local/bin/cilly.native --out /home/mingyue/experiments/ceti/TCAS/randomTC/v6/10/bug6.cil.c --noPrintLn --useLogicalOperators /home/mingyue/experiments/ceti/TCAS/randomTC/v6/10/bug6.i
+gcc -D_GNUCC -E /home/mingyue/experiments/ceti/TCAS/randomTC/v6/10/bug6.cil.c -o /home/mingyue/experiments/ceti/TCAS/randomTC/v6/10/bug6.cil.i
+gcc -D_GNUCC -c -o /home/mingyue/experiments/ceti/TCAS/randomTC/v6/10/bug6.o /home/mingyue/experiments/ceti/TCAS/randomTC/v6/10/bug6.cil.i
+gcc -D_GNUCC -o a.out /home/mingyue/experiments/ceti/TCAS/randomTC/v6/10/bug6.o
+**Begin v6**
+require inputs file
+[31;1mError: file '/home/mingyue/experiments/ceti/TCAS/randomTC/v6/10/exe.inputs' not exist
+[mFatal error: exception Errormsg.Error
+Command exited with non-zero status 2
+0.00user 0.00system 0:00.00elapsed 200%CPU (0avgtext+0avgdata 7104maxresident)k
+0inputs+0outputs (0major+506minor)pagefaults 0swaps
+
+real	0m0.003s
+user	0m0.004s
+sys	0m0.000s
+**Done v6**

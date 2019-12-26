@@ -1,0 +1,143 @@
+/home/mingyue/Documents/Angelix/angelix/TSE/3/RDS/replace/7
+/home/mingyue/Documents/Angelix/angelix/TSE/3/RDS/replace/golden
+/home/mingyue/Documents/Angelix/angelix/TSE/3/RDS/replace/7/oracle3
+INFO     synthesis       ==class Synthesizer
+INFO     project         configuring validation source
+INFO     project         building json compilation database from validation source
+gcc -c replace.c -o replace.o
+replace.c:14:0: warning: "NULL" redefined [enabled by default]
+ # define NULL 0
+ ^
+In file included from /usr/include/_G_config.h:15:0,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/stddef.h:402:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ ^
+replace.c: In function ‘omatch’:
+replace.c:338:6: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+      abort(); 
+      ^
+replace.c: In function ‘patsize’:
+replace.c:389:2: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+  abort();
+  ^
+gcc replace.o -o replace
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+INFO     testing         running test '3' of validation source
+INFO     testing         running test '4' of validation source
+INFO     testing         running test '5' of validation source
+INFO     testing         running test '6' of validation source
+INFO     testing         running test '7' of validation source
+INFO     testing         running test '8' of validation source
+INFO     testing         running test '9' of validation source
+INFO     testing         running test '10' of validation source
+INFO     testing         running test '11' of validation source
+INFO     testing         running test '12' of validation source
+INFO     testing         running test '13' of validation source
+INFO     testing         running test '14' of validation source
+INFO     testing         running test '15' of validation source
+INFO     testing         running test '16' of validation source
+INFO     testing         running test '17' of validation source
+INFO     testing         running test '18' of validation source
+INFO     testing         running test '19' of validation source
+INFO     testing         running test '20' of validation source
+INFO     testing         running test '21' of validation source
+INFO     testing         running test '22' of validation source
+INFO     testing         running test '23' of validation source
+INFO     testing         running test '24' of validation source
+INFO     testing         running test '25' of validation source
+INFO     testing         running test '26' of validation source
+INFO     testing         running test '27' of validation source
+INFO     testing         running test '28' of validation source
+INFO     testing         running test '29' of validation source
+INFO     testing         running test '30' of validation source
+INFO     project         configuring frontend source
+INFO     transformation  instrumenting repairable of frontend source
+INFO     project         building frontend source
+angelix-compiler --test -c replace.c -o replace.o
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h '-c' 'replace.c' '-o' 'replace.o' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+replace.c:14:0: warning: "NULL" redefined [enabled by default]
+ # define NULL 0
+ ^
+In file included from /usr/include/_G_config.h:15:0,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/stddef.h:402:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ ^
+replace.c: In function ‘omatch’:
+replace.c:338:6: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+      abort(); 
+      ^
+replace.c: In function ‘patsize’:
+replace.c:389:2: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+  abort();
+  ^
+angelix-compiler --test replace.o -o replace
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+INFO     repair          running positive tests for debugging
+INFO     testing         running test '1' of frontend source
+INFO     testing         running test '2' of frontend source
+INFO     testing         running test '3' of frontend source
+INFO     testing         running test '4' of frontend source
+INFO     testing         running test '6' of frontend source
+INFO     testing         running test '7' of frontend source
+INFO     testing         running test '8' of frontend source
+INFO     testing         running test '9' of frontend source
+INFO     testing         running test '10' of frontend source
+INFO     testing         running test '11' of frontend source
+INFO     testing         running test '12' of frontend source
+INFO     testing         running test '13' of frontend source
+INFO     testing         running test '14' of frontend source
+INFO     testing         running test '15' of frontend source
+INFO     testing         running test '16' of frontend source
+INFO     testing         running test '17' of frontend source
+INFO     testing         running test '18' of frontend source
+INFO     testing         running test '19' of frontend source
+INFO     testing         running test '20' of frontend source
+INFO     testing         running test '21' of frontend source
+INFO     testing         running test '22' of frontend source
+INFO     testing         running test '23' of frontend source
+INFO     testing         running test '24' of frontend source
+INFO     testing         running test '25' of frontend source
+INFO     testing         running test '26' of frontend source
+INFO     testing         running test '27' of frontend source
+INFO     testing         running test '28' of frontend source
+INFO     testing         running test '29' of frontend source
+INFO     testing         running test '30' of frontend source
+INFO     repair          running negative tests for debugging
+INFO     testing         running test '5' of frontend source
+INFO     project         configuring golden source
+INFO     project         building golden source
+angelix-compiler --test -c replace.c -o replace.o
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h '-c' 'replace.c' '-o' 'replace.o' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+replace.c:14:0: warning: "NULL" redefined [enabled by default]
+ # define NULL 0
+ ^
+In file included from /usr/include/_G_config.h:15:0,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from replace.c:7:
+/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/stddef.h:402:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ ^
+replace.c: In function ‘omatch’:
+replace.c:338:6: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+      abort(); 
+      ^
+replace.c: In function ‘patsize’:
+replace.c:389:2: warning: incompatible implicit declaration of built-in function ‘abort’ [enabled by default]
+  abort();
+  ^
+angelix-compiler --test replace.o -o replace
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h 'replace.o' '-o' 'replace' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+INFO     testing         running test '5' of golden source
+INFO     repair          repair test suite: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30']
+INFO     repair          validation test suite: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30']
+WARNING  repair          no suspicious expressions localized
+INFO     repair          no patch generated in 0s
+FAIL

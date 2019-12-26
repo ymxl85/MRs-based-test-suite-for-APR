@@ -1,0 +1,58 @@
+__tmpInt8  : BITVECTOR(8);
+__tmpInt16  : BITVECTOR(16);
+__tmpInt32  : BITVECTOR(32);
+__tmpInt64  : BITVECTOR(64);
+argv7_0xa89f928  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+argv2_0xa89f610  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+argv3_0xa8a5928  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+argv1_0xa8abc40  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+argv4_0xa8a5b58  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+argv5_0xa89f800  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+argv6_0xa89f878  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+argv8_0xa8aaeb8  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+argv9_0xa8aaed8  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+argv10_0xa89fb00  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+argv11_0xa8e0308  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+argv12_0xa89fc88  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+%----------------------------------------------------
+ASSERT( BVLT((argv7_0xa89f928[0x00000003] @ (argv7_0xa89f928[0x00000002] @ (argv7_0xa89f928[0x00000001] @ argv7_0xa89f928[0x00000000] ) ) ),0x00000004)  );
+ASSERT( BVLT((argv3_0xa8a5928[0x00000003] @ (argv3_0xa8a5928[0x00000002] @ (argv3_0xa8a5928[0x00000001] @ argv3_0xa8a5928[0x00000000] ) ) ),0x00000002)  );
+ASSERT( BVLT(BVPLUS(32,  0x00002710,  (argv1_0xa8abc40[0x00000003] @ (argv1_0xa8abc40[0x00000002] @ (argv1_0xa8abc40[0x00000001] @ argv1_0xa8abc40[0x00000000] ) ) )) ,0x00004E21)  );
+ASSERT( BVLT(BVPLUS(32,  0x00002710,  (argv4_0xa8a5b58[0x00000003] @ (argv4_0xa8a5b58[0x00000002] @ (argv4_0xa8a5b58[0x00000001] @ argv4_0xa8a5b58[0x00000000] ) ) )) ,0x00004E21)  );
+ASSERT( BVLT(BVPLUS(32,  0x00002710,  (argv5_0xa89f800[0x00000003] @ (argv5_0xa89f800[0x00000002] @ (argv5_0xa89f800[0x00000001] @ argv5_0xa89f800[0x00000000] ) ) )) ,0x00004E21)  );
+ASSERT( BVLT(BVPLUS(32,  0x00002710,  (argv6_0xa89f878[0x00000003] @ (argv6_0xa89f878[0x00000002] @ (argv6_0xa89f878[0x00000001] @ argv6_0xa89f878[0x00000000] ) ) )) ,0x00004E21)  );
+ASSERT( BVLT(BVPLUS(32,  0x00002710,  (argv8_0xa8aaeb8[0x00000003] @ (argv8_0xa8aaeb8[0x00000002] @ (argv8_0xa8aaeb8[0x00000001] @ argv8_0xa8aaeb8[0x00000000] ) ) )) ,0x00004E21)  );
+ASSERT( BVLT(BVPLUS(32,  0x00002710,  (argv9_0xa8aaed8[0x00000003] @ (argv9_0xa8aaed8[0x00000002] @ (argv9_0xa8aaed8[0x00000001] @ argv9_0xa8aaed8[0x00000000] ) ) )) ,0x00004E21)  );
+ASSERT( BVLT((argv10_0xa89fb00[0x00000003] @ (argv10_0xa89fb00[0x00000002] @ (argv10_0xa89fb00[0x00000001] @ argv10_0xa89fb00[0x00000000] ) ) ),0x00000003)  );
+ASSERT( BVLT((argv12_0xa89fc88[0x00000003] @ (argv12_0xa89fc88[0x00000002] @ (argv12_0xa89fc88[0x00000001] @ argv12_0xa89fc88[0x00000000] ) ) ),0x00000002)  );
+%----------------------------------------------------
+%****************************************************
+ASSERT( BVLT((argv3_0xa8a5928[0x00000003] @ (argv3_0xa8a5928[0x00000002] @ (argv3_0xa8a5928[0x00000001] @ argv3_0xa8a5928[0x00000000] ) ) ),0x00000002)  );
+ASSERT( BVLT((argv10_0xa89fb00[0x00000003] @ (argv10_0xa89fb00[0x00000002] @ (argv10_0xa89fb00[0x00000001] @ argv10_0xa89fb00[0x00000000] ) ) ),0x00000003)  );
+ASSERT( BVLT((argv12_0xa89fc88[0x00000003] @ (argv12_0xa89fc88[0x00000002] @ (argv12_0xa89fc88[0x00000001] @ argv12_0xa89fc88[0x00000000] ) ) ),0x00000002)  );
+ASSERT( (0x00000001 = (argv7_0xa89f928[0x00000003] @ (argv7_0xa89f928[0x00000002] @ (argv7_0xa89f928[0x00000001] @ argv7_0xa89f928[0x00000000] ) ) ) ) );
+ASSERT( BVLT((argv2_0xa89f610[0x00000003] @ (argv2_0xa89f610[0x00000002] @ (argv2_0xa89f610[0x00000001] @ argv2_0xa89f610[0x00000000] ) ) ),0x00000002)  );
+%###################################################
+ASSERT(NOT (( BVLT(BVPLUS(32,  0xFFFFFFFF,  (argv11_0xa8e0308[0x00000003] @ (argv11_0xa8e0308[0x00000002] @ (argv11_0xa8e0308[0x00000001] @ argv11_0xa8e0308[0x00000000] ) ) )) ,0x00000002)  )));
+%###################################################
+ASSERT( (((0x00000000 = (argv2_0xa89f610[0x00000003] @ (argv2_0xa89f610[0x00000002] @ (argv2_0xa89f610[0x00000001] @ argv2_0xa89f610[0x00000000] ) ) ) ) OR SBVLT(0x00000258,(argv5_0xa89f800[0x00000003] @ (argv5_0xa89f800[0x00000002] @ (argv5_0xa89f800[0x00000001] @ argv5_0xa89f800[0x00000000] ) ) ))  ) OR SBVLT((argv1_0xa8abc40[0x00000003] @ (argv1_0xa8abc40[0x00000002] @ (argv1_0xa8abc40[0x00000001] @ argv1_0xa8abc40[0x00000000] ) ) ),0x00000259)  ) );
+ASSERT( (0x00000001 = (argv2_0xa89f610[0x00000003] @ (argv2_0xa89f610[0x00000002] @ (argv2_0xa89f610[0x00000001] @ argv2_0xa89f610[0x00000000] ) ) ) ) );
+ASSERT( (0x00000002 = (argv11_0xa8e0308[0x00000003] @ (argv11_0xa8e0308[0x00000002] @ (argv11_0xa8e0308[0x00000001] @ argv11_0xa8e0308[0x00000000] ) ) ) ) );
+ASSERT( ( NOT( SBVLT((argv8_0xa8aaeb8[0x00000003] @ (argv8_0xa8aaeb8[0x00000002] @ (argv8_0xa8aaeb8[0x00000001] @ argv8_0xa8aaeb8[0x00000000] ) ) ),0x000001F4) )) );
+ASSERT( (LET let_k_0 = (argv8_0xa8aaeb8[0x00000003] @ (argv8_0xa8aaeb8[0x00000002] @ (argv8_0xa8aaeb8[0x00000001] @ argv8_0xa8aaeb8[0x00000000] ) ) ), let_k_1 = BVPLUS(32,  0x00000064,  let_k_0)  IN  ( NOT( SBVLT(let_k_1,IF((0x00000000 = (argv12_0xa89fc88[0x00000003] @ (argv12_0xa89fc88[0x00000002] @ (argv12_0xa89fc88[0x00000001] @ argv12_0xa89fc88[0x00000000] ) ) ) )) THEN let_k_0 ELSE let_k_1 ENDIF) )))  );
+ASSERT( ( NOT( SBVLT(BVPLUS(32,  0x000004B0,  SBVREM(32,  (argv1_0xa8abc40[0x00000003] @ (argv1_0xa8abc40[0x00000002] @ (argv1_0xa8abc40[0x00000001] @ argv1_0xa8abc40[0x00000000] ) ) ),  0x00000258) ) ,0x0000012C) )) );
+ASSERT( (LET let_k_0 = (argv4_0xa8a5b58[0x00000003] @ (argv4_0xa8a5b58[0x00000002] @ (argv4_0xa8a5b58[0x00000001] @ argv4_0xa8a5b58[0x00000000] ) ) ) IN  ( NOT( SBVLE(let_k_0,BVPLUS(32,  0xFFFFFFFF,  let_k_0) ) )))  );
+ASSERT( ( NOT( SBVLT(0x000001F4,(argv8_0xa8aaeb8[0x00000003] @ (argv8_0xa8aaeb8[0x00000002] @ (argv8_0xa8aaeb8[0x00000001] @ argv8_0xa8aaeb8[0x00000000] ) ) )) )) );
+%----------------------------------------------------
+ASSERT( (LET let_k_0 = (argv2_0xa89f610[0x00000003] @ (argv2_0xa89f610[0x00000002] @ (argv2_0xa89f610[0x00000001] @ argv2_0xa89f610[0x00000000]))) IN ( NOT( (( NOT( (0x00000001 = let_k_0))) AND ( NOT( (0x00000000 = let_k_0)))))))  );
+%---------------------------------------------------
+%----------------------------------------------------
+ASSERT( (LET let_k_0 = (argv3_0xa8a5928[0x00000003] @ (argv3_0xa8a5928[0x00000002] @ (argv3_0xa8a5928[0x00000001] @ argv3_0xa8a5928[0x00000000]))) IN ( NOT( (( NOT( (0x00000001 = let_k_0))) AND ( NOT( (0x00000000 = let_k_0)))))))  );
+%---------------------------------------------------
+%----------------------------------------------------
+ASSERT( (LET let_k_0 = (argv11_0xa8e0308[0x00000003] @ (argv11_0xa8e0308[0x00000002] @ (argv11_0xa8e0308[0x00000001] @ argv11_0xa8e0308[0x00000000]))) IN ( NOT( (( NOT( (0x00000001 = let_k_0))) AND ( NOT( (0x00000002 = let_k_0)))))))  );
+%---------------------------------------------------
+%----------------------------------------------------
+ASSERT( (LET let_k_0 = (argv12_0xa89fc88[0x00000003] @ (argv12_0xa89fc88[0x00000002] @ (argv12_0xa89fc88[0x00000001] @ argv12_0xa89fc88[0x00000000]))) IN ( NOT( (( NOT( (0x00000001 = let_k_0))) AND ( NOT( (0x00000000 = let_k_0)))))))  );
+%---------------------------------------------------
+QUERY( FALSE  );

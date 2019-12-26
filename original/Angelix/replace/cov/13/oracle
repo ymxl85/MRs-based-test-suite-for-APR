@@ -1,0 +1,171 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "?" "&" "\\n"
+      ;;
+    2)
+      test-replace  "?" "&" "\\xf5"
+      ;;
+    3)
+      test-replace  "?" "@" "\\n"
+      ;;
+    4)
+      test-replace  "%" "&" "\\xff"
+      ;;
+    5)
+      test-replace  "?" "\\xff" "\\n"
+      ;;
+    6)
+      test-replace  "?" "&" "\\n\\n"
+      ;;
+    7)
+      test-replace  "?" "\\x99" "\\xf5"
+      ;;
+    8)
+      test-replace  "\$" "&" "\\xf5"
+      ;;
+    9)
+      test-replace  "%" "&" "\\xff\\x00\\xff"
+      ;;
+    10)
+      test-replace  "?" "@n" "\\n"
+      ;;
+    11)
+      test-replace  "?" "&&" "\\xf5"
+      ;;
+    12)
+      test-replace  "%" "@" "\\xff"
+      ;;
+    13)
+      test-replace  "%" "&&" "\\xff"
+      ;;
+    14)
+      test-replace  "%" "\\x99" "\\xff"
+      ;;
+    15)
+      test-replace  "\$" "&" "\\n"
+      ;;
+    16)
+      test-replace  "?" "@t" "\\n"
+      ;;
+    17)
+      test-replace  "?" "@\\x9b" "\\n"
+      ;;
+    18)
+      test-replace  "??" "&" "\\xf5"
+      ;;
+    19)
+      test-replace  "\\xda" "&" "\\xff"
+      ;;
+    20)
+      test-replace  "??" "&" "\\xf5\\xf5"
+      ;;
+    21)
+      test-replace  "\\xda" "&" "\\xda"
+      ;;
+    22)
+      test-replace  "@" "&" "@"
+      ;;
+    23)
+      test-replace  "[" "&" "\\xff"
+      ;;
+    24)
+      test-replace  "[^" "&" "\\n"
+      ;;
+    25)
+      test-replace  "[]" "&" "\\xff"
+      ;;
+    26)
+      test-replace  "[^]" "&" "\\n"
+      ;;
+    27)
+      test-replace  "%*" "&" "\\xff"
+      ;;
+    28)
+      test-replace  "\$?" "&" "\$"
+      ;;
+    29)
+      test-replace  "[^]" "&" "\\xf5"
+      ;;
+    30)
+      test-replace  "?*" "&" "\\n"
+      ;;
+    31)
+      test-replace  "@n" "&" "\\n"
+      ;;
+    32)
+      test-replace  "[^-" "&" "\\n"
+      ;;
+    33)
+      test-replace  "[-" "&" "\\xd2"
+      ;;
+    34)
+      test-replace  "?*" "&" "\\xf5"
+      ;;
+    35)
+      test-replace  "@\\x9b" "&" "\\x9b"
+      ;;
+    36)
+      test-replace  "\$" "&" "\\n\\x00\\n\\x00\\n\\x00\\n\\x00\\n"
+      ;;
+    37)
+      test-replace  "[^\\xf2]" "&" "\\n"
+      ;;
+    38)
+      test-replace  "@t" "&" "\\t"
+      ;;
+    39)
+      test-replace  "[^-" "&" "-"
+      ;;
+    40)
+      test-replace  "[-" "&" "-"
+      ;;
+    41)
+      test-replace  "[^-]" "&" "\\n"
+      ;;
+    42)
+      test-replace  "[^-" "&" "\\xf7"
+      ;;
+    43)
+      test-replace  "?*?" "&" "\\n"
+      ;;
+    44)
+      test-replace  "[\\xa2]" "&" "\\xa2"
+      ;;
+    45)
+      test-replace  "[-]" "&" "-"
+      ;;
+    46)
+      test-replace  "[]*" "&" "\\xff"
+      ;;
+    47)
+      test-replace  "[^@@" "&" "\\n"
+      ;;
+    48)
+      test-replace  "[@@" "&" "@"
+      ;;
+    49)
+      test-replace  "\\xda*" "&" "\\xda"
+      ;;
+    50)
+      test-replace  "[^@\\xbf]" "&" "\\n"
+      ;;
+    51)
+      test-replace  "[@@n]" "&" "\\xff"
+      ;;
+    52)
+      test-replace  "[@@t]" "&" "\\xff"
+      ;;
+    53)
+      test-replace  "[@@\\x9b]" "&" "\\xff"
+      ;;
+    54)
+      test-replace  "[@@t-]" "\\xff" "\\xff"
+      ;;
+esac

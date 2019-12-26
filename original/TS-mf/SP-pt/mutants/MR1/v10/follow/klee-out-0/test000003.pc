@@ -1,0 +1,25 @@
+array argv1[9] : w32 -> w8 = symbolic
+(query [(Eq 59 (Read w8 2 argv1))
+        (Eq false
+            (Eq 10 N0:(Read w8 3 argv1)))
+        (Eq false (Eq 0 N0))
+        (Slt 0 N0)
+        (Eq false
+            (Eq 10 N1:(Read w8 4 argv1)))
+        (Eq false (Eq 0 N1))
+        (Slt 0 N1)
+        (Eq 10 (Read w8 5 argv1))
+        (Eq false
+            (Eq 10 N2:(Read w8 7 argv1)))
+        (Eq false (Eq 0 N2))
+        (Slt 0 N2)
+        (Eq 0 (Read w8 8 argv1))
+        (Eq 32 (Read w8 0 argv1))
+        (Eq 32 (Read w8 1 argv1))
+        (Eq 32 (Read w8 6 argv1))
+        (Eq false (Eq 32 N2))
+        (Eq 1
+            (Select w32 (Eq 59 N2)
+                        2
+                        (ZExt w32 (Eq 34 N2))))]
+       false)

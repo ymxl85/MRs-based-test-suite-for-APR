@@ -1,0 +1,27 @@
+***************randomTC/v26/2
+gcc -D_GNUCC -E -DCIL=1 randomTC/v26/2/replace26.c -o randomTC/v26/2/replace26.i
+randomTC/v26/2/replace26.c:11:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from randomTC/v26/2/replace26.c:4:
+/usr/lib/gcc/i486-linux-gnu/4.4.3/include/stddef.h:400:1: warning: this is the location of the previous definition
+/usr/local/bin/cilly.native --out randomTC/v26/2/replace26.cil.c --noPrintLn --useLogicalOperators randomTC/v26/2/replace26.i
+gcc -D_GNUCC -E randomTC/v26/2/replace26.cil.c -o randomTC/v26/2/replace26.cil.i
+gcc -D_GNUCC -c -o randomTC/v26/2/replace26.o randomTC/v26/2/replace26.cil.i
+randomTC/v26/2/replace26.cil.c:370: warning: conflicting types for built-in function ‘abort’
+gcc -D_GNUCC -o a.out randomTC/v26/2/replace26.o
+$ cp randomTC/v26/2/replace26.cil.i /tmp/CETI_4a2c29/replace26.cil.i
+input length='30' output length='30'
+*** Get good/bad tcs ***
+cmd 'gcc /tmp/CETI_4a2c29/replace26.cil.i -o /tmp/CETI_4a2c29/replace26.cil.i.exe >& /dev/null'
+$ gcc /tmp/CETI_4a2c29/replace26.cil.i -o /tmp/CETI_4a2c29/replace26.cil.i.exe >& /dev/null
+write_file_str: '/tmp/CETI_4a2c29/replace26.cil.i.sh'
+$ sh /tmp/CETI_4a2c29/replace26.cil.i.sh /tmp/CETI_4a2c29/replace26.cil.i.exe &> /dev/null
+[35mAlert: All tests passed. Exit!
+[mNote: temp files created in dir '/tmp/CETI_4a2c29'
+
+real	0m0.144s
+user	0m0.144s
+sys	0m0.068s
+/home/mingyue/experiments/ceti/REPLACE/randomTC

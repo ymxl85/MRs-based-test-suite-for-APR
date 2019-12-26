@@ -1,0 +1,18 @@
+/home/mingyue/Documents/Angelix/angelix/TSE/RDS/schedule/7
+/home/mingyue/Documents/Angelix/angelix/TSE/RDS/schedule/golden
+/home/mingyue/Documents/Angelix/angelix/TSE/RDS/schedule/7/oracle10
+INFO     synthesis       ==class Synthesizer
+INFO     project         configuring validation source
+INFO     project         building json compilation database from validation source
+gcc -c schedule.c -o schedule.o -std=c89 
+schedule.c:20:0: warning: "NULL" redefined [enabled by default]
+ #define NULL 0
+ ^
+In file included from /usr/include/_G_config.h:15:0,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from schedule.c:16:
+/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/stddef.h:402:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ ^
+gcc schedule.o -o schedule

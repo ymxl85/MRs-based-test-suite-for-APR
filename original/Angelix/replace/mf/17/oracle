@@ -1,0 +1,78 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "?" "0" "@@"
+      ;;
+    2)
+      test-replace  "?" "0" "@s"
+      ;;
+    3)
+      test-replace  "?" "0" "s@"
+      ;;
+    4)
+      test-replace  "@" "0" "@s"
+      ;;
+    5)
+      test-replace  "À" "0" "@@"
+      ;;
+    6)
+      test-replace  "À" "0" "@s"
+      ;;
+    7)
+      test-replace  "À" "0" "s@"
+      ;;
+    8)
+      test-replace  "s" "0" "sr"
+      ;;
+    9)
+      test-replace  "@" "0" "ss"
+      ;;
+    10)
+      test-replace  "@" "0" "@@"
+      ;;
+    11)
+      test-replace  "=" "0" "ss"
+      ;;
+    12)
+      test-replace  "?@@@" "0" "@@@@@@"
+      ;;
+    13)
+      test-replace  "?s@" "0" "@s@ss@"
+      ;;
+    14)
+      test-replace  "?s@" "0" "ss@@s@"
+      ;;
+    15)
+      test-replace  "[@]" "0" "@s"
+      ;;
+    16)
+      test-replace  "[À]" "0" "@@"
+      ;;
+    17)
+      test-replace  "[À]" "0" "@s"
+      ;;
+    18)
+      test-replace  "[À]" "0" "s@"
+      ;;
+    19)
+      test-replace  "[^r]" "0" "sr"
+      ;;
+    20)
+      test-replace  "[^s]" "0" "sr"
+      ;;
+    21)
+      test-replace  "[@]" "0" "ss"
+      ;;
+    22)
+      test-replace  "[@]" "0" "@@"
+      ;;
+    23)
+      test-replace  "[=]" "0" "ss"
+      ;;
+esac

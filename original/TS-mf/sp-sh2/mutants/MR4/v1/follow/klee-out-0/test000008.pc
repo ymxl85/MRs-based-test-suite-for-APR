@@ -1,0 +1,44 @@
+array argv1[15] : w32 -> w8 = symbolic
+array const_arr109[32] : w32 -> w8 = [0 0 0 0 0 0 0 0 3 0 0 0 120 126 32 11 3 0 0 0 216 203 194 10 0 0 0 0 0 0 0 0]
+(query [(Ult N0:(Add w8 208 N1:(Read w8 0 argv1))
+             4)
+        (Eq 32 (Read w8 1 argv1))
+        (Ult N2:(Add w8 208 N3:(Read w8 2 argv1))
+             4)
+        (Eq 32 (Read w8 3 argv1))
+        (Ult N4:(Add w8 208 N5:(Read w8 4 argv1))
+             4)
+        (Eq 10 (Read w8 5 argv1))
+        (Eq 49 (Read w8 6 argv1))
+        (Eq 32 (Read w8 7 argv1))
+        (Eq 49 N6:(Read w8 8 argv1))
+        (Eq 10 (Read w8 9 argv1))
+        (Eq 55 (Read w8 10 argv1))
+        (Eq 10 (Read w8 11 argv1))
+        (Eq 0 (Read w8 12 argv1))
+        (Eq false (Eq 43 N1))
+        (Eq false (Eq 45 N1))
+        (Eq false (Eq 43 N3))
+        (Eq false (Eq 45 N3))
+        (Eq false (Eq 43 N5))
+        (Eq false (Eq 45 N5))
+        (Slt 0 N7:(ZExt w32 N0))
+        (Eq false
+            (Slt 0 (Add w32 4294967295 N7)))
+        (Slt 0 N8:(ZExt w32 N2))
+        (Slt 0 (Add w32 4294967295 N8))
+        (Slt 0 (Add w32 4294967294 N8))
+        (Slt 0 N9:(ZExt w32 N4))
+        (Slt 0 (Add w32 4294967295 N9))
+        (Slt 0 (Add w32 4294967294 N9))
+        (Eq 0
+            (ReadLSB w32 24 U0:[N10:(Add w32 3
+                                             N11:(Mul w32 8
+                                                          (ZExt w32 (Add w8 208 N6))))=(Extract w8 24 N12:(Add w32 1
+                                                                                                                   (ReadLSB w32 N11 const_arr109))),
+                                N13:(Add w32 2 N11)=(Extract w8 16 N12),
+                                N14:(Add w32 1 N11)=(Extract w8 8 N12),
+                                N11=(Extract w8 0 N12)] @ const_arr109))
+        (Eq 3
+            (ReadLSB w32 16 U0))]
+       false)

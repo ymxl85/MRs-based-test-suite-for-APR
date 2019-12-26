@@ -1,0 +1,37 @@
+subject program: printtokens2-v4
+Fault localization result provided by Ochia
+TS0:
+34 33 98 74 22 150 9 7 151 149 58 29 28 148 147 146 69 20 137 152 153 154 156 12 11 10 158 135 139 121 138 140 155 157 141 70 59 49 84 50 67 66 65 64 48 136 47 25 24 63 62 61 60 46 45 44 43 23 96 42 169 95 75 19 168 167 166 165 164 163 162 161 160 159 144 143 142 134 133 132 126 125 124 118 117 113 111 109 107 105 103 101 100 99 97 94 93 92 91 90 89 88 87 86 83 82 81 80 79 78 77 76 41 40 39 38 37 36 35 18 17 16 15 14 13 6 5 4 3 2 1 123 71 127 72 130 54 128 129 21 52 32 31 30 53 120 122 68 106 116 102 112 110 119 108 104 115 114 85 73 145 51 27 26 8 131 
+TSsp:
+98 74 22 34 33 9 7 59 50 49 48 12 11 10 47 96 66 65 64 63 62 61 60 46 45 44 43 42 23 170 169 168 167 166 165 164 163 162 161 160 159 144 143 142 134 133 132 126 125 124 118 117 113 111 109 107 105 103 101 100 99 97 95 94 93 92 91 90 89 88 87 86 83 82 81 80 79 78 77 76 75 41 40 39 38 37 36 35 19 18 17 16 15 14 13 6 5 4 3 2 1 84 141 70 139 131 130 129 128 54 21 52 32 31 30 25 24 67 121 123 71 145 51 27 26 8 149 148 147 146 69 20 155 53 122 120 157 151 150 140 138 137 
+faulty statment (an assignment statement, whose return value will affect following branch condition.):
+program statment: if (ch ==59) id=0  //test input is a string, and ch is one of its character. The faulty statment do not use the value of test input, thus its expression does not appear in the path condition
+
+sid 22 in fun 'get_token' (score 0.935414)
+id = 0;
+
+solution: id=2
+***********************************************************************a list of suspicious statments
+0. sid 98 in fun 'is_comment' (score 0.935414)
+__cil_tmp2 = 1;
+1. sid 74 in fun 'token_type' (score 0.935414)
+__cil_tmp16 = 5;
+2. sid 22 in fun 'get_token' (score 0.935414)
+id = 0;
+**********************************************************************
+MR1-MFCC1: source execution fails
+compare MFCC1 and Conds
+------------------------------------------------------conditions contains in MFCC but not in Conds
+ASSERT!{{10==argv1[3]}}
+ASSERT!{{0==argv1[3]}}
+ASSERT{0<argv1[3]}
+--------------------------------------------comment parts of MFCC and Conds referring to those difference
+ASSERT{32==argv1[3]}
+ASSERT!{{59==argv1[3]}}
+...
+-------------------------------------------------------
+Conds && !MFCC == Conds 
+Thus, in this case, every source test input will fail.
+Every source execution fails, but every follow-up execution passes. We can compare source test input with follow-up test input.
+MR1: contruct follow-up test input by deleting all contents after ';' of source test input. Especially, ';' = 59.
+This indicates that we should pay attention to the statements relating to the process of character ';', which is consistent with the location of the fault.

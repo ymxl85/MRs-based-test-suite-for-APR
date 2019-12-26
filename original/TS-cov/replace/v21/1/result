@@ -1,0 +1,19 @@
+***************coverageTC/v21
+gcc -D_GNUCC -E -DCIL=1 coverageTC/v21/replace21.c -o coverageTC/v21/replace21.i
+coverageTC/v21/replace21.c:11:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from coverageTC/v21/replace21.c:4:
+/usr/lib/gcc/i486-linux-gnu/4.4.3/include/stddef.h:400:1: warning: this is the location of the previous definition
+/usr/local/bin/cilly.native --out coverageTC/v21/replace21.cil.c --noPrintLn --useLogicalOperators coverageTC/v21/replace21.i
+coverageTC/v21/replace21.c[200:10-28] : syntax error
+Parsing errorFatal error: exception Frontc.ParseError("Parse error")
+require filename
+[31;1mError: file 'coverageTC/v21/replace21.cil.i' not exist
+[mFatal error: exception Errormsg.Error
+
+real	0m0.004s
+user	0m0.000s
+sys	0m0.004s
+/home/mingyue/experiments/ceti/REPLACE/coverageTC

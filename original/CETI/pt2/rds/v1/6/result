@@ -1,0 +1,959 @@
+***************randomTC/v1/6
+gcc -D_GNUCC -E -DCIL=1 randomTC/v1/6/pt1.c -o randomTC/v1/6/pt1.i
+randomTC/v1/6/pt1.c:20:1: warning: "EOF" redefined
+In file included from /usr/include/stdio.h:75,
+                 from randomTC/v1/6/pt1.c:14:
+/usr/include/libio.h:90:1: warning: this is the location of the previous definition
+/usr/local/bin/cilly.native --out randomTC/v1/6/pt1.cil.c --noPrintLn --useLogicalOperators randomTC/v1/6/pt1.i
+randomTC/v1/6/pt1.c:276: Warning: Body of function print_token falls-through. Adding a return statement
+randomTC/v1/6/pt1.c:417: Warning: Body of function unget_error falls-through. Adding a return statement
+gcc -D_GNUCC -E randomTC/v1/6/pt1.cil.c -o randomTC/v1/6/pt1.cil.i
+gcc -D_GNUCC -c -o randomTC/v1/6/pt1.o randomTC/v1/6/pt1.cil.i
+randomTC/v1/6/pt1.cil.c: In function ‘get_token’:
+randomTC/v1/6/pt1.cil.c:141: warning: passing argument 1 of ‘unget_error’ from incompatible pointer type
+randomTC/v1/6/pt1.cil.c:29: note: expected ‘char **’ but argument is of type ‘token_stream’
+randomTC/v1/6/pt1.cil.c:149: warning: passing argument 1 of ‘unget_error’ from incompatible pointer type
+randomTC/v1/6/pt1.cil.c:29: note: expected ‘char **’ but argument is of type ‘token_stream’
+randomTC/v1/6/pt1.cil.c: At top level:
+randomTC/v1/6/pt1.cil.c:568: warning: conflicting types for built-in function ‘exit’
+gcc -D_GNUCC -o a.out randomTC/v1/6/pt1.o
+$ cp randomTC/v1/6/pt1.cil.i /tmp/CETI_5b48af/pt1.cil.i
+input length='56' output length='56'
+*** Get good/bad tcs ***
+cmd 'gcc /tmp/CETI_5b48af/pt1.cil.i -o /tmp/CETI_5b48af/pt1.cil.i.exe >& /dev/null'
+$ gcc /tmp/CETI_5b48af/pt1.cil.i -o /tmp/CETI_5b48af/pt1.cil.i.exe >& /dev/null
+write_file_str: '/tmp/CETI_5b48af/pt1.cil.i.sh'
+$ sh /tmp/CETI_5b48af/pt1.cil.i.sh /tmp/CETI_5b48af/pt1.cil.i.exe &> /dev/null
+[35mAlert: 6/56 tests failed. Processing ..
+[mwrite_src: '/tmp/CETI_5b48af/pt1.cil.i.preproc.c'
+*** Fault Localization ***
+write_src: '/tmp/CETI_5b48af/faultloc_a5eff8/pt1.cil.i.cov.c'
+cmd 'gcc /tmp/CETI_5b48af/faultloc_a5eff8/pt1.cil.i.cov.c -o /tmp/CETI_5b48af/faultloc_a5eff8/pt1.cil.i.cov.c.exe >& /dev/null'
+$ gcc /tmp/CETI_5b48af/faultloc_a5eff8/pt1.cil.i.cov.c -o /tmp/CETI_5b48af/faultloc_a5eff8/pt1.cil.i.cov.c.exe >& /dev/null
+goods length:50
+write_file_str: '/tmp/CETI_5b48af/faultloc_a5eff8/pt1.cil.i.g.sh'
+$ sh /tmp/CETI_5b48af/faultloc_a5eff8/pt1.cil.i.g.sh /tmp/CETI_5b48af/faultloc_a5eff8/pt1.cil.i.cov.c.exe /tmp/CETI_5b48af/faultloc_a5eff8/pt1.cil.i.outputs_g_dontcare &> /dev/null
+write_file_str: '/tmp/CETI_5b48af/faultloc_a5eff8/pt1.cil.i.b.sh'
+$ sh /tmp/CETI_5b48af/faultloc_a5eff8/pt1.cil.i.b.sh /tmp/CETI_5b48af/faultloc_a5eff8/pt1.cil.i.cov.c.exe /tmp/CETI_5b48af/faultloc_a5eff8/pt1.cil.i.outputs_bad_dontcare &> /dev/null
+0. sid 56 in fun 'is_token_end' (score 0.774597)
+__cil_tmp14 = 1;
+1. sid 47 in fun 'get_token' (score 0.774597)
+__cil_tmp29 = buffer;
+2. sid 46 in fun 'get_token' (score 0.774597)
+__cil_tmp28 = id == 1;
+3. sid 155 in fun 'is_spec_symbol' (score 0.666667)
+__cil_tmp15 = 1;
+4. sid 132 in fun 'is_identifier' (score 0.454859)
+i ++;
+5. sid 45 in fun 'get_token' (score 0.439941)
+__cil_tmp27 = tmp___3 == 1;
+6. sid 148 in fun 'print_spec_symbol' (score 0.436436)
+__cil_tmp14 = ! tmp___4;
+7. sid 147 in fun 'print_spec_symbol' (score 0.436436)
+__cil_tmp13 = ! tmp___3;
+8. sid 135 in fun 'is_identifier' (score 0.39736)
+__cil_tmp7 = (int const   )*(*tmp___0 + (int )*(str + i)) & 2048;
+9. sid 146 in fun 'print_spec_symbol' (score 0.396059)
+__cil_tmp12 = ! tmp___2;
+10. sid 137 in fun 'is_identifier' (score 0.377964)
+__cil_tmp9 = (int const   )*(*tmp + (int )*(str + i)) & 1024;
+11. sid 136 in fun 'is_identifier' (score 0.373544)
+__cil_tmp8 = (int )*(str + i) != 0;
+12. sid 142 in fun 'unget_error' (score 0.349927)
+__cil_tmp2 = 0;
+13. sid 48 in fun 'is_token_end' (score 0.349927)
+__cil_tmp6 = 1;
+14. sid 27 in fun 'get_token' (score 0.349927)
+__cil_tmp18 = buffer;
+15. sid 26 in fun 'get_token' (score 0.349927)
+__cil_tmp17 = (int )ch == 0;
+16. sid 8 in fun 'unget_char' (score 0.349927)
+__cil_tmp4 = c;
+17. sid 145 in fun 'print_spec_symbol' (score 0.348155)
+__cil_tmp11 = ! tmp___1;
+18. sid 134 in fun 'is_identifier' (score 0.345033)
+__cil_tmp6 = 0;
+19. sid 144 in fun 'print_spec_symbol' (score 0.333333)
+__cil_tmp10 = ! tmp___0;
+20. sid 64 in fun 'is_token_end' (score 0.330289)
+__cil_tmp20 = 0;
+21. sid 63 in fun 'is_token_end' (score 0.330289)
+__cil_tmp19 = ((int )ch == 32 || (int )ch == 10) || (int )ch == 59;
+22. sid 62 in fun 'is_token_end' (score 0.330289)
+__cil_tmp18 = tmp___0 == 1;
+23. sid 61 in fun 'is_token_end' (score 0.330289)
+__cil_tmp17 = str_com_id == 2;
+24. sid 60 in fun 'is_token_end' (score 0.330289)
+__cil_tmp16 = str_com_id == 1;
+25. sid 25 in fun 'get_token' (score 0.330289)
+buffer[i] = ch;
+26. sid 24 in fun 'get_token' (score 0.330289)
+i ++;
+27. sid 12 in fun 'unget_char' (score 0.330289)
+__cil_tmp7 = (int )c == 0;
+28. sid 11 in fun 'unget_char' (score 0.330289)
+__cil_tmp6 = (int )ch != 0;
+29. sid 10 in fun 'unget_char' (score 0.330289)
+c = ch;
+30. sid 166 in fun 'mainQ' (score 0.327327)
+__cil_tmp7 = r;
+31. sid 165 in fun 'mainQ' (score 0.327327)
+fname = argv1;
+32. sid 164 in fun 'mainQ' (score 0.327327)
+__cil_tmp6 = ! (tmp == 0);
+33. sid 163 in fun 'is_spec_symbol' (score 0.327327)
+__cil_tmp23 = 0;
+34. sid 162 in fun 'is_spec_symbol' (score 0.327327)
+__cil_tmp22 = ! tmp___5;
+35. sid 161 in fun 'is_spec_symbol' (score 0.327327)
+__cil_tmp21 = ! tmp___4;
+36. sid 160 in fun 'is_spec_symbol' (score 0.327327)
+__cil_tmp20 = ! tmp___3;
+37. sid 159 in fun 'is_spec_symbol' (score 0.327327)
+__cil_tmp19 = ! tmp___2;
+38. sid 158 in fun 'is_spec_symbol' (score 0.327327)
+__cil_tmp18 = ! tmp___1;
+39. sid 157 in fun 'is_spec_symbol' (score 0.327327)
+__cil_tmp17 = ! tmp___0;
+40. sid 156 in fun 'is_spec_symbol' (score 0.327327)
+__cil_tmp16 = ! tmp;
+41. sid 141 in fun 'is_identifier' (score 0.327327)
+__cil_tmp12 = (int const   )*(*tmp___1 + (int )*str) & 1024;
+42. sid 140 in fun 'is_identifier' (score 0.327327)
+i = 1;
+43. sid 139 in fun 'is_identifier' (score 0.327327)
+__cil_tmp11 = 0;
+44. sid 131 in fun 'is_str_constant' (score 0.327327)
+__cil_tmp8 = (int )*str == 34;
+45. sid 130 in fun 'is_str_constant' (score 0.327327)
+i = 1;
+46. sid 129 in fun 'is_str_constant' (score 0.327327)
+__cil_tmp7 = 0;
+47. sid 123 in fun 'is_num_constant' (score 0.327327)
+__cil_tmp10 = (int const   )*(*tmp___0 + (int )*str) & 2048;
+48. sid 122 in fun 'is_num_constant' (score 0.327327)
+i = 1;
+49. sid 121 in fun 'is_num_constant' (score 0.327327)
+__cil_tmp9 = 0;
+50. sid 115 in fun 'is_char_constant' (score 0.327327)
+__cil_tmp7 = (int )*str == 35;
+51. sid 114 in fun 'is_char_constant' (score 0.327327)
+__cil_tmp6 = 0;
+52. sid 110 in fun 'is_keyword' (score 0.327327)
+__cil_tmp20 = tmp;
+53. sid 108 in fun 'is_keyword' (score 0.327327)
+__cil_tmp18 = tmp___0;
+54. sid 106 in fun 'is_keyword' (score 0.327327)
+__cil_tmp16 = tmp___1;
+55. sid 104 in fun 'is_keyword' (score 0.327327)
+__cil_tmp14 = tmp___2;
+56. sid 102 in fun 'is_keyword' (score 0.327327)
+__cil_tmp12 = tmp___3;
+57. sid 100 in fun 'is_keyword' (score 0.327327)
+__cil_tmp10 = tmp___4;
+58. sid 98 in fun 'is_keyword' (score 0.327327)
+__cil_tmp8 = 0;
+59. sid 97 in fun 'is_comment' (score 0.327327)
+__cil_tmp4 = (int )*ident == 59;
+60. sid 96 in fun 'is_comment' (score 0.327327)
+__cil_tmp3 = 0;
+61. sid 94 in fun 'is_eof_token' (score 0.327327)
+__cil_tmp4 = (int )*tok == 0;
+62. sid 93 in fun 'is_eof_token' (score 0.327327)
+__cil_tmp3 = 0;
+63. sid 92 in fun 'is_eof_token' (score 0.327327)
+__cil_tmp2 = 1;
+64. sid 91 in fun 'print_token' (score 0.327327)
+__cil_tmp12 = 0;
+65. sid 90 in fun 'print_token' (score 0.327327)
+__cil_tmp11 = type == 6;
+66. sid 89 in fun 'print_token' (score 0.327327)
+__cil_tmp10 = type == 43;
+67. sid 88 in fun 'print_token' (score 0.327327)
+__cil_tmp9 = type == 42;
+68. sid 87 in fun 'print_token' (score 0.327327)
+__cil_tmp8 = type == 41;
+69. sid 86 in fun 'print_token' (score 0.327327)
+__cil_tmp7 = type == 3;
+70. sid 85 in fun 'print_token' (score 0.327327)
+__cil_tmp6 = type == 2;
+71. sid 84 in fun 'print_token' (score 0.327327)
+__cil_tmp5 = type == 1;
+72. sid 83 in fun 'print_token' (score 0.327327)
+__cil_tmp4 = type == 0;
+73. sid 80 in fun 'token_type' (score 0.327327)
+__cil_tmp25 = tmp___6;
+74. sid 79 in fun 'token_type' (score 0.327327)
+__cil_tmp24 = tmp___5;
+75. sid 78 in fun 'token_type' (score 0.327327)
+__cil_tmp23 = tmp___4;
+76. sid 77 in fun 'token_type' (score 0.327327)
+__cil_tmp22 = tmp___3;
+77. sid 76 in fun 'token_type' (score 0.327327)
+__cil_tmp21 = tmp___2;
+78. sid 75 in fun 'token_type' (score 0.327327)
+__cil_tmp20 = tmp___1;
+79. sid 74 in fun 'token_type' (score 0.327327)
+__cil_tmp19 = tmp___0;
+80. sid 73 in fun 'token_type' (score 0.327327)
+__cil_tmp18 = tmp;
+81. sid 72 in fun 'token_type' (score 0.327327)
+__cil_tmp17 = 6;
+82. sid 59 in fun 'is_token_end' (score 0.327327)
+__cil_tmp15 = tmp == 1;
+83. sid 58 in fun 'is_token_end' (score 0.327327)
+ch1[1] = (char )'\000';
+84. sid 57 in fun 'is_token_end' (score 0.327327)
+ch1[0] = ch;
+85. sid 44 in fun 'get_token' (score 0.327327)
+__cil_tmp26 = tmp___2 == 1;
+86. sid 43 in fun 'get_token' (score 0.327327)
+ch1[0] = ch;
+87. sid 42 in fun 'get_token' (score 0.327327)
+__cil_tmp25 = (int )ch == 59;
+88. sid 41 in fun 'get_token' (score 0.327327)
+__cil_tmp24 = (int )ch == 34;
+89. sid 40 in fun 'get_token' (score 0.327327)
+__cil_tmp23 = tmp___0 == 1;
+90. sid 39 in fun 'get_token' (score 0.327327)
+__cil_tmp22 = tmp == 1;
+91. sid 38 in fun 'get_token' (score 0.327327)
+buffer[i] = ch;
+92. sid 37 in fun 'get_token' (score 0.327327)
+ch1[1] = (char )'\000';
+93. sid 36 in fun 'get_token' (score 0.327327)
+ch1[0] = (char )'\000';
+94. sid 35 in fun 'get_token' (score 0.327327)
+j = 0;
+95. sid 34 in fun 'get_token' (score 0.327327)
+id = 0;
+96. sid 33 in fun 'get_token' (score 0.327327)
+i = 0;
+97. sid 23 in fun 'get_token' (score 0.327327)
+__cil_tmp16 = ! (tmp___1 == 0);
+98. sid 19 in fun 'get_token' (score 0.327327)
+__cil_tmp14 = buffer;
+99. sid 18 in fun 'get_token' (score 0.327327)
+__cil_tmp13 = (int )ch == 32 || (int )ch == 10;
+100. sid 17 in fun 'get_token' (score 0.327327)
+j ++;
+101. sid 16 in fun 'get_token' (score 0.327327)
+buffer[j] = (char )'\000';
+102. sid 15 in fun 'get_token' (score 0.327327)
+__cil_tmp12 = j <= 80;
+103. sid 14 in fun 'open_token_stream' (score 0.327327)
+__cil_tmp5 = fp;
+104. sid 13 in fun 'open_token_stream' (score 0.327327)
+__cil_tmp4 = tmp == 0;
+105. sid 6 in fun 'get_char' (score 0.327327)
+__cil_tmp4 = ch;
+106. sid 5 in fun 'get_char' (score 0.327327)
+__cil_tmp3 = (int )ch != 0;
+107. sid 4 in fun 'get_char' (score 0.327327)
+ch = *(*fp);
+108. sid 3 in fun 'get_char' (score 0.327327)
+(*fp) ++;
+109. sid 2 in fun 'open_character_stream' (score 0.327327)
+__cil_tmp3 = fp;
+110. sid 1 in fun 'open_character_stream' (score 0.327327)
+fp = fname;
+111. sid 143 in fun 'print_spec_symbol' (score 0.31427)
+__cil_tmp9 = ! tmp;
+112. sid 66 in fun 'token_type' (score 0.31427)
+__cil_tmp11 = 2;
+113. sid 20 in fun 'get_token' (score 0.31427)
+__cil_tmp15 = buffer;
+114. sid 138 in fun 'is_identifier' (score 0.306186)
+__cil_tmp10 = 1;
+115. sid 67 in fun 'token_type' (score 0.306186)
+__cil_tmp12 = 3;
+116. sid 81 in fun 'token_type' (score 0.294628)
+__cil_tmp26 = 0;
+117. sid 120 in fun 'is_num_constant' (score 0.288675)
+__cil_tmp8 = 1;
+118. sid 68 in fun 'token_type' (score 0.288675)
+__cil_tmp13 = 41;
+119. sid 151 in fun 'is_spec_symbol' (score 0.258199)
+__cil_tmp11 = 1;
+120. sid 133 in fun 'is_identifier' (score 0.258199)
+i ++;
+121. sid 55 in fun 'is_token_end' (score 0.244949)
+__cil_tmp13 = 1;
+122. sid 29 in fun 'get_token' (score 0.244949)
+__cil_tmp20 = buffer;
+123. sid 28 in fun 'get_token' (score 0.244949)
+__cil_tmp19 = (int )ch == 0;
+124. sid 9 in fun 'unget_char' (score 0.244949)
+__cil_tmp5 = c;
+125. sid 7 in fun 'unget_char' (score 0.244949)
+(*fp) --;
+126. sid 118 in fun 'is_num_constant' (score 0.129099)
+__cil_tmp6 = (int )*(str + i) != 0;
+[35mAlert: FL: found 127 stmts with sscores >= 0.01
+[m[35mAlert: Perform ** BugFix **
+[mwrite_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s56.t1.arr'
+[35mAlert: CONSTS: don't know how to deal with exp 'buffer' (sid 47)
+[m[35mAlert: OPS_PR: don't know how to deal with exp 'buffer' (sid 47)
+[mwrite_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s47.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s46.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s155.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s132.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s45.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s148.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s147.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s135.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s146.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s137.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s136.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s142.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s48.t1.arr'
+[35mAlert: CONSTS: don't know how to deal with exp 'buffer' (sid 27)
+[m[35mAlert: OPS_PR: don't know how to deal with exp 'buffer' (sid 27)
+[mwrite_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s27.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s26.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s8.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s145.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s134.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s144.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s64.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s63.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s62.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s61.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s60.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s25.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s24.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s12.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s11.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s10.t1.arr'
+[35mAlert: CONSTS: don't know how to deal with exp 'r' (sid 166)
+[m[35mAlert: OPS_PR: don't know how to deal with exp 'r' (sid 166)
+[mwrite_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s166.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s165.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s164.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s163.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s162.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s161.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s160.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s159.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s158.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s157.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s156.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s141.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s140.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s139.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s131.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s130.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s129.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s123.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s122.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s121.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s115.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s114.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s110.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s108.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s106.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s104.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s102.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s100.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s98.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s91.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s90.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s89.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s88.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s87.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s86.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s85.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s84.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s83.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s80.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s79.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s78.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s77.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s76.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s75.t1.arr'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.s74.t1.arr'
+[35mAlert: Spy: Got 148 info from 80 sids
+[minput length='56' output length='56'
+write_file_bin: '/tmp/CETI_5b48af/pt1.cil.i.info'
+$ python kl.py /tmp/CETI_5b48af/pt1.cil.i --do_tb "(56, 3, 1, 1); (56, 1, 4, 3); (47, 1, 4, 6); (46, 3, 1, 1); (46, 7, 2, 1); (46, 1, 4, 6); (155, 3, 1, 1); (155, 1, 4, 1); (132, 3, 1, 1); (132, 7, 2, 1); (132, 1, 4, 2); (45, 3, 1, 1); (45, 7, 2, 1); (45, 1, 4, 6); (148, 1, 4, 2); (147, 1, 4, 2); (135, 3, 1, 1); (135, 1, 4, 2); (146, 1, 4, 2); (137, 3, 1, 1); (137, 1, 4, 2); (136, 3, 1, 1); (136, 7, 2, 1); (136, 1, 4, 2); (142, 3, 1, 1); (142, 1, 4, 1); (48, 3, 1, 1); (48, 1, 4, 3); (27, 1, 4, 6); (26, 3, 1, 1); (26, 7, 2, 1); (26, 1, 4, 6); (8, 1, 4, 3); (145, 1, 4, 2); (134, 3, 1, 1); (134, 1, 4, 2); (144, 1, 4, 2); (64, 3, 1, 1); (64, 1, 4, 3); (63, 3, 1, 3); (63, 7, 2, 5); (63, 1, 4, 3); (62, 3, 1, 1); (62, 7, 2, 1); (62, 1, 4, 3); (61, 3, 1, 1); (61, 7, 2, 1); (61, 1, 4, 3); (60, 3, 1, 1); (60, 7, 2, 1); (60, 1, 4, 3); (25, 1, 4, 6); (24, 3, 1, 1); (24, 7, 2, 1); (24, 1, 4, 6); (12, 3, 1, 1); (12, 7, 2, 1); (12, 1, 4, 3); (11, 3, 1, 1); (11, 7, 2, 1); (11, 1, 4, 3); (10, 1, 4, 3); (166, 1, 4, 3); (165, 1, 4, 3); (164, 3, 1, 1); (164, 7, 2, 1); (164, 1, 4, 3); (163, 3, 1, 1); (163, 1, 4, 1); (162, 1, 4, 1); (161, 1, 4, 1); (160, 1, 4, 1); (159, 1, 4, 1); (158, 1, 4, 1); (157, 1, 4, 1); (156, 1, 4, 1); (141, 3, 1, 1); (141, 1, 4, 2); (140, 3, 1, 1); (140, 1, 4, 2); (139, 3, 1, 1); (139, 1, 4, 2); (131, 3, 1, 1); (131, 7, 2, 1); (131, 1, 4, 1); (130, 3, 1, 1); (130, 1, 4, 1); (129, 3, 1, 1); (129, 1, 4, 1); (123, 3, 1, 1); (123, 1, 4, 2); (122, 3, 1, 1); (122, 1, 4, 2); (121, 3, 1, 1); (121, 1, 4, 2); (115, 3, 1, 1); (115, 7, 2, 1); (115, 1, 4, 1); (114, 3, 1, 1); (114, 1, 4, 1); (110, 1, 4, 1); (108, 1, 4, 1); (106, 1, 4, 1); (104, 1, 4, 1); (102, 1, 4, 1); (100, 1, 4, 1); (98, 3, 1, 1); (98, 1, 4, 1); (97, 3, 1, 1); (97, 7, 2, 1); (96, 3, 1, 1); (94, 3, 1, 1); (94, 7, 2, 1); (93, 3, 1, 1); (92, 3, 1, 1); (91, 3, 1, 1); (91, 1, 4, 2); (90, 3, 1, 1); (90, 7, 2, 1); (90, 1, 4, 2); (89, 3, 1, 1); (89, 7, 2, 1); (89, 1, 4, 2); (88, 3, 1, 1); (88, 7, 2, 1); (88, 1, 4, 2); (87, 3, 1, 1); (87, 7, 2, 1); (87, 1, 4, 2); (86, 3, 1, 1); (86, 7, 2, 1); (86, 1, 4, 2); (85, 3, 1, 1); (85, 7, 2, 1); (85, 1, 4, 2); (84, 3, 1, 1); (84, 7, 2, 1); (84, 1, 4, 2); (83, 3, 1, 1); (83, 7, 2, 1); (83, 1, 4, 2); (80, 1, 4, 1); (79, 1, 4, 1); (78, 1, 4, 1); (77, 1, 4, 1); (76, 1, 4, 1); (75, 1, 4, 1); (74, 1, 4, 1)" --no_parallel
+KR: tasks 487
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s130.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s122.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s115.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s131.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s24.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s140.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s136.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s132.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s63.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s141.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s97.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s123.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s140.t1_z0_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s132.t1_z0_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s122.t1_z0_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s130.t1_z0_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s24.t1_z0_c0.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z1_c0.tf.c: In function ‘mainQ’:
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z1_c0.tf.c:1182: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z1_c0.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z1_c0.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z1_c1.tf.c: In function ‘mainQ’:
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z1_c1.tf.c:1195: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z1_c1.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z1_c1.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s61.t1_z1_c1.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s132.t1_z1_c0.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c1.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c1.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c1.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c1.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s62.t1_z1_c1.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s122.t1_z1_c1.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c0.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c0.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c0.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c0.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z1_c2.tf.c: In function ‘mainQ’:
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z1_c2.tf.c:1182: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z1_c2.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z1_c2.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z1_c2.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s164.t1_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s60.t1_z1_c1.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s25.t1_z1_c1.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c5.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c5.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c5.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c5.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c5.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c5.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s24.t1_z1_c1.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s122.t1_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s25.t1_z1_c4.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s140.t1_z1_c1.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s64.t1_z1_c1.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c3.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c3.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c3.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c3.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c3.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c3.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s25.t1_z1_c0.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c2.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c2.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c2.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c2.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c2.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z1_c0.tf.c: In function ‘mainQ’:
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z1_c0.tf.c:1195: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z1_c0.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z1_c0.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c0.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c0.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c0.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c0.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c0.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c0.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z1_c2.tf.c: In function ‘mainQ’:
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z1_c2.tf.c:1195: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z1_c2.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z1_c2.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z1_c2.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c4.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c4.tf.c:566: warning: cast to pointer from integer of different size
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c4.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c4.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c4.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c4.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c4.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c4.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c4.tf.c:545: warning: cast to pointer from integer of different size
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c4.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c4.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c4.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c4.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c4.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c3.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c3.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c3.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c3.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c3.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c3.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s24.t1_z1_c3.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s24.t1_z1_c2.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c5.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c5.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c5.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c5.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c5.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c5.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s63.t1_z1_c1.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z1_c1.tf.c: In function ‘mainQ’:
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z1_c1.tf.c:1182: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z1_c1.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z1_c1.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s24.t1_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s137.t1_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s24.t1_z1_c5.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s132.t1_z1_c1.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c2.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c2.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c2.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c2.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c2.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z1_c2.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c1.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c1.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c1.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c1.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c1.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z1_c1.tf.c:1321: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s130.t1_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s140.t1_z1_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s24.t1_z1_c4.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s164.t1_z3_c1.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s25.t1_z3_c10.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s24.t1_z3_c14.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s25.t1_z3_c8.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c13.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c13.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c13.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c13.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c13.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c13.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c13.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s164.t1_z3_c2.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s60.t1_z3_c2.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s25.t1_z3_c2.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c10.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c10.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c10.tf.c:545: warning: cast to pointer from integer of different size
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c10.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c10.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c10.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c10.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c10.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s24.t1_z3_c5.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c12.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c12.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c12.tf.c:566: warning: cast to pointer from integer of different size
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c12.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c12.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c12.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c12.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c12.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s24.t1_z3_c1.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c7.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c7.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c7.tf.c:566: warning: cast to pointer from integer of different size
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c7.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c7.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c7.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c7.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c7.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c10.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c10.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c10.tf.c:566: warning: cast to pointer from integer of different size
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c10.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c10.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c10.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c10.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c10.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s25.t1_z3_c12.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s63.t1_z3_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s24.t1_z3_c7.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s11.t1_z3_c0.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z3_c0.tf.c: In function ‘mainQ’:
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z3_c0.tf.c:1195: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z3_c0.tf.c:1195: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z3_c0.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z3_c0.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z3_c0.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z3_c0.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s63.t1_z3_c2.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z3_c1.tf.c: In function ‘mainQ’:
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z3_c1.tf.c:1182: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z3_c1.tf.c:1182: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z3_c1.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z3_c1.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z3_c1.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z3_c1.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s25.t1_z3_c14.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s137.t1_z3_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s25.t1_z3_c7.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c4.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c4.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c4.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c4.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c4.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c4.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c4.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c4.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c4.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c4.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c4.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c4.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c4.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c4.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s24.t1_z3_c4.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s62.t1_z3_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s64.t1_z3_c0.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c2.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c2.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c2.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c2.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c2.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c2.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c2.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s24.t1_z3_c11.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s132.t1_z3_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s24.t1_z3_c8.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z3_c2.tf.c: In function ‘mainQ’:
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z3_c2.tf.c:1195: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z3_c2.tf.c:1195: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z3_c2.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z3_c2.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z3_c2.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z3_c2.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z3_c0.tf.c: In function ‘mainQ’:
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z3_c0.tf.c:1182: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z3_c0.tf.c:1182: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z3_c0.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z3_c0.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z3_c0.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z3_c0.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c14.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c14.tf.c:566: warning: cast to pointer from integer of different size
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c14.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c14.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c14.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c14.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c14.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c14.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s45.t1_z3_c7.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c3.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c3.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c3.tf.c:566: warning: cast to pointer from integer of different size
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c3.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c3.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c3.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c3.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c3.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s122.t1_z3_c0.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c11.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c11.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c11.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c11.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c11.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c11.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c11.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c6.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c6.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c6.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c6.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c6.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c6.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c6.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s64.t1_z3_c2.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s24.t1_z3_c2.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c0.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c0.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c0.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c0.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c0.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c0.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c0.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c5.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c5.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c5.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c5.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c5.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c5.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c5.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s135.t1_z3_c0.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c6.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c6.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c6.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c6.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c6.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c6.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c6.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s24.t1_z3_c13.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c14.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c14.tf.c:545: warning: cast to pointer from integer of different size
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c14.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c14.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c14.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c14.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c14.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c14.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s45.t1_z3_c3.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s25.t1_z3_c3.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s11.t1_z3_c2.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c5.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c5.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c5.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c5.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c5.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c5.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c5.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c8.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c8.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c8.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c8.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c8.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c8.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c8.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s24.t1_z3_c10.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s25.t1_z3_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s61.t1_z3_c2.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c1.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c1.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c1.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c1.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c1.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c1.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c1.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z3_c2.tf.c: In function ‘mainQ’:
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z3_c2.tf.c:1182: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z3_c2.tf.c:1182: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z3_c2.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z3_c2.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z3_c2.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s165.t1_z3_c2.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s25.t1_z3_c1.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s25.t1_z3_c6.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c12.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c12.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c12.tf.c:545: warning: cast to pointer from integer of different size
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c12.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c12.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c12.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c12.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c12.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c9.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c9.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c9.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c9.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c9.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c9.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c9.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s140.t1_z3_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s46.t1_z3_c3.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s24.t1_z3_c12.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c13.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c13.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c13.tf.c:566: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c13.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c13.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c13.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s47.t1_z3_c13.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s24.t1_z3_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s62.t1_z3_c2.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c0.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c0.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c0.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c0.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c0.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c0.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c0.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s25.t1_z3_c5.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s46.t1_z3_c0.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c11.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c11.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c11.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c11.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c11.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c11.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c11.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c3.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c3.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c3.tf.c:545: warning: cast to pointer from integer of different size
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c3.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c3.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c3.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c3.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c3.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s45.t1_z3_c5.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s60.t1_z3_c0.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c1.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c1.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c1.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c1.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c1.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c1.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c1.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z3_c1.tf.c: In function ‘mainQ’:
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z3_c1.tf.c:1195: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z3_c1.tf.c:1195: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z3_c1.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z3_c1.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z3_c1.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s166.t1_z3_c1.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c2.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c2.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c2.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c2.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c2.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c2.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c2.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c8.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c8.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c8.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c8.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c8.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c8.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c8.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s24.t1_z3_c6.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c9.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c9.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c9.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c9.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c9.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c9.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c9.tf.c:1322: warning: comparison between pointer and integer
+
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s24.t1_z3_c9.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s24.t1_z3_c3.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s61.t1_z3_c0.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s25.t1_z3_c4.tf.c, timeout 10
+worker 0: stdout: /tmp/CETI_5b48af/pt1.cil.i.s45.t1_z3_c0.tf.c, timeout 10
+worker 0: compile error:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c7.tf.c: In function ‘get_token’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c7.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c7.tf.c:545: warning: cast to pointer from integer of different size
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c7.tf.c:545: error: invalid operands to binary * (have ‘char *’ and ‘char *’)
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c7.tf.c: At top level:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c7.tf.c:1199: warning: conflicting types for built-in function ‘exit’
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c7.tf.c: In function ‘main’:
+/tmp/CETI_5b48af/pt1.cil.i.s27.t1_z3_c7.tf.c:1322: warning: comparison between pointer and integer
+
+KR: summary (bugfix: True, stop after a repair found: True, parallel: False), '/tmp/CETI_5b48af/pt1.cil.i', 0 / 487
+
+Note: temp files created in dir '/tmp/CETI_5b48af'
+
+real	85m4.952s
+user	84m15.972s
+sys	0m39.830s
+/home/mingyue/experiments/ceti/printtoken2/randomTC

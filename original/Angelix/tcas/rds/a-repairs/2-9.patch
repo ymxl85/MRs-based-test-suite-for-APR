@@ -1,0 +1,20 @@
+--- a/tcas.c
++++ b/tcas.c
+@@ -34,7 +34,7 @@
+ 
+   if (Alt_Layer_Value == 0) return 400;
+   else if (Alt_Layer_Value == 1) return 500;
+-  else if (Alt_Layer_Value == 2) return 640;
++  else if ((Alt_Layer_Value == 2)) return 640;
+   else return 740;
+ 
+ }
+@@ -88,7 +88,7 @@
+ 					  Other_RAC,
+ 					  Other_Capability,
+ 					  Climb_Inhibit) > Down_Separation;
+-  if (upward_preferred)
++  if (1)
+     {
+       result = !(Own_Below_Threat(Cur_Vertical_Sep, 
+ 				  High_Confidence,

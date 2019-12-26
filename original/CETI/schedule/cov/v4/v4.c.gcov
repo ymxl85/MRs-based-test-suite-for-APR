@@ -1,0 +1,581 @@
+        -:    0:Source:v4.c
+        -:    0:Graph:v4.gcno
+        -:    0:Data:-
+        -:    0:Runs:0
+        -:    0:Programs:0
+        -:    1:/*  -*- Last-Edit:  Wed May 7 10:12:52 1993 by Monica; -*- */
+        -:    2:
+        -:    3:
+        -:    4:#include <stdio.h>
+        -:    5:
+        -:    6:/* A job descriptor. */
+        -:    7:
+        -:    8:#define NULL 0
+        -:    9:
+        -:   10:
+        -:   11:#define NEW_JOB        1
+        -:   12:#define UPGRADE_PRIO   2 
+        -:   13:#define BLOCK          3
+        -:   14:#define UNBLOCK        4  
+        -:   15:#define QUANTUM_EXPIRE 5
+        -:   16:#define FINISH         6
+        -:   17:#define FLUSH          7
+        -:   18:
+        -:   19:#define MAXPRIO 3
+        -:   20:
+        -:   21:typedef struct _job {
+        -:   22:    struct  _job *next, *prev; /* Next and Previous in job list. */
+        -:   23:    int          val  ;         /* Id-value of program. */
+        -:   24:    short        priority;     /* Its priority. */
+        -:   25:} Ele, *Ele_Ptr;
+        -:   26:
+        -:   27:typedef struct list		/* doubly linked list */
+        -:   28:{
+        -:   29:  Ele *first;
+        -:   30:  Ele *last;
+        -:   31:  int    mem_count;		/* member count */
+        -:   32:} List;
+        -:   33:
+        -:   34:/*-----------------------------------------------------------------------------
+        -:   35:  new_ele
+        -:   36:     alloates a new element with value as num.
+        -:   37:-----------------------------------------------------------------------------*/
+function new_ele called 0 returned 0% blocks executed 0%
+    #####:   38:Ele* new_ele(new_num) 
+        -:   39:int new_num;
+        -:   40:{	
+        -:   41:    Ele *ele;
+        -:   42:
+    #####:   43:    ele =(Ele *)malloc(sizeof(Ele));
+    #####:   44:    ele->next = NULL;
+    #####:   45:    ele->prev = NULL;
+    #####:   46:    ele->val  = new_num;
+    #####:   47:    return ele;
+        -:   48:}
+        -:   49:
+        -:   50:/*-----------------------------------------------------------------------------
+        -:   51:  new_list
+        -:   52:        allocates, initializes and returns a new list.
+        -:   53:        Note that if the argument compare() is provided, this list can be
+        -:   54:            made into an ordered list. see insert_ele().
+        -:   55:-----------------------------------------------------------------------------*/
+function new_list called 0 returned 0% blocks executed 0%
+    #####:   56:List *new_list()
+        -:   57:{
+        -:   58:    List *list;
+        -:   59:
+    #####:   60:    list = (List *)malloc(sizeof(List));
+        -:   61:    
+    #####:   62:    list->first = NULL;
+    #####:   63:    list->last  = NULL;
+    #####:   64:    list->mem_count = 0;
+    #####:   65:    return (list);
+        -:   66:}
+        -:   67:
+        -:   68:/*-----------------------------------------------------------------------------
+        -:   69:  append_ele
+        -:   70:        appends the new_ele to the list. If list is null, a new
+        -:   71:	list is created. The modified list is returned.
+        -:   72:-----------------------------------------------------------------------------*/
+function append_ele called 0 returned 0% blocks executed 0%
+    #####:   73:List *append_ele(a_list, a_ele)
+        -:   74:List *a_list;
+        -:   75:Ele  *a_ele;
+        -:   76:{
+    #####:   77:  if (!a_list)
+branch  0 never executed
+branch  1 never executed
+    #####:   78:      a_list = new_list();	/* make list without compare function */
+call    0 never executed
+        -:   79:
+    #####:   80:  a_ele->prev = a_list->last;	/* insert at the tail */
+    #####:   81:  if (a_list->last)
+branch  0 never executed
+branch  1 never executed
+    #####:   82:    a_list->last->next = a_ele;
+        -:   83:  else
+    #####:   84:    a_list->first = a_ele;
+    #####:   85:  a_list->last = a_ele;
+    #####:   86:  a_ele->next = NULL;
+    #####:   87:  a_list->mem_count++;
+    #####:   88:  return (a_list);
+        -:   89:}
+        -:   90:
+        -:   91:/*-----------------------------------------------------------------------------
+        -:   92:  find_nth
+        -:   93:        fetches the nth element of the list (count starts at 1)
+        -:   94:-----------------------------------------------------------------------------*/
+function find_nth called 0 returned 0% blocks executed 0%
+    #####:   95:Ele *find_nth(f_list, n)
+        -:   96:List *f_list;
+        -:   97:int   n;
+        -:   98:{
+        -:   99:    Ele *f_ele;
+        -:  100:    int i;
+        -:  101:
+    #####:  102:    if (!f_list)
+branch  0 never executed
+branch  1 never executed
+    #####:  103:	return NULL;
+    #####:  104:    f_ele = f_list->first;
+    #####:  105:    for (i=1; f_ele && (i<n); i++)
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  106:	f_ele = f_ele->next;
+    #####:  107:    return f_ele;
+        -:  108:}
+        -:  109:
+        -:  110:/*-----------------------------------------------------------------------------
+        -:  111:  del_ele
+        -:  112:        deletes the old_ele from the list.
+        -:  113:        Note: even if list becomes empty after deletion, the list
+        -:  114:	      node is not deallocated.
+        -:  115:-----------------------------------------------------------------------------*/
+function del_ele called 0 returned 0% blocks executed 0%
+    #####:  116:List *del_ele(d_list, d_ele)
+        -:  117:List *d_list;
+        -:  118:Ele  *d_ele;
+        -:  119:{
+    #####:  120:    if (!d_list || !d_ele)
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  121:	return (NULL);
+        -:  122:    
+    #####:  123:    if (d_ele->next)
+branch  0 never executed
+branch  1 never executed
+    #####:  124:	d_ele->next->prev = d_ele->prev;
+        -:  125:    else
+    #####:  126:	d_list->last = d_ele->prev;
+    #####:  127:    if (d_ele->prev)
+branch  0 never executed
+branch  1 never executed
+    #####:  128:	d_ele->prev->next = d_ele->next;
+        -:  129:    else
+    #####:  130:	d_list->first = d_ele->next;
+        -:  131:    /* KEEP d_ele's data & pointers intact!! */
+    #####:  132:    d_list->mem_count--;
+    #####:  133:    return (d_list);
+        -:  134:}
+        -:  135:
+        -:  136:/*-----------------------------------------------------------------------------
+        -:  137:   free_ele
+        -:  138:       deallocate the ptr. Caution: The ptr should point to an object
+        -:  139:       allocated in a single call to malloc.
+        -:  140:-----------------------------------------------------------------------------*/
+function free_ele called 0 returned 0% blocks executed 0%
+    #####:  141:void free_ele(ptr)
+        -:  142:Ele *ptr;
+        -:  143:{
+    #####:  144:    free(ptr);
+    #####:  145:}
+        -:  146:
+        -:  147:int alloc_proc_num;
+        -:  148:int num_processes;
+        -:  149:Ele* cur_proc;
+        -:  150:List *prio_queue[MAXPRIO+1]; 	/* 0th element unused */
+        -:  151:List *block_queue;
+        -:  152:
+        -:  153:void
+function finish_process called 0 returned 0% blocks executed 0%
+    #####:  154:finish_process(int *result,int *length)
+        -:  155:{
+    #####:  156:    schedule();
+call    0 never executed
+    #####:  157:    if (cur_proc)
+branch  0 never executed
+branch  1 never executed
+        -:  158:    {
+    #####:  159:        result[*length]=cur_proc->val;
+    #####:  160:        (*length)++;
+    #####:  161:	free_ele(cur_proc);
+call    0 never executed
+    #####:  162:	num_processes--;
+        -:  163:    }
+    #####:  164:}
+        -:  165:
+        -:  166:void
+function finish_all_processes called 0 returned 0% blocks executed 0%
+    #####:  167:finish_all_processes(int *result,int *length)
+        -:  168:{
+        -:  169:    int i;
+        -:  170:    int total;
+    #####:  171:    total = num_processes;
+    #####:  172:    for (i=0; i<total; i++)
+branch  0 never executed
+branch  1 never executed
+    #####:  173:	finish_process(result,length);
+call    0 never executed
+    #####:  174:}
+        -:  175:
+function schedule called 0 returned 0% blocks executed 0%
+    #####:  176:schedule()
+        -:  177:{
+        -:  178:    int i;
+        -:  179:    
+    #####:  180:    cur_proc = NULL;
+    #####:  181:    for (i=MAXPRIO; i > 0; i--)
+branch  0 never executed
+branch  1 never executed
+        -:  182:    {
+    #####:  183:	if (prio_queue[i]->mem_count > 0)
+branch  0 never executed
+branch  1 never executed
+        -:  184:	{
+    #####:  185:	    cur_proc = prio_queue[i]->first;
+    #####:  186:	    prio_queue[i] = del_ele(prio_queue[i], cur_proc);
+call    0 never executed
+    #####:  187:	    return;
+        -:  188:	}
+        -:  189:    }
+        -:  190:}
+        -:  191:
+        -:  192:void
+function upgrade_process_prio called 0 returned 0% blocks executed 0%
+    #####:  193:upgrade_process_prio(prio, ratio)
+        -:  194:int prio;
+        -:  195:float ratio;
+        -:  196:{
+        -:  197:    int count;
+        -:  198:    int n;
+        -:  199:    Ele *proc;
+        -:  200:    List *src_queue, *dest_queue;
+        -:  201:    
+    #####:  202:    if (prio >= MAXPRIO)
+branch  0 never executed
+branch  1 never executed
+    #####:  203:	return;
+    #####:  204:    src_queue = prio_queue[prio];
+    #####:  205:    dest_queue = prio_queue[prio+1];
+    #####:  206:    count = src_queue->mem_count;
+        -:  207:
+    #####:  208:    if (count > 1) /* off by one */ {
+branch  0 never executed
+branch  1 never executed
+    #####:  209:	n = (int) (count*ratio + 1);
+    #####:  210:	proc = find_nth(src_queue, n);
+call    0 never executed
+    #####:  211:	if (proc) {
+branch  0 never executed
+branch  1 never executed
+    #####:  212:	    src_queue = del_ele(src_queue, proc);
+call    0 never executed
+        -:  213:	    /* append to appropriate prio queue */
+    #####:  214:	    proc->priority = prio;
+    #####:  215:	    dest_queue = append_ele(dest_queue, proc);
+call    0 never executed
+        -:  216:	}
+        -:  217:    }
+        -:  218:}
+        -:  219:
+        -:  220:void
+function unblock_process called 0 returned 0% blocks executed 0%
+    #####:  221:unblock_process(ratio)
+        -:  222:float ratio;
+        -:  223:{
+        -:  224:    int count;
+        -:  225:    int n;
+        -:  226:    Ele *proc;
+        -:  227:    int prio;
+    #####:  228:    if (block_queue)
+branch  0 never executed
+branch  1 never executed
+        -:  229:    {
+    #####:  230:	count = block_queue->mem_count;
+    #####:  231:	n = (int) (count*ratio + 1);
+    #####:  232:	proc = find_nth(block_queue, n);
+call    0 never executed
+    #####:  233:	if (proc) {
+branch  0 never executed
+branch  1 never executed
+    #####:  234:	    block_queue = del_ele(block_queue, proc);
+call    0 never executed
+        -:  235:	    /* append to appropriate prio queue */
+    #####:  236:	    prio = proc->priority;
+    #####:  237:	    prio_queue[prio] = append_ele(prio_queue[prio], proc);
+call    0 never executed
+        -:  238:	}
+        -:  239:    }
+    #####:  240:}
+        -:  241:
+function quantum_expire called 0 returned 0% blocks executed 0%
+    #####:  242:void quantum_expire()
+        -:  243:{
+        -:  244:    int prio;
+    #####:  245:    schedule();
+call    0 never executed
+    #####:  246:    if (cur_proc)
+branch  0 never executed
+branch  1 never executed
+        -:  247:    {
+    #####:  248:	prio = cur_proc->priority;
+    #####:  249:	prio_queue[prio] = append_ele(prio_queue[prio], cur_proc);
+call    0 never executed
+        -:  250:    }	
+    #####:  251:}
+        -:  252:	
+        -:  253:void
+function block_process called 0 returned 0% blocks executed 0%
+    #####:  254:block_process()
+        -:  255:{
+    #####:  256:    schedule();
+call    0 never executed
+    #####:  257:    if (cur_proc)
+branch  0 never executed
+branch  1 never executed
+        -:  258:    {
+    #####:  259:	block_queue = append_ele(block_queue, cur_proc);
+call    0 never executed
+        -:  260:    }
+    #####:  261:}
+        -:  262:
+function new_process called 0 returned 0% blocks executed 0%
+    #####:  263:Ele * new_process(prio)
+        -:  264:int prio;
+        -:  265:{
+        -:  266:    Ele *proc;
+    #####:  267:    proc = new_ele(alloc_proc_num++);
+call    0 never executed
+    #####:  268:    proc->priority = prio;
+    #####:  269:    num_processes++;
+    #####:  270:    return proc;
+        -:  271:}
+        -:  272:
+function add_process called 0 returned 0% blocks executed 0%
+    #####:  273:void add_process(prio)
+        -:  274:int prio;
+        -:  275:{
+        -:  276:    Ele *proc;
+    #####:  277:    proc = new_process(prio);
+call    0 never executed
+    #####:  278:    prio_queue[prio] = append_ele(prio_queue[prio], proc);
+call    0 never executed
+    #####:  279:}
+        -:  280:
+function init_prio_queue called 0 returned 0% blocks executed 0%
+    #####:  281:void init_prio_queue(prio, num_proc)
+        -:  282:int prio;
+        -:  283:int num_proc;
+        -:  284:{
+        -:  285:    List *queue;
+        -:  286:    Ele  *proc;
+        -:  287:    int i;
+        -:  288:    
+    #####:  289:    queue = new_list();
+call    0 never executed
+    #####:  290:    for (i=0; i<num_proc; i++)
+branch  0 never executed
+branch  1 never executed
+        -:  291:    {
+    #####:  292:	proc = new_process(prio);
+call    0 never executed
+    #####:  293:	queue = append_ele(queue, proc);
+call    0 never executed
+        -:  294:    }
+    #####:  295:    prio_queue[prio] = queue;
+    #####:  296:}
+        -:  297:
+function initialize called 0 returned 0% blocks executed 0%
+    #####:  298:void initialize()
+        -:  299:{
+    #####:  300:    alloc_proc_num = 0;
+    #####:  301:    num_processes = 0;
+    #####:  302:}
+        -:  303:				
+        -:  304:/* test driver */
+function getOperand called 0 returned 0% blocks executed 0%
+    #####:  305:float getOperand(int x)
+        -:  306:{
+    #####:  307:  float r=0.0;
+    #####:  308:  if(x==10 || x==20 || x==30 || x==40 || x==50 || x==60 || x==70 || x==80 || x==90)
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+branch  4 never executed
+branch  5 never executed
+branch  6 never executed
+branch  7 never executed
+branch  8 never executed
+branch  9 never executed
+branch 10 never executed
+branch 11 never executed
+branch 12 never executed
+branch 13 never executed
+branch 14 never executed
+branch 15 never executed
+branch 16 never executed
+branch 17 never executed
+    #####:  309:    r=(float)(x*0.100);
+        -:  310:  else
+    #####:  311:    r=(float)(x*0.010);
+    #####:  312:  return r;
+        -:  313:}
+        -:  314:				
+        -:  315:/* test driver */
+function main called 0 returned 0% blocks executed 0%
+    #####:  316:main()
+        -:  317:{
+        -:  318:    int command;
+        -:  319:    int prio;
+        -:  320:    float ratio;
+        -:  321:    int status;
+    #####:  322:    int index=0;
+        -:  323:
+        -:  324:    int result[10];
+    #####:  325:    int length=0;
+    #####:  326:    int size=7;
+        -:  327:    int argv1,argv2,argv3,argv4,argv5,argv6,argv7,argv8,argv9,argv10;
+        -:  328:    int arg[20];
+        -:  329:    int i,j;
+    #####:  330:     klee_make_symbolic(&argv1,sizeof(argv1),"argv1");
+call    0 never executed
+    #####:  331:     klee_make_symbolic(&argv2,sizeof(argv2),"argv2");
+call    0 never executed
+    #####:  332:     klee_make_symbolic(&argv3,sizeof(argv3),"argv3");
+call    0 never executed
+    #####:  333:     klee_make_symbolic(&argv4,sizeof(argv4),"argv4");
+call    0 never executed
+    #####:  334:     klee_make_symbolic(&argv5,sizeof(argv5),"argv5");
+call    0 never executed
+    #####:  335:     klee_make_symbolic(&argv6,sizeof(argv6),"argv6");
+call    0 never executed
+    #####:  336:     klee_make_symbolic(&argv7,sizeof(argv7),"argv7");
+call    0 never executed
+        -:  337:     //klee_make_symbolic(&argv8,sizeof(argv8),"argv8");
+        -:  338:     //klee_make_symbolic(&argv9,sizeof(argv9),"argv9");
+        -:  339:     //klee_make_symbolic(&argv10,sizeof(argv10),"argv10");
+    #####:  340:    klee_assume(argv1>=0 & argv1<=20);
+call    0 never executed
+    #####:  341:    klee_assume(argv2>=0 & argv2<=20);
+call    0 never executed
+    #####:  342:    klee_assume(argv3>=0 & argv3<=20);
+call    0 never executed
+    #####:  343:    klee_assume(argv4>=0 & argv4<=20);
+call    0 never executed
+    #####:  344:    klee_assume(argv5>=0 & argv5<=20);
+call    0 never executed
+    #####:  345:    klee_assume(argv6>=0 & argv6<=20);
+call    0 never executed
+    #####:  346:    klee_assume(argv7>=0 & argv7<=20);
+call    0 never executed
+    #####:  347:     arg[0]=argv1;
+    #####:  348:     arg[1]=argv2;
+    #####:  349:     arg[2]=argv3;
+    #####:  350:     arg[3]=argv4;
+    #####:  351:     arg[4]=argv5;
+    #####:  352:     arg[5]=argv6;
+    #####:  353:     arg[6]=argv7;
+        -:  354:     //arg[7]=argv8;
+        -:  355:     //arg[8]=argv9;
+        -:  356:     //arg[9]=argv10;
+    #####:  357:     i=7;
+        -:  358:    //------------------------------------------------------------------------
+    #####:  359:    initialize();
+call    0 never executed
+    #####:  360:    for (prio=MAXPRIO-1; prio >= 0; prio--)
+branch  0 never executed
+branch  1 never executed
+        -:  361:    {
+    #####:  362:	init_prio_queue(prio+1, arg[prio]);
+call    0 never executed
+        -:  363:    }
+    #####:  364:    index=3;
+    #####:  365:    while(index<size)
+branch  0 never executed
+branch  1 never executed
+        -:  366:    {
+    #####:  367:        command=arg[index];
+    #####:  368:        index++;
+    #####:  369:	switch(command)
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+branch  4 never executed
+branch  5 never executed
+branch  6 never executed
+branch  7 never executed
+        -:  370:	{
+        -:  371:	case FINISH:
+    #####:  372:	    finish_process(result,&length);
+call    0 never executed
+    #####:  373:	    break;
+        -:  374:	case BLOCK:
+    #####:  375:	    block_process();
+call    0 never executed
+    #####:  376:	    break;
+        -:  377:	case QUANTUM_EXPIRE:
+    #####:  378:	    quantum_expire();
+call    0 never executed
+    #####:  379:	    break;
+        -:  380:	case UNBLOCK:
+    #####:  381:            if(index<size){
+branch  0 never executed
+branch  1 never executed
+    #####:  382:            ratio=(float)(getOperand(arg[index]));
+call    0 never executed
+    #####:  383:            index++;}
+    #####:  384:	    unblock_process(ratio);
+call    0 never executed
+    #####:  385:	    break;
+        -:  386:	case UPGRADE_PRIO:
+    #####:  387:            if(index<size){
+branch  0 never executed
+branch  1 never executed
+    #####:  388:	    prio=arg[index];
+    #####:  389:            index++;}
+        -:  390:            
+    #####:  391:            if(index<size){
+branch  0 never executed
+branch  1 never executed
+    #####:  392:            ratio=(float)(getOperand(arg[index]));
+call    0 never executed
+    #####:  393:            index++;}
+        -:  394:            //printf("%d\n",prio);
+    #####:  395:	    if (prio > MAXPRIO || prio <= 0) { 
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  396:		fprintf(stdout, "** invalid priority\n");
+call    0 never executed
+    #####:  397:		return;
+        -:  398:	    }
+        -:  399:	    else 
+    #####:  400:		upgrade_process_prio(prio, ratio);
+call    0 never executed
+    #####:  401:	    break;
+        -:  402:	case NEW_JOB:
+    #####:  403:            if(index<size){
+branch  0 never executed
+branch  1 never executed
+    #####:  404:            prio=arg[index];
+    #####:  405:            index++;}
+    #####:  406:	    if (prio > MAXPRIO || prio <= 0) {
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  407:		fprintf(stdout, "** invalid priority\n");
+call    0 never executed
+    #####:  408:		return;
+        -:  409:	    }
+        -:  410:	    else 
+    #####:  411:	     add_process(prio);
+call    0 never executed
+    #####:  412:	    break;
+        -:  413:	case FLUSH:
+    #####:  414:	    finish_all_processes(result,&length);
+call    0 never executed
+        -:  415:	    break;
+        -:  416:	}
+        -:  417:}
+        -:  418:    //------------------------------------------------------------------------------------
+    #####:  419:      klee_print_expr("Intrr=",result);
+call    0 never executed
+        -:  420:}

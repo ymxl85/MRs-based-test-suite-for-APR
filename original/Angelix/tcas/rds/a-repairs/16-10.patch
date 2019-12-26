@@ -1,0 +1,11 @@
+--- a/tcas.c
++++ b/tcas.c
+@@ -160,7 +160,7 @@
+ #line 75
+   tmp = Inhibit_Biased_Climb();
+ #line 75
+-  upward_preferred = tmp > Down_Separation;
++  upward_preferred = (tmp > tmp);
+ #line 76
+   if (upward_preferred) {
+ #line 78

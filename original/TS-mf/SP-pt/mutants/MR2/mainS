@@ -1,0 +1,27 @@
+int main(int argc,char *argv[])
+{  
+    char rr[100]="";
+    char argv1[15];
+    klee_make_symbolic(&argv1,sizeof(argv1),"argv1");
+    argv1[0]='a';argv1[1]='n';argv1[2]='d';
+    klee_assume(argv1[0]=='a');
+    klee_assume(argv1[1]=='n');
+    klee_assume(argv1[2]=='d');    
+    klee_assume(argv1[3]=='\n');//first token: keyword
+    klee_assume(argv1[4]>='a' & argv1[4]<='z');
+    klee_assume((argv1[5]<'0' | argv1[5]>'z') & argv1[5]!=' ' & argv1[5]!='\n' & argv1[5]!='\0');
+    klee_assume(argv1[6]>='a' & argv1[6]<='z');
+    klee_assume(argv1[7]=='\n');//second token, "c\t c"
+    klee_assume(argv1[8]=='"');
+    klee_assume(argv1[9]>='a' & argv1[9]<='z');
+    klee_assume(argv1[10]=='\n');//third token, ""c"
+    klee_assume(argv1[11]>='0' & argv1[11]<='9');
+    klee_assume(argv1[12]>='a' & argv1[12]<='z');
+    klee_assume(argv1[13]=='\n');//fourth token, 1c
+    klee_assume(argv1[14]=='\0');
+////////////////////////////////////////////////////////
+    mainQ(argv1,rr);
+////////////////////////////////////////////////////////
+    klee_print_expr("rr=",rr);
+   return 0;
+}

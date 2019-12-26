@@ -1,0 +1,766 @@
+        -:    0:Source:pt5.c
+        -:    0:Graph:pt5.gcno
+        -:    0:Data:pt5.gcda
+        -:    0:Runs:33
+        -:    0:Programs:1
+        -:    1:/***********************************************/
+        -:    2:/*  assgnment.5  Shu Z. A00042813 for CS453    */
+        -:    3:/*  using the tokenizer and stream module      */
+        -:    4:/*  print_tokens.c Code                        */
+        -:    5:/***********************************************/
+        -:    6:
+        -:    7:/***********************************************/
+        -:    8:/* NAME:	print_tokens                   */
+        -:    9:/* INPUT:	a filename                     */
+        -:   10:/* OUTPUT:      print out the token stream     */
+        -:   11:/* DESCRIPTION: using the tokenizer interface  */
+        -:   12:/*              to print out the token stream  */
+        -:   13:/***********************************************/
+        -:   14:#include <stdio.h>
+        -:   15:#include <ctype.h>
+        -:   16:#include <string.h>
+        -:   17:#include "tokens.h"
+        -:   18:#define TRUE 1
+        -:   19:#define FALSE 0
+        -:   20:#define EOF '\0'
+        -:   21:
+        -:   22:
+        -:   23:/* stream.c code */
+        -:   24:
+        -:   25:/***********************************************/
+        -:   26:/* NMAE:	open_character_stream          */
+        -:   27:/* INPUT:       a filename                     */
+        -:   28:/* OUTPUT:      a pointer to chacracter_stream */
+        -:   29:/* DESCRIPTION: when not given a filename,     */
+        -:   30:/*              open stdin,otherwise open      */
+        -:   31:/*              the existed file               */
+        -:   32:/***********************************************/
+function open_character_stream called 33 returned 100% blocks executed 100%
+       33:   33:character_stream open_character_stream(fname)
+        -:   34:char *fname;
+       33:   35:{ character_stream fp=fname;
+       33:   36:   return(fp);
+        -:   37:}
+        -:   38:
+        -:   39:/**********************************************/
+        -:   40:/* NAME:	get_char                      */
+        -:   41:/* INPUT:       a pointer to char_stream      */
+        -:   42:/* OUTPUT:      a character                   */
+        -:   43:/**********************************************/
+function get_char called 165 returned 100% blocks executed 100%
+      165:   44:char get_char(fp)
+        -:   45:character_stream *fp;
+      165:   46:{ char ch=*(*fp);
+        -:   47:  //ch=getc(fp);
+      165:   48:  if(ch!='\0')
+branch  0 taken 62% (fallthrough)
+branch  1 taken 38%
+      102:   49:   (*fp)++;
+      165:   50:  return(ch);
+        -:   51:}
+        -:   52:
+        -:   53:/***************************************************/
+        -:   54:/* NAME:      unget_char                           */
+        -:   55:/* INPUT:     a pointer to char_stream,a character */
+        -:   56:/* OUTPUT:    a character                          */
+        -:   57:/* DESCRIPTION:when unable to put back,return EOF  */
+        -:   58:/***************************************************/
+function unget_char called 31 returned 100% blocks executed 100%
+       31:   59:char unget_char(ch,fp)
+        -:   60:character_stream *fp;
+        -:   61:char ch;
+       31:   62:{ char c=ch;
+        -:   63:  //c=ungetc(ch,fp);
+        -:   64:  //*(*fp)=c;
+       31:   65:  if(ch!='\0')
+branch  0 taken 3% (fallthrough)
+branch  1 taken 97%
+        1:   66:   (*fp)--;
+        -:   67:
+       31:   68:  if(c ==EOF)
+branch  0 taken 97% (fallthrough)
+branch  1 taken 3%
+        -:   69:    {
+       30:   70:     return(c);
+        -:   71:    }
+        -:   72:  else
+        1:   73:     return(c);
+        -:   74:}
+        -:   75:
+        -:   76:/* tokenizer.c code */
+        -:   77:
+        -:   78:
+        -:   79:char buffer[81];  /* fixed array length MONI */ /* to store the token temporar */
+        -:   80:
+        -:   81:
+        -:   82:static int is_spec_symbol();
+        -:   83:static int is_token_end();
+        -:   84:static unget_error();
+        -:   85:static int is_keyword();
+        -:   86:static int is_identifier();
+        -:   87:static int is_num_constant();
+        -:   88:static int is_char_constant();
+        -:   89:static int is_str_constant();
+        -:   90:static int is_comment();
+        -:   91:static void print_spec_symbol();
+        -:   92:
+        -:   93:/********************************************************/
+        -:   94:/* NAME:	open_token_stream                       */
+        -:   95:/* INPUT:       a filename                              */
+        -:   96:/* OUTPUT:      a pointer to a token_stream             */
+        -:   97:/* DESCRIPTION: when filename is EMPTY,choice standard  */
+        -:   98:/*              input device as input source            */
+        -:   99:/********************************************************/
+function open_token_stream called 33 returned 100% blocks executed 67%
+       33:  100:token_stream open_token_stream(fname)
+        -:  101:char *fname;
+        -:  102:{
+        -:  103: token_stream fp;
+       33:  104: if(strcmp(fname,"")==0)
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:  105:    fp=open_character_stream(NULL);
+call    0 never executed
+        -:  106: else
+       33:  107:    fp=open_character_stream(fname);
+call    0 returned 100%
+       33:  108: return(fp);
+        -:  109:}
+        -:  110:
+        -:  111:/********************************************************/
+        -:  112:/* NAME :	get_token                               */
+        -:  113:/* INPUT: 	a pointer to the tokens_stream          */
+        -:  114:/* OUTPUT:      a token                                 */
+        -:  115:/* DESCRIPTION: according the syntax of tokens,dealing  */
+        -:  116:/*              with different case  and get one token  */
+        -:  117:/********************************************************/
+function get_token called 73 returned 100% blocks executed 83%
+       73:  118:token get_token(tp)
+        -:  119:token_stream *tp;
+        -:  120:{ 
+       73:  121:  int i=0,j;
+       73:  122:  int id=0;
+        -:  123:  char ch,ch1[2];
+     5986:  124:  for (j=0;j<=80;j++)          /* initial the buffer   */
+branch  0 taken 99%
+branch  1 taken 1% (fallthrough)
+     5913:  125:      { buffer[j]='\0';} 
+       73:  126:   ch1[0]='\0';
+       73:  127:   ch1[1]='\0';
+       73:  128:   ch=get_char(tp);
+call    0 returned 100%
+      146:  129:   while(ch==' '||ch=='\n')      /* strip all blanks until meet characters */
+branch  0 taken 0%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0%
+branch  3 taken 100% (fallthrough)
+        -:  130:      {
+    #####:  131:       ch=get_char(tp);
+call    0 never executed
+        -:  132:      } 
+       73:  133:   buffer[i]=ch;
+        -:  134:
+       73:  135:   if(is_eof_token(buffer)==TRUE){return(buffer);}
+call    0 returned 100%
+branch  1 taken 45% (fallthrough)
+branch  2 taken 55%
+       40:  136:   if(is_spec_symbol(buffer)==TRUE)return(buffer); 
+call    0 returned 100%
+branch  1 taken 3% (fallthrough)
+branch  2 taken 98%
+       39:  137:   if(ch =='"')id=1;    /* prepare for string */
+branch  0 taken 36% (fallthrough)
+branch  1 taken 64%
+       39:  138:   if(ch ==59)id=2;    /* prepare for comment */
+branch  0 taken 15% (fallthrough)
+branch  1 taken 85%
+       39:  139:   ch=get_char(tp);
+call    0 returned 100%
+        -:  140:
+      131:  141:   while (is_token_end(id,ch) == FALSE)/* until meet the end character */
+call    0 returned 100%
+branch  1 taken 58%
+branch  2 taken 42% (fallthrough)
+        -:  142:   {
+       53:  143:       i++;
+       53:  144:       buffer[i]=ch;
+       53:  145:       ch=get_char(tp);
+call    0 returned 100%
+        -:  146:   }
+        -:  147:
+       39:  148:   ch1[0]=ch;                        /* hold the end charcater          */
+       39:  149:   if(is_eof_token(ch1)==TRUE)       /* if end character is eof token    */
+call    0 returned 100%
+branch  1 taken 77% (fallthrough)
+branch  2 taken 23%
+        -:  150:      { 
+       30:  151:        ch=unget_char(ch,tp);        /* then put back eof on token_stream */
+call    0 returned 100%
+       30:  152:        if(ch==EOF)unget_error(*tp);
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+call    2 returned 100%
+       30:  153:        return(buffer);
+        -:  154:      }
+        9:  155:   if(is_spec_symbol(ch1)==TRUE)     /* if end character is special_symbol */
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+    #####:  156:      { ch=unget_char(ch,tp);        /* then put back this character       */
+call    0 never executed
+    #####:  157:        if(ch==EOF)unget_error(*tp);
+branch  0 never executed
+branch  1 never executed
+call    2 never executed
+    #####:  158:        return(buffer);
+        -:  159:      }
+        9:  160:   if(id==1)                  /* if end character is " and is string */
+branch  0 taken 89% (fallthrough)
+branch  1 taken 11%
+        8:  161:     { i++;                     /* case,hold the second " in buffer    */
+        8:  162:       buffer[i]=ch;
+        8:  163:       return(buffer); 
+        -:  164:     }
+        1:  165:   if(id==0 && ch==59)
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0%
+        -:  166:                                   /* when not in string or comment,meet ";" */
+        1:  167:     { ch=unget_char(ch,tp);       /* then put back this character         */
+call    0 returned 100%
+        1:  168:       if(ch==EOF)unget_error(*tp);
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+call    2 never executed
+        1:  169:       return(buffer); 
+        -:  170:     }
+    #####:  171:  return(buffer);                   /* return nomal case token             */
+        -:  172:}
+        -:  173:
+        -:  174:/*******************************************************/
+        -:  175:/* NAME:	is_token_end                           */
+        -:  176:/* INPUT:       a character,a token status             */
+        -:  177:/* OUTPUT:	a BOOLEAN value                        */
+        -:  178:/*******************************************************/
+function is_token_end called 92 returned 100% blocks executed 90%
+       92:  179:static int is_token_end(str_com_id,ch)
+        -:  180:char ch;
+        -:  181:int str_com_id;
+        -:  182:{ char ch1[2];  /* fixed array declaration MONI */
+       92:  183: ch1[0]=ch;
+       92:  184: ch1[1]='\0';
+       92:  185: if(is_eof_token(ch1)==TRUE){return(TRUE);} /* is eof token? */
+call    0 returned 100%
+branch  1 taken 33% (fallthrough)
+branch  2 taken 67%
+       62:  186: if(str_com_id==1)          /* is string token */
+branch  0 taken 40% (fallthrough)
+branch  1 taken 60%
+       25:  187:    { if(ch=='"' | ch=='\n')   /* for string until meet another " */
+branch  0 taken 32% (fallthrough)
+branch  1 taken 68%
+        8:  188:         return(TRUE);
+        -:  189:      else
+       17:  190:         return(FALSE);
+        -:  191:    }
+        -:  192:
+       37:  193: if(str_com_id==2)    /* is comment token */
+branch  0 taken 41% (fallthrough)
+branch  1 taken 59%
+       15:  194:   { if(ch=='\n')     /* for comment until meet end of line */
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:  195:        return(TRUE);
+        -:  196:      else
+       15:  197:        return(FALSE);
+        -:  198:   }
+        -:  199:
+       22:  200: if(is_spec_symbol(ch1)==TRUE) return(TRUE); /* is special_symbol? */
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+       22:  201: if(ch ==' ' || ch=='\n' || ch==59) return(TRUE); 
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0%
+branch  4 taken 5% (fallthrough)
+branch  5 taken 95%
+        -:  202:                              /* others until meet blank or tab or 59 */
+       21:  203: return(FALSE);               /* other case,return FALSE */
+        -:  204:}
+        -:  205:
+        -:  206:/****************************************************/
+        -:  207:/* NAME :	token_type                          */
+        -:  208:/* INPUT:       a pointer to the token              */
+        -:  209:/* OUTPUT:      an integer value                    */
+        -:  210:/* DESCRIPTION: the integer value is corresponding  */
+        -:  211:/*              to the different token type         */
+        -:  212:/****************************************************/
+function token_type called 73 returned 100% blocks executed 96%
+       73:  213:static int token_type(tok)
+        -:  214:token tok;
+        -:  215:{ 
+       73:  216: if(is_keyword(tok))return(keyword);
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+       73:  217: if(is_spec_symbol(tok))return(spec_symbol);
+call    0 returned 100%
+branch  1 taken 1% (fallthrough)
+branch  2 taken 99%
+       72:  218: if(is_identifier(tok))return(identifier);
+call    0 returned 100%
+branch  1 taken 6% (fallthrough)
+branch  2 taken 94%
+       68:  219: if(is_num_constant(tok))return(num_constant);
+call    0 returned 100%
+branch  1 taken 4% (fallthrough)
+branch  2 taken 96%
+       65:  220: if(is_str_constant(tok))return(str_constant);
+call    0 returned 100%
+branch  1 taken 22% (fallthrough)
+branch  2 taken 78%
+       51:  221: if(is_char_constant(tok))return(char_constant);
+call    0 returned 100%
+branch  1 taken 6% (fallthrough)
+branch  2 taken 94%
+       48:  222: if(is_comment(tok))return(comment);
+call    0 returned 100%
+branch  1 taken 13% (fallthrough)
+branch  2 taken 88%
+       42:  223: if(is_eof_token(tok))return(end);
+call    0 returned 100%
+branch  1 taken 79% (fallthrough)
+branch  2 taken 21%
+        9:  224: return(error);                    /* else look as error token */
+        -:  225:}
+        -:  226:
+        -:  227:/****************************************************/
+        -:  228:/* NAME:	print_token                         */
+        -:  229:/* INPUT:	a pointer to the token              */
+        -:  230:/* OUTPUT:      a BOOLEAN value,print out the token */
+        -:  231:/*              according the forms required        */
+        -:  232:/****************************************************/
+function print_token called 73 returned 100% blocks executed 94%
+       73:  233:int print_token(tok,r)
+        -:  234:token tok;
+        -:  235:char * r;
+        -:  236:{ int type;
+       73:  237:  type=token_type(tok);
+call    0 returned 100%
+       73:  238: if(type==error)
+branch  0 taken 12% (fallthrough)
+branch  1 taken 88%
+        -:  239:   { //fprintf(stdout, "error,\"%s\".\n",tok);
+        9:  240:     strcat(r,"error,\"");
+        9:  241:     strcat(r,tok);
+        9:  242:     strcat(r,"\".\n");
+        -:  243:   } 
+       73:  244: if(type==keyword)
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+        -:  245:   {//fprintf(stdout, "keyword,\"%s\".\n",tok);
+    #####:  246:     strcat(r,"keyword,\"");
+    #####:  247:     strcat(r,tok);
+    #####:  248:     strcat(r,"\".\n");
+        -:  249:   }
+       73:  250: if(type==spec_symbol)print_spec_symbol(tok,r);
+branch  0 taken 1% (fallthrough)
+branch  1 taken 99%
+call    2 returned 100%
+       73:  251: if(type==identifier)
+branch  0 taken 5% (fallthrough)
+branch  1 taken 95%
+        -:  252:   {//fprintf(stdout, "identifier,\"%s\".\n",tok);
+        4:  253:    strcat(r,"identifier,\"");
+        4:  254:     strcat(r,tok);
+        4:  255:     strcat(r,"\".\n");
+        -:  256:   }
+       73:  257: if(type==num_constant)
+branch  0 taken 4% (fallthrough)
+branch  1 taken 96%
+        -:  258:   {//fprintf(stdout, "numeric,%s.\n",tok);
+        3:  259:    strcat(r,"numeric,");
+        3:  260:     strcat(r,tok);
+        3:  261:     strcat(r,".\n");
+        -:  262:   }
+       73:  263: if(type==str_constant)
+branch  0 taken 19% (fallthrough)
+branch  1 taken 81%
+        -:  264:   {//fprintf(stdout, "string,%s.\n",tok);
+       14:  265:    strcat(r,"string,");
+       14:  266:     strcat(r,tok);
+       14:  267:     strcat(r,".\n");
+        -:  268:   }
+       73:  269: if(type==char_constant)
+branch  0 taken 4% (fallthrough)
+branch  1 taken 96%
+        3:  270:   {tok=tok+1;
+        -:  271:    //fprintf(stdout, "character,\"%s\".\n",tok);
+        3:  272:    strcat(r,"character,\"");
+        3:  273:     strcat(r,tok);
+        3:  274:     strcat(r,"\".\n");
+        -:  275:   }
+       73:  276: if(type==end) 
+branch  0 taken 45% (fallthrough)
+branch  1 taken 55%
+        -:  277:   //fprintf(stdout, "eof.\n");
+       33:  278:   strcat(r,"eof.\n");
+       73:  279:   }
+        -:  280:
+        -:  281:/* the code for tokens judgment function */
+        -:  282:
+        -:  283:/*************************************/
+        -:  284:/* NAME:	is_eof_token         */
+        -:  285:/* INPUT: 	a pointer to a token */
+        -:  286:/* OUTPUT:      a BOOLEAN value      */
+        -:  287:/*************************************/
+function is_eof_token called 319 returned 100% blocks executed 100%
+      319:  288:int is_eof_token(tok)
+        -:  289:token tok;
+        -:  290:{ 
+      319:  291:  if( *tok==EOF)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+      159:  292:      return(TRUE);
+        -:  293:  else
+      160:  294:      return(FALSE);
+        -:  295:}
+        -:  296:
+        -:  297:/*************************************/
+        -:  298:/* NAME:	is_comment           */
+        -:  299:/* INPUT: 	a pointer to a token */
+        -:  300:/* OUTPUT:      a BOOLEAN value      */
+        -:  301:/*************************************/
+function is_comment called 48 returned 100% blocks executed 100%
+       48:  302:static int is_comment(ident)
+        -:  303:token ident;
+        -:  304:{
+       48:  305:  if( (*ident) ==59 )   /* the char is 59   */
+branch  0 taken 13% (fallthrough)
+branch  1 taken 88%
+        6:  306:     return(TRUE);
+        -:  307:  else
+       42:  308:     return(FALSE);
+        -:  309:}
+        -:  310:
+        -:  311:/*************************************/
+        -:  312:/* NAME:	is_keyword           */
+        -:  313:/* INPUT: 	a pointer to a token */
+        -:  314:/* OUTPUT:      a BOOLEAN value      */
+        -:  315:/*************************************/
+function is_keyword called 73 returned 100% blocks executed 89%
+       73:  316:static int is_keyword(str)
+        -:  317:    token  str;
+        -:  318:{ 
+      292:  319: if (!strcmp(str,"and") || !strcmp(str,"or") || !strcmp(str,"if") ||
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0%
+branch  6 taken 100% (fallthrough)
+branch  7 taken 0%
+branch  8 taken 100% (fallthrough)
+branch  9 taken 0%
+branch 10 taken 0% (fallthrough)
+branch 11 taken 100%
+      219:  320:    !strcmp(str,"xor")||!strcmp(str,"lambda")||!strcmp(str,"=>"))
+    #####:  321:      return(TRUE);
+        -:  322:  else 
+       73:  323:      return(FALSE);
+        -:  324:}
+        -:  325:
+        -:  326:/*************************************/
+        -:  327:/* NAME:	is_char_constant     */
+        -:  328:/* INPUT: 	a pointer to a token */
+        -:  329:/* OUTPUT:      a BOOLEAN value      */
+        -:  330:/*************************************/
+function is_char_constant called 51 returned 100% blocks executed 100%
+       51:  331:static int is_char_constant(str)
+        -:  332:    token str;
+        -:  333:{
+       51:  334:  if ((*str)=='#' && isalpha(*(str+1)))
+branch  0 taken 16% (fallthrough)
+branch  1 taken 84%
+call    2 returned 100%
+branch  3 taken 38% (fallthrough)
+branch  4 taken 63%
+        3:  335:     return(TRUE);
+        -:  336:  else  
+       48:  337:     return(FALSE);
+        -:  338:}
+        -:  339:
+        -:  340:/*************************************/
+        -:  341:/* NAME:	is_num_constant      */
+        -:  342:/* INPUT: 	a pointer to a token */
+        -:  343:/* OUTPUT:      a BOOLEAN value      */
+        -:  344:/*************************************/
+function is_num_constant called 68 returned 100% blocks executed 91%
+       68:  345:static int is_num_constant(str)
+        -:  346:    token  str;
+        -:  347:{
+       68:  348:  int i=1;
+        -:  349:  
+       68:  350:  if ( isdigit(*str)) 
+call    0 returned 100%
+branch  1 taken 4% (fallthrough)
+branch  2 taken 96%
+        -:  351:    {
+        7:  352:    while ( *(str+i) != '\0' )   /* until meet token end sign */
+branch  0 taken 25%
+branch  1 taken 75% (fallthrough)
+        -:  353:      {
+        1:  354:       if(isdigit(*(str+i)))
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0%
+        1:  355:         i++;
+        -:  356:       else
+    #####:  357:         return(FALSE);
+        -:  358:      }                         /* end WHILE */
+        3:  359:    return(TRUE);
+        -:  360:    }
+        -:  361:  else
+       65:  362:   return(FALSE);               /* other return FALSE */
+        -:  363:}
+        -:  364:
+        -:  365:/*************************************/
+        -:  366:/* NAME:	is_str_constant      */
+        -:  367:/* INPUT: 	a pointer to a token */
+        -:  368:/* OUTPUT:      a BOOLEAN value      */
+        -:  369:/*************************************/
+function is_str_constant called 65 returned 100% blocks executed 100%
+       65:  370:static int is_str_constant(str)
+        -:  371:    token str;
+        -:  372:{
+       65:  373:  int i=1;
+        -:  374: 
+       65:  375:  if ( *str =='"')
+branch  0 taken 22% (fallthrough)
+branch  1 taken 78%
+       45:  376:     { while (*(str+i)!='\0')  /* until meet the token end sign */
+branch  0 taken 81%
+branch  1 taken 19% (fallthrough)
+       25:  377:         { if(*(str+i)=='"')
+branch  0 taken 32% (fallthrough)
+branch  1 taken 68%
+        8:  378:             return(TRUE);        /* meet the second '"'           */
+        -:  379:           else
+       17:  380:           i++;
+        -:  381:         }               /* end WHILE */
+        6:  382:     return(TRUE);//fault
+        -:  383:    }
+        -:  384:  else
+       51:  385:    return(FALSE);       /* other return FALSE */
+        -:  386:}
+        -:  387:/*************************************/
+        -:  388:/* NAME:	is_identifier         */
+        -:  389:/* INPUT: 	a pointer to a token */
+        -:  390:/* OUTPUT:      a BOOLEAN value      */
+        -:  391:/*************************************/
+function is_identifier called 72 returned 100% blocks executed 100%
+       72:  392:static int is_identifier(str)
+        -:  393:    token  str;
+        -:  394:{
+       72:  395:  int i=1;
+        -:  396:
+       72:  397:  if ( isalpha( *str) ) 
+call    0 returned 100%
+branch  1 taken 7% (fallthrough)
+branch  2 taken 93%
+        -:  398:     {
+       12:  399:        while(  *(str+i) !='\0' )   /* unti meet the end token sign */
+branch  0 taken 43%
+branch  1 taken 57% (fallthrough)
+        -:  400:           { 
+        5:  401:            if(isalpha(*(str+i)) || isdigit(*(str+i)))   
+call    0 returned 100%
+branch  1 taken 67% (fallthrough)
+branch  2 taken 33%
+call    3 returned 100%
+branch  4 taken 50% (fallthrough)
+branch  5 taken 50%
+        2:  402:               i++;
+        -:  403:            else
+        1:  404:               return(FALSE);
+        -:  405:           }      /* end WHILE */
+        4:  406:     return(TRUE);
+        -:  407:     }
+        -:  408:  else
+       67:  409:     return(FALSE);
+        -:  410:}
+        -:  411:
+        -:  412:/******************************************/
+        -:  413:/* NAME:	unget_error               */
+        -:  414:/* INPUT:       a pointer to token stream */
+        -:  415:/* OUTPUT: 	print error message       */
+        -:  416:/******************************************/
+function unget_error called 30 returned 100% blocks executed 100%
+       30:  417:static unget_error(fp)
+        -:  418:character_stream *fp;
+        -:  419:{
+        -:  420://fprintf(stdout,"It can not get charcter\n");
+       30:  421:}
+        -:  422:
+        -:  423:/*************************************************/
+        -:  424:/* NAME:        print_spec_symbol                */
+        -:  425:/* INPUT:       a pointer to a spec_symbol token */
+        -:  426:/* OUTPUT :     print out the spec_symbol token  */
+        -:  427:/*              according to the form required   */
+        -:  428:/*************************************************/
+function print_spec_symbol called 1 returned 100% blocks executed 36%
+        1:  429:static void print_spec_symbol(str,r)
+        -:  430:token str;
+        -:  431:char *r;
+        -:  432:{
+        1:  433:    if      (!strcmp(str,"("))
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+        -:  434:    {
+        -:  435:             //fprintf(stdout, "%s\n","lparen.");
+    #####:  436:             strcat(r,"lparen.\n");
+    #####:  437:             return;
+        -:  438:    } 
+        1:  439:    if (!strcmp(str,")"))
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+        -:  440:    {
+        -:  441:             //fprintf(stdout, "%s\n","rparen.");
+    #####:  442:             strcat(r,"rparen.\n");
+    #####:  443:             return;
+        -:  444:    }
+        1:  445:    if (!strcmp(str,"["))
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        -:  446:    {
+        -:  447:             //fprintf(stdout, "%s\n","lsquare.");
+        1:  448:             strcat(r,"lsquare.\n");
+        1:  449:             return;
+        -:  450:    }
+    #####:  451:    if (!strcmp(str,"]"))
+branch  0 never executed
+branch  1 never executed
+        -:  452:    {
+        -:  453:             //fprintf(stdout, "%s\n","rsquare.");
+    #####:  454:             strcat(r,"rsquare.\n");
+    #####:  455:             return;
+        -:  456:    }
+    #####:  457:    if (!strcmp(str,"'"))
+branch  0 never executed
+branch  1 never executed
+        -:  458:    {
+        -:  459:             //fprintf(stdout, "%s\n","quote.");
+    #####:  460:             strcat(r,"quote.\n");
+    #####:  461:             return;
+        -:  462:    }
+    #####:  463:    if (!strcmp(str,"`"))
+branch  0 never executed
+branch  1 never executed
+        -:  464:    {
+        -:  465:             //fprintf(stdout, "%s\n","bquote.");
+    #####:  466:             strcat(r,"bquote.\n");
+    #####:  467:             return;
+        -:  468:    }
+        -:  469:    
+        -:  470:             //fprintf(stdout, "%s\n","comma.");
+    #####:  471:             strcat(r,"comma.\n");
+        -:  472:}
+        -:  473:
+        -:  474:
+        -:  475:/*************************************/
+        -:  476:/* NAME:        is_spec_symbol       */
+        -:  477:/* INPUT:       a pointer to a token */
+        -:  478:/* OUTPUT:      a BOOLEAN value      */
+        -:  479:/*************************************/
+function is_spec_symbol called 144 returned 100% blocks executed 63%
+      144:  480:static int is_spec_symbol(str)
+        -:  481:    token str;
+        -:  482:{
+      144:  483:    if (!strcmp(str,"("))
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+        -:  484:    {  
+    #####:  485:        return(TRUE);
+        -:  486:    }
+      144:  487:    if (!strcmp(str,")"))
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+        -:  488:    {
+    #####:  489:        return(TRUE);
+        -:  490:    }
+      144:  491:    if (!strcmp(str,"["))
+branch  0 taken 1% (fallthrough)
+branch  1 taken 99%
+        -:  492:    {
+        2:  493:        return(TRUE);
+        -:  494:    }
+      142:  495:    if (!strcmp(str,"]"))
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+        -:  496:    {
+    #####:  497:        return(TRUE);
+        -:  498:    }
+      142:  499:    if (!strcmp(str,"'"))
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+        -:  500:    {
+    #####:  501:        return(TRUE);
+        -:  502:    }
+      142:  503:    if (!strcmp(str,"`"))
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+        -:  504:    {
+    #####:  505:        return(TRUE);
+        -:  506:    }
+      142:  507:    if (!strcmp(str,","))
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+        -:  508:    {
+    #####:  509:        return(TRUE);
+        -:  510:    }
+      142:  511:    return(FALSE);     /* others return FALSE */
+        -:  512:}
+        -:  513:///////////////////////////////////////////////////////////////////////
+function mainQ called 33 returned 100% blocks executed 100%
+       33:  514:char * mainQ(char *argv1)
+        -:  515:{
+        -:  516:   char *fname;
+        -:  517:   static char r[2000]="";
+       33:  518:   r[0]='\0';
+        -:  519:   token tok;
+        -:  520:   token_stream tp;
+       33:  521:    fname=argv1;
+       33:  522:    tp=open_token_stream(fname);  /* open token stream */
+call    0 returned 100%
+        -:  523:
+       33:  524:    tok=get_token(&tp);
+call    0 returned 100%
+      106:  525:    while (is_eof_token(tok) ==FALSE) /* take one token each time until eof */
+call    0 returned 100%
+branch  1 taken 55%
+branch  2 taken 45% (fallthrough)
+        -:  526:    {
+       40:  527:       print_token(tok,r);
+call    0 returned 100%
+        -:  528:
+       40:  529:       tok=get_token(&tp);
+call    0 returned 100%
+        -:  530:    }
+       33:  531:    print_token(tok,r); /* print eof signal */
+call    0 returned 100%
+       33:  532:    return r;
+        -:  533:}
+function main called 33 returned 0% blocks executed 100%
+       33:  534:int main(int argc,char *argv[])
+        -:  535:{  
+       33:  536:    printf("%s",mainQ(argv[1]));
+call    0 returned 100%
+call    1 returned 100%
+       33:  537:    exit(0);
+call    0 returned 0%
+        -:  538:}
+        -:  539:

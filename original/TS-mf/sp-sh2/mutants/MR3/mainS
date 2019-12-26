@@ -1,0 +1,53 @@
+int main()
+{
+     char argv1[100];
+     char rr[1000]="";
+     int j,x,i;
+     klee_make_symbolic(&argv1,sizeof(argv1),"argv1");
+
+
+     klee_assume(argv1[0]>='0' & argv1[0]<='3'); //a3
+     klee_assume(argv1[1]==' ');
+     klee_assume(argv1[2]=='2'); //a2
+     klee_assume(argv1[3]==' ');
+     klee_assume(argv1[4]>='0' & argv1[4]<='2'); //a1
+     klee_assume(argv1[5]=='\n');
+     klee_assume(argv1[6]=='1');
+     klee_assume(argv1[7]==' ');
+     klee_assume(argv1[8]=='2');
+     klee_assume(argv1[9]=='\n');
+     
+     i=10;
+     x=argv1[0]-'0';  
+     for(j=0;j<x;j++) //finish Q3
+     {
+      klee_assume(argv1[i]=='6');i++;
+      klee_assume(argv1[i]=='\n');i++;
+     }
+     x=argv1[2]-'0';
+     for(j=0;j<=x;j++)// block Q2
+     {
+      klee_assume(argv1[i]=='3');i++;
+      klee_assume(argv1[i]=='\n');i++;
+     }
+      klee_assume(argv1[i]=='4');i++;
+      klee_assume(argv1[i]==' ');i++;
+      klee_assume(argv1[i]=='1');i++; 
+      klee_assume(argv1[i]=='0');i++; 
+      //unblock the last one in the blocked queue, that is, the new job
+      klee_assume(argv1[i]=='\n');i++;
+     for(j=0;j<x;j++)// unblock Q2
+     {
+      klee_assume(argv1[i]=='4');i++;
+      klee_assume(argv1[i]==' ');i++;
+      klee_assume(argv1[i]=='0');i++;
+      klee_assume(argv1[i]=='\n');i++;
+     }
+      klee_assume(argv1[i]=='7');i++;
+      klee_assume(argv1[i]=='\n');i++;
+      klee_assume(argv1[i]=='\0');
+    ////////////////////////////////////////////////////////////////////////////
+     mainQ(argv1,rr);
+    klee_print_expr("rr=",rr);
+   return 0;
+}

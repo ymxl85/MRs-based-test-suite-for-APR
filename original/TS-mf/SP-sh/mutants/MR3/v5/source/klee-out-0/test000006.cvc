@@ -1,0 +1,41 @@
+__tmpInt8  : BITVECTOR(8);
+__tmpInt16  : BITVECTOR(16);
+__tmpInt32  : BITVECTOR(32);
+__tmpInt64  : BITVECTOR(64);
+argv1_0x9cac180  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+argv2_0x9d1d6b8  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+argv3_0x9d431e0  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+argv4_0x9d39230  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+%----------------------------------------------------
+ASSERT( (0x00000002 = (argv2_0x9d1d6b8[0x00000003] @ (argv2_0x9d1d6b8[0x00000002] @ (argv2_0x9d1d6b8[0x00000001] @ argv2_0x9d1d6b8[0x00000000]
+)
+)
+)
+) );
+ASSERT( BVLT((argv3_0x9d431e0[0x00000003] @ (argv3_0x9d431e0[0x00000002] @ (argv3_0x9d431e0[0x00000001] @ argv3_0x9d431e0[0x00000000]
+)
+)
+),0x00000003)
+ );
+ASSERT( SBVLT(0x00000000,(argv3_0x9d431e0[0x00000003] @ (argv3_0x9d431e0[0x00000002] @ (argv3_0x9d431e0[0x00000001] @ argv3_0x9d431e0[0x00000000]
+)
+)
+))
+ );
+ASSERT( ( NOT( SBVLT(0x00000001,(argv3_0x9d431e0[0x00000003] @ (argv3_0x9d431e0[0x00000002] @ (argv3_0x9d431e0[0x00000001] @ argv3_0x9d431e0[0x00000000]
+)
+)
+))
+)) );
+ASSERT( (0x00000001 = (argv1_0x9cac180[0x00000003] @ (argv1_0x9cac180[0x00000002] @ (argv1_0x9cac180[0x00000001] @ argv1_0x9cac180[0x00000000]
+)
+)
+)
+) );
+ASSERT( (0x00000048 = (argv4_0x9d39230[0x00000003] @ (argv4_0x9d39230[0x00000002] @ (argv4_0x9d39230[0x00000001] @ argv4_0x9d39230[0x00000000]
+)
+)
+)
+) );
+%----------------------------------------------------
+QUERY( FALSE  );

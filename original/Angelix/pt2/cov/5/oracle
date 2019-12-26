@@ -1,0 +1,108 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-pt2 () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./pt2 "$1") <(angelix-eval $SCRIPT_DIR/../golden/pt2 "$1")
+}
+
+case "$1" in
+    1)
+      test-pt2  "\n"
+      ;;
+    2)
+      test-pt2  "\n\n"
+      ;;
+    3)
+      test-pt2  "\""
+      ;;
+    4)
+      test-pt2  "w"
+      ;;
+    5)
+      test-pt2  "9"
+      ;;
+    6)
+      test-pt2  "#"
+      ;;
+    7)
+      test-pt2  ";"
+      ;;
+    8)
+      test-pt2  "\xff"
+      ;;
+    9)
+      test-pt2  ";\n"
+      ;;
+    10)
+      test-pt2  "\"\xfd"
+      ;;
+    11)
+      test-pt2  "\"\""
+      ;;
+    12)
+      test-pt2  "\"\n"
+      ;;
+    13)
+      test-pt2  ";\xf5"
+      ;;
+    14)
+      test-pt2  ";\xf5\n"
+      ;;
+    15)
+      test-pt2  "\"\xfd\""
+      ;;
+    16)
+      test-pt2  "xx"
+      ;;
+    17)
+      test-pt2  "x_"
+      ;;
+    18)
+      test-pt2  "x9"
+      ;;
+    19)
+      test-pt2  "\"\"\""
+      ;;
+    20)
+      test-pt2  "97"
+      ;;
+    21)
+      test-pt2  "#{"
+      ;;
+    22)
+      test-pt2  "#x"
+      ;;
+    23)
+      test-pt2  "#\n"
+      ;;
+    24)
+      test-pt2  "\"\"w"
+      ;;
+    25)
+      test-pt2  "\"\"9"
+      ;;
+    26)
+      test-pt2  ";\n;"
+      ;;
+    27)
+      test-pt2  "\"\n9"
+      ;;
+    28)
+      test-pt2  "\"\"#"
+      ;;
+    29)
+      test-pt2  "\"\"["
+      ;;
+    30)
+      test-pt2  "#;"
+      ;;
+    31)
+      test-pt2  "#x\xd5"
+      ;;
+    32)
+      test-pt2  "\"\n#x"
+      ;;
+    33)
+      test-pt2  "\"\"#x"
+      ;;
+esac

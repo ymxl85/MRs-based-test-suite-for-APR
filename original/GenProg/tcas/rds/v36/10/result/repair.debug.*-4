@@ -1,0 +1,936 @@
+--allow-coverage-fail false
+--appp 0.33333
+--asm-code-only false
+--best-edit-rule "1 * fault_loc_weight ; 1 * max_test_fail_prob ; -1 * num_tests"
+--best-test-rule "1 * test_fail_prob ; 1 * test_fail_count ; -1 * test_pass_count"
+--compiler "gcc"
+--compiler-command ""
+--compiler-opts ""
+--continue false
+--coverage-info ""
+--coverage-per-test false
+--crossover "one"
+--crossp 0.5
+--delp 0.33333
+--describe-machine false
+--diversity-selection 0
+--edit-script false
+--elf-risc false
+--exclude-edits ""
+--exp-diff false
+--fault-file ""
+--fault-path "coverage.path.neg"
+--fault-scheme "path"
+--fitness-in-parallel 1
+--fix-file ""
+--fix-oracle ""
+--fix-path "coverage.path.pos"
+--fix-scheme "default"
+--flatten-path ""
+--format "txt"
+--gen-per-exchange 1
+--generations 10
+--gui false
+--hostname "127.0.0.1"
+--ignore-dead-code false
+--ignore-equiv-appends false
+--ignore-standard-headers false
+--ignore-string-equiv-fixes false
+--ignore-untyped-returns false
+--incoming-pop ""
+--keep-source false
+--label-repair true
+--max-evals 0
+--minimization false
+--mt-cov false
+--multiopt-minimize false
+--multiopt-no-inf false
+--neg-tests 1
+--neg-weight 1
+--negative-test-weight 2
+--neutral-walk-max-size 0
+--neutral-walk-weight ""
+--nht-id "global"
+--nht-port 51000
+--nht-server ""
+--no-rep-cache false
+--no-test-cache false
+--num-comps 2
+--num-objectives 2
+--oracle-genome ""
+--popsize 40
+--port 60000
+--pos-tests 39
+--pos-weight 0.1
+--prefix "./"
+--preprocessor ""
+--print-incremental-evals false
+--print-source-name false
+--program "bug36.c"
+--promut 1
+--quiet false
+--regen-paths false
+--rep ""
+--rep-cache ""
+--repp 0
+--samp-strat "variant"
+--sample 1
+--sample-runs 100
+--sanity "default"
+--search "ga"
+--seed 393377
+--semantic-check "scope"
+--single-fitness false
+--skip-failed-sanity-tests false
+--skip-tests ""
+--split-search 0
+--sport 65000
+--subatom-constp 0.5
+--subatom-mutp 0
+--super-mutant false
+--super-mutant-size 50
+--swap-bug false
+--swapp 0.33333
+--template-cache ""
+--templates ""
+--test-command ""
+--test-script "/bin/sh test.sh"
+--tournament-size 2
+--tweet false
+--uniq false
+--valgrind false
+--variants-exchanged 50
+cilRep: preprocessing IO function signatures: /tmp/tmp6e77fb.c /tmp/tmpd721b3.c
+cilRep: done preprocessing IO function signatures
+Exception in loading: Sys_error("bug36.cache: No such file or directory")
+cilrep: from_source: pre: stmt_count = 1
+cilRep: bug36.c: parsing
+cilRep: bug36.c: parsed (0.0241346 MB)
+cilrep: from_source: post: stmt_count: 127
+cachingRepresentation: sanity checking begins
+	p1: true (1)
+	p2: true (1)
+	p3: true (1)
+	p4: true (1)
+	p5: true (1)
+	p6: true (1)
+	p7: true (1)
+	p8: true (1)
+	p9: true (1)
+	p10: true (1)
+	p11: true (1)
+	p12: true (1)
+	p13: true (1)
+	p14: true (1)
+	p15: true (1)
+	p16: true (1)
+	p17: true (1)
+	p18: true (1)
+	p19: true (1)
+	p20: true (1)
+	p21: true (1)
+	p22: true (1)
+	p23: true (1)
+	p24: true (1)
+	p25: true (1)
+	p26: true (1)
+	p27: true (1)
+	p28: true (1)
+	p29: true (1)
+	p30: true (1)
+	p31: true (1)
+	p32: true (1)
+	p33: true (1)
+	p34: true (1)
+	p35: true (1)
+	p36: true (1)
+	p37: true (1)
+	p38: true (1)
+	p39: true (1)
+	n1: false (0)
+cachingRepresentation: sanity checking passed (time_taken = 0.494205)
+faultLocRep: compute_localization: fault_scheme: path, fix_scheme: default
+Rep: coverage_sourcename: /home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./coverage.c
+cilRep: instrumenting for fault localization
+cilRep: done instrumenting for fault localization
+coverage negative:
+	test: 1
+coverage positive:
+	test: 1
+	test: 2
+	test: 3
+	test: 4
+	test: 5
+	test: 6
+	test: 7
+	test: 8
+	test: 9
+	test: 10
+	test: 11
+	test: 12
+	test: 13
+	test: 14
+	test: 15
+	test: 16
+	test: 17
+	test: 18
+	test: 19
+	test: 20
+	test: 21
+	test: 22
+	test: 23
+	test: 24
+	test: 25
+	test: 26
+	test: 27
+	test: 28
+	test: 29
+	test: 30
+	test: 31
+	test: 32
+	test: 33
+	test: 34
+	test: 35
+	test: 36
+	test: 37
+	test: 38
+	test: 39
+cilRep: bug36.cache: saved
+cachingRep: bug36.cache: saved
+faultlocRep: bug36.cache: saved
+cilrep done serialize
+cilRep: stmt_count = 127
+cilRep: stmts in weighted_path = 80
+cilRep: total weight = 23.3
+cilRep: stmts in weighted_path with weight >= 1.0 = 17
+cilRep: bug36.c (code bank/base file; atoms [1,127])
+cilRep: 1 file(s) total in representation
+search: genetic algorithm begins (|original| = 0.018198 MB)
+search: initial population (sizeof one variant = 0.00669098 MB)
+	 39 s(53,59) 
+	 39 a(56,52) 
+	 39 d(88) 
+	 39 s(125,124) 
+	 39 a(104,105) 
+	 39 a(47,43) 
+	 39 s(6,7) 
+	 39 d(47) 
+	 38 s(49,61) 
+	 36 d(63) 
+	 39 a(30,23) 
+	 37 d(33) 
+	 39 a(47,46) 
+	 39 d(80) 
+	 39 s(50,58) 
+	 37 a(33,127) 
+	 39 a(88,64) 
+	 39 d(57) 
+	 39 d(28) 
+	 39 d(57) 
+	 39 a(55,44) 
+	 39 d(23) 
+	 39 d(49) 
+	 39 s(52,47) 
+	 36 s(92,68) 
+	 39 a(31,28) 
+	 39 s(11,10) 
+	 39 a(101,103) 
+	 39 s(52,53) 
+	 39 a(50,61) 
+	 39 a(7,127) 
+	 39 a(104,68) 
+	 39 d(28) 
+	 39 s(25,26) 
+	 39 a(55,45) 
+	 39 d(4) 
+	 39 s(28,25) 
+	 39 d(52) 
+	 39 a(30,23) 
+	 39 original
+search: generation 1 (sizeof one variant = 0.0183401 MB)
+	 39 a(55,44) d(30) 
+	 39 a(55,45) a(47,43) 
+	 38 d(49) a(58,1) 
+	 39 d(52) s(57,53) 
+	 39 d(49) s(49,57) 
+	 39 d(52) s(47,49) 
+	 39 s(52,47) s(31,30) 
+	 39 d(49) a(11,10) 
+	 39 s(52,47) s(57,49) 
+	 39 d(49) d(88) 
+	 39 a(47,43) d(25) 
+	 39 a(104,68) d(50) 
+	 39 a(47,43) s(28,30) 
+	  0 a(104,68) s(127,114) 
+	 39 s(53,59) a(52,61) 
+	 39 d(4) d(56) 
+	 39 s(53,59) a(26,13) 
+	 39 d(4) s(64,76) 
+	 39 s(25,26) a(28,17) 
+	 38 a(47,46) s(56,60) 
+	 39 a(104,68) d(28) 
+	 39 a(47,43) a(60,37) 
+	 39 a(104,68) s(30,26) 
+	 36 a(47,43) s(26,35) 
+	 37 s(53,59) s(125,115) 
+	 39 a(55,44) a(31,36) 
+	 39 s(53,59) s(123,114) 
+	 39 a(55,44) d(26) 
+	  0 s(125,124) a(117,127) 
+	 39 s(28,25) d(26) 
+	 39 s(125,124) s(56,55) 
+	 39 s(28,25) d(30) 
+	 39 d(88) d(9) 
+	 39 a(7,127) a(31,13) 
+	 39 d(88) d(56) 
+	 39 a(7,127) d(28) 
+	 39 d(23) d(57) 
+	 39 a(31,28) 
+	 39 s(25,26) d(56) 
+	 39 a(31,28) s(58,59) 
+	 33 s(25,26) d(97) 
+	 39 a(31,28) s(25,34) 
+	 39 a(55,45) s(49,55) 
+	 39 a(88,64) a(32,36) 
+	 39 a(55,45) a(106,103) 
+	 39 a(88,64) a(111,112) 
+	 39 s(53,59) d(53) 
+	 37 a(104,68) s(33,30) 
+	 39 d(28) a(57,55) 
+	 36 d(4) d(82) 
+	 39 d(28) a(80,92) 
+	 36 d(4) s(23,35) 
+	 39 s(28,25) d(31) 
+	  6 d(4) s(80,108) 
+	 39 a(88,64) d(30) 
+	 39 a(47,43) a(57,37) 
+	 39 a(88,64) a(76,76) 
+	 39 a(47,43) a(96,107) 
+	 39 a(30,23) s(55,57) 
+	 39 a(104,105) a(26,14) 
+	 39 a(30,23) a(56,127) 
+	 39 a(104,105) s(25,31) 
+	 39 d(28) s(53,55) 
+	 39 d(57) a(97,82) 
+	 39 d(28) d(31) 
+	 39 d(57) d(25) 
+	 39 d(80) a(60,49) 
+	 39 d(49) d(88) 
+search: generation 2 (sizeof one variant = 0.0185804 MB)
+	 39 s(53,59) d(88) 
+	 37 a(104,105) s(25,31) s(125,115) d(49) 
+	 37 s(53,59) s(125,115) a(50,52) 
+	 39 a(104,105) s(25,31) a(49,40) 
+	 37 s(53,59) s(123,114) s(30,36) 
+	 39 d(28) d(31) s(47,61) 
+	 39 a(31,28) s(47,52) 
+	 39 a(104,68) d(28) s(25,34) s(7,5) 
+	 39 a(31,28) s(25,34) a(57,127) 
+	 39 a(104,68) d(28) d(49) 
+	 39 s(25,26) a(96,107) s(49,52) 
+	 39 a(47,43) a(28,17) d(23) 
+	 39 s(25,26) a(28,17) a(23,35) 
+	 39 a(47,43) a(96,107) a(127,113) 
+	 39 a(88,64) a(76,76) s(28,31) 
+	 39 a(88,64) d(30) a(26,33) 
+	 39 d(57) d(25) a(31,36) s(28,30) 
+	 39 a(55,44) s(7,6) 
+	 39 d(57) d(25) d(31) 
+	 39 a(55,44) a(31,36) a(25,4) 
+	 39 d(88) d(9) d(57) 
+	 20 d(57) a(97,82) s(76,110) 
+	 39 d(88) d(9) d(26) 
+	 39 d(57) a(97,82) a(88,127) 
+	 39 a(55,45) a(47,43) d(23) 
+	 37 d(28) a(80,92) a(106,127) 
+	 39 d(23) d(30) d(58) 
+	 39 a(88,64) d(57) s(31,23) 
+	  0 d(23) d(57) a(124,126) 
+	 37 a(88,64) d(30) s(90,91) 
+	 39 d(28) a(80,92) d(30) 
+	 39 a(55,45) a(47,43) a(23,30) 
+	 39 a(104,68) s(30,26) d(49) 
+	 39 s(28,25) d(31) s(53,52) 
+	 39 a(104,68) s(30,26) s(50,58) 
+	 39 s(28,25) d(31) a(127,4) 
+	 39 a(104,68) s(30,26) s(30,26) s(57,53) 
+	 39 a(104,68) a(30,32) 
+	 39 a(104,68) s(30,26) s(47,50) 
+	 39 a(104,68) s(30,26) a(23,26) 
+	 33 a(55,45) s(49,55) s(28,30) s(68,104) 
+	 39 a(47,43) s(50,56) 
+	 39 a(55,45) s(49,55) s(53,49) 
+	 38 a(47,43) s(28,30) s(88,95) 
+	 39 a(88,64) a(76,76) a(56,102) 
+	 35 s(53,59) d(53) s(94,70) 
+	 39 a(30,23) s(55,57) d(53) 
+	 39 d(28) s(53,55) a(31,14) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000155.c a(7,127) s(57,53) a(57,56)  fails to compile
+	  0 a(7,127) s(57,53) a(57,56) 
+	 39 d(52) a(31,13) a(63,102) 
+	 39 a(7,127) a(31,13) d(55) 
+	 39 d(52) s(57,53) s(26,28) 
+	  0 a(7,127) a(31,13) s(111,112) 
+	 38 s(53,59) a(52,61) s(55,61) 
+	 39 a(7,127) a(31,13) s(7,4) 
+	 39 s(53,59) a(52,61) s(55,49) 
+	 39 d(28) a(57,55) a(47,37) 
+	 39 s(53,59) s(123,114) a(32,30) 
+	 39 s(28,25) d(30) a(52,49) 
+	 39 d(28) a(57,55) a(34,33) 
+	 39 a(47,43) a(96,107) d(55) 
+	 38 d(23) d(57) d(119) 
+	 39 a(47,43) a(96,107) d(25) 
+	 39 d(23) d(57) s(88,80) 
+search: generation 3 (sizeof one variant = 0.0186768 MB)
+	 39 a(55,44) a(57,55) a(47,37) a(127,114) 
+	 39 d(28) a(31,36) a(25,4) d(28) 
+	 39 a(55,44) a(31,36) a(25,4) a(28,4) 
+	 36 d(28) a(57,55) a(47,37) s(80,83) 
+	 39 a(31,28) a(23,26) a(28,23) 
+	 39 a(104,68) s(30,26) s(47,52) d(28) 
+	 39 a(31,28) s(47,52) d(52) 
+	 39 a(104,68) s(30,26) a(23,26) a(49,4) 
+	 39 d(28) a(57,55) d(105) 
+	 39 d(28) a(57,55) a(34,33) a(47,37) d(88) 
+	 39 d(28) a(57,55) a(47,37) a(23,20) 
+	  0 d(28) a(57,55) a(34,33) s(112,111) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000183.c a(55,45) a(47,43) d(23) a(23,17)  fails to compile
+	  0 a(55,45) a(47,43) d(23) a(23,17) 
+	 39 a(104,68) d(28) d(49) s(31,36) 
+	 39 a(88,64) a(49,40) d(80) 
+	 39 a(104,105) s(25,31) a(76,76) s(28,31) s(23,36) 
+	 37 a(88,64) a(76,76) s(28,31) d(98) 
+	 39 a(104,105) s(25,31) a(49,40) a(30,15) 
+	 39 a(104,68) s(25,30) 
+	 39 s(53,59) d(88) d(28) d(49) s(55,57) 
+	 39 a(104,68) d(28) d(49) a(93,89) 
+	 39 s(53,59) d(88) s(23,30) 
+	 39 d(52) s(57,53) s(26,28) a(80,106) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000194.c a(104,68) s(30,26) s(30,26) s(57,53) a(26,25)  fails to compile
+	  0 a(104,68) s(30,26) s(30,26) s(57,53) a(26,25) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000195.c d(23) d(57) s(88,80) a(96,107) d(25) a(100,75)  fails to compile
+	  0 d(23) d(57) s(88,80) a(96,107) d(25) a(100,75) 
+	 37 a(47,43) s(26,33) 
+	 37 d(23) d(57) s(88,80) s(30,33) 
+	 39 a(47,43) a(96,107) d(25) a(23,31) 
+	 39 a(31,28) d(30) a(52,49) a(58,46) 
+	 39 s(28,25) s(25,34) a(57,127) d(25) 
+	 39 a(31,28) s(25,34) a(57,127) s(50,59) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000202.c s(28,25) d(30) a(52,49) a(30,19)  fails to compile
+	  0 s(28,25) d(30) a(52,49) a(30,19) 
+	 39 d(88) d(9) a(53,52) 
+	 38 s(53,59) a(52,61) s(55,61) d(57) s(47,53) 
+	 39 d(88) d(9) d(57) a(32,13) 
+	 33 s(53,59) a(52,61) s(55,61) s(80,96) 
+	 39 a(55,45) a(47,43) a(23,30) d(88) 
+	 39 s(25,26) a(96,107) s(49,52) s(52,53) 
+	 39 a(47,43) a(52,44) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000210.c a(47,43) a(96,107) d(25) a(96,107) d(25) a(49,55)  fails to compile
+	  0 a(47,43) a(96,107) d(25) a(96,107) d(25) a(49,55) 
+	 39 a(47,43) a(96,107) d(25) d(26) 
+	 39 a(47,43) a(96,107) d(25) s(55,49) 
+	 38 a(47,43) s(28,30) s(88,95) d(52) 
+	 39 s(28,25) d(31) a(127,4) a(28,102) 
+	 39 d(28) a(80,92) d(30) a(56,52) 
+	 39 d(57) a(97,82) a(88,127) d(30) 
+	 39 a(30,23) s(55,57) d(53) s(55,57) d(53) d(88) 
+	 36 a(30,23) s(32,33) 
+	 37 a(30,23) s(55,57) d(53) s(30,33) 
+	 39 a(30,23) s(55,57) d(53) a(125,114) 
+	 39 a(47,43) a(96,107) a(127,113) a(52,4) 
+	  0 a(55,44) a(31,36) a(25,4) d(111) 
+	 39 s(28,25) d(31) s(53,52) a(96,107) s(49,52) s(4,7) 
+	 39 s(25,26) d(28) 
+	 39 s(28,25) d(31) s(53,52) a(56,55) 
+	 39 s(25,26) a(96,107) s(49,52) a(111,111) 
+	 39 s(53,59) d(88) d(88) 
+	 38 d(23) d(57) d(119) d(57) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000229.c d(88) d(9) s(55,57) d(53) a(88,69)  fails to compile
+	  0 d(88) d(9) s(55,57) d(53) a(88,69) 
+	 39 a(30,23) d(26) s(28,32) 
+	 39 d(88) d(9) d(26) a(28,30) 
+	 39 a(30,23) s(55,57) d(53) s(30,26) 
+	 39 a(104,68) s(30,26) s(56,59) 
+	 37 a(7,127) a(31,13) s(7,4) s(50,58) s(28,33) 
+	 39 a(104,68) s(30,26) s(50,58) a(88,66) 
+	 39 a(7,127) a(31,13) s(7,4) d(80) 
+search: generation 4 (sizeof one variant = 0.0193815 MB)
+	 39 d(28) a(80,92) d(30) a(56,52) s(114,122) 
+	 39 s(28,25) s(25,34) a(57,127) d(25) d(26) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000239.c a(104,68) s(53,52) a(56,55) a(52,46)  fails to compile
+	  0 a(104,68) s(53,52) a(56,55) a(52,46) 
+	 36 s(28,25) d(31) s(30,26) s(56,59) d(35) 
+	 39 a(104,68) s(30,26) s(56,59) a(34,18) 
+	 37 s(28,25) d(31) s(53,52) a(56,55) s(118,125) 
+	 39 a(104,68) a(57,127) s(50,59) s(56,57) 
+	 39 a(31,28) s(25,34) s(25,30) s(32,26) 
+	 38 a(104,68) s(25,30) s(52,60) 
+	 39 a(31,28) s(25,34) a(57,127) s(50,59) d(114) 
+	 39 d(28) a(57,55) a(34,33) a(47,37) d(88) s(49,52) a(111,111) s(30,23) 
+	 39 s(25,26) a(96,107) a(28,102) 
+	 38 d(28) a(57,55) a(34,33) a(47,37) d(88) s(88,76) 
+	 37 s(25,26) a(96,107) s(49,52) a(111,111) d(98) 
+	 39 s(53,59) d(88) d(28) d(49) s(55,57) d(49) 
+	 39 a(7,127) a(31,13) s(7,4) d(80) a(28,26) 
+	 38 a(47,43) s(28,30) s(88,95) d(52) s(32,30) 
+	 38 s(53,59) a(52,61) s(55,61) d(57) s(47,53) d(26) 
+	 39 a(30,23) d(26) s(28,32) d(10) 
+	 39 a(47,43) a(96,107) d(25) d(26) a(50,40) 
+	 39 a(31,28) a(23,26) a(28,23) d(30) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000258.c a(30,23) s(55,57) d(53) s(55,57) d(53) d(88) a(91,110)  fails to compile
+	  0 a(30,23) s(55,57) d(53) s(55,57) d(53) d(88) a(91,110) 
+	 39 s(28,25) d(31) a(127,4) a(28,102) d(113) 
+	 39 s(28,25) s(25,34) a(57,127) d(25) s(53,47) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) 
+	  0 a(88,64) a(49,40) d(80) d(126) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000263.c s(53,59) d(88) d(31) s(53,52) a(56,55) a(52,58)  fails to compile
+	  0 s(53,59) d(88) d(31) s(53,52) a(56,55) a(52,58) 
+	 39 s(28,25) d(28) d(49) s(55,57) a(63,4) 
+	 39 s(53,59) d(88) d(28) d(49) s(55,57) d(28) 
+	 38 s(28,25) d(31) s(53,52) a(56,55) d(62) 
+	 39 a(104,68) d(28) d(49) a(93,89) a(53,39) 
+	 39 a(47,43) a(96,107) d(25) s(55,49) d(52) 
+	 39 d(52) s(57,53) s(26,28) a(80,106) d(88) 
+	 39 d(88) d(9) d(57) a(32,13) s(120,119) 
+	  0 d(52) s(57,53) s(26,28) a(80,106) s(126,125) 
+	 39 a(104,68) s(30,26) s(50,58) a(88,66) a(49,56) 
+	 39 d(88) d(9) d(26) a(28,30) a(55,42) 
+	 39 d(57) a(97,82) a(88,127) d(30) s(10,11) 
+	 39 a(55,45) a(47,43) a(23,30) d(88) d(30) 
+	  0 a(31,28) s(47,52) d(52) a(117,127) 
+	 39 d(88) d(9) d(57) a(32,13) s(77,107) 
+	 39 a(31,28) d(30) a(52,49) a(58,46) d(26) 
+	 39 a(55,44) a(31,36) a(25,4) a(28,4) a(47,49) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000280.c d(88) d(9) d(57) a(32,13) a(57,37)  fails to compile
+	  0 d(88) d(9) d(57) a(32,13) a(57,37) 
+	 39 a(104,68) s(30,26) s(47,52) d(28) s(28,31) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000282.c d(23) d(57) s(88,80) a(96,107) d(25) a(100,75) a(90,108)  fails to compile
+	  0 d(23) d(57) s(88,80) a(96,107) d(25) a(100,75) a(90,108) 
+	 36 d(88) d(26) s(28,32) d(92) 
+	 39 a(30,23) d(9) a(53,52) s(57,59) 
+	 39 d(88) d(9) a(53,52) d(36) 
+	 39 a(30,23) d(26) s(28,32) a(53,44) 
+search: generation 5 (sizeof one variant = 0.0189342 MB)
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000287.c a(30,23) d(26) s(28,32) a(53,44) a(32,31)  fails to compile
+	  0 a(30,23) d(26) s(28,32) a(53,44) a(32,31) 
+	 39 s(28,25) s(25,34) a(57,127) d(25) d(26) d(47) 
+	 38 s(28,25) s(25,34) a(57,127) d(25) s(53,47) s(57,61) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) 
+	 39 a(31,28) a(23,26) a(28,23) d(30) d(88) s(49,52) a(111,111) s(30,23) d(53) 
+	 39 d(28) a(57,55) a(34,33) a(47,37) a(31,19) 
+	 39 a(31,28) a(23,26) a(28,23) d(30) a(117,119) 
+	 39 d(28) a(57,55) a(34,33) a(47,37) d(88) s(49,52) a(111,111) s(30,23) s(52,61) 
+	 39 a(31,28) s(25,34) a(57,127) s(50,59) d(114) a(56,40) 
+	 39 d(88) d(9) d(57) a(32,13) s(77,107) d(57) 
+	 39 a(31,28) s(25,34) a(57,127) s(50,59) d(114) a(101,71) 
+	 39 a(31,28) d(30) a(52,49) a(58,46) d(26) a(28,13) 
+	 39 d(28) a(80,92) d(30) a(56,52) s(114,122) a(88,81) 
+	 39 s(28,25) d(28) d(49) s(55,57) a(63,4) d(49) 
+	 39 d(88) d(9) a(53,52) d(36) a(25,4) a(28,4) a(47,49) s(50,55) 
+	 39 a(55,44) a(31,36) s(23,31) 
+	 37 d(88) d(9) a(53,52) d(36) d(117) 
+	 39 a(55,44) a(31,36) a(25,4) a(28,4) a(47,49) d(50) 
+	 39 a(104,68) s(25,30) a(31,21) 
+	 38 d(28) a(31,36) a(25,4) d(28) s(47,49) s(52,60) a(23,31) 
+	 38 a(104,68) s(25,30) s(52,60) a(32,31) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) 
+	 39 a(30,23) d(26) s(114,122) a(47,42) 
+	 39 d(28) a(80,92) d(30) a(56,52) s(28,32) a(53,44) d(23) 
+	 39 a(30,23) d(26) s(28,32) a(53,44) s(32,25) 
+	 39 d(28) a(80,92) d(30) a(56,52) s(114,122) a(52,47) 
+	 39 a(31,28) a(23,26) a(28,23) d(30) d(31) a(127,4) a(28,102) d(113) a(55,49) 
+	 36 s(28,25) s(80,68) 
+	 39 a(31,28) a(23,26) a(28,23) d(30) d(55) 
+	 39 s(28,25) d(31) a(127,4) a(28,102) d(113) s(55,47) 
+	 39 a(47,43) a(96,107) d(25) d(26) a(50,40) d(25) 
+	 39 d(88) d(9) d(26) a(28,30) a(55,42) a(80,4) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000319.c s(53,59) d(88) d(28) d(49) s(55,57) d(49) d(80) a(28,26) d(55)  fails to compile
+	  0 s(53,59) d(88) d(28) d(49) s(55,57) d(49) d(80) a(28,26) d(55) 
+	 39 a(7,127) a(31,13) s(7,4) s(56,49) 
+	 39 s(53,59) d(88) d(28) d(49) s(55,57) d(49) s(56,61) 
+	 39 a(7,127) a(31,13) s(7,4) d(80) a(28,26) a(26,23) 
+	 39 d(88) d(9) d(57) a(28,30) a(55,42) a(32,25) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000324.c d(88) d(9) d(26) a(32,13) s(120,119) a(32,127)  fails to compile
+	  0 d(88) d(9) d(26) a(32,13) s(120,119) a(32,127) 
+	 39 d(88) d(9) d(57) a(32,13) s(120,119) a(31,4) 
+	 36 d(88) d(9) d(26) a(28,30) a(55,42) s(32,35) 
+	 39 a(31,28) a(23,26) s(53,47) a(127,119) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000328.c s(28,25) s(25,34) a(57,127) d(25) a(28,23) d(30) d(33)  fails to compile
+	  0 s(28,25) s(25,34) a(57,127) d(25) a(28,23) d(30) d(33) 
+	 39 a(31,28) a(23,26) a(28,23) d(30) s(88,105) 
+	 39 s(28,25) s(25,34) a(57,127) d(25) s(53,47) a(47,127) 
+	 39 a(31,28) a(88,66) a(49,56) d(25) 
+	 39 a(104,68) s(30,26) s(50,58) s(25,34) s(25,30) s(32,26) d(49) 
+	 39 a(31,28) s(25,34) s(25,30) s(32,26) d(55) 
+	 39 a(104,68) s(30,26) s(50,58) a(88,66) a(49,56) d(107) 
+	 39 a(31,28) a(23,26) a(28,23) d(30) d(52) 
+	 37 a(7,127) a(31,13) s(7,4) d(80) a(28,26) s(72,66) 
+	 39 a(55,45) a(47,43) a(23,30) d(88) d(30) s(26,28) 
+	 39 a(30,23) d(26) s(28,32) a(53,44) a(49,40) 
+	 39 a(104,68) s(30,26) s(47,52) d(28) s(28,31) d(30) 
+	 39 s(53,59) d(88) d(28) d(49) s(55,57) d(49) a(112,4) 
+	  0 a(104,68) s(30,26) s(47,52) d(28) s(28,31) a(113,4) 
+	 38 a(47,43) s(28,30) s(88,95) d(52) s(32,30) a(103,72) 
+	 39 d(28) a(80,92) d(30) d(30) s(10,11) s(34,28) 
+	 36 d(57) a(97,82) a(88,127) a(56,52) s(114,122) s(25,36) 
+	 39 d(28) a(80,92) d(30) a(56,52) s(114,122) s(30,23) 
+	 33 d(57) a(97,82) a(88,127) d(30) s(10,11) a(96,74) 
+search: generation 6 (sizeof one variant = 0.0198126 MB)
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000347.c d(28) a(31,36) a(25,4) a(32,13) s(120,119) a(31,4) d(76)  fails to compile
+	  0 d(28) a(31,36) a(25,4) a(32,13) s(120,119) a(31,4) d(76) 
+	 39 d(88) d(9) d(57) d(28) s(47,49) d(80) a(26,15) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) a(53,53) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000350.c d(88) d(9) d(57) a(32,13) s(120,119) a(31,4) a(100,110)  fails to compile
+	  0 d(88) d(9) d(57) a(32,13) s(120,119) a(31,4) a(100,110) 
+	 39 a(104,68) a(49,56) d(25) d(49) 
+	 39 a(31,28) a(88,66) s(30,26) s(47,52) d(28) s(28,31) d(30) d(25) 
+	 39 a(104,68) s(30,26) s(47,52) d(28) s(28,31) d(30) s(32,28) 
+	 39 a(31,28) a(88,66) a(49,56) d(25) s(47,53) 
+	 20 a(7,127) a(31,13) s(7,4) s(56,49) d(110) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000356.c a(31,28) s(25,34) a(57,127) s(50,59) d(114) a(56,40) a(25,30)  fails to compile
+	  0 a(31,28) s(25,34) a(57,127) s(50,59) d(114) a(56,40) a(25,30) 
+	 39 a(31,28) s(25,34) a(57,127) s(50,59) d(114) a(101,71) d(25) 
+	 39 a(31,28) s(25,34) s(25,30) s(32,26) d(55) d(32) 
+	 39 a(31,28) a(23,26) a(28,23) d(30) d(31) a(127,4) a(28,102) d(113) a(55,49) a(26,15) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000360.c a(55,45) a(47,43) a(23,30) d(88) d(30) s(26,28) a(91,80)  fails to compile
+	  0 a(55,45) a(47,43) a(23,30) d(88) d(30) s(26,28) a(91,80) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000362.c a(31,28) a(23,26) a(28,23) d(30) d(31) a(127,4) a(28,102) d(113) a(55,49) s(31,35)  fails to compile
+	  0 a(31,28) a(23,26) a(28,23) d(30) d(31) a(127,4) a(28,102) d(113) a(55,49) s(31,35) 
+	 39 a(104,68) s(30,26) s(47,52) d(28) s(28,31) d(30) d(55) 
+	 39 d(88) d(9) d(26) a(28,30) a(55,42) a(80,4) s(50,57) 
+	 39 s(53,59) d(88) d(28) d(49) s(55,57) d(49) a(112,4) a(80,92) d(30) a(56,52) s(114,122) a(52,47) a(60,50) 
+	 39 d(28) a(49,1) 
+	 39 s(53,59) d(88) d(28) d(49) s(55,57) d(49) a(112,4) d(80) 
+	 39 d(28) a(80,92) d(30) a(56,52) s(114,122) a(52,47) d(28) 
+	 39 s(53,59) d(88) d(28) d(49) s(55,57) d(49) s(56,61) s(10,11) 
+	 39 a(31,28) s(25,34) a(57,127) s(50,59) d(114) a(101,71) a(28,20) 
+	 39 a(7,127) a(31,13) s(7,4) a(32,25) a(80,102) 
+	 36 d(88) d(9) d(57) a(28,30) a(55,42) s(56,49) s(35,30) 
+	 39 a(7,127) a(31,13) s(7,4) s(56,49) s(34,25) 
+	 39 d(88) d(9) d(57) a(28,30) a(55,42) a(32,25) d(30) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000375.c a(31,28) a(23,26) a(28,23) d(30) d(55) a(100,82)  fails to compile
+	  0 a(31,28) a(23,26) a(28,23) d(30) d(55) a(100,82) 
+	 39 d(88) d(9) d(26) a(28,30) a(55,42) a(80,4) s(28,34) 
+	  0 a(30,23) d(26) s(114,122) a(47,42) d(114) a(56,40) a(111,4) 
+	 39 a(31,28) s(25,34) a(57,127) s(50,59) d(72) 
+	 36 a(30,23) d(26) s(114,122) a(47,42) s(25,35) 
+	 39 a(31,28) s(25,34) a(57,127) s(50,59) d(114) a(56,40) s(23,34) 
+	 39 a(30,23) d(26) s(114,122) a(47,42) s(23,32) 
+	 39 d(28) a(80,92) d(30) a(56,52) s(114,122) a(52,47) s(7,6) 
+	 39 a(7,127) a(31,13) s(7,4) s(56,49) s(5,6) 
+	 39 d(28) a(80,92) d(30) a(56,52) s(114,122) a(88,81) d(50) 
+	 39 a(31,28) s(25,34) a(57,127) d(26) a(28,13) a(9,102) 
+	 39 a(31,28) d(30) a(52,49) a(58,46) s(50,59) d(114) a(101,71) a(57,40) 
+	 39 a(31,28) s(25,34) a(57,127) s(50,59) d(114) a(101,71) a(109,76) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000388.c a(31,28) d(30) a(52,49) a(58,46) d(26) a(28,13) a(28,1)  fails to compile
+	  0 a(31,28) d(30) a(52,49) a(58,46) d(26) a(28,13) a(28,1) 
+	 39 d(88) d(9) d(57) a(32,13) s(120,119) a(31,4) s(53,60) 
+	 39 s(53,59) d(88) d(28) d(49) s(55,57) d(49) s(56,61) a(31,26) 
+	 20 d(28) a(57,55) a(34,33) a(47,37) d(28) s(47,49) d(80) s(80,110) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000392.c d(28) a(31,36) a(25,4) a(31,19) a(52,37)  fails to compile
+	  0 d(28) a(31,36) a(25,4) a(31,19) a(52,37) 
+	 39 d(28) a(57,55) a(34,33) a(47,37) a(31,19) a(30,28) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) s(30,34) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000395.c a(55,44) a(31,36) a(25,4) a(28,4) d(9) d(57) a(32,13) s(120,119) a(31,4) s(50,58)  fails to compile
+	  0 a(55,44) a(31,36) a(25,4) a(28,4) d(9) d(57) a(32,13) s(120,119) a(31,4) s(50,58) 
+	 39 d(88) a(47,49) d(50) a(32,30) 
+	 39 a(55,44) a(31,36) a(25,4) a(28,4) a(47,49) d(50) d(50) 
+	 39 d(88) d(9) d(57) a(32,13) s(120,119) a(31,4) a(47,43) 
+	 39 a(31,28) a(23,26) a(28,23) d(30) d(55) s(53,58) 
+	 39 d(88) d(9) a(53,52) d(36) a(25,4) a(28,4) a(47,49) s(50,55) s(26,28) 
+	 39 a(31,28) s(50,58) a(88,66) a(49,56) d(107) s(49,52) 
+	 39 a(104,68) s(30,26) a(23,26) a(28,23) d(30) d(88) s(49,52) a(111,111) s(30,23) d(53) a(36,14) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000403.c a(31,28) a(23,26) a(28,23) d(30) d(88) s(49,52) a(111,111) s(30,23) d(53) a(31,127)  fails to compile
+	  0 a(31,28) a(23,26) a(28,23) d(30) d(88) s(49,52) a(111,111) s(30,23) d(53) a(31,127) 
+	  0 a(104,68) s(30,26) s(50,58) a(88,66) a(49,56) d(107) s(126,124) 
+search: generation 7 (sizeof one variant = 0.01894 MB)
+	 39 a(30,23) d(49) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) d(26) s(114,122) a(47,42) s(23,32) s(53,49) 
+	 39 a(30,23) d(26) s(114,122) a(47,42) s(23,32) d(52) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) s(28,32) 
+	 39 d(88) d(9) d(26) a(25,30) s(25,26) 
+	 39 a(31,28) s(25,34) a(57,127) s(50,59) d(114) a(56,40) a(28,30) a(55,42) a(80,4) s(50,57) s(52,59) 
+	 39 d(88) d(9) d(26) a(28,30) a(55,42) a(80,4) s(50,57) a(25,13) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000412.c a(31,28) s(25,34) a(57,127) s(50,59) d(114) a(56,40) a(25,30) a(107,104)  fails to compile
+	  0 a(31,28) s(25,34) a(57,127) s(50,59) d(114) a(56,40) a(25,30) a(107,104) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) a(53,53) d(114) a(101,71) a(109,76) d(26) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000414.c a(31,28) s(25,34) a(57,127) s(50,59) a(25,20)  fails to compile
+	  0 a(31,28) s(25,34) a(57,127) s(50,59) a(25,20) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) a(53,53) d(88) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000416.c a(31,28) s(25,34) a(57,127) s(50,59) d(114) a(101,71) a(109,76) a(50,4)  fails to compile
+	  0 a(31,28) s(25,34) a(57,127) s(50,59) d(114) a(101,71) a(109,76) a(50,4) 
+	 39 d(88) d(9) d(49) s(55,57) d(49) a(112,4) d(80) d(25) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000418.c s(53,59) d(88) d(28) a(53,52) d(36) a(25,4) a(28,4) a(47,49) s(50,55) s(26,28) a(107,104)  fails to compile
+	  0 s(53,59) d(88) d(28) a(53,52) d(36) a(25,4) a(28,4) a(47,49) s(50,55) s(26,28) a(107,104) 
+	 39 d(88) d(9) a(53,52) d(36) a(25,4) a(28,4) a(47,49) s(50,55) s(26,28) d(114) 
+	 39 s(53,59) d(88) d(28) d(49) s(55,57) d(49) a(112,4) d(80) a(56,4) 
+	 39 a(104,68) a(49,56) d(25) d(49) d(47) 
+	 37 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) s(30,34) d(98) 
+	 39 a(30,23) d(26) a(80,4) s(28,34) s(52,49) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000424.c d(88) d(9) d(26) a(28,30) a(55,42) s(114,122) a(47,42) s(25,35) a(9,10)  fails to compile
+	  0 d(88) d(9) d(26) a(28,30) a(55,42) s(114,122) a(47,42) s(25,35) a(9,10) 
+	 36 a(30,23) d(26) s(114,122) a(47,42) s(25,35) a(28,13) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000426.c d(88) d(9) d(26) a(28,30) a(55,42) a(80,4) s(28,34) a(80,95)  fails to compile
+	  0 d(88) d(9) d(26) a(28,30) a(55,42) a(80,4) s(28,34) a(80,95) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000427.c s(53,59) d(88) d(28) d(49) s(55,57) d(49) a(112,4) a(80,92) d(30) a(56,52) s(28,31) d(30) d(25) a(53,60)  fails to compile
+	  0 s(53,59) d(88) d(28) d(49) s(55,57) d(49) a(112,4) a(80,92) d(30) a(56,52) s(28,31) d(30) d(25) a(53,60) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000428.c a(31,28) a(88,66) s(30,26) s(47,52) d(28) s(114,122) a(52,47) a(60,50) s(94,96)  fails to compile
+	  0 a(31,28) a(88,66) s(30,26) s(47,52) d(28) s(114,122) a(52,47) a(60,50) s(94,96) 
+	 39 s(53,59) d(88) d(28) d(49) s(55,57) d(49) a(112,4) a(80,92) d(30) a(56,52) s(114,122) a(52,47) a(60,50) d(88) 
+	 39 a(31,28) a(88,66) s(30,26) s(47,52) d(28) s(28,31) d(30) d(25) s(47,50) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000431.c a(104,68) s(30,26) s(47,52) d(28) s(55,57) d(49) a(112,4) a(80,92) d(30) a(56,52) s(114,122) a(52,47) a(60,50) a(88,69)  fails to compile
+	  0 a(104,68) s(30,26) s(47,52) d(28) s(55,57) d(49) a(112,4) a(80,92) d(30) a(56,52) s(114,122) a(52,47) a(60,50) a(88,69) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000432.c s(53,59) d(88) d(28) d(49) s(28,31) d(30) s(32,28) a(53,44)  fails to compile
+	  0 s(53,59) d(88) d(28) d(49) s(28,31) d(30) s(32,28) a(53,44) 
+	 39 a(104,68) s(30,26) s(47,52) d(28) s(28,31) d(30) s(32,28) d(28) 
+	 39 s(53,59) d(88) d(28) d(49) s(55,57) d(49) a(112,4) a(80,92) d(30) a(56,52) s(114,122) a(52,47) a(60,50) d(32) 
+	 39 a(55,44) a(31,36) a(25,4) a(28,4) a(47,49) d(50) d(50) a(57,40) 
+	  0 d(28) a(57,55) a(34,33) a(47,37) d(28) s(47,49) d(80) s(80,110) d(126) 
+	 39 a(31,28) s(25,34) a(57,127) d(26) a(28,13) a(9,102) a(55,43) 
+	 36 a(30,23) d(26) s(114,122) a(47,42) s(25,35) d(23) 
+	 39 d(88) a(47,49) d(50) a(32,30) d(25) 
+	 36 s(53,59) d(88) d(28) d(49) s(55,57) d(49) s(56,61) a(31,26) s(92,94) 
+	 39 s(53,59) d(88) d(28) d(49) s(55,57) d(49) a(112,4) d(80) s(49,60) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000442.c a(30,23) d(26) s(114,122) a(47,42) d(114) a(56,40) a(111,4) a(100,76)  fails to compile
+	  0 a(30,23) d(26) s(114,122) a(47,42) d(114) a(56,40) a(111,4) a(100,76) 
+	 39 a(31,28) s(25,34) a(57,127) s(114,116) 
+	 39 d(88) d(9) d(57) d(28) s(47,49) d(80) a(26,15) s(50,59) d(114) a(101,71) a(109,76) a(56,43) 
+	 39 a(31,28) s(25,34) a(57,127) s(50,59) d(114) a(101,71) a(109,76) s(47,58) 
+	 39 d(88) d(9) d(57) d(28) s(47,49) d(80) a(26,15) s(30,34) 
+	 38 a(31,28) s(25,34) s(25,30) s(32,26) d(55) d(32) d(95) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000448.c a(55,45) a(47,43) a(23,30) d(88) d(30) s(26,28) a(91,80) d(83)  fails to compile
+	  0 a(55,45) a(47,43) a(23,30) d(88) d(30) s(26,28) a(91,80) d(83) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000449.c d(28) a(57,55) a(34,33) a(47,37) a(31,19) a(30,28) a(30,23)  fails to compile
+	  0 d(28) a(57,55) a(34,33) a(47,37) a(31,19) a(30,28) a(30,23) 
+	 37 a(31,28) s(25,34) a(57,127) s(50,59) d(72) s(105,91) 
+	 39 d(88) s(30,34) s(30,31) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) d(9) a(53,52) d(36) a(25,4) a(28,4) a(47,49) s(50,55) s(26,28) d(55) 
+	 39 d(88) d(9) a(53,52) d(36) a(25,4) a(28,4) a(47,49) s(50,55) s(26,28) d(80) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) s(30,34) s(23,34) 
+	 39 d(88) d(9) d(57) a(32,13) s(120,119) a(31,4) a(47,43) s(55,47) 
+	 39 d(88) d(9) d(57) a(32,13) s(120,119) a(31,4) a(47,43) d(80) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000457.c a(31,28) a(23,26) a(28,23) d(30) d(55) a(100,82) a(32,28)  fails to compile
+	  0 a(31,28) a(23,26) a(28,23) d(30) d(55) a(100,82) a(32,28) 
+	 39 a(104,68) s(30,26) s(47,52) d(28) s(28,31) d(30) d(55) s(31,23) 
+	 39 d(28) a(57,55) a(34,33) a(47,37) a(31,19) a(30,28) s(114,122) a(88,81) d(50) s(31,28) 
+	 39 d(28) a(80,92) d(30) a(56,52) s(50,53) 
+	 39 d(28) a(57,55) a(34,33) a(47,37) a(31,19) a(30,28) s(47,57) 
+	 36 d(28) a(80,92) d(30) a(56,52) s(114,122) a(88,81) d(50) d(92) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000463.c d(28) a(80,92) d(30) a(56,52) d(30) d(55) s(53,58) a(56,60)  fails to compile
+	  0 d(28) a(80,92) d(30) a(56,52) d(30) d(55) s(53,58) a(56,60) 
+	 39 a(31,28) a(23,26) a(28,23) s(114,122) a(52,47) d(28) d(90) 
+	 39 d(28) a(80,92) d(30) a(56,52) s(114,122) a(52,47) d(28) a(49,56) 
+	 39 a(31,28) a(23,26) a(28,23) d(30) d(55) s(53,58) d(88) 
+search: generation 8 (sizeof one variant = 0.0187807 MB)
+	 39 a(31,28) s(25,34) a(57,127) s(50,59) d(114) a(56,40) a(28,30) a(55,42) a(80,4) s(50,57) s(52,59) s(32,26) 
+	 39 a(31,28) s(25,34) a(57,127) s(114,116) d(5) 
+	 39 d(88) d(9) a(53,52) d(36) a(25,4) a(28,4) a(47,49) s(50,55) s(26,28) d(114) a(78,86) 
+	 39 s(53,59) d(88) d(28) d(49) s(55,57) d(49) a(112,4) d(80) s(49,60) d(26) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) s(30,34) s(23,34) s(47,50) 
+	 37 a(31,28) s(25,34) a(57,127) s(50,59) d(72) s(105,91) s(28,36) 
+	 39 d(88) d(9) d(57) a(32,13) s(120,119) a(31,4) a(47,43) d(80) d(113) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000474.c d(88) d(9) d(26) a(28,30) a(55,42) s(114,122) a(47,42) s(25,35) a(9,10) a(35,33)  fails to compile
+	  0 d(88) d(9) d(26) a(28,30) a(55,42) s(114,122) a(47,42) s(25,35) a(9,10) a(35,33) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) s(28,32) d(50) 
+	 39 s(53,59) d(88) d(28) d(49) s(55,57) d(49) a(112,4) a(80,92) d(30) a(56,52) s(28,31) d(30) d(25) a(53,60) d(56) 
+	 39 d(28) a(80,92) d(30) a(56,52) s(50,53) a(125,113) 
+	 39 a(31,28) s(25,34) a(57,127) d(26) a(28,13) a(9,102) a(55,43) d(32) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) d(26) s(114,122) d(56) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000480.c a(30,23) d(26) s(114,122) a(47,42) s(23,32) d(52) a(47,42) s(23,32) s(53,49) a(53,57)  fails to compile
+	  0 a(30,23) d(26) s(114,122) a(47,42) s(23,32) d(52) a(47,42) s(23,32) s(53,49) a(53,57) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000481.c d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) d(26) s(114,122) a(47,42) s(23,32) s(53,49) d(100)  fails to compile
+	  0 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) d(26) s(114,122) a(47,42) s(23,32) s(53,49) d(100) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000482.c a(30,23) d(26) s(114,122) a(47,42) s(23,32) d(52) d(100)  fails to compile
+	  0 a(30,23) d(26) s(114,122) a(47,42) s(23,32) d(52) d(100) 
+	 39 a(31,28) s(25,34) a(57,127) s(50,59) d(114) a(101,71) a(109,76) s(47,58) a(30,28) 
+	 39 d(88) d(9) d(57) a(32,13) s(120,119) a(31,4) a(47,43) s(55,47) d(55) 
+	 39 d(28) a(57,55) a(34,33) a(47,37) a(31,19) a(30,28) s(114,122) a(88,81) d(50) s(31,28) s(23,26) 
+	 36 a(30,23) d(26) s(114,122) a(47,42) s(25,35) d(23) a(80,68) 
+	 39 a(31,28) a(23,26) a(28,23) s(114,122) a(52,47) d(28) d(90) a(49,60) 
+	 39 a(30,23) d(49) d(31) 
+	 38 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) d(95) d(31) 
+	 39 a(31,28) s(25,34) s(25,30) s(32,26) d(55) d(32) d(26) s(114,122) a(47,42) s(23,32) s(53,49) d(72) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000491.c d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) d(26) s(114,122) a(47,42) s(23,32) s(53,49) s(50,56)  fails to compile
+	  0 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) d(26) s(114,122) a(47,42) s(23,32) s(53,49) s(50,56) 
+	 38 a(31,28) s(25,34) s(25,30) s(32,26) d(55) d(32) d(95) d(52) 
+	 39 d(28) a(57,55) a(34,33) a(47,37) a(31,19) a(30,28) s(47,57) s(23,26) 
+	 39 a(31,28) s(25,34) a(57,127) d(26) a(28,13) a(9,102) a(55,43) s(47,61) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) a(53,53) d(88) d(28) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000496.c s(53,59) d(88) d(28) d(49) s(55,57) d(49) a(112,4) d(80) s(49,60) a(49,57)  fails to compile
+	  0 s(53,59) d(88) d(28) d(49) s(55,57) d(49) a(112,4) d(80) s(49,60) a(49,57) 
+	 39 s(53,59) d(88) d(28) d(49) s(55,57) d(49) a(112,4) d(80) a(56,4) d(80) 
+	 39 a(30,23) d(26) s(114,122) a(47,42) s(23,32) d(52) d(26) 
+	 39 d(88) d(9) a(53,52) d(36) a(25,4) a(28,4) a(47,49) s(50,55) s(26,28) d(114) d(47) 
+	 37 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) d(26) s(114,122) a(47,42) s(23,32) s(53,49) d(101) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000501.c a(30,23) d(26) s(114,122) a(47,42) d(114) a(56,40) a(111,4) a(100,76) a(28,25)  fails to compile
+	  0 a(30,23) d(26) s(114,122) a(47,42) d(114) a(56,40) a(111,4) a(100,76) a(28,25) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) s(30,34) s(23,34) d(53) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000503.c d(28) a(31,36) a(25,4) d(28) s(30,34) s(23,34) a(31,4)  fails to compile
+	  0 d(28) a(31,36) a(25,4) d(28) s(30,34) s(23,34) a(31,4) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) s(47,49) a(26,21) d(23) s(28,32) d(26) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) s(28,32) d(88) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) s(30,34) s(23,34) a(25,35) 
+	 39 d(88) a(47,49) d(50) a(32,30) d(25) d(57) 
+	 39 s(53,59) d(88) d(28) d(49) s(55,57) d(49) a(112,4) a(80,92) d(30) a(56,52) s(114,122) a(52,47) a(60,50) d(88) s(31,25) 
+	 39 d(88) d(9) d(49) s(55,57) d(49) a(112,4) d(80) d(25) s(28,23) 
+	 39 d(28) a(57,55) a(34,33) a(47,37) a(31,19) a(30,28) s(47,57) s(23,26) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000511.c a(31,28) s(25,34) a(57,127) s(50,59) d(114) a(56,40) a(28,30) a(55,42) a(80,4) s(50,57) s(52,59) a(25,33)  fails to compile
+	  0 a(31,28) s(25,34) a(57,127) s(50,59) d(114) a(56,40) a(28,30) a(55,42) a(80,4) s(50,57) s(52,59) a(25,33) 
+	 39 a(104,68) s(30,26) s(47,52) d(28) s(28,31) d(30) d(55) s(31,23) d(52) 
+search: generation 9 (sizeof one variant = 0.0208302 MB)
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000513.c a(31,28) s(25,34) a(57,127) d(26) a(28,13) a(9,102) a(55,43) d(32) s(23,32) d(52) d(100) s(26,34)  fails to compile
+	  0 a(31,28) s(25,34) a(57,127) d(26) a(28,13) a(9,102) a(55,43) d(32) s(23,32) d(52) d(100) s(26,34) 
+	 39 a(30,23) d(26) s(114,122) a(47,42) a(50,127) 
+	 39 a(31,28) s(25,34) a(57,127) d(26) a(28,13) a(9,102) a(55,43) d(32) d(57) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000516.c a(30,23) d(26) s(114,122) a(47,42) s(23,32) d(52) d(100) s(23,32)  fails to compile
+	  0 a(30,23) d(26) s(114,122) a(47,42) s(23,32) d(52) d(100) s(23,32) 
+	 39 a(31,28) s(25,34) s(25,30) s(32,26) d(55) d(32) d(26) s(114,122) a(47,42) s(23,32) s(53,49) d(72) d(32) 
+	 39 a(31,28) s(25,34) a(57,127) s(50,59) d(114) a(101,71) a(109,76) s(47,58) a(30,28) a(52,1) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000519.c a(31,28) s(25,34) a(57,127) s(50,59) d(114) a(56,40) a(28,30) a(55,42) a(80,4) s(50,57) s(52,59) a(25,33) a(56,42)  fails to compile
+	  0 a(31,28) s(25,34) a(57,127) s(50,59) d(114) a(56,40) a(28,30) a(55,42) a(80,4) s(50,57) s(52,59) a(25,33) a(56,42) 
+	 36 d(88) d(9) a(53,52) d(36) a(25,4) a(28,4) a(47,49) s(50,55) s(26,28) d(114) d(47) s(33,35) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000521.c a(31,28) s(25,34) a(57,127) d(26) a(31,4) a(47,43) s(55,47) d(55) a(111,112)  fails to compile
+	  0 a(31,28) s(25,34) a(57,127) d(26) a(31,4) a(47,43) s(55,47) d(55) a(111,112) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000522.c d(88) d(9) d(57) a(32,13) s(120,119) a(28,13) a(9,102) a(55,43) d(32) a(32,102)  fails to compile
+	  0 d(88) d(9) d(57) a(32,13) s(120,119) a(28,13) a(9,102) a(55,43) d(32) a(32,102) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000523.c a(31,28) s(25,34) a(57,127) d(26) a(28,13) a(9,102) a(55,43) d(32) a(26,18)  fails to compile
+	  0 a(31,28) s(25,34) a(57,127) d(26) a(28,13) a(9,102) a(55,43) d(32) a(26,18) 
+	  0 d(88) d(9) d(57) a(32,13) s(120,119) a(31,4) a(47,43) s(55,47) d(55) d(125) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) d(5) s(11,10) 
+	 39 a(31,28) s(25,34) a(57,127) s(114,116) s(28,32) d(50) a(9,9) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) s(28,32) d(50) d(31) 
+	 39 a(31,28) s(25,34) a(57,127) s(114,116) d(5) d(107) 
+	 37 a(31,28) s(25,34) a(57,127) s(114,116) d(49) s(55,57) d(49) a(112,4) a(80,92) d(30) a(56,52) s(114,122) a(52,47) a(60,50) d(88) s(31,25) s(61,49) 
+	 36 s(53,59) d(88) d(28) d(5) s(28,35) 
+	 39 a(31,28) s(25,34) a(57,127) s(114,116) d(5) d(80) 
+	 39 s(53,59) d(88) d(28) d(49) s(55,57) d(49) a(112,4) a(80,92) d(30) a(56,52) s(114,122) a(52,47) a(60,50) d(88) s(31,25) d(63) 
+	 38 a(31,28) s(25,34) a(57,127) s(50,59) d(114) a(101,71) a(109,76) s(47,58) a(30,28) s(95,77) 
+	 37 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) d(26) s(114,122) a(47,42) s(23,32) s(53,49) d(101) s(31,35) 
+	 35 d(28) a(80,92) d(30) a(56,52) s(50,53) a(125,113) s(88,90) 
+	 39 a(30,23) d(49) d(31) d(49) 
+	 36 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) d(26) s(114,122) d(56) a(10,4) 
+	 39 d(28) a(57,55) a(34,33) a(47,37) a(31,19) a(30,28) s(114,122) a(88,81) d(50) s(31,28) s(23,26) d(56) 
+	 39 a(31,28) s(25,34) a(57,127) d(26) a(28,13) a(9,102) a(55,43) s(47,61) a(77,95) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000540.c d(28) a(80,92) d(30) a(56,52) s(50,53) a(125,113) a(30,21)  fails to compile
+	  0 d(28) a(80,92) d(30) a(56,52) s(50,53) a(125,113) a(30,21) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000541.c a(31,28) s(25,34) d(26) s(114,122) d(56) a(31,34)  fails to compile
+	  0 a(31,28) s(25,34) d(26) s(114,122) d(56) a(31,34) 
+	 38 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) s(25,30) s(32,26) d(55) d(32) d(95) d(52) d(50) 
+	 33 a(31,28) s(25,34) s(25,30) s(32,26) d(55) d(32) d(95) d(52) d(82) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) d(26) s(114,122) d(56) a(103,75) 
+	  0 d(28) a(57,55) a(34,33) d(53) s(114,127) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000546.c d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) s(30,34) s(23,34) a(47,37) a(31,19) a(30,28) s(114,122) a(88,81) d(50) s(31,28) s(23,26) s(25,28)  fails to compile
+	  0 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) s(30,34) s(23,34) a(47,37) a(31,19) a(30,28) s(114,122) a(88,81) d(50) s(31,28) s(23,26) s(25,28) 
+	 39 d(28) a(57,55) a(34,33) a(47,37) a(31,19) a(30,28) s(114,122) a(88,81) d(50) s(31,28) s(23,26) d(118) 
+	 36 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) s(30,34) s(23,34) d(53) s(32,36) 
+	 38 a(30,23) d(26) s(114,122) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) d(95) d(31) d(30) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000550.c d(28) a(47,42) s(23,32) d(52) d(26) a(32,4)  fails to compile
+	  0 d(28) a(47,42) s(23,32) d(52) d(26) a(32,4) 
+	 39 a(30,23) d(26) s(114,122) a(47,42) s(23,32) d(52) d(26) a(66,79) 
+	 35 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) d(95) d(31) s(26,35) 
+	 39 d(88) d(9) d(57) a(32,13) s(120,119) a(31,4) a(47,43) d(80) d(113) a(55,40) 
+	 39 d(88) d(9) d(49) s(55,57) d(49) a(112,4) d(80) d(25) s(28,23) d(31) 
+	 39 d(88) d(9) a(53,52) d(36) a(25,4) a(28,4) a(47,49) s(50,55) s(26,28) d(114) a(78,86) s(23,25) 
+	 39 d(88) d(9) d(49) s(55,57) d(49) a(112,4) d(80) d(25) s(28,23) s(25,31) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000557.c d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) a(53,53) d(88) d(28) a(28,4)  fails to compile
+	  0 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) a(53,53) d(88) d(28) a(28,4) 
+	 32 a(31,28) s(25,34) a(57,127) d(26) a(28,13) a(9,102) a(55,43) d(32) s(107,68) 
+	 39 a(104,68) s(30,26) s(47,52) d(28) s(28,31) d(30) d(55) s(31,23) d(52) a(53,53) d(88) d(28) s(31,36) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) d(25) 
+	 39 a(104,68) s(30,26) s(47,52) d(28) s(28,31) d(30) d(55) s(31,23) d(52) a(80,127) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) a(53,53) d(88) d(28) s(32,31) 
+	 28 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) s(30,34) s(23,34) a(25,35) a(108,74) 
+	 39 d(28) a(57,55) a(34,33) a(47,37) a(31,19) a(30,28) s(47,57) s(23,26) d(31) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000565.c d(28) a(25,4) d(28) s(47,49) d(80) s(30,34) s(23,34) a(25,35) a(30,19)  fails to compile
+	  0 d(28) a(25,4) d(28) s(47,49) d(80) s(30,34) s(23,34) a(25,35) a(30,19) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000566.c d(28) a(31,36) a(57,55) a(34,33) a(47,37) a(31,19) a(30,28) s(47,57) s(23,26) s(57,56)  fails to compile
+	  0 d(28) a(31,36) a(57,55) a(34,33) a(47,37) a(31,19) a(30,28) s(47,57) s(23,26) s(57,56) 
+	 36 d(28) a(57,55) a(34,33) a(47,37) a(31,19) a(30,28) s(47,57) s(23,26) s(23,35) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000568.c d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) s(30,34) s(23,34) a(25,35) a(47,44)  fails to compile
+	  0 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) s(30,34) s(23,34) a(25,35) a(47,44) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000569.c a(31,28) s(25,34) a(57,127) s(50,59) d(72) s(105,91) s(28,36) a(92,75)  fails to compile
+	  0 a(31,28) s(25,34) a(57,127) s(50,59) d(72) s(105,91) s(28,36) a(92,75) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) s(28,32) d(50) s(49,59) 
+search: generation 10 (sizeof one variant = 0.0178537 MB)
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000571.c d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) a(25,35) a(108,74) s(32,28)  fails to compile
+	  0 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) a(25,35) a(108,74) s(32,28) 
+	 38 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) s(30,34) s(23,34) d(23) s(25,30) s(32,26) d(55) d(32) d(95) d(52) d(50) s(49,50) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) s(25,30) s(32,26) d(55) d(32) d(95) d(52) d(50) d(90) 
+	  0 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) s(30,34) s(23,34) a(25,35) a(108,74) a(119,126) 
+	 39 a(30,23) d(26) s(114,122) a(47,42) a(107,76) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) a(53,53) d(88) d(28) s(32,31) a(50,127) a(26,127) 
+	 39 a(30,23) d(26) s(114,122) a(47,42) a(50,127) a(80,79) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) a(53,53) d(88) d(28) s(32,31) s(32,28) 
+	 39 d(28) a(31,36) a(25,4) d(28) a(25,4) a(28,4) a(47,49) s(50,55) s(26,28) d(114) d(47) s(33,35) s(4,7) 
+	 39 d(88) d(9) a(53,52) d(36) s(47,49) d(80) d(25) a(55,43) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) d(25) d(53) 
+	 36 d(88) d(9) a(53,52) d(36) a(25,4) a(28,4) a(47,49) s(50,55) s(26,28) d(114) d(47) s(33,35) a(26,14) 
+	 38 d(88) d(9) d(49) s(55,57) d(49) a(112,4) d(80) d(25) s(28,23) d(31) d(66) 
+	 39 a(30,23) d(26) s(114,122) a(47,42) a(50,127) d(49) 
+	 39 d(88) d(9) d(57) a(32,13) s(120,119) a(31,4) a(47,43) d(80) d(113) a(55,40) s(106,77) 
+	 36 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) d(26) s(114,122) d(56) a(10,4) a(32,17) 
+	 39 d(88) d(9) a(53,52) d(36) a(25,4) a(28,4) a(47,49) s(50,55) s(26,28) d(114) a(78,86) s(23,25) s(57,60) 
+	 39 a(104,68) s(30,26) s(47,52) d(28) s(28,31) d(30) d(55) s(31,23) d(52) a(53,53) d(88) d(28) s(31,36) d(26) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000589.c a(31,28) s(25,34) s(25,30) s(32,26) d(55) d(32) d(26) s(114,122) a(47,42) s(23,32) s(53,49) d(72) d(32) a(109,76) s(47,58) a(30,28) a(52,1) s(28,32)  fails to compile
+	  0 a(31,28) s(25,34) s(25,30) s(32,26) d(55) d(32) d(26) s(114,122) a(47,42) s(23,32) s(53,49) d(72) d(32) a(109,76) s(47,58) a(30,28) a(52,1) s(28,32) 
+	 36 a(31,28) s(25,34) a(57,127) s(50,59) d(114) a(101,71) d(82) 
+	 37 a(31,28) s(25,34) s(25,30) s(32,26) d(55) d(32) d(26) s(114,122) a(47,42) s(23,32) s(53,49) d(72) d(32) d(98) 
+	 39 a(31,28) s(25,34) a(57,127) s(50,59) d(114) a(101,71) a(109,76) s(47,58) a(30,28) a(52,1) s(122,120) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000593.c d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) d(95) d(31) s(26,35) a(23,34)  fails to compile
+	  0 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) d(95) d(31) s(26,35) a(23,34) 
+	 36 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) s(30,34) s(23,34) d(53) s(32,36) a(122,118) 
+	 36 d(28) a(57,55) a(34,33) a(47,37) a(31,19) d(28) s(47,49) a(26,21) d(23) s(28,32) d(50) d(31) s(32,36) 
+	 39 d(28) a(31,36) a(25,4) a(30,28) s(114,122) a(88,81) d(50) s(31,28) s(23,26) d(56) a(23,28) 
+	 39 d(28) a(57,55) a(34,33) a(47,37) a(31,19) a(30,28) s(114,122) a(88,81) d(50) s(31,28) s(23,26) d(56) s(113,118) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) s(28,32) d(50) d(31) d(26) 
+	 39 a(31,28) s(25,34) s(25,30) s(32,26) d(55) d(32) d(26) s(114,122) a(47,42) s(23,32) s(23,26) d(31) d(55) 
+	 39 d(28) a(57,55) a(34,33) a(47,37) a(31,19) a(30,28) s(47,57) s(53,49) d(72) d(32) d(55) 
+	 39 a(31,28) s(25,34) s(25,30) s(32,26) d(55) d(32) d(26) s(114,122) a(47,42) s(23,32) s(53,49) d(72) d(32) a(61,55) 
+	 37 d(28) a(57,55) a(34,33) a(47,37) a(31,19) a(30,28) s(47,57) s(23,26) d(31) s(125,122) 
+	 37 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) d(26) s(114,122) a(47,42) s(23,32) s(53,49) d(101) s(31,35) d(31) 
+	 39 d(28) a(57,55) a(34,33) a(47,37) a(31,19) a(30,28) s(114,122) a(88,81) d(50) s(31,28) s(23,26) d(118) d(55) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) d(26) s(114,122) d(56) s(56,59) 
+	 39 d(28) a(57,55) a(34,33) a(47,37) a(31,19) a(30,28) s(114,122) a(88,81) d(50) s(31,28) s(23,26) d(56) a(103,75) a(50,58) 
+	 39 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) d(26) s(114,122) d(56) a(103,75) a(80,82) 
+	 38 d(28) a(57,55) a(34,33) a(47,37) a(31,19) a(30,28) s(114,122) a(88,81) d(50) s(31,28) s(23,26) d(56) d(62) 
+	 39 d(88) d(9) a(53,52) d(56) d(50) 
+	 36 d(28) a(57,55) a(34,33) a(47,37) a(31,19) a(30,28) s(114,122) a(88,81) d(50) s(31,28) s(23,26) d(36) a(25,4) a(28,4) a(47,49) s(50,55) s(26,28) d(114) d(47) s(33,35) s(49,50) 
+	 36 d(88) d(9) a(53,52) d(36) a(25,4) a(28,4) a(47,49) s(50,55) s(26,28) d(114) d(47) s(33,35) d(26) 
+	 39 d(28) a(57,55) a(34,33) a(47,37) a(31,19) a(30,28) s(114,122) a(88,81) d(50) s(31,28) s(23,26) d(56) s(80,88) 
+	 39 a(31,28) s(25,34) a(57,127) s(114,116) d(5) d(107) s(56,53) 
+	 39 a(31,28) s(25,34) a(57,127) d(26) a(28,13) a(9,102) a(55,43) d(32) d(57) s(32,26) 
+	 33 a(31,28) s(80,104) 
+	 39 a(30,23) d(49) d(31) d(49) s(25,34) s(25,30) s(32,26) d(55) d(32) d(26) s(114,122) a(47,42) s(23,32) s(53,49) d(72) d(32) s(95,94) 
+	 35 a(31,28) s(25,34) s(25,30) s(32,26) d(55) d(32) d(26) s(114,122) a(47,42) s(23,32) s(53,49) d(72) d(32) d(93) 
+	 39 a(30,23) d(49) d(31) d(49) a(26,12) 
+	 39 a(31,28) s(25,34) a(57,127) s(114,116) d(5) d(107) s(50,58) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000620.c a(31,28) s(25,34) d(26) s(114,122) d(56) a(31,34) s(52,55)  fails to compile
+	  0 a(31,28) s(25,34) d(26) s(114,122) d(56) a(31,34) s(52,55) 
+	 39 d(88) d(9) a(53,52) d(36) a(25,4) a(28,4) a(47,49) s(50,55) s(26,28) d(114) a(78,86) s(23,25) s(28,30) 
+	 39 d(88) d(9) d(57) a(32,13) s(120,119) a(31,4) a(47,43) d(80) d(113) a(55,40) d(52) 
+	 39 d(28) a(57,55) a(34,33) a(47,37) a(31,19) a(30,28) s(114,122) a(88,81) d(50) s(31,28) s(23,26) d(56) d(23) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000624.c d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) s(30,34) s(23,34) a(47,37) a(31,19) a(30,28) s(114,122) a(88,81) d(50) s(31,28) s(23,26) s(25,28) a(68,72)  fails to compile
+	  0 d(28) a(31,36) a(25,4) d(28) s(47,49) d(80) s(30,34) s(23,34) a(47,37) a(31,19) a(30,28) s(114,122) a(88,81) d(50) s(31,28) s(23,26) s(25,28) a(68,72) 
+	 35 a(31,28) s(25,34) s(25,30) s(32,26) a(25,4) d(28) s(47,49) a(26,21) d(23) d(95) d(31) s(26,35) d(57) 
+	 33 d(28) a(31,36) d(55) d(32) d(95) d(52) d(82) s(57,60) 
+	 33 a(31,28) s(25,34) s(25,30) s(32,26) d(55) d(32) d(95) d(52) d(82) a(63,102) 
+	 35 d(28) a(31,36) a(25,4) d(28) s(47,49) a(26,21) d(23) d(95) d(31) s(26,35) d(60) 
+	 39 d(88) d(9) d(57) a(32,13) s(120,119) a(31,4) a(47,43) d(80) d(25) s(28,23) d(31) a(117,123) 
+	/home/mingyue/experiments/GenProg/genprog-source-v3.0/data/tcas/RandomTC/v36/10/./000630.c d(88) d(9) d(49) s(55,57) d(49) a(112,4) d(80) d(113) a(55,40) d(52)  fails to compile
+	  0 d(88) d(9) d(49) s(55,57) d(49) a(112,4) d(80) d(113) a(55,40) d(52) 
+	 39 d(88) d(9) d(57) a(32,13) s(120,119) a(31,4) a(47,43) d(80) d(113) a(55,40) d(31) 
+	 24 d(88) d(9) d(49) s(55,57) d(49) a(112,4) d(80) d(25) s(28,23) d(31) d(103) 
+search: genetic algorithm ends
+Rep: saving test cache
+
+Variant Test Case Queries: 25360
+"Test Suite Evaluations": 634
+
+Compile Failures: 71
+Wall-Clock Seconds Elapsed: 264.606
+  Activity Name                     Count Seconds = Percent of Total Time
+  compile                             635  37.885 = 14.9412%
+  test                              22600 215.666 = 85.0553%
+  TOTAL                                   253.560 = 95.8223% (avg CPU usage)

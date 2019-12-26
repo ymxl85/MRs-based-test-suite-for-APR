@@ -1,0 +1,39 @@
+gcc -D_GNUCC -E -DCIL=1 coverageTC/v8/1/v8.c -o coverageTC/v8/1/v8.i
+coverageTC/v8/1/v8.c:11:1: warning: "NULL" redefined
+In file included from /usr/include/_G_config.h:15,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from coverageTC/v8/1/v8.c:4:
+/usr/lib/gcc/i486-linux-gnu/4.4.3/include/stddef.h:400:1: warning: this is the location of the previous definition
+/usr/local/bin/cilly.native --out coverageTC/v8/1/v8.cil.c --noPrintLn --useLogicalOperators coverageTC/v8/1/v8.i
+coverageTC/v8/1/v8.c:192: Warning: Return statement without a value in function returning int 
+coverageTC/v8/1/v8.c:186: Warning: Body of function schedule falls-through. Adding a return statement
+coverageTC/v8/1/v8.c:371: Warning: Return statement without a value in function returning char *
+coverageTC/v8/1/v8.c:384: Warning: Return statement without a value in function returning char *
+coverageTC/v8/1/v8.c:400: Warning: Body of function main falls-through. Adding a return statement
+gcc -D_GNUCC -E coverageTC/v8/1/v8.cil.c -o coverageTC/v8/1/v8.cil.i
+gcc -D_GNUCC -c -o coverageTC/v8/1/v8.o coverageTC/v8/1/v8.cil.i
+coverageTC/v8/1/v8.cil.c:71: warning: conflicting types for built-in function ‘malloc’
+coverageTC/v8/1/v8.cil.c:160: warning: conflicting types for built-in function ‘free’
+coverageTC/v8/1/v8.cil.c:176: warning: conflicting types for built-in function ‘strcat’
+gcc -D_GNUCC -E -DCIL=1 coverageTC/v8/1/processor.c -o coverageTC/v8/1/processor.i
+/usr/local/bin/cilly.native --out coverageTC/v8/1/processor.cil.c --noPrintLn --useLogicalOperators coverageTC/v8/1/processor.i
+gcc -D_GNUCC -E coverageTC/v8/1/processor.cil.c -o coverageTC/v8/1/processor.cil.i
+gcc -D_GNUCC -c -o coverageTC/v8/1/processor.o coverageTC/v8/1/processor.cil.i
+coverageTC/v8/1/processor.cil.c:6: warning: conflicting types for built-in function ‘strlen’
+gcc -D_GNUCC -o a.out coverageTC/v8/1/v8.o coverageTC/v8/1/processor.o
+$ cp coverageTC/v8/1/v8.cil.i /tmp/CETI_a16edd/v8.cil.i
+$ cp coverageTC/v8/1/processor.c /tmp/CETI_a16edd/processor.c
+input length='39' output length='39'
+*** Get good/bad tcs ***
+cmd 'gcc /tmp/CETI_a16edd/v8.cil.i coverageTC/v8/1/processor.c -o /tmp/CETI_a16edd/v8.cil.i.exe >& /dev/null'
+$ gcc /tmp/CETI_a16edd/v8.cil.i coverageTC/v8/1/processor.c -o /tmp/CETI_a16edd/v8.cil.i.exe >& /dev/null
+write_file_str: '/tmp/CETI_a16edd/v8.cil.i.sh'
+$ sh /tmp/CETI_a16edd/v8.cil.i.sh /tmp/CETI_a16edd/v8.cil.i.exe &> /dev/null
+[35mAlert: All tests passed. Exit!
+[mNote: temp files created in dir '/tmp/CETI_a16edd'
+
+real	0m0.144s
+user	0m0.152s
+sys	0m0.040s
+/home/mingyue/experiments/ceti/schedule/coverageTC

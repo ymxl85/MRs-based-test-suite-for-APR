@@ -1,0 +1,168 @@
+/home/mingyue/Documents/Angelix/angelix/TSE/2/RDS/pt2/6
+/home/mingyue/Documents/Angelix/angelix/TSE/2/RDS/pt2/golden
+/home/mingyue/Documents/Angelix/angelix/TSE/2/RDS/pt2/6/oracle3
+INFO     synthesis       ==class Synthesizer
+INFO     semfix_syn      ==class Semfix_Synthesizer
+INFO     project         configuring validation source
+INFO     project         building json compilation database from validation source
+gcc -c pt2.c -o pt2.o -std=c89
+pt2.c:25:0: warning: "EOF" redefined [enabled by default]
+ #define EOF '\0'
+ ^
+In file included from /usr/include/stdio.h:75:0,
+                 from pt2.c:19:
+/usr/include/libio.h:90:0: note: this is the location of the previous definition
+ # define EOF (-1)
+ ^
+gcc pt2.o -o pt2
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+INFO     testing         running test '3' of validation source
+INFO     testing         running test '4' of validation source
+INFO     testing         running test '5' of validation source
+INFO     testing         running test '6' of validation source
+INFO     testing         running test '7' of validation source
+INFO     testing         running test '8' of validation source
+INFO     testing         running test '9' of validation source
+INFO     testing         running test '10' of validation source
+INFO     testing         running test '11' of validation source
+INFO     testing         running test '12' of validation source
+INFO     project         configuring frontend source
+INFO     transformation  instrumenting repairable of frontend source
+INFO     project         building frontend source
+angelix-compiler --test -c pt2.c -o pt2.o -std=c89
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h '-c' 'pt2.c' '-o' 'pt2.o' '-std=c89' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+pt2.c:25:0: warning: "EOF" redefined [enabled by default]
+ #define EOF '\0'
+ ^
+In file included from /usr/include/stdio.h:75:0,
+                 from pt2.c:19:
+/usr/include/libio.h:90:0: note: this is the location of the previous definition
+ # define EOF (-1)
+ ^
+angelix-compiler --test pt2.o -o pt2
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h 'pt2.o' '-o' 'pt2' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+INFO     repair          running positive tests for debugging
+INFO     testing         running test '1' of frontend source
+INFO     testing         running test '2' of frontend source
+INFO     testing         running test '3' of frontend source
+INFO     testing         running test '5' of frontend source
+INFO     testing         running test '6' of frontend source
+INFO     testing         running test '7' of frontend source
+INFO     testing         running test '8' of frontend source
+INFO     testing         running test '9' of frontend source
+INFO     testing         running test '10' of frontend source
+INFO     testing         running test '11' of frontend source
+INFO     testing         running test '12' of frontend source
+INFO     repair          running negative tests for debugging
+INFO     testing         running test '4' of frontend source
+INFO     project         configuring golden source
+INFO     project         building golden source
+angelix-compiler --test -c pt2.c -o pt2.o -std=c89
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h '-c' 'pt2.c' '-o' 'pt2.o' '-std=c89' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+pt2.c:25:0: warning: "EOF" redefined [enabled by default]
+ #define EOF '\0'
+ ^
+In file included from /usr/include/stdio.h:75:0,
+                 from pt2.c:19:
+/usr/include/libio.h:90:0: note: this is the location of the previous definition
+ # define EOF (-1)
+ ^
+angelix-compiler --test pt2.o -o pt2
+[angelix-compiler] gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h 'pt2.o' '-o' 'pt2' -L/home/mingyue/Documents/Angelix/angelix/build/lib/test -langelix -L/home/mingyue/Documents/Angelix/angelix/src/klee/Release+Asserts/lib -lkleeRuntest 
+INFO     testing         running test '4' of golden source
+INFO     repair          repair test suite: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+INFO     repair          validation test suite: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+INFO     localization    selected expressions [(364, 11, 364, 29)] with group score 0.5 
+INFO     localization    selected expressions [(362, 13, 362, 25)] with group score 0.33333 
+INFO     localization    selected expressions [(161, 12, 161, 28)] with group score 0.25 
+INFO     localization    selected expressions [(162, 12, 162, 16)] with group score 0.25 
+INFO     localization    selected expressions [(443, 14, 443, 29)] with group score 0.2 
+INFO     localization    selected expressions [(160, 7, 160, 28)] with group score 0.14286 
+INFO     localization    selected expressions [(150, 11, 150, 22)] with group score 0.090909 
+INFO     localization    selected expressions [(191, 5, 191, 17)] with group score 0.090909 
+INFO     localization    selected expressions [(198, 5, 198, 17)] with group score 0.090909 
+INFO     localization    selected expressions [(205, 5, 205, 26)] with group score 0.090909 
+INFO     localization    selected expressions [(206, 5, 206, 33)] with group score 0.090909 
+INFO     localization    selected expressions [(409, 17, 409, 28)] with group score 0.090909 
+INFO     localization    selected expressions [(411, 16, 411, 53)] with group score 0.090909 
+INFO     localization    selected expressions [(70, 6, 70, 10)] with group score 0.083333 
+INFO     localization    selected expressions [(129, 10, 129, 10)] with group score 0.083333 
+INFO     localization    selected expressions [(134, 10, 134, 23)] with group score 0.083333 
+INFO     localization    selected expressions [(144, 7, 144, 18)] with group score 0.083333 
+INFO     localization    selected expressions [(223, 5, 223, 22)] with group score 0.083333 
+INFO     localization    selected expressions [(272, 5, 272, 11)] with group score 0.083333 
+INFO     localization    selected expressions [(534, 12, 534, 32)] with group score 0.083333 
+INFO     repair          considering suspicious expressions [(364, 11, 364, 29)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['11']
+INFO     reduction       selected failing tests: ['4']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+angelix-compiler --klee -c pt2.c -o pt2.o -std=c89
+[angelix-compiler] llvm-gcc -include /home/mingyue/Documents/Angelix/angelix/src/runtime/runtime.h -emit-llvm -g -O0 -D ANGELIX_SYMBOLIC_RUNTIME '-c' 'pt2.c' '-o' 'pt2.o' '-std=c89' 
+pt2.c:25:1: warning: "EOF" redefined
+In file included from /usr/include/stdio.h:75,
+                 from pt2.c:19:
+/usr/include/libio.h:90:1: warning: this is the location of the previous definition
+angelix-compiler --klee pt2.o -o pt2
+[angelix-compiler] llvm-ld --disable-opt 'pt2.o' '-o' 'pt2' -L/home/mingyue/Documents/Angelix/angelix/build/lib/klee -langelix 
+INFO     semfix_infer    inferring specification for test '4'
+INFO     testing         running test '4' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     semfix_infer    expression (364, 11, 364, 29)[0]: angelic = True
+INFO     semfix_infer    expression (364, 11, 364, 29)[1]: angelic = True
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    found 1 angelic paths for test '4'
+INFO     semfix_infer    inferring specification for test '11'
+INFO     testing         running test '11' of backend source with KLEE
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     semfix_infer    expression (364, 11, 364, 29)[0]: angelic = True
+INFO     semfix_infer    expression (364, 11, 364, 29)[1]: angelic = False
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     semfix_infer    expression (364, 11, 364, 29)[0]: angelic = False
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     semfix_infer    expression (364, 11, 364, 29)[0]: angelic = True
+INFO     semfix_infer    expression (364, 11, 364, 29)[1]: angelic = True
+INFO     semfix_infer    expression (364, 11, 364, 29)[2]: angelic = False
+INFO     semfix_infer    solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     semfix_infer    UNSAT
+INFO     semfix_infer    found 3 angelic paths for test '11'
+INFO     semfix_syn      ==class semifix_Synthesizer:call
+INFO     semfix_syn      ==class semifix_Synthesizer:dump_angelic
+INFO     semfix_syn      ==class semifix_Synthesizer:dump_angelic==end
+INFO     semfix_syn      ==/tmp/tmp5zc74wrt/patch
+INFO     semfix_syn      ==1
+INFO     semfix_syn      ==/home/mingyue/Documents/Angelix/angelix/TSE/2/.angelix
+INFO     semfix_syn      synthesized expression (364, 11, 364, 29): (i <= 2)
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+gcc -c pt2.c -o pt2.o -std=c89
+pt2.c:25:0: warning: "EOF" redefined [enabled by default]
+ #define EOF '\0'
+ ^
+In file included from /usr/include/stdio.h:75:0,
+                 from pt2.c:19:
+/usr/include/libio.h:90:0: note: this is the location of the previous definition
+ # define EOF (-1)
+ ^
+gcc pt2.o -o pt2
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+INFO     testing         running test '3' of validation source
+INFO     testing         running test '4' of validation source
+INFO     testing         running test '5' of validation source
+INFO     testing         running test '6' of validation source
+INFO     testing         running test '7' of validation source
+INFO     testing         running test '8' of validation source
+INFO     testing         running test '9' of validation source
+INFO     testing         running test '10' of validation source
+INFO     testing         running test '11' of validation source
+INFO     testing         running test '12' of validation source
+INFO     repair          patch successfully generated in 11s (see 6-2016-May22-230404.patch)
+SUCCESS

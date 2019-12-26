@@ -1,0 +1,99 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "=v" "" "y0|VP"
+      ;;
+    2)
+      test-replace  "NZF" "" "c-C#Shl~"
+      ;;
+    3)
+      test-replace  "X\"" "%" "TrWfl"
+      ;;
+    4)
+      test-replace  "nQ-v" "{" "Dj-j\$rC1["
+      ;;
+    5)
+      test-replace  "" "g" "D ^TsH*#D=Og&Ot"
+      ;;
+    6)
+      test-replace  "D1QC" "\"\"/" "VSFp*xt9+/"
+      ;;
+    7)
+      test-replace  "O*H" "%" "7{+k\\S_vg{/y"
+      ;;
+    8)
+      test-replace  "=G50" "A" "Uat(i2E\\1@imMW2"
+      ;;
+    9)
+      test-replace  "," "mcvU" "):%[M l0V{]~/Bsao\$]g"
+      ;;
+    10)
+      test-replace  "x0" "?m\`X" "~7"
+      ;;
+    11)
+      test-replace  "" "L(/h" ".i;jLNvbw"
+      ;;
+    12)
+      test-replace  "!\"s" "s " "Em0("
+      ;;
+    13)
+      test-replace  "" "ar0" "-VUah"
+      ;;
+    14)
+      test-replace  "" "K" "ps[\"R61~g4J"
+      ;;
+    15)
+      test-replace  "i" "GEP" "5 CV;<eF-z/r"
+      ;;
+    16)
+      test-replace  ";e" " oT," "SeVahlKG9}L"
+      ;;
+    17)
+      test-replace  "/Fl" ",g1_" "oWzk_R,u+<#}\\"
+      ;;
+    18)
+      test-replace  "1&G~" "g" "qn*}Q9"
+      ;;
+    19)
+      test-replace  "?*1y" "P\\" "q[W](iz^R1t"
+      ;;
+    20)
+      test-replace  "jy\$>" "J4c" "1e[MKkC"
+      ;;
+    21)
+      test-replace  "" "JjC" ">"
+      ;;
+    22)
+      test-replace  "I<" "xLl" "^\\"
+      ;;
+    23)
+      test-replace  "" "8" "C\$Xt}g<1b[AtOk\\&F%-^"
+      ;;
+    24)
+      test-replace  "pj[w" "9YW" "des|x3)sYQ/"
+      ;;
+    25)
+      test-replace  "" "1L^" "4p}:Z/=~cydPx7N"
+      ;;
+    26)
+      test-replace  "iKz" "ww" "Q4:"
+      ;;
+    27)
+      test-replace  "6/O" "6" "pDwL]:HIp@"
+      ;;
+    28)
+      test-replace  "" "9" "VB"
+      ;;
+    29)
+      test-replace  "+" "" "Y"
+      ;;
+    30)
+      test-replace  "}" "1" "n&5qOa<h^C%\`O#"
+      ;;
+esac

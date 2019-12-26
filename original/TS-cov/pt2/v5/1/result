@@ -1,0 +1,2803 @@
+***************coverageTC/v5
+gcc -D_GNUCC -E -DCIL=1 coverageTC/v5/pt5.c -o coverageTC/v5/pt5.i
+coverageTC/v5/pt5.c:20:1: warning: "EOF" redefined
+In file included from /usr/include/stdio.h:75,
+                 from coverageTC/v5/pt5.c:14:
+/usr/include/libio.h:90:1: warning: this is the location of the previous definition
+/usr/local/bin/cilly.native --out coverageTC/v5/pt5.cil.c --noPrintLn --useLogicalOperators coverageTC/v5/pt5.i
+coverageTC/v5/pt5.c:276: Warning: Body of function print_token falls-through. Adding a return statement
+coverageTC/v5/pt5.c:417: Warning: Body of function unget_error falls-through. Adding a return statement
+gcc -D_GNUCC -E coverageTC/v5/pt5.cil.c -o coverageTC/v5/pt5.cil.i
+gcc -D_GNUCC -c -o coverageTC/v5/pt5.o coverageTC/v5/pt5.cil.i
+coverageTC/v5/pt5.cil.c: In function ‘get_token’:
+coverageTC/v5/pt5.cil.c:141: warning: passing argument 1 of ‘unget_error’ from incompatible pointer type
+coverageTC/v5/pt5.cil.c:29: note: expected ‘char **’ but argument is of type ‘token_stream’
+coverageTC/v5/pt5.cil.c:149: warning: passing argument 1 of ‘unget_error’ from incompatible pointer type
+coverageTC/v5/pt5.cil.c:29: note: expected ‘char **’ but argument is of type ‘token_stream’
+coverageTC/v5/pt5.cil.c:161: warning: passing argument 1 of ‘unget_error’ from incompatible pointer type
+coverageTC/v5/pt5.cil.c:29: note: expected ‘char **’ but argument is of type ‘token_stream’
+coverageTC/v5/pt5.cil.c: At top level:
+coverageTC/v5/pt5.cil.c:576: warning: conflicting types for built-in function ‘exit’
+gcc -D_GNUCC -o a.out coverageTC/v5/pt5.o
+$ cp coverageTC/v5/pt5.cil.i /tmp/CETI_5cc6c7/pt5.cil.i
+Read tcs from 'coverageTC/v5/Outer.inputs' and 'coverageTC/v5/outputs/' for '/tmp/CETI_5cc6c7/pt5.cil.i'
+input length='33' output length='33'
+|tcs|=33
+*** Get good/bad tcs ***
+cmd 'gcc /tmp/CETI_5cc6c7/pt5.cil.i -o /tmp/CETI_5cc6c7/pt5.cil.i.exe >& /dev/null'
+$ gcc /tmp/CETI_5cc6c7/pt5.cil.i -o /tmp/CETI_5cc6c7/pt5.cil.i.exe >& /dev/null
+Script /tmp/CETI_5cc6c7/pt5.cil.i.sh
+#!/bin/bash
+mkdir /tmp/CETI_5cc6c7/output
+($1 '\n' >> /tmp/CETI_5cc6c7/output/O1) ;
+($1 '\n\n' >> /tmp/CETI_5cc6c7/output/O2) ;
+($1 '"' >> /tmp/CETI_5cc6c7/output/O3) ;
+($1 'w' >> /tmp/CETI_5cc6c7/output/O4) ;
+($1 '9' >> /tmp/CETI_5cc6c7/output/O5) ;
+($1 '#' >> /tmp/CETI_5cc6c7/output/O6) ;
+($1 ';' >> /tmp/CETI_5cc6c7/output/O7) ;
+($1 '\xff' >> /tmp/CETI_5cc6c7/output/O8) ;
+($1 ';\n' >> /tmp/CETI_5cc6c7/output/O9) ;
+($1 '"\xfd' >> /tmp/CETI_5cc6c7/output/O10) ;
+($1 '""' >> /tmp/CETI_5cc6c7/output/O11) ;
+($1 '"\n' >> /tmp/CETI_5cc6c7/output/O12) ;
+($1 ';\xf5' >> /tmp/CETI_5cc6c7/output/O13) ;
+($1 ';\xf5\n' >> /tmp/CETI_5cc6c7/output/O14) ;
+($1 '"\xfd"' >> /tmp/CETI_5cc6c7/output/O15) ;
+($1 'xx' >> /tmp/CETI_5cc6c7/output/O16) ;
+($1 'x_' >> /tmp/CETI_5cc6c7/output/O17) ;
+($1 'x9' >> /tmp/CETI_5cc6c7/output/O18) ;
+($1 '"""' >> /tmp/CETI_5cc6c7/output/O19) ;
+($1 '97' >> /tmp/CETI_5cc6c7/output/O20) ;
+($1 '#{' >> /tmp/CETI_5cc6c7/output/O21) ;
+($1 '#x' >> /tmp/CETI_5cc6c7/output/O22) ;
+($1 '#\n' >> /tmp/CETI_5cc6c7/output/O23) ;
+($1 '""w' >> /tmp/CETI_5cc6c7/output/O24) ;
+($1 '""9' >> /tmp/CETI_5cc6c7/output/O25) ;
+($1 ';\n;' >> /tmp/CETI_5cc6c7/output/O26) ;
+($1 '"\n9' >> /tmp/CETI_5cc6c7/output/O27) ;
+($1 '""#' >> /tmp/CETI_5cc6c7/output/O28) ;
+($1 '""[' >> /tmp/CETI_5cc6c7/output/O29) ;
+($1 '#;' >> /tmp/CETI_5cc6c7/output/O30) ;
+($1 '#x\xd5' >> /tmp/CETI_5cc6c7/output/O31) ;
+($1 '"\n#x' >> /tmp/CETI_5cc6c7/output/O32) ;
+($1 '""#x' >> /tmp/CETI_5cc6c7/output/O33) ;
+wait
+exit 0
+
+write_file_str: '/tmp/CETI_5cc6c7/pt5.cil.i.sh'
+$ sh /tmp/CETI_5cc6c7/pt5.cil.i.sh /tmp/CETI_5cc6c7/pt5.cil.i.exe &> /dev/null
+[35mAlert: 6/33 tests failed. Processing ..
+[m(Return) break return (fp);
+to
+__cil_tmp3 = fp;
+return (__cil_tmp3);
+(If) break if ((int )ch != 0) {
+             (*fp) ++;
+}
+ ton__cil_tmp3 = (int )ch != 0;
+if (__cil_tmp3) {
+  (*fp) ++;
+}
+(Return) break return (ch);
+to
+__cil_tmp4 = ch;
+return (__cil_tmp4);
+(Return) break return (c);
+to
+__cil_tmp4 = c;
+return (__cil_tmp4);
+(Return) break return (c);
+to
+__cil_tmp5 = c;
+return (__cil_tmp5);
+(If) break if ((int )ch != 0) {
+             (*fp) --;
+}
+ ton__cil_tmp6 = (int )ch != 0;
+if (__cil_tmp6) {
+  (*fp) --;
+}
+(If) break if ((int )c == 0) {
+             __cil_tmp4 = c;
+             return (__cil_tmp4);
+} else {
+  __cil_tmp5 = c;
+  return (__cil_tmp5);
+}
+ ton__cil_tmp7 = (int )c == 0;
+if (__cil_tmp7) {
+  __cil_tmp4 = c;
+  return (__cil_tmp4);
+} else {
+  __cil_tmp5 = c;
+  return (__cil_tmp5);
+}
+(If) break if (tmp == 0) {
+             fp = open_character_stream((char *)((void *)0));
+} else {
+  fp = open_character_stream(fname);
+}
+ ton__cil_tmp4 = tmp == 0;
+if (__cil_tmp4) {
+  fp = open_character_stream((char *)((void *)0));
+} else {
+  fp = open_character_stream(fname);
+}
+(Return) break return (fp);
+to
+__cil_tmp5 = fp;
+return (__cil_tmp5);
+(If) break if (! (j <= 80)) {
+             break;
+}
+ ton__cil_tmp12 = j <= 80;
+if (! __cil_tmp12) {
+  break;
+}
+(If) break if (! ((int )ch == 32 || (int )ch == 10)) {
+             break;
+}
+ ton__cil_tmp13 = (int )ch == 32 || (int )ch == 10;
+if (! __cil_tmp13) {
+  break;
+}
+(Return) break return (buffer);
+to
+__cil_tmp14 = buffer;
+return (__cil_tmp14);
+(Return) break return (buffer);
+to
+__cil_tmp15 = buffer;
+return (__cil_tmp15);
+(If) break if (! (tmp___1 == 0)) {
+             break;
+}
+ ton__cil_tmp16 = ! (tmp___1 == 0);
+if (__cil_tmp16) {
+  break;
+}
+(If) break if ((int )ch == 0) {
+             unget_error((character_stream *)*tp);
+}
+ ton__cil_tmp17 = (int )ch == 0;
+if (__cil_tmp17) {
+  unget_error((character_stream *)*tp);
+}
+(Return) break return (buffer);
+to
+__cil_tmp18 = buffer;
+return (__cil_tmp18);
+(If) break if ((int )ch == 0) {
+             unget_error((character_stream *)*tp);
+}
+ ton__cil_tmp19 = (int )ch == 0;
+if (__cil_tmp19) {
+  unget_error((character_stream *)*tp);
+}
+(Return) break return (buffer);
+to
+__cil_tmp20 = buffer;
+return (__cil_tmp20);
+(Return) break return (buffer);
+to
+__cil_tmp21 = buffer;
+return (__cil_tmp21);
+(If) break if ((int )ch == 0) {
+             unget_error((character_stream *)*tp);
+}
+ ton__cil_tmp22 = (int )ch == 0;
+if (__cil_tmp22) {
+  unget_error((character_stream *)*tp);
+}
+(Return) break return (buffer);
+to
+__cil_tmp23 = buffer;
+return (__cil_tmp23);
+(If) break if (tmp == 1) {
+             __cil_tmp14 = buffer;
+             return (__cil_tmp14);
+}
+ ton__cil_tmp24 = tmp == 1;
+if (__cil_tmp24) {
+  __cil_tmp14 = buffer;
+  return (__cil_tmp14);
+}
+(If) break if (tmp___0 == 1) {
+             __cil_tmp15 = buffer;
+             return (__cil_tmp15);
+}
+ ton__cil_tmp25 = tmp___0 == 1;
+if (__cil_tmp25) {
+  __cil_tmp15 = buffer;
+  return (__cil_tmp15);
+}
+(If) break if ((int )ch == 34) {
+             id = 1;
+}
+ ton__cil_tmp26 = (int )ch == 34;
+if (__cil_tmp26) {
+  id = 1;
+}
+(If) break if ((int )ch == 59) {
+             id = 2;
+}
+ ton__cil_tmp27 = (int )ch == 59;
+if (__cil_tmp27) {
+  id = 2;
+}
+(If) break if (tmp___2 == 1) {
+             ch = unget_char(ch, tp);
+             __cil_tmp17 = (int )ch == 0;
+             if (__cil_tmp17) {
+               unget_error((character_stream *)*tp);
+             }
+             __cil_tmp18 = buffer;
+             return (__cil_tmp18);
+}
+ ton__cil_tmp28 = tmp___2 == 1;
+if (__cil_tmp28) {
+  ch = unget_char(ch, tp);
+  __cil_tmp17 = (int )ch == 0;
+  if (__cil_tmp17) {
+    unget_error((character_stream *)*tp);
+  }
+  __cil_tmp18 = buffer;
+  return (__cil_tmp18);
+}
+(If) break if (tmp___3 == 1) {
+             ch = unget_char(ch, tp);
+             __cil_tmp19 = (int )ch == 0;
+             if (__cil_tmp19) {
+               unget_error((character_stream *)*tp);
+             }
+             __cil_tmp20 = buffer;
+             return (__cil_tmp20);
+}
+ ton__cil_tmp29 = tmp___3 == 1;
+if (__cil_tmp29) {
+  ch = unget_char(ch, tp);
+  __cil_tmp19 = (int )ch == 0;
+  if (__cil_tmp19) {
+    unget_error((character_stream *)*tp);
+  }
+  __cil_tmp20 = buffer;
+  return (__cil_tmp20);
+}
+(If) break if (id == 1) {
+             i ++;
+             buffer[i] = ch;
+             __cil_tmp21 = buffer;
+             return (__cil_tmp21);
+}
+ ton__cil_tmp30 = id == 1;
+if (__cil_tmp30) {
+  i ++;
+  buffer[i] = ch;
+  __cil_tmp21 = buffer;
+  return (__cil_tmp21);
+}
+(If) break if (id == 0 && (int )ch == 59) {
+             ch = unget_char(ch, tp);
+             __cil_tmp22 = (int )ch == 0;
+             if (__cil_tmp22) {
+               unget_error((character_stream *)*tp);
+             }
+             __cil_tmp23 = buffer;
+             return (__cil_tmp23);
+}
+ ton__cil_tmp31 = id == 0 && (int )ch == 59;
+if (__cil_tmp31) {
+  ch = unget_char(ch, tp);
+  __cil_tmp22 = (int )ch == 0;
+  if (__cil_tmp22) {
+    unget_error((character_stream *)*tp);
+  }
+  __cil_tmp23 = buffer;
+  return (__cil_tmp23);
+}
+(Return) break return (buffer);
+to
+__cil_tmp32 = buffer;
+return (__cil_tmp32);
+(Return) break return (1);
+to
+__cil_tmp6 = 1;
+return (__cil_tmp6);
+(Return) break return (1);
+to
+__cil_tmp7 = 1;
+return (__cil_tmp7);
+(Return) break return (0);
+to
+__cil_tmp8 = 0;
+return (__cil_tmp8);
+(If) break if (((int )ch == 34) | ((int )ch == 10)) {
+             __cil_tmp7 = 1;
+             return (__cil_tmp7);
+} else {
+  __cil_tmp8 = 0;
+  return (__cil_tmp8);
+}
+ ton__cil_tmp9 = ((int )ch == 34) | ((int )ch == 10);
+if (__cil_tmp9) {
+  __cil_tmp7 = 1;
+  return (__cil_tmp7);
+} else {
+  __cil_tmp8 = 0;
+  return (__cil_tmp8);
+}
+(Return) break return (1);
+to
+__cil_tmp10 = 1;
+return (__cil_tmp10);
+(Return) break return (0);
+to
+__cil_tmp11 = 0;
+return (__cil_tmp11);
+(If) break if ((int )ch == 10) {
+             __cil_tmp10 = 1;
+             return (__cil_tmp10);
+} else {
+  __cil_tmp11 = 0;
+  return (__cil_tmp11);
+}
+ ton__cil_tmp12 = (int )ch == 10;
+if (__cil_tmp12) {
+  __cil_tmp10 = 1;
+  return (__cil_tmp10);
+} else {
+  __cil_tmp11 = 0;
+  return (__cil_tmp11);
+}
+(Return) break return (1);
+to
+__cil_tmp13 = 1;
+return (__cil_tmp13);
+(Return) break return (1);
+to
+__cil_tmp14 = 1;
+return (__cil_tmp14);
+(If) break if (tmp == 1) {
+             __cil_tmp6 = 1;
+             return (__cil_tmp6);
+}
+ ton__cil_tmp15 = tmp == 1;
+if (__cil_tmp15) {
+  __cil_tmp6 = 1;
+  return (__cil_tmp6);
+}
+(If) break if (str_com_id == 1) {
+             __cil_tmp9 = ((int )ch == 34) | ((int )ch == 10);
+             if (__cil_tmp9) {
+               __cil_tmp7 = 1;
+               return (__cil_tmp7);
+             } else {
+               __cil_tmp8 = 0;
+               return (__cil_tmp8);
+             }
+}
+ ton__cil_tmp16 = str_com_id == 1;
+if (__cil_tmp16) {
+  __cil_tmp9 = ((int )ch == 34) | ((int )ch == 10);
+  if (__cil_tmp9) {
+    __cil_tmp7 = 1;
+    return (__cil_tmp7);
+  } else {
+    __cil_tmp8 = 0;
+    return (__cil_tmp8);
+  }
+}
+(If) break if (str_com_id == 2) {
+             __cil_tmp12 = (int )ch == 10;
+             if (__cil_tmp12) {
+               __cil_tmp10 = 1;
+               return (__cil_tmp10);
+             } else {
+               __cil_tmp11 = 0;
+               return (__cil_tmp11);
+             }
+}
+ ton__cil_tmp17 = str_com_id == 2;
+if (__cil_tmp17) {
+  __cil_tmp12 = (int )ch == 10;
+  if (__cil_tmp12) {
+    __cil_tmp10 = 1;
+    return (__cil_tmp10);
+  } else {
+    __cil_tmp11 = 0;
+    return (__cil_tmp11);
+  }
+}
+(If) break if (tmp___0 == 1) {
+             __cil_tmp13 = 1;
+             return (__cil_tmp13);
+}
+ ton__cil_tmp18 = tmp___0 == 1;
+if (__cil_tmp18) {
+  __cil_tmp13 = 1;
+  return (__cil_tmp13);
+}
+(If) break if (((int )ch == 32 || (int )ch == 10) || (int )ch == 59) {
+             __cil_tmp14 = 1;
+             return (__cil_tmp14);
+}
+ ton__cil_tmp19 = ((int )ch == 32 || (int )ch == 10) || (int )ch == 59;
+if (__cil_tmp19) {
+  __cil_tmp14 = 1;
+  return (__cil_tmp14);
+}
+(Return) break return (0);
+to
+__cil_tmp20 = 0;
+return (__cil_tmp20);
+(Return) break return (1);
+to
+__cil_tmp10 = 1;
+return (__cil_tmp10);
+(Return) break return (2);
+to
+__cil_tmp11 = 2;
+return (__cil_tmp11);
+(Return) break return (3);
+to
+__cil_tmp12 = 3;
+return (__cil_tmp12);
+(Return) break return (41);
+to
+__cil_tmp13 = 41;
+return (__cil_tmp13);
+(Return) break return (42);
+to
+__cil_tmp14 = 42;
+return (__cil_tmp14);
+(Return) break return (43);
+to
+__cil_tmp15 = 43;
+return (__cil_tmp15);
+(Return) break return (5);
+to
+__cil_tmp16 = 5;
+return (__cil_tmp16);
+(Return) break return (6);
+to
+__cil_tmp17 = 6;
+return (__cil_tmp17);
+(If) break if (tmp) {
+             __cil_tmp10 = 1;
+             return (__cil_tmp10);
+}
+ ton__cil_tmp18 = tmp;
+if (__cil_tmp18) {
+  __cil_tmp10 = 1;
+  return (__cil_tmp10);
+}
+(If) break if (tmp___0) {
+             __cil_tmp11 = 2;
+             return (__cil_tmp11);
+}
+ ton__cil_tmp19 = tmp___0;
+if (__cil_tmp19) {
+  __cil_tmp11 = 2;
+  return (__cil_tmp11);
+}
+(If) break if (tmp___1) {
+             __cil_tmp12 = 3;
+             return (__cil_tmp12);
+}
+ ton__cil_tmp20 = tmp___1;
+if (__cil_tmp20) {
+  __cil_tmp12 = 3;
+  return (__cil_tmp12);
+}
+(If) break if (tmp___2) {
+             __cil_tmp13 = 41;
+             return (__cil_tmp13);
+}
+ ton__cil_tmp21 = tmp___2;
+if (__cil_tmp21) {
+  __cil_tmp13 = 41;
+  return (__cil_tmp13);
+}
+(If) break if (tmp___3) {
+             __cil_tmp14 = 42;
+             return (__cil_tmp14);
+}
+ ton__cil_tmp22 = tmp___3;
+if (__cil_tmp22) {
+  __cil_tmp14 = 42;
+  return (__cil_tmp14);
+}
+(If) break if (tmp___4) {
+             __cil_tmp15 = 43;
+             return (__cil_tmp15);
+}
+ ton__cil_tmp23 = tmp___4;
+if (__cil_tmp23) {
+  __cil_tmp15 = 43;
+  return (__cil_tmp15);
+}
+(If) break if (tmp___5) {
+             __cil_tmp16 = 5;
+             return (__cil_tmp16);
+}
+ ton__cil_tmp24 = tmp___5;
+if (__cil_tmp24) {
+  __cil_tmp16 = 5;
+  return (__cil_tmp16);
+}
+(If) break if (tmp___6) {
+             __cil_tmp17 = 6;
+             return (__cil_tmp17);
+}
+ ton__cil_tmp25 = tmp___6;
+if (__cil_tmp25) {
+  __cil_tmp17 = 6;
+  return (__cil_tmp17);
+}
+(Return) break return (0);
+to
+__cil_tmp26 = 0;
+return (__cil_tmp26);
+(If) break if (type == 0) {
+             strcat((char */* __restrict  */)r,
+                    (char const   */* __restrict  */)"error,\"");
+             strcat((char */* __restrict  */)r,
+                    (char const   */* __restrict  */)tok);
+             strcat((char */* __restrict  */)r,
+                    (char const   */* __restrict  */)"\".\n");
+}
+ ton__cil_tmp4 = type == 0;
+if (__cil_tmp4) {
+  strcat((char */* __restrict  */)r, (char const   */* __restrict  */)"error,\"");
+  strcat((char */* __restrict  */)r, (char const   */* __restrict  */)tok);
+  strcat((char */* __restrict  */)r, (char const   */* __restrict  */)"\".\n");
+}
+(If) break if (type == 1) {
+             strcat((char */* __restrict  */)r,
+                    (char const   */* __restrict  */)"keyword,\"");
+             strcat((char */* __restrict  */)r,
+                    (char const   */* __restrict  */)tok);
+             strcat((char */* __restrict  */)r,
+                    (char const   */* __restrict  */)"\".\n");
+}
+ ton__cil_tmp5 = type == 1;
+if (__cil_tmp5) {
+  strcat((char */* __restrict  */)r,
+         (char const   */* __restrict  */)"keyword,\"");
+  strcat((char */* __restrict  */)r, (char const   */* __restrict  */)tok);
+  strcat((char */* __restrict  */)r, (char const   */* __restrict  */)"\".\n");
+}
+(If) break if (type == 2) {
+             print_spec_symbol(tok, r);
+}
+ ton__cil_tmp6 = type == 2;
+if (__cil_tmp6) {
+  print_spec_symbol(tok, r);
+}
+(If) break if (type == 3) {
+             strcat((char */* __restrict  */)r,
+                    (char const   */* __restrict  */)"identifier,\"");
+             strcat((char */* __restrict  */)r,
+                    (char const   */* __restrict  */)tok);
+             strcat((char */* __restrict  */)r,
+                    (char const   */* __restrict  */)"\".\n");
+}
+ ton__cil_tmp7 = type == 3;
+if (__cil_tmp7) {
+  strcat((char */* __restrict  */)r,
+         (char const   */* __restrict  */)"identifier,\"");
+  strcat((char */* __restrict  */)r, (char const   */* __restrict  */)tok);
+  strcat((char */* __restrict  */)r, (char const   */* __restrict  */)"\".\n");
+}
+(If) break if (type == 41) {
+             strcat((char */* __restrict  */)r,
+                    (char const   */* __restrict  */)"numeric,");
+             strcat((char */* __restrict  */)r,
+                    (char const   */* __restrict  */)tok);
+             strcat((char */* __restrict  */)r,
+                    (char const   */* __restrict  */)".\n");
+}
+ ton__cil_tmp8 = type == 41;
+if (__cil_tmp8) {
+  strcat((char */* __restrict  */)r, (char const   */* __restrict  */)"numeric,");
+  strcat((char */* __restrict  */)r, (char const   */* __restrict  */)tok);
+  strcat((char */* __restrict  */)r, (char const   */* __restrict  */)".\n");
+}
+(If) break if (type == 42) {
+             strcat((char */* __restrict  */)r,
+                    (char const   */* __restrict  */)"string,");
+             strcat((char */* __restrict  */)r,
+                    (char const   */* __restrict  */)tok);
+             strcat((char */* __restrict  */)r,
+                    (char const   */* __restrict  */)".\n");
+}
+ ton__cil_tmp9 = type == 42;
+if (__cil_tmp9) {
+  strcat((char */* __restrict  */)r, (char const   */* __restrict  */)"string,");
+  strcat((char */* __restrict  */)r, (char const   */* __restrict  */)tok);
+  strcat((char */* __restrict  */)r, (char const   */* __restrict  */)".\n");
+}
+(If) break if (type == 43) {
+             tok ++;
+             strcat((char */* __restrict  */)r,
+                    (char const   */* __restrict  */)"character,\"");
+             strcat((char */* __restrict  */)r,
+                    (char const   */* __restrict  */)tok);
+             strcat((char */* __restrict  */)r,
+                    (char const   */* __restrict  */)"\".\n");
+}
+ ton__cil_tmp10 = type == 43;
+if (__cil_tmp10) {
+  tok ++;
+  strcat((char */* __restrict  */)r,
+         (char const   */* __restrict  */)"character,\"");
+  strcat((char */* __restrict  */)r, (char const   */* __restrict  */)tok);
+  strcat((char */* __restrict  */)r, (char const   */* __restrict  */)"\".\n");
+}
+(If) break if (type == 6) {
+             strcat((char */* __restrict  */)r,
+                    (char const   */* __restrict  */)"eof.\n");
+}
+ ton__cil_tmp11 = type == 6;
+if (__cil_tmp11) {
+  strcat((char */* __restrict  */)r, (char const   */* __restrict  */)"eof.\n");
+}
+(Return) break return (0);
+to
+__cil_tmp12 = 0;
+return (__cil_tmp12);
+(Return) break return (1);
+to
+__cil_tmp2 = 1;
+return (__cil_tmp2);
+(Return) break return (0);
+to
+__cil_tmp3 = 0;
+return (__cil_tmp3);
+(If) break if ((int )*tok == 0) {
+             __cil_tmp2 = 1;
+             return (__cil_tmp2);
+} else {
+  __cil_tmp3 = 0;
+  return (__cil_tmp3);
+}
+ ton__cil_tmp4 = (int )*tok == 0;
+if (__cil_tmp4) {
+  __cil_tmp2 = 1;
+  return (__cil_tmp2);
+} else {
+  __cil_tmp3 = 0;
+  return (__cil_tmp3);
+}
+(Return) break return (1);
+to
+__cil_tmp2 = 1;
+return (__cil_tmp2);
+(Return) break return (0);
+to
+__cil_tmp3 = 0;
+return (__cil_tmp3);
+(If) break if ((int )*ident == 59) {
+             __cil_tmp2 = 1;
+             return (__cil_tmp2);
+} else {
+  __cil_tmp3 = 0;
+  return (__cil_tmp3);
+}
+ ton__cil_tmp4 = (int )*ident == 59;
+if (__cil_tmp4) {
+  __cil_tmp2 = 1;
+  return (__cil_tmp2);
+} else {
+  __cil_tmp3 = 0;
+  return (__cil_tmp3);
+}
+(Return) break return (0);
+to
+__cil_tmp8 = 0;
+return (__cil_tmp8);
+(Return) break return (1);
+to
+__cil_tmp9 = 1;
+return (__cil_tmp9);
+(If) break if (tmp___4) {
+             __cil_tmp8 = 0;
+             return (__cil_tmp8);
+} else {
+  __cil_tmp9 = 1;
+  return (__cil_tmp9);
+}
+ ton__cil_tmp10 = tmp___4;
+if (__cil_tmp10) {
+  __cil_tmp8 = 0;
+  return (__cil_tmp8);
+} else {
+  __cil_tmp9 = 1;
+  return (__cil_tmp9);
+}
+(Return) break return (1);
+to
+__cil_tmp11 = 1;
+return (__cil_tmp11);
+(If) break if (tmp___3) {
+             tmp___4 = strcmp((char const   *)str, "=>");
+             __cil_tmp10 = tmp___4;
+             if (__cil_tmp10) {
+               __cil_tmp8 = 0;
+               return (__cil_tmp8);
+             } else {
+               __cil_tmp9 = 1;
+               return (__cil_tmp9);
+             }
+} else {
+  __cil_tmp11 = 1;
+  return (__cil_tmp11);
+}
+ ton__cil_tmp12 = tmp___3;
+if (__cil_tmp12) {
+  tmp___4 = strcmp((char const   *)str, "=>");
+  __cil_tmp10 = tmp___4;
+  if (__cil_tmp10) {
+    __cil_tmp8 = 0;
+    return (__cil_tmp8);
+  } else {
+    __cil_tmp9 = 1;
+    return (__cil_tmp9);
+  }
+} else {
+  __cil_tmp11 = 1;
+  return (__cil_tmp11);
+}
+(Return) break return (1);
+to
+__cil_tmp13 = 1;
+return (__cil_tmp13);
+(If) break if (tmp___2) {
+             tmp___3 = strcmp((char const   *)str, "lambda");
+             __cil_tmp12 = tmp___3;
+             if (__cil_tmp12) {
+               tmp___4 = strcmp((char const   *)str, "=>");
+               __cil_tmp10 = tmp___4;
+               if (__cil_tmp10) {
+                 __cil_tmp8 = 0;
+                 return (__cil_tmp8);
+               } else {
+                 __cil_tmp9 = 1;
+                 return (__cil_tmp9);
+               }
+             } else {
+               __cil_tmp11 = 1;
+               return (__cil_tmp11);
+             }
+} else {
+  __cil_tmp13 = 1;
+  return (__cil_tmp13);
+}
+ ton__cil_tmp14 = tmp___2;
+if (__cil_tmp14) {
+  tmp___3 = strcmp((char const   *)str, "lambda");
+  __cil_tmp12 = tmp___3;
+  if (__cil_tmp12) {
+    tmp___4 = strcmp((char const   *)str, "=>");
+    __cil_tmp10 = tmp___4;
+    if (__cil_tmp10) {
+      __cil_tmp8 = 0;
+      return (__cil_tmp8);
+    } else {
+      __cil_tmp9 = 1;
+      return (__cil_tmp9);
+    }
+  } else {
+    __cil_tmp11 = 1;
+    return (__cil_tmp11);
+  }
+} else {
+  __cil_tmp13 = 1;
+  return (__cil_tmp13);
+}
+(Return) break return (1);
+to
+__cil_tmp15 = 1;
+return (__cil_tmp15);
+(If) break if (tmp___1) {
+             tmp___2 = strcmp((char const   *)str, "xor");
+             __cil_tmp14 = tmp___2;
+             if (__cil_tmp14) {
+               tmp___3 = strcmp((char const   *)str, "lambda");
+               __cil_tmp12 = tmp___3;
+               if (__cil_tmp12) {
+                 tmp___4 = strcmp((char const   *)str, "=>");
+                 __cil_tmp10 = tmp___4;
+                 if (__cil_tmp10) {
+                   __cil_tmp8 = 0;
+                   return (__cil_tmp8);
+                 } else {
+                   __cil_tmp9 = 1;
+                   return (__cil_tmp9);
+                 }
+               } else {
+                 __cil_tmp11 = 1;
+                 return (__cil_tmp11);
+               }
+             } else {
+               __cil_tmp13 = 1;
+               return (__cil_tmp13);
+             }
+} else {
+  __cil_tmp15 = 1;
+  return (__cil_tmp15);
+}
+ ton__cil_tmp16 = tmp___1;
+if (__cil_tmp16) {
+  tmp___2 = strcmp((char const   *)str, "xor");
+  __cil_tmp14 = tmp___2;
+  if (__cil_tmp14) {
+    tmp___3 = strcmp((char const   *)str, "lambda");
+    __cil_tmp12 = tmp___3;
+    if (__cil_tmp12) {
+      tmp___4 = strcmp((char const   *)str, "=>");
+      __cil_tmp10 = tmp___4;
+      if (__cil_tmp10) {
+        __cil_tmp8 = 0;
+        return (__cil_tmp8);
+      } else {
+        __cil_tmp9 = 1;
+        return (__cil_tmp9);
+      }
+    } else {
+      __cil_tmp11 = 1;
+      return (__cil_tmp11);
+    }
+  } else {
+    __cil_tmp13 = 1;
+    return (__cil_tmp13);
+  }
+} else {
+  __cil_tmp15 = 1;
+  return (__cil_tmp15);
+}
+(Return) break return (1);
+to
+__cil_tmp17 = 1;
+return (__cil_tmp17);
+(If) break if (tmp___0) {
+             tmp___1 = strcmp((char const   *)str, "if");
+             __cil_tmp16 = tmp___1;
+             if (__cil_tmp16) {
+               tmp___2 = strcmp((char const   *)str, "xor");
+               __cil_tmp14 = tmp___2;
+               if (__cil_tmp14) {
+                 tmp___3 = strcmp((char const   *)str, "lambda");
+                 __cil_tmp12 = tmp___3;
+                 if (__cil_tmp12) {
+                   tmp___4 = strcmp((char const   *)str, "=>");
+                   __cil_tmp10 = tmp___4;
+                   if (__cil_tmp10) {
+                     __cil_tmp8 = 0;
+                     return (__cil_tmp8);
+                   } else {
+                     __cil_tmp9 = 1;
+                     return (__cil_tmp9);
+                   }
+                 } else {
+                   __cil_tmp11 = 1;
+                   return (__cil_tmp11);
+                 }
+               } else {
+                 __cil_tmp13 = 1;
+                 return (__cil_tmp13);
+               }
+             } else {
+               __cil_tmp15 = 1;
+               return (__cil_tmp15);
+             }
+} else {
+  __cil_tmp17 = 1;
+  return (__cil_tmp17);
+}
+ ton__cil_tmp18 = tmp___0;
+if (__cil_tmp18) {
+  tmp___1 = strcmp((char const   *)str, "if");
+  __cil_tmp16 = tmp___1;
+  if (__cil_tmp16) {
+    tmp___2 = strcmp((char const   *)str, "xor");
+    __cil_tmp14 = tmp___2;
+    if (__cil_tmp14) {
+      tmp___3 = strcmp((char const   *)str, "lambda");
+      __cil_tmp12 = tmp___3;
+      if (__cil_tmp12) {
+        tmp___4 = strcmp((char const   *)str, "=>");
+        __cil_tmp10 = tmp___4;
+        if (__cil_tmp10) {
+          __cil_tmp8 = 0;
+          return (__cil_tmp8);
+        } else {
+          __cil_tmp9 = 1;
+          return (__cil_tmp9);
+        }
+      } else {
+        __cil_tmp11 = 1;
+        return (__cil_tmp11);
+      }
+    } else {
+      __cil_tmp13 = 1;
+      return (__cil_tmp13);
+    }
+  } else {
+    __cil_tmp15 = 1;
+    return (__cil_tmp15);
+  }
+} else {
+  __cil_tmp17 = 1;
+  return (__cil_tmp17);
+}
+(Return) break return (1);
+to
+__cil_tmp19 = 1;
+return (__cil_tmp19);
+(If) break if (tmp) {
+             tmp___0 = strcmp((char const   *)str, "or");
+             __cil_tmp18 = tmp___0;
+             if (__cil_tmp18) {
+               tmp___1 = strcmp((char const   *)str, "if");
+               __cil_tmp16 = tmp___1;
+               if (__cil_tmp16) {
+                 tmp___2 = strcmp((char const   *)str, "xor");
+                 __cil_tmp14 = tmp___2;
+                 if (__cil_tmp14) {
+                   tmp___3 = strcmp((char const   *)str, "lambda");
+                   __cil_tmp12 = tmp___3;
+                   if (__cil_tmp12) {
+                     tmp___4 = strcmp((char const   *)str, "=>");
+                     __cil_tmp10 = tmp___4;
+                     if (__cil_tmp10) {
+                       __cil_tmp8 = 0;
+                       return (__cil_tmp8);
+                     } else {
+                       __cil_tmp9 = 1;
+                       return (__cil_tmp9);
+                     }
+                   } else {
+                     __cil_tmp11 = 1;
+                     return (__cil_tmp11);
+                   }
+                 } else {
+                   __cil_tmp13 = 1;
+                   return (__cil_tmp13);
+                 }
+               } else {
+                 __cil_tmp15 = 1;
+                 return (__cil_tmp15);
+               }
+             } else {
+               __cil_tmp17 = 1;
+               return (__cil_tmp17);
+             }
+} else {
+  __cil_tmp19 = 1;
+  return (__cil_tmp19);
+}
+ ton__cil_tmp20 = tmp;
+if (__cil_tmp20) {
+  tmp___0 = strcmp((char const   *)str, "or");
+  __cil_tmp18 = tmp___0;
+  if (__cil_tmp18) {
+    tmp___1 = strcmp((char const   *)str, "if");
+    __cil_tmp16 = tmp___1;
+    if (__cil_tmp16) {
+      tmp___2 = strcmp((char const   *)str, "xor");
+      __cil_tmp14 = tmp___2;
+      if (__cil_tmp14) {
+        tmp___3 = strcmp((char const   *)str, "lambda");
+        __cil_tmp12 = tmp___3;
+        if (__cil_tmp12) {
+          tmp___4 = strcmp((char const   *)str, "=>");
+          __cil_tmp10 = tmp___4;
+          if (__cil_tmp10) {
+            __cil_tmp8 = 0;
+            return (__cil_tmp8);
+          } else {
+            __cil_tmp9 = 1;
+            return (__cil_tmp9);
+          }
+        } else {
+          __cil_tmp11 = 1;
+          return (__cil_tmp11);
+        }
+      } else {
+        __cil_tmp13 = 1;
+        return (__cil_tmp13);
+      }
+    } else {
+      __cil_tmp15 = 1;
+      return (__cil_tmp15);
+    }
+  } else {
+    __cil_tmp17 = 1;
+    return (__cil_tmp17);
+  }
+} else {
+  __cil_tmp19 = 1;
+  return (__cil_tmp19);
+}
+(Return) break return (1);
+to
+__cil_tmp3 = 1;
+return (__cil_tmp3);
+(Return) break return (0);
+to
+__cil_tmp4 = 0;
+return (__cil_tmp4);
+(If) break if ((int const   )*(*tmp + (int )*(str + 1)) & 1024) {
+             __cil_tmp3 = 1;
+             return (__cil_tmp3);
+} else {
+  __cil_tmp4 = 0;
+  return (__cil_tmp4);
+}
+ ton__cil_tmp5 = (int const   )*(*tmp + (int )*(str + 1)) & 1024;
+if (__cil_tmp5) {
+  __cil_tmp3 = 1;
+  return (__cil_tmp3);
+} else {
+  __cil_tmp4 = 0;
+  return (__cil_tmp4);
+}
+(Return) break return (0);
+to
+__cil_tmp6 = 0;
+return (__cil_tmp6);
+(If) break if ((int )*str == 35) {
+             tmp = __ctype_b_loc();
+             __cil_tmp5 = (int const   )*(*tmp + (int )*(str + 1)) & 1024;
+             if (__cil_tmp5) {
+               __cil_tmp3 = 1;
+               return (__cil_tmp3);
+             } else {
+               __cil_tmp4 = 0;
+               return (__cil_tmp4);
+             }
+} else {
+  __cil_tmp6 = 0;
+  return (__cil_tmp6);
+}
+ ton__cil_tmp7 = (int )*str == 35;
+if (__cil_tmp7) {
+  tmp = __ctype_b_loc();
+  __cil_tmp5 = (int const   )*(*tmp + (int )*(str + 1)) & 1024;
+  if (__cil_tmp5) {
+    __cil_tmp3 = 1;
+    return (__cil_tmp3);
+  } else {
+    __cil_tmp4 = 0;
+    return (__cil_tmp4);
+  }
+} else {
+  __cil_tmp6 = 0;
+  return (__cil_tmp6);
+}
+(Return) break return (0);
+to
+__cil_tmp5 = 0;
+return (__cil_tmp5);
+(If) break if (! ((int )*(str + i) != 0)) {
+             break;
+}
+ ton__cil_tmp6 = (int )*(str + i) != 0;
+if (! __cil_tmp6) {
+  break;
+}
+(If) break if ((int const   )*(*tmp + (int )*(str + i)) & 2048) {
+             i ++;
+} else {
+  __cil_tmp5 = 0;
+  return (__cil_tmp5);
+}
+ ton__cil_tmp7 = (int const   )*(*tmp + (int )*(str + i)) & 2048;
+if (__cil_tmp7) {
+  i ++;
+} else {
+  __cil_tmp5 = 0;
+  return (__cil_tmp5);
+}
+(Return) break return (1);
+to
+__cil_tmp8 = 1;
+return (__cil_tmp8);
+(Return) break return (0);
+to
+__cil_tmp9 = 0;
+return (__cil_tmp9);
+(If) break if ((int const   )*(*tmp___0 + (int )*str) & 2048) {
+             while (1) {
+               __cil_tmp6 = (int )*(str + i) != 0;
+               if (! __cil_tmp6) {
+                 break;
+               }
+               tmp = __ctype_b_loc();
+               __cil_tmp7 = (int const   )*(*tmp + (int )*(str + i)) & 2048;
+               if (__cil_tmp7) {
+                 i ++;
+               } else {
+                 __cil_tmp5 = 0;
+                 return (__cil_tmp5);
+               }
+             }
+             __cil_tmp8 = 1;
+             return (__cil_tmp8);
+} else {
+  __cil_tmp9 = 0;
+  return (__cil_tmp9);
+}
+ ton__cil_tmp10 = (int const   )*(*tmp___0 + (int )*str) & 2048;
+if (__cil_tmp10) {
+  while (1) {
+    __cil_tmp6 = (int )*(str + i) != 0;
+    if (! __cil_tmp6) {
+      break;
+    }
+    tmp = __ctype_b_loc();
+    __cil_tmp7 = (int const   )*(*tmp + (int )*(str + i)) & 2048;
+    if (__cil_tmp7) {
+      i ++;
+    } else {
+      __cil_tmp5 = 0;
+      return (__cil_tmp5);
+    }
+  }
+  __cil_tmp8 = 1;
+  return (__cil_tmp8);
+} else {
+  __cil_tmp9 = 0;
+  return (__cil_tmp9);
+}
+(Return) break return (1);
+to
+__cil_tmp3 = 1;
+return (__cil_tmp3);
+(If) break if (! ((int )*(str + i) != 0)) {
+             break;
+}
+ ton__cil_tmp4 = (int )*(str + i) != 0;
+if (! __cil_tmp4) {
+  break;
+}
+(If) break if ((int )*(str + i) == 34) {
+             __cil_tmp3 = 1;
+             return (__cil_tmp3);
+} else {
+  i ++;
+}
+ ton__cil_tmp5 = (int )*(str + i) == 34;
+if (__cil_tmp5) {
+  __cil_tmp3 = 1;
+  return (__cil_tmp3);
+} else {
+  i ++;
+}
+(Return) break return (1);
+to
+__cil_tmp6 = 1;
+return (__cil_tmp6);
+(Return) break return (0);
+to
+__cil_tmp7 = 0;
+return (__cil_tmp7);
+(If) break if ((int )*str == 34) {
+             while (1) {
+               __cil_tmp4 = (int )*(str + i) != 0;
+               if (! __cil_tmp4) {
+                 break;
+               }
+               __cil_tmp5 = (int )*(str + i) == 34;
+               if (__cil_tmp5) {
+                 __cil_tmp3 = 1;
+                 return (__cil_tmp3);
+               } else {
+                 i ++;
+               }
+             }
+             __cil_tmp6 = 1;
+             return (__cil_tmp6);
+} else {
+  __cil_tmp7 = 0;
+  return (__cil_tmp7);
+}
+ ton__cil_tmp8 = (int )*str == 34;
+if (__cil_tmp8) {
+  while (1) {
+    __cil_tmp4 = (int )*(str + i) != 0;
+    if (! __cil_tmp4) {
+      break;
+    }
+    __cil_tmp5 = (int )*(str + i) == 34;
+    if (__cil_tmp5) {
+      __cil_tmp3 = 1;
+      return (__cil_tmp3);
+    } else {
+      i ++;
+    }
+  }
+  __cil_tmp6 = 1;
+  return (__cil_tmp6);
+} else {
+  __cil_tmp7 = 0;
+  return (__cil_tmp7);
+}
+(Return) break return (0);
+to
+__cil_tmp6 = 0;
+return (__cil_tmp6);
+(If) break if ((int const   )*(*tmp___0 + (int )*(str + i)) & 2048) {
+             i ++;
+} else {
+  __cil_tmp6 = 0;
+  return (__cil_tmp6);
+}
+ ton__cil_tmp7 = (int const   )*(*tmp___0 + (int )*(str + i)) & 2048;
+if (__cil_tmp7) {
+  i ++;
+} else {
+  __cil_tmp6 = 0;
+  return (__cil_tmp6);
+}
+(If) break if (! ((int )*(str + i) != 0)) {
+             break;
+}
+ ton__cil_tmp8 = (int )*(str + i) != 0;
+if (! __cil_tmp8) {
+  break;
+}
+(If) break if ((int const   )*(*tmp + (int )*(str + i)) & 1024) {
+             i ++;
+} else {
+  tmp___0 = __ctype_b_loc();
+  __cil_tmp7 = (int const   )*(*tmp___0 + (int )*(str + i)) & 2048;
+  if (__cil_tmp7) {
+    i ++;
+  } else {
+    __cil_tmp6 = 0;
+    return (__cil_tmp6);
+  }
+}
+ ton__cil_tmp9 = (int const   )*(*tmp + (int )*(str + i)) & 1024;
+if (__cil_tmp9) {
+  i ++;
+} else {
+  tmp___0 = __ctype_b_loc();
+  __cil_tmp7 = (int const   )*(*tmp___0 + (int )*(str + i)) & 2048;
+  if (__cil_tmp7) {
+    i ++;
+  } else {
+    __cil_tmp6 = 0;
+    return (__cil_tmp6);
+  }
+}
+(Return) break return (1);
+to
+__cil_tmp10 = 1;
+return (__cil_tmp10);
+(Return) break return (0);
+to
+__cil_tmp11 = 0;
+return (__cil_tmp11);
+(If) break if ((int const   )*(*tmp___1 + (int )*str) & 1024) {
+             while (1) {
+               __cil_tmp8 = (int )*(str + i) != 0;
+               if (! __cil_tmp8) {
+                 break;
+               }
+               tmp = __ctype_b_loc();
+               __cil_tmp9 = (int const   )*(*tmp + (int )*(str + i)) & 1024;
+               if (__cil_tmp9) {
+                 i ++;
+               } else {
+                 tmp___0 = __ctype_b_loc();
+                 __cil_tmp7 = (int const   )*(*tmp___0 + (int )*(str + i)) & 2048;
+                 if (__cil_tmp7) {
+                   i ++;
+                 } else {
+                   __cil_tmp6 = 0;
+                   return (__cil_tmp6);
+                 }
+               }
+             }
+             __cil_tmp10 = 1;
+             return (__cil_tmp10);
+} else {
+  __cil_tmp11 = 0;
+  return (__cil_tmp11);
+}
+ ton__cil_tmp12 = (int const   )*(*tmp___1 + (int )*str) & 1024;
+if (__cil_tmp12) {
+  while (1) {
+    __cil_tmp8 = (int )*(str + i) != 0;
+    if (! __cil_tmp8) {
+      break;
+    }
+    tmp = __ctype_b_loc();
+    __cil_tmp9 = (int const   )*(*tmp + (int )*(str + i)) & 1024;
+    if (__cil_tmp9) {
+      i ++;
+    } else {
+      tmp___0 = __ctype_b_loc();
+      __cil_tmp7 = (int const   )*(*tmp___0 + (int )*(str + i)) & 2048;
+      if (__cil_tmp7) {
+        i ++;
+      } else {
+        __cil_tmp6 = 0;
+        return (__cil_tmp6);
+      }
+    }
+  }
+  __cil_tmp10 = 1;
+  return (__cil_tmp10);
+} else {
+  __cil_tmp11 = 0;
+  return (__cil_tmp11);
+}
+(Return) break return (0);
+to
+__cil_tmp2 = 0;
+return (__cil_tmp2);
+(If) break if (! tmp) {
+             strcat((char */* __restrict  */)r,
+                    (char const   */* __restrict  */)"lparen.\n");
+             return;
+}
+ ton__cil_tmp9 = ! tmp;
+if (__cil_tmp9) {
+  strcat((char */* __restrict  */)r,
+         (char const   */* __restrict  */)"lparen.\n");
+  return;
+}
+(If) break if (! tmp___0) {
+             strcat((char */* __restrict  */)r,
+                    (char const   */* __restrict  */)"rparen.\n");
+             return;
+}
+ ton__cil_tmp10 = ! tmp___0;
+if (__cil_tmp10) {
+  strcat((char */* __restrict  */)r,
+         (char const   */* __restrict  */)"rparen.\n");
+  return;
+}
+(If) break if (! tmp___1) {
+             strcat((char */* __restrict  */)r,
+                    (char const   */* __restrict  */)"lsquare.\n");
+             return;
+}
+ ton__cil_tmp11 = ! tmp___1;
+if (__cil_tmp11) {
+  strcat((char */* __restrict  */)r,
+         (char const   */* __restrict  */)"lsquare.\n");
+  return;
+}
+(If) break if (! tmp___2) {
+             strcat((char */* __restrict  */)r,
+                    (char const   */* __restrict  */)"rsquare.\n");
+             return;
+}
+ ton__cil_tmp12 = ! tmp___2;
+if (__cil_tmp12) {
+  strcat((char */* __restrict  */)r,
+         (char const   */* __restrict  */)"rsquare.\n");
+  return;
+}
+(If) break if (! tmp___3) {
+             strcat((char */* __restrict  */)r,
+                    (char const   */* __restrict  */)"quote.\n");
+             return;
+}
+ ton__cil_tmp13 = ! tmp___3;
+if (__cil_tmp13) {
+  strcat((char */* __restrict  */)r, (char const   */* __restrict  */)"quote.\n");
+  return;
+}
+(If) break if (! tmp___4) {
+             strcat((char */* __restrict  */)r,
+                    (char const   */* __restrict  */)"bquote.\n");
+             return;
+}
+ ton__cil_tmp14 = ! tmp___4;
+if (__cil_tmp14) {
+  strcat((char */* __restrict  */)r,
+         (char const   */* __restrict  */)"bquote.\n");
+  return;
+}
+(Return) break return (1);
+to
+__cil_tmp9 = 1;
+return (__cil_tmp9);
+(Return) break return (1);
+to
+__cil_tmp10 = 1;
+return (__cil_tmp10);
+(Return) break return (1);
+to
+__cil_tmp11 = 1;
+return (__cil_tmp11);
+(Return) break return (1);
+to
+__cil_tmp12 = 1;
+return (__cil_tmp12);
+(Return) break return (1);
+to
+__cil_tmp13 = 1;
+return (__cil_tmp13);
+(Return) break return (1);
+to
+__cil_tmp14 = 1;
+return (__cil_tmp14);
+(Return) break return (1);
+to
+__cil_tmp15 = 1;
+return (__cil_tmp15);
+(If) break if (! tmp) {
+             __cil_tmp9 = 1;
+             return (__cil_tmp9);
+}
+ ton__cil_tmp16 = ! tmp;
+if (__cil_tmp16) {
+  __cil_tmp9 = 1;
+  return (__cil_tmp9);
+}
+(If) break if (! tmp___0) {
+             __cil_tmp10 = 1;
+             return (__cil_tmp10);
+}
+ ton__cil_tmp17 = ! tmp___0;
+if (__cil_tmp17) {
+  __cil_tmp10 = 1;
+  return (__cil_tmp10);
+}
+(If) break if (! tmp___1) {
+             __cil_tmp11 = 1;
+             return (__cil_tmp11);
+}
+ ton__cil_tmp18 = ! tmp___1;
+if (__cil_tmp18) {
+  __cil_tmp11 = 1;
+  return (__cil_tmp11);
+}
+(If) break if (! tmp___2) {
+             __cil_tmp12 = 1;
+             return (__cil_tmp12);
+}
+ ton__cil_tmp19 = ! tmp___2;
+if (__cil_tmp19) {
+  __cil_tmp12 = 1;
+  return (__cil_tmp12);
+}
+(If) break if (! tmp___3) {
+             __cil_tmp13 = 1;
+             return (__cil_tmp13);
+}
+ ton__cil_tmp20 = ! tmp___3;
+if (__cil_tmp20) {
+  __cil_tmp13 = 1;
+  return (__cil_tmp13);
+}
+(If) break if (! tmp___4) {
+             __cil_tmp14 = 1;
+             return (__cil_tmp14);
+}
+ ton__cil_tmp21 = ! tmp___4;
+if (__cil_tmp21) {
+  __cil_tmp14 = 1;
+  return (__cil_tmp14);
+}
+(If) break if (! tmp___5) {
+             __cil_tmp15 = 1;
+             return (__cil_tmp15);
+}
+ ton__cil_tmp22 = ! tmp___5;
+if (__cil_tmp22) {
+  __cil_tmp15 = 1;
+  return (__cil_tmp15);
+}
+(Return) break return (0);
+to
+__cil_tmp23 = 0;
+return (__cil_tmp23);
+(If) break if (! (tmp == 0)) {
+             break;
+}
+ ton__cil_tmp6 = ! (tmp == 0);
+if (__cil_tmp6) {
+  break;
+}
+(Return) break return (r);
+to
+__cil_tmp7 = r;
+return (__cil_tmp7);
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.preproc.c'
+*** Fault Localization ***
+write_src: '/tmp/CETI_5cc6c7/faultloc_527fb9/pt5.cil.i.cov.c'
+cmd 'gcc /tmp/CETI_5cc6c7/faultloc_527fb9/pt5.cil.i.cov.c -o /tmp/CETI_5cc6c7/faultloc_527fb9/pt5.cil.i.cov.c.exe >& /dev/null'
+$ gcc /tmp/CETI_5cc6c7/faultloc_527fb9/pt5.cil.i.cov.c -o /tmp/CETI_5cc6c7/faultloc_527fb9/pt5.cil.i.cov.c.exe >& /dev/null
+goods length:27
+Script /tmp/CETI_5cc6c7/faultloc_527fb9/pt5.cil.i.g.sh
+#!/bin/bash
+ulimit -t 1
+($1 '\n' >> $2) ;
+($1 '\n\n' >> $2) ;
+($1 'w' >> $2) ;
+($1 '9' >> $2) ;
+($1 '#' >> $2) ;
+($1 ';' >> $2) ;
+($1 '\xff' >> $2) ;
+($1 ';\n' >> $2) ;
+($1 '""' >> $2) ;
+($1 ';\xf5' >> $2) ;
+($1 ';\xf5\n' >> $2) ;
+($1 '"\xfd"' >> $2) ;
+($1 'xx' >> $2) ;
+($1 'x_' >> $2) ;
+($1 'x9' >> $2) ;
+($1 '97' >> $2) ;
+($1 '#{' >> $2) ;
+($1 '#x' >> $2) ;
+($1 '#\n' >> $2) ;
+($1 '""w' >> $2) ;
+($1 '""9' >> $2) ;
+($1 ';\n;' >> $2) ;
+($1 '""#' >> $2) ;
+($1 '""[' >> $2) ;
+($1 '#;' >> $2) ;
+($1 '#x\xd5' >> $2) ;
+($1 '""#x' >> $2) ;
+wait
+exit 0
+
+write_file_str: '/tmp/CETI_5cc6c7/faultloc_527fb9/pt5.cil.i.g.sh'
+$ sh /tmp/CETI_5cc6c7/faultloc_527fb9/pt5.cil.i.g.sh /tmp/CETI_5cc6c7/faultloc_527fb9/pt5.cil.i.cov.c.exe /tmp/CETI_5cc6c7/faultloc_527fb9/pt5.cil.i.outputs_g_dontcare &> /dev/null
+Script /tmp/CETI_5cc6c7/faultloc_527fb9/pt5.cil.i.b.sh
+#!/bin/bash
+ulimit -t 1
+($1 '"' >> $2) ;
+($1 '"\xfd' >> $2) ;
+($1 '"\n' >> $2) ;
+($1 '"""' >> $2) ;
+($1 '"\n9' >> $2) ;
+($1 '"\n#x' >> $2) ;
+wait
+exit 0
+
+write_file_str: '/tmp/CETI_5cc6c7/faultloc_527fb9/pt5.cil.i.b.sh'
+$ sh /tmp/CETI_5cc6c7/faultloc_527fb9/pt5.cil.i.b.sh /tmp/CETI_5cc6c7/faultloc_527fb9/pt5.cil.i.cov.c.exe /tmp/CETI_5cc6c7/faultloc_527fb9/pt5.cil.i.outputs_bad_dontcare &> /dev/null
+** Analyze exe path '/tmp/CETI_5cc6c7/faultloc_527fb9/pt5.cil.i.gpath'
+** Analyze exe path '/tmp/CETI_5cc6c7/faultloc_527fb9/pt5.cil.i.bpath'
+0. sid 131 in fun 'is_str_constant' (score 1)
+__cil_tmp6 = 1;
+1. sid 128 in fun 'is_str_constant' (score 0.730297)
+i ++;
+2. sid 53 in fun 'is_token_end' (score 0.730297)
+__cil_tmp8 = 0;
+3. sid 129 in fun 'is_str_constant' (score 0.679366)
+__cil_tmp4 = (int )*(str + i) != 0;
+4. sid 72 in fun 'token_type' (score 0.679366)
+__cil_tmp14 = 42;
+5. sid 21 in fun 'get_token' (score 0.679366)
+id = 1;
+6. sid 130 in fun 'is_str_constant' (score 0.589256)
+__cil_tmp5 = (int )*(str + i) == 34;
+7. sid 54 in fun 'is_token_end' (score 0.589256)
+__cil_tmp9 = ((int )ch == 34) | ((int )ch == 10);
+8. sid 145 in fun 'unget_error' (score 0.447214)
+__cil_tmp2 = 0;
+9. sid 51 in fun 'is_token_end' (score 0.447214)
+__cil_tmp6 = 1;
+10. sid 27 in fun 'get_token' (score 0.447214)
+__cil_tmp18 = buffer;
+11. sid 26 in fun 'get_token' (score 0.447214)
+__cil_tmp17 = (int )ch == 0;
+12. sid 12 in fun 'unget_char' (score 0.447214)
+__cil_tmp7 = (int )c == 0;
+13. sid 11 in fun 'unget_char' (score 0.447214)
+__cil_tmp6 = (int )ch != 0;
+14. sid 10 in fun 'unget_char' (score 0.447214)
+c = ch;
+15. sid 8 in fun 'unget_char' (score 0.447214)
+__cil_tmp4 = c;
+16. sid 170 in fun 'mainQ' (score 0.426401)
+__cil_tmp7 = r;
+17. sid 169 in fun 'mainQ' (score 0.426401)
+fname = argv1;
+18. sid 168 in fun 'mainQ' (score 0.426401)
+r[0] = (char )'\000';
+19. sid 167 in fun 'mainQ' (score 0.426401)
+__cil_tmp6 = ! (tmp == 0);
+20. sid 166 in fun 'is_spec_symbol' (score 0.426401)
+__cil_tmp23 = 0;
+21. sid 165 in fun 'is_spec_symbol' (score 0.426401)
+__cil_tmp22 = ! tmp___5;
+22. sid 164 in fun 'is_spec_symbol' (score 0.426401)
+__cil_tmp21 = ! tmp___4;
+23. sid 163 in fun 'is_spec_symbol' (score 0.426401)
+__cil_tmp20 = ! tmp___3;
+24. sid 162 in fun 'is_spec_symbol' (score 0.426401)
+__cil_tmp19 = ! tmp___2;
+25. sid 161 in fun 'is_spec_symbol' (score 0.426401)
+__cil_tmp18 = ! tmp___1;
+26. sid 160 in fun 'is_spec_symbol' (score 0.426401)
+__cil_tmp17 = ! tmp___0;
+27. sid 159 in fun 'is_spec_symbol' (score 0.426401)
+__cil_tmp16 = ! tmp;
+28. sid 144 in fun 'is_identifier' (score 0.426401)
+__cil_tmp12 = (int const   )*(*tmp___1 + (int )*str) & 1024;
+29. sid 143 in fun 'is_identifier' (score 0.426401)
+i = 1;
+30. sid 142 in fun 'is_identifier' (score 0.426401)
+__cil_tmp11 = 0;
+31. sid 134 in fun 'is_str_constant' (score 0.426401)
+__cil_tmp8 = (int )*str == 34;
+32. sid 133 in fun 'is_str_constant' (score 0.426401)
+i = 1;
+33. sid 132 in fun 'is_str_constant' (score 0.426401)
+__cil_tmp7 = 0;
+34. sid 126 in fun 'is_num_constant' (score 0.426401)
+__cil_tmp10 = (int const   )*(*tmp___0 + (int )*str) & 2048;
+35. sid 125 in fun 'is_num_constant' (score 0.426401)
+i = 1;
+36. sid 124 in fun 'is_num_constant' (score 0.426401)
+__cil_tmp9 = 0;
+37. sid 118 in fun 'is_char_constant' (score 0.426401)
+__cil_tmp7 = (int )*str == 35;
+38. sid 117 in fun 'is_char_constant' (score 0.426401)
+__cil_tmp6 = 0;
+39. sid 113 in fun 'is_keyword' (score 0.426401)
+__cil_tmp20 = tmp;
+40. sid 111 in fun 'is_keyword' (score 0.426401)
+__cil_tmp18 = tmp___0;
+41. sid 109 in fun 'is_keyword' (score 0.426401)
+__cil_tmp16 = tmp___1;
+42. sid 107 in fun 'is_keyword' (score 0.426401)
+__cil_tmp14 = tmp___2;
+43. sid 105 in fun 'is_keyword' (score 0.426401)
+__cil_tmp12 = tmp___3;
+44. sid 103 in fun 'is_keyword' (score 0.426401)
+__cil_tmp10 = tmp___4;
+45. sid 101 in fun 'is_keyword' (score 0.426401)
+__cil_tmp8 = 0;
+46. sid 100 in fun 'is_comment' (score 0.426401)
+__cil_tmp4 = (int )*ident == 59;
+47. sid 99 in fun 'is_comment' (score 0.426401)
+__cil_tmp3 = 0;
+48. sid 97 in fun 'is_eof_token' (score 0.426401)
+__cil_tmp4 = (int )*tok == 0;
+49. sid 96 in fun 'is_eof_token' (score 0.426401)
+__cil_tmp3 = 0;
+50. sid 95 in fun 'is_eof_token' (score 0.426401)
+__cil_tmp2 = 1;
+51. sid 94 in fun 'print_token' (score 0.426401)
+__cil_tmp12 = 0;
+52. sid 93 in fun 'print_token' (score 0.426401)
+__cil_tmp11 = type == 6;
+53. sid 92 in fun 'print_token' (score 0.426401)
+__cil_tmp10 = type == 43;
+54. sid 91 in fun 'print_token' (score 0.426401)
+__cil_tmp9 = type == 42;
+55. sid 90 in fun 'print_token' (score 0.426401)
+__cil_tmp8 = type == 41;
+56. sid 89 in fun 'print_token' (score 0.426401)
+__cil_tmp7 = type == 3;
+57. sid 88 in fun 'print_token' (score 0.426401)
+__cil_tmp6 = type == 2;
+58. sid 87 in fun 'print_token' (score 0.426401)
+__cil_tmp5 = type == 1;
+59. sid 86 in fun 'print_token' (score 0.426401)
+__cil_tmp4 = type == 0;
+60. sid 83 in fun 'token_type' (score 0.426401)
+__cil_tmp25 = tmp___6;
+61. sid 82 in fun 'token_type' (score 0.426401)
+__cil_tmp24 = tmp___5;
+62. sid 81 in fun 'token_type' (score 0.426401)
+__cil_tmp23 = tmp___4;
+63. sid 80 in fun 'token_type' (score 0.426401)
+__cil_tmp22 = tmp___3;
+64. sid 79 in fun 'token_type' (score 0.426401)
+__cil_tmp21 = tmp___2;
+65. sid 78 in fun 'token_type' (score 0.426401)
+__cil_tmp20 = tmp___1;
+66. sid 77 in fun 'token_type' (score 0.426401)
+__cil_tmp19 = tmp___0;
+67. sid 76 in fun 'token_type' (score 0.426401)
+__cil_tmp18 = tmp;
+68. sid 75 in fun 'token_type' (score 0.426401)
+__cil_tmp17 = 6;
+69. sid 62 in fun 'is_token_end' (score 0.426401)
+__cil_tmp15 = tmp == 1;
+70. sid 61 in fun 'is_token_end' (score 0.426401)
+ch1[1] = (char )'\000';
+71. sid 60 in fun 'is_token_end' (score 0.426401)
+ch1[0] = ch;
+72. sid 46 in fun 'get_token' (score 0.426401)
+__cil_tmp28 = tmp___2 == 1;
+73. sid 45 in fun 'get_token' (score 0.426401)
+ch1[0] = ch;
+74. sid 44 in fun 'get_token' (score 0.426401)
+__cil_tmp27 = (int )ch == 59;
+75. sid 43 in fun 'get_token' (score 0.426401)
+__cil_tmp26 = (int )ch == 34;
+76. sid 42 in fun 'get_token' (score 0.426401)
+__cil_tmp25 = tmp___0 == 1;
+77. sid 41 in fun 'get_token' (score 0.426401)
+__cil_tmp24 = tmp == 1;
+78. sid 40 in fun 'get_token' (score 0.426401)
+buffer[i] = ch;
+79. sid 39 in fun 'get_token' (score 0.426401)
+ch1[1] = (char )'\000';
+80. sid 38 in fun 'get_token' (score 0.426401)
+ch1[0] = (char )'\000';
+81. sid 37 in fun 'get_token' (score 0.426401)
+j = 0;
+82. sid 36 in fun 'get_token' (score 0.426401)
+id = 0;
+83. sid 35 in fun 'get_token' (score 0.426401)
+i = 0;
+84. sid 23 in fun 'get_token' (score 0.426401)
+__cil_tmp16 = ! (tmp___1 == 0);
+85. sid 19 in fun 'get_token' (score 0.426401)
+__cil_tmp14 = buffer;
+86. sid 18 in fun 'get_token' (score 0.426401)
+__cil_tmp13 = (int )ch == 32 || (int )ch == 10;
+87. sid 17 in fun 'get_token' (score 0.426401)
+j ++;
+88. sid 16 in fun 'get_token' (score 0.426401)
+buffer[j] = (char )'\000';
+89. sid 15 in fun 'get_token' (score 0.426401)
+__cil_tmp12 = j <= 80;
+90. sid 14 in fun 'open_token_stream' (score 0.426401)
+__cil_tmp5 = fp;
+91. sid 13 in fun 'open_token_stream' (score 0.426401)
+__cil_tmp4 = tmp == 0;
+92. sid 6 in fun 'get_char' (score 0.426401)
+__cil_tmp4 = ch;
+93. sid 5 in fun 'get_char' (score 0.426401)
+__cil_tmp3 = (int )ch != 0;
+94. sid 4 in fun 'get_char' (score 0.426401)
+ch = *(*fp);
+95. sid 3 in fun 'get_char' (score 0.426401)
+(*fp) ++;
+96. sid 2 in fun 'open_character_stream' (score 0.426401)
+__cil_tmp3 = fp;
+97. sid 1 in fun 'open_character_stream' (score 0.426401)
+fp = fname;
+98. sid 63 in fun 'is_token_end' (score 0.385758)
+__cil_tmp16 = str_com_id == 1;
+99. sid 25 in fun 'get_token' (score 0.356348)
+buffer[i] = ch;
+100. sid 24 in fun 'get_token' (score 0.356348)
+i ++;
+101. sid 127 in fun 'is_str_constant' (score 0.144338)
+__cil_tmp3 = 1;
+102. sid 52 in fun 'is_token_end' (score 0.144338)
+__cil_tmp7 = 1;
+103. sid 32 in fun 'get_token' (score 0.144338)
+__cil_tmp21 = buffer;
+104. sid 31 in fun 'get_token' (score 0.144338)
+buffer[i] = ch;
+105. sid 30 in fun 'get_token' (score 0.144338)
+i ++;
+106. sid 48 in fun 'get_token' (score 0.136083)
+__cil_tmp30 = id == 1;
+107. sid 47 in fun 'get_token' (score 0.136083)
+__cil_tmp29 = tmp___3 == 1;
+[35mAlert: FL: found 108 stmts with sscores >= 0.01
+[m[35mAlert: Perform ** BugFix **
+[mConsider 2 gloval vars [r, buffer]
+Spy 80 sids: [131, 128, 53, 129, 72, 21, 130, 54, 145, 51, 27, 26, 12, 11, 10, 8, 170, 169, 168, 167, 166, 165, 164, 163, 162, 161, 160, 159, 144, 143, 142, 134, 133, 132, 126, 125, 124, 118, 117, 113, 111, 109, 107, 105, 103, 101, 100, 99, 97, 96, 95, 94, 93, 92, 91, 90, 89, 88, 87, 86, 83, 82, 81, 80, 79, 78, 77, 76, 75, 62, 61, 60, 46, 45, 44, 43, 42, 41, 40, 39] with tpl_ids: []
+Spy stmt id 131 in fun is_str_constant
+__cil_tmp6 = 1;
+CONSTS: found 1 consts
+OPS_PR: found 0 ops
+VS: found 1/10 avail vars in fun is_str_constant [i]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s131.t1.arr'
+Spy stmt id 128 in fun is_str_constant
+i ++;
+CONSTS: found 1 consts
+OPS_PR: found 1 ops
+VS: found 1/10 avail vars in fun is_str_constant [i]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s128.t1.arr'
+Spy stmt id 53 in fun is_token_end
+__cil_tmp8 = 0;
+CONSTS: found 1 consts
+OPS_PR: found 0 ops
+VS: found 3/22 avail vars in fun is_token_end [str_com_id, ch, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s53.t1.arr'
+Spy stmt id 129 in fun is_str_constant
+__cil_tmp4 = (int )*(str + i) != 0;
+CONSTS: found 1 consts
+OPS_PR: found 1 ops
+VS: found 1/10 avail vars in fun is_str_constant [i]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s129.t1.arr'
+Spy stmt id 72 in fun token_type
+__cil_tmp14 = 42;
+CONSTS: found 1 consts
+OPS_PR: found 0 ops
+VS: found 1/28 avail vars in fun token_type [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s72.t1.arr'
+Spy stmt id 21 in fun get_token
+id = 1;
+CONSTS: found 1 consts
+OPS_PR: found 0 ops
+VS: found 6/34 avail vars in fun get_token [tp, i, j, id, ch, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s21.t1.arr'
+Spy stmt id 130 in fun is_str_constant
+__cil_tmp5 = (int )*(str + i) == 34;
+CONSTS: found 1 consts
+OPS_PR: found 1 ops
+VS: found 1/10 avail vars in fun is_str_constant [i]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s130.t1.arr'
+Spy stmt id 54 in fun is_token_end
+__cil_tmp9 = ((int )ch == 34) | ((int )ch == 10);
+CONSTS: found 2 consts
+OPS_PR: found 2 ops
+VS: found 3/22 avail vars in fun is_token_end [str_com_id, ch, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s54.t1.arr'
+Spy stmt id 145 in fun unget_error
+__cil_tmp2 = 0;
+CONSTS: found 1 consts
+OPS_PR: found 0 ops
+VS: found 1/4 avail vars in fun unget_error [fp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s145.t1.arr'
+Spy stmt id 51 in fun is_token_end
+__cil_tmp6 = 1;
+CONSTS: found 1 consts
+OPS_PR: found 0 ops
+VS: found 3/22 avail vars in fun is_token_end [str_com_id, ch, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s51.t1.arr'
+Spy stmt id 27 in fun get_token
+__cil_tmp18 = buffer;
+[35mAlert: CONSTS: don't know how to deal with exp 'buffer' (sid 27)
+[mCONSTS: found 0 consts
+[35mAlert: OPS_PR: don't know how to deal with exp 'buffer' (sid 27)
+[mOPS_PR: found 0 ops
+VS: found 6/34 avail vars in fun get_token [tp, i, j, id, ch, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s27.t1.arr'
+Spy stmt id 26 in fun get_token
+__cil_tmp17 = (int )ch == 0;
+CONSTS: found 1 consts
+OPS_PR: found 1 ops
+VS: found 6/34 avail vars in fun get_token [tp, i, j, id, ch, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s26.t1.arr'
+Spy stmt id 12 in fun unget_char
+__cil_tmp7 = (int )c == 0;
+CONSTS: found 1 consts
+OPS_PR: found 1 ops
+VS: found 3/9 avail vars in fun unget_char [ch, fp, c]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s12.t1.arr'
+Spy stmt id 11 in fun unget_char
+__cil_tmp6 = (int )ch != 0;
+CONSTS: found 1 consts
+OPS_PR: found 1 ops
+VS: found 3/9 avail vars in fun unget_char [ch, fp, c]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s11.t1.arr'
+Spy stmt id 10 in fun unget_char
+c = ch;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 3/9 avail vars in fun unget_char [ch, fp, c]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s10.t1.arr'
+Spy stmt id 8 in fun unget_char
+__cil_tmp4 = c;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 3/9 avail vars in fun unget_char [ch, fp, c]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s8.t1.arr'
+Spy stmt id 170 in fun mainQ
+__cil_tmp7 = r;
+[35mAlert: CONSTS: don't know how to deal with exp 'r' (sid 170)
+[mCONSTS: found 0 consts
+[35mAlert: OPS_PR: don't know how to deal with exp 'r' (sid 170)
+[mOPS_PR: found 0 ops
+VS: found 3/9 avail vars in fun mainQ [argv1, fname, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s170.t1.arr'
+Spy stmt id 169 in fun mainQ
+fname = argv1;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 3/9 avail vars in fun mainQ [argv1, fname, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s169.t1.arr'
+Spy stmt id 168 in fun mainQ
+r[0] = (char )'\000';
+CONSTS: found 1 consts
+OPS_PR: found 0 ops
+VS: found 3/9 avail vars in fun mainQ [argv1, fname, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s168.t1.arr'
+Spy stmt id 167 in fun mainQ
+__cil_tmp6 = ! (tmp == 0);
+CONSTS: found 1 consts
+OPS_PR: found 1 ops
+VS: found 3/9 avail vars in fun mainQ [argv1, fname, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s167.t1.arr'
+Spy stmt id 166 in fun is_spec_symbol
+__cil_tmp23 = 0;
+CONSTS: found 1 consts
+OPS_PR: found 0 ops
+VS: found 1/25 avail vars in fun is_spec_symbol [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s166.t1.arr'
+Spy stmt id 165 in fun is_spec_symbol
+__cil_tmp22 = ! tmp___5;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 1/25 avail vars in fun is_spec_symbol [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s165.t1.arr'
+Spy stmt id 164 in fun is_spec_symbol
+__cil_tmp21 = ! tmp___4;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 1/25 avail vars in fun is_spec_symbol [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s164.t1.arr'
+Spy stmt id 163 in fun is_spec_symbol
+__cil_tmp20 = ! tmp___3;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 1/25 avail vars in fun is_spec_symbol [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s163.t1.arr'
+Spy stmt id 162 in fun is_spec_symbol
+__cil_tmp19 = ! tmp___2;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 1/25 avail vars in fun is_spec_symbol [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s162.t1.arr'
+Spy stmt id 161 in fun is_spec_symbol
+__cil_tmp18 = ! tmp___1;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 1/25 avail vars in fun is_spec_symbol [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s161.t1.arr'
+Spy stmt id 160 in fun is_spec_symbol
+__cil_tmp17 = ! tmp___0;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 1/25 avail vars in fun is_spec_symbol [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s160.t1.arr'
+Spy stmt id 159 in fun is_spec_symbol
+__cil_tmp16 = ! tmp;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 1/25 avail vars in fun is_spec_symbol [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s159.t1.arr'
+Spy stmt id 144 in fun is_identifier
+__cil_tmp12 = (int const   )*(*tmp___1 + (int )*str) & 1024;
+CONSTS: found 1 consts
+OPS_PR: found 0 ops
+VS: found 2/14 avail vars in fun is_identifier [i, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s144.t1.arr'
+Spy stmt id 143 in fun is_identifier
+i = 1;
+CONSTS: found 1 consts
+OPS_PR: found 0 ops
+VS: found 2/14 avail vars in fun is_identifier [i, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s143.t1.arr'
+Spy stmt id 142 in fun is_identifier
+__cil_tmp11 = 0;
+CONSTS: found 1 consts
+OPS_PR: found 0 ops
+VS: found 2/14 avail vars in fun is_identifier [i, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s142.t1.arr'
+Spy stmt id 134 in fun is_str_constant
+__cil_tmp8 = (int )*str == 34;
+CONSTS: found 1 consts
+OPS_PR: found 1 ops
+VS: found 1/10 avail vars in fun is_str_constant [i]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s134.t1.arr'
+Spy stmt id 133 in fun is_str_constant
+i = 1;
+CONSTS: found 1 consts
+OPS_PR: found 0 ops
+VS: found 1/10 avail vars in fun is_str_constant [i]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s133.t1.arr'
+Spy stmt id 132 in fun is_str_constant
+__cil_tmp7 = 0;
+CONSTS: found 1 consts
+OPS_PR: found 0 ops
+VS: found 1/10 avail vars in fun is_str_constant [i]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s132.t1.arr'
+Spy stmt id 126 in fun is_num_constant
+__cil_tmp10 = (int const   )*(*tmp___0 + (int )*str) & 2048;
+CONSTS: found 1 consts
+OPS_PR: found 0 ops
+VS: found 2/12 avail vars in fun is_num_constant [i, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s126.t1.arr'
+Spy stmt id 125 in fun is_num_constant
+i = 1;
+CONSTS: found 1 consts
+OPS_PR: found 0 ops
+VS: found 2/12 avail vars in fun is_num_constant [i, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s125.t1.arr'
+Spy stmt id 124 in fun is_num_constant
+__cil_tmp9 = 0;
+CONSTS: found 1 consts
+OPS_PR: found 0 ops
+VS: found 2/12 avail vars in fun is_num_constant [i, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s124.t1.arr'
+Spy stmt id 118 in fun is_char_constant
+__cil_tmp7 = (int )*str == 35;
+CONSTS: found 1 consts
+OPS_PR: found 1 ops
+VS: found 1/9 avail vars in fun is_char_constant [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s118.t1.arr'
+Spy stmt id 117 in fun is_char_constant
+__cil_tmp6 = 0;
+CONSTS: found 1 consts
+OPS_PR: found 0 ops
+VS: found 1/9 avail vars in fun is_char_constant [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s117.t1.arr'
+Spy stmt id 113 in fun is_keyword
+__cil_tmp20 = tmp;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 1/22 avail vars in fun is_keyword [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s113.t1.arr'
+Spy stmt id 111 in fun is_keyword
+__cil_tmp18 = tmp___0;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 1/22 avail vars in fun is_keyword [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s111.t1.arr'
+Spy stmt id 109 in fun is_keyword
+__cil_tmp16 = tmp___1;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 1/22 avail vars in fun is_keyword [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s109.t1.arr'
+Spy stmt id 107 in fun is_keyword
+__cil_tmp14 = tmp___2;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 1/22 avail vars in fun is_keyword [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s107.t1.arr'
+Spy stmt id 105 in fun is_keyword
+__cil_tmp12 = tmp___3;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 1/22 avail vars in fun is_keyword [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s105.t1.arr'
+Spy stmt id 103 in fun is_keyword
+__cil_tmp10 = tmp___4;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 1/22 avail vars in fun is_keyword [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s103.t1.arr'
+Spy stmt id 101 in fun is_keyword
+__cil_tmp8 = 0;
+CONSTS: found 1 consts
+OPS_PR: found 0 ops
+VS: found 1/22 avail vars in fun is_keyword [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s101.t1.arr'
+Spy stmt id 100 in fun is_comment
+__cil_tmp4 = (int )*ident == 59;
+CONSTS: found 1 consts
+OPS_PR: found 1 ops
+VS: found 0/6 avail vars in fun is_comment []
+Spy stmt id 99 in fun is_comment
+__cil_tmp3 = 0;
+CONSTS: found 1 consts
+OPS_PR: found 0 ops
+VS: found 0/6 avail vars in fun is_comment []
+Spy stmt id 97 in fun is_eof_token
+__cil_tmp4 = (int )*tok == 0;
+CONSTS: found 1 consts
+OPS_PR: found 1 ops
+VS: found 0/6 avail vars in fun is_eof_token []
+Spy stmt id 96 in fun is_eof_token
+__cil_tmp3 = 0;
+CONSTS: found 1 consts
+OPS_PR: found 0 ops
+VS: found 0/6 avail vars in fun is_eof_token []
+Spy stmt id 95 in fun is_eof_token
+__cil_tmp2 = 1;
+CONSTS: found 1 consts
+OPS_PR: found 0 ops
+VS: found 0/6 avail vars in fun is_eof_token []
+Spy stmt id 94 in fun print_token
+__cil_tmp12 = 0;
+CONSTS: found 1 consts
+OPS_PR: found 0 ops
+VS: found 2/14 avail vars in fun print_token [r, type]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s94.t1.arr'
+Spy stmt id 93 in fun print_token
+__cil_tmp11 = type == 6;
+CONSTS: found 1 consts
+OPS_PR: found 1 ops
+VS: found 2/14 avail vars in fun print_token [r, type]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s93.t1.arr'
+Spy stmt id 92 in fun print_token
+__cil_tmp10 = type == 43;
+CONSTS: found 1 consts
+OPS_PR: found 1 ops
+VS: found 2/14 avail vars in fun print_token [r, type]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s92.t1.arr'
+Spy stmt id 91 in fun print_token
+__cil_tmp9 = type == 42;
+CONSTS: found 1 consts
+OPS_PR: found 1 ops
+VS: found 2/14 avail vars in fun print_token [r, type]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s91.t1.arr'
+Spy stmt id 90 in fun print_token
+__cil_tmp8 = type == 41;
+CONSTS: found 1 consts
+OPS_PR: found 1 ops
+VS: found 2/14 avail vars in fun print_token [r, type]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s90.t1.arr'
+Spy stmt id 89 in fun print_token
+__cil_tmp7 = type == 3;
+CONSTS: found 1 consts
+OPS_PR: found 1 ops
+VS: found 2/14 avail vars in fun print_token [r, type]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s89.t1.arr'
+Spy stmt id 88 in fun print_token
+__cil_tmp6 = type == 2;
+CONSTS: found 1 consts
+OPS_PR: found 1 ops
+VS: found 2/14 avail vars in fun print_token [r, type]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s88.t1.arr'
+Spy stmt id 87 in fun print_token
+__cil_tmp5 = type == 1;
+CONSTS: found 1 consts
+OPS_PR: found 1 ops
+VS: found 2/14 avail vars in fun print_token [r, type]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s87.t1.arr'
+Spy stmt id 86 in fun print_token
+__cil_tmp4 = type == 0;
+CONSTS: found 1 consts
+OPS_PR: found 1 ops
+VS: found 2/14 avail vars in fun print_token [r, type]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s86.t1.arr'
+Spy stmt id 83 in fun token_type
+__cil_tmp25 = tmp___6;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 1/28 avail vars in fun token_type [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s83.t1.arr'
+Spy stmt id 82 in fun token_type
+__cil_tmp24 = tmp___5;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 1/28 avail vars in fun token_type [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s82.t1.arr'
+Spy stmt id 81 in fun token_type
+__cil_tmp23 = tmp___4;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 1/28 avail vars in fun token_type [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s81.t1.arr'
+Spy stmt id 80 in fun token_type
+__cil_tmp22 = tmp___3;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 1/28 avail vars in fun token_type [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s80.t1.arr'
+Spy stmt id 79 in fun token_type
+__cil_tmp21 = tmp___2;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 1/28 avail vars in fun token_type [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s79.t1.arr'
+Spy stmt id 78 in fun token_type
+__cil_tmp20 = tmp___1;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 1/28 avail vars in fun token_type [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s78.t1.arr'
+Spy stmt id 77 in fun token_type
+__cil_tmp19 = tmp___0;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 1/28 avail vars in fun token_type [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s77.t1.arr'
+Spy stmt id 76 in fun token_type
+__cil_tmp18 = tmp;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 1/28 avail vars in fun token_type [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s76.t1.arr'
+Spy stmt id 75 in fun token_type
+__cil_tmp17 = 6;
+CONSTS: found 1 consts
+OPS_PR: found 0 ops
+VS: found 1/28 avail vars in fun token_type [tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s75.t1.arr'
+Spy stmt id 62 in fun is_token_end
+__cil_tmp15 = tmp == 1;
+CONSTS: found 1 consts
+OPS_PR: found 1 ops
+VS: found 3/22 avail vars in fun is_token_end [str_com_id, ch, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s62.t1.arr'
+Spy stmt id 61 in fun is_token_end
+ch1[1] = (char )'\000';
+CONSTS: found 1 consts
+OPS_PR: found 0 ops
+VS: found 3/22 avail vars in fun is_token_end [str_com_id, ch, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s61.t1.arr'
+Spy stmt id 60 in fun is_token_end
+ch1[0] = ch;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 3/22 avail vars in fun is_token_end [str_com_id, ch, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s60.t1.arr'
+Spy stmt id 46 in fun get_token
+__cil_tmp28 = tmp___2 == 1;
+CONSTS: found 1 consts
+OPS_PR: found 1 ops
+VS: found 6/34 avail vars in fun get_token [tp, i, j, id, ch, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s46.t1.arr'
+Spy stmt id 45 in fun get_token
+ch1[0] = ch;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 6/34 avail vars in fun get_token [tp, i, j, id, ch, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s45.t1.arr'
+Spy stmt id 44 in fun get_token
+__cil_tmp27 = (int )ch == 59;
+CONSTS: found 1 consts
+OPS_PR: found 1 ops
+VS: found 6/34 avail vars in fun get_token [tp, i, j, id, ch, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s44.t1.arr'
+Spy stmt id 43 in fun get_token
+__cil_tmp26 = (int )ch == 34;
+CONSTS: found 1 consts
+OPS_PR: found 1 ops
+VS: found 6/34 avail vars in fun get_token [tp, i, j, id, ch, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s43.t1.arr'
+Spy stmt id 42 in fun get_token
+__cil_tmp25 = tmp___0 == 1;
+CONSTS: found 1 consts
+OPS_PR: found 1 ops
+VS: found 6/34 avail vars in fun get_token [tp, i, j, id, ch, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s42.t1.arr'
+Spy stmt id 41 in fun get_token
+__cil_tmp24 = tmp == 1;
+CONSTS: found 1 consts
+OPS_PR: found 1 ops
+VS: found 6/34 avail vars in fun get_token [tp, i, j, id, ch, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s41.t1.arr'
+Spy stmt id 40 in fun get_token
+buffer[i] = ch;
+CONSTS: found 0 consts
+OPS_PR: found 0 ops
+VS: found 6/34 avail vars in fun get_token [tp, i, j, id, ch, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s40.t1.arr'
+Spy stmt id 39 in fun get_token
+ch1[1] = (char )'\000';
+CONSTS: found 1 consts
+OPS_PR: found 0 ops
+VS: found 6/34 avail vars in fun get_token [tp, i, j, id, ch, tmp]
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.s39.t1.arr'
+[35mAlert: Spy: Got 152 info from 80 sids
+[mRead tcs from 'coverageTC/v5/Inner.inputs' and 'coverageTC/v5/outputs/' for '/tmp/CETI_5cc6c7/pt5.cil.i'
+input length='33' output length='33'
+|tcs|=33
+write_file_bin: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+$ python kl.py /tmp/CETI_5cc6c7/pt5.cil.i --do_tb "(131, 3, 1, 1); (131, 1, 4, 1); (128, 3, 1, 1); (128, 7, 2, 1); (128, 1, 4, 1); (53, 3, 1, 1); (53, 1, 4, 3); (129, 3, 1, 1); (129, 7, 2, 1); (129, 1, 4, 1); (72, 3, 1, 1); (72, 1, 4, 1); (21, 3, 1, 1); (21, 1, 4, 6); (130, 3, 1, 1); (130, 7, 2, 1); (130, 1, 4, 1); (54, 3, 1, 2); (54, 7, 2, 2); (54, 1, 4, 3); (145, 3, 1, 1); (145, 1, 4, 1); (51, 3, 1, 1); (51, 1, 4, 3); (27, 1, 4, 6); (26, 3, 1, 1); (26, 7, 2, 1); (26, 1, 4, 6); (12, 3, 1, 1); (12, 7, 2, 1); (12, 1, 4, 3); (11, 3, 1, 1); (11, 7, 2, 1); (11, 1, 4, 3); (10, 1, 4, 3); (8, 1, 4, 3); (170, 1, 4, 3); (169, 1, 4, 3); (168, 3, 1, 1); (168, 1, 4, 3); (167, 3, 1, 1); (167, 7, 2, 1); (167, 1, 4, 3); (166, 3, 1, 1); (166, 1, 4, 1); (165, 1, 4, 1); (164, 1, 4, 1); (163, 1, 4, 1); (162, 1, 4, 1); (161, 1, 4, 1); (160, 1, 4, 1); (159, 1, 4, 1); (144, 3, 1, 1); (144, 1, 4, 2); (143, 3, 1, 1); (143, 1, 4, 2); (142, 3, 1, 1); (142, 1, 4, 2); (134, 3, 1, 1); (134, 7, 2, 1); (134, 1, 4, 1); (133, 3, 1, 1); (133, 1, 4, 1); (132, 3, 1, 1); (132, 1, 4, 1); (126, 3, 1, 1); (126, 1, 4, 2); (125, 3, 1, 1); (125, 1, 4, 2); (124, 3, 1, 1); (124, 1, 4, 2); (118, 3, 1, 1); (118, 7, 2, 1); (118, 1, 4, 1); (117, 3, 1, 1); (117, 1, 4, 1); (113, 1, 4, 1); (111, 1, 4, 1); (109, 1, 4, 1); (107, 1, 4, 1); (105, 1, 4, 1); (103, 1, 4, 1); (101, 3, 1, 1); (101, 1, 4, 1); (100, 3, 1, 1); (100, 7, 2, 1); (99, 3, 1, 1); (97, 3, 1, 1); (97, 7, 2, 1); (96, 3, 1, 1); (95, 3, 1, 1); (94, 3, 1, 1); (94, 1, 4, 2); (93, 3, 1, 1); (93, 7, 2, 1); (93, 1, 4, 2); (92, 3, 1, 1); (92, 7, 2, 1); (92, 1, 4, 2); (91, 3, 1, 1); (91, 7, 2, 1); (91, 1, 4, 2); (90, 3, 1, 1); (90, 7, 2, 1); (90, 1, 4, 2); (89, 3, 1, 1); (89, 7, 2, 1); (89, 1, 4, 2); (88, 3, 1, 1); (88, 7, 2, 1); (88, 1, 4, 2); (87, 3, 1, 1); (87, 7, 2, 1); (87, 1, 4, 2); (86, 3, 1, 1); (86, 7, 2, 1); (86, 1, 4, 2); (83, 1, 4, 1); (82, 1, 4, 1); (81, 1, 4, 1); (80, 1, 4, 1); (79, 1, 4, 1); (78, 1, 4, 1); (77, 1, 4, 1); (76, 1, 4, 1); (75, 3, 1, 1); (75, 1, 4, 1); (62, 3, 1, 1); (62, 7, 2, 1); (62, 1, 4, 3); (61, 3, 1, 1); (61, 1, 4, 3); (60, 1, 4, 3); (46, 3, 1, 1); (46, 7, 2, 1); (46, 1, 4, 6); (45, 1, 4, 6); (44, 3, 1, 1); (44, 7, 2, 1); (44, 1, 4, 6); (43, 3, 1, 1); (43, 7, 2, 1); (43, 1, 4, 6); (42, 3, 1, 1); (42, 7, 2, 1); (42, 1, 4, 6); (41, 3, 1, 1); (41, 7, 2, 1); (41, 1, 4, 6); (40, 1, 4, 6); (39, 3, 1, 1); (39, 1, 4, 6)" --debug --no_parallel
+KR: tasks 548
+worker 0: transform /tmp/CETI_5cc6c7/pt5.cil.i sid 3 tpl 129 xinfo t3_z1_c0 idxs 1 ***
+$ ./tf /tmp/CETI_5cc6c7/pt5.cil.i --only_transform --sids 129 --tpl 3 --idxs "1" --xinfo t3_z1_c0 --debug
+read_file: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+** CONSTS: xinfo t3_z1_c0, consts 1
+[35mAlert: __cil_tmp4 = (int )*(str + i) != 0; ## __cil_tmp4 = (int )*(str + i) != uk_0;
+[mTransform success: ## '/tmp/CETI_5cc6c7/pt5.cil.i.s129.t3_z1_c0.tf.c' ##  __cil_tmp4 = (int )*(str + i) != 0; ## __cil_tmp4 = (int )*(str + i) != uk_0;
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.s129.t3_z1_c0.tf.c'
+worker 0: run klee on /tmp/CETI_5cc6c7/pt5.cil.i.s129.t3_z1_c0.tf.c ***
+$ llvm-gcc -I /home/mingyue/klee/include --optimize -emit-llvm -c /tmp/CETI_5cc6c7/pt5.cil.i.s129.t3_z1_c0.tf.c -o /tmp/CETI_5cc6c7/pt5.cil.i.s129.t3_z1_c0.tf.o
+$ klee --allow-external-sym-calls --only-output-states-covering-new --optimize --max-time=10. -output-dir=/tmp/CETI_5cc6c7/pt5.cil.i.s129.t3_z1_c0.tf.o-klee-out  /tmp/CETI_5cc6c7/pt5.cil.i.s129.t3_z1_c0.tf.o
+worker 0: stdout: KLEE: WARNING: undefined reference to function: __ctype_b_loc
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcat
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcmp
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strlen
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcmp(173675208, 173672960)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: __ctype_b_loc()
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strlen(173808432)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcat(173808432, 173675208)
+worker 0: stdout: KLEE: ERROR: memory error: out of bound pointer
+worker 0: stdout: KLEE: NOTE: now ignoring this error at this location
+worker 0: stdout: 7
+worker 0: stdout: klee
+worker 0: transform /tmp/CETI_5cc6c7/pt5.cil.i sid 3 tpl 96 xinfo t3_z1_c0 idxs 1 ***
+$ ./tf /tmp/CETI_5cc6c7/pt5.cil.i --only_transform --sids 96 --tpl 3 --idxs "1" --xinfo t3_z1_c0 --debug
+read_file: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+** CONSTS: xinfo t3_z1_c0, consts 1
+[35mAlert: __cil_tmp3 = 0; ## __cil_tmp3 = uk_0;
+[mTransform success: ## '/tmp/CETI_5cc6c7/pt5.cil.i.s96.t3_z1_c0.tf.c' ##  __cil_tmp3 = 0; ## __cil_tmp3 = uk_0;
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.s96.t3_z1_c0.tf.c'
+worker 0: run klee on /tmp/CETI_5cc6c7/pt5.cil.i.s96.t3_z1_c0.tf.c ***
+$ llvm-gcc -I /home/mingyue/klee/include --optimize -emit-llvm -c /tmp/CETI_5cc6c7/pt5.cil.i.s96.t3_z1_c0.tf.c -o /tmp/CETI_5cc6c7/pt5.cil.i.s96.t3_z1_c0.tf.o
+$ klee --allow-external-sym-calls --only-output-states-covering-new --optimize --max-time=10. -output-dir=/tmp/CETI_5cc6c7/pt5.cil.i.s96.t3_z1_c0.tf.o-klee-out  /tmp/CETI_5cc6c7/pt5.cil.i.s96.t3_z1_c0.tf.o
+worker 0: stdout: KLEE: WARNING: undefined reference to function: __ctype_b_loc
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcat
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcmp
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strlen
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcmp(171614520, 171460768)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: __ctype_b_loc()
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strlen(171576736)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcat(171576736, 171614520)
+worker 0: stdout: 7
+worker 0: stdout: klee
+worker 0: transform /tmp/CETI_5cc6c7/pt5.cil.i sid 3 tpl 61 xinfo t3_z1_c0 idxs 1 ***
+$ ./tf /tmp/CETI_5cc6c7/pt5.cil.i --only_transform --sids 61 --tpl 3 --idxs "1" --xinfo t3_z1_c0 --debug
+read_file: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+** CONSTS: xinfo t3_z1_c0, consts 1
+[35mAlert: ch1[1] = (char )'\000'; ## ch1[1] = (char )uk_0;
+[mTransform success: ## '/tmp/CETI_5cc6c7/pt5.cil.i.s61.t3_z1_c0.tf.c' ##  ch1[1] = (char )'\000'; ## ch1[1] = (char )uk_0;
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.s61.t3_z1_c0.tf.c'
+worker 0: run klee on /tmp/CETI_5cc6c7/pt5.cil.i.s61.t3_z1_c0.tf.c ***
+$ llvm-gcc -I /home/mingyue/klee/include --optimize -emit-llvm -c /tmp/CETI_5cc6c7/pt5.cil.i.s61.t3_z1_c0.tf.c -o /tmp/CETI_5cc6c7/pt5.cil.i.s61.t3_z1_c0.tf.o
+$ klee --allow-external-sym-calls --only-output-states-covering-new --optimize --max-time=10. -output-dir=/tmp/CETI_5cc6c7/pt5.cil.i.s61.t3_z1_c0.tf.o-klee-out  /tmp/CETI_5cc6c7/pt5.cil.i.s61.t3_z1_c0.tf.o
+worker 0: stdout: KLEE: WARNING: undefined reference to function: __ctype_b_loc
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcat
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcmp
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strlen
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcmp(169853376, 169872424)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: __ctype_b_loc()
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strlen(169645072)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcat(169645072, 169853376)
+worker 0: stdout: 7
+worker 0: stdout: klee
+worker 0: transform /tmp/CETI_5cc6c7/pt5.cil.i sid 3 tpl 128 xinfo t3_z1_c0 idxs 1 ***
+$ ./tf /tmp/CETI_5cc6c7/pt5.cil.i --only_transform --sids 128 --tpl 3 --idxs "1" --xinfo t3_z1_c0 --debug
+read_file: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+** CONSTS: xinfo t3_z1_c0, consts 1
+[35mAlert: i ++; ## i += uk_0;
+[mTransform success: ## '/tmp/CETI_5cc6c7/pt5.cil.i.s128.t3_z1_c0.tf.c' ##  i ++; ## i += uk_0;
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.s128.t3_z1_c0.tf.c'
+worker 0: run klee on /tmp/CETI_5cc6c7/pt5.cil.i.s128.t3_z1_c0.tf.c ***
+$ llvm-gcc -I /home/mingyue/klee/include --optimize -emit-llvm -c /tmp/CETI_5cc6c7/pt5.cil.i.s128.t3_z1_c0.tf.c -o /tmp/CETI_5cc6c7/pt5.cil.i.s128.t3_z1_c0.tf.o
+$ klee --allow-external-sym-calls --only-output-states-covering-new --optimize --max-time=10. -output-dir=/tmp/CETI_5cc6c7/pt5.cil.i.s128.t3_z1_c0.tf.o-klee-out  /tmp/CETI_5cc6c7/pt5.cil.i.s128.t3_z1_c0.tf.o
+worker 0: stdout: KLEE: WARNING: undefined reference to function: __ctype_b_loc
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcat
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcmp
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strlen
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcmp(173099416, 173309904)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: __ctype_b_loc()
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strlen(173242520)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcat(173242520, 173099416)
+worker 0: stdout: KLEE: ERROR: memory error: out of bound pointer
+worker 0: stdout: KLEE: NOTE: now ignoring this error at this location
+worker 0: stdout: 7
+worker 0: stdout: klee
+worker 0: stdout: KLEE: HaltTimer invoked
+worker 0: stdout: /tmp/CETI_5cc6c7/pt5.cil.i.s128.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: KLEE: halting execution, dumping remaining states
+worker 0: transform /tmp/CETI_5cc6c7/pt5.cil.i sid 3 tpl 39 xinfo t3_z1_c0 idxs 1 ***
+$ ./tf /tmp/CETI_5cc6c7/pt5.cil.i --only_transform --sids 39 --tpl 3 --idxs "1" --xinfo t3_z1_c0 --debug
+read_file: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+** CONSTS: xinfo t3_z1_c0, consts 1
+[35mAlert: ch1[1] = (char )'\000'; ## ch1[1] = (char )uk_0;
+[mTransform success: ## '/tmp/CETI_5cc6c7/pt5.cil.i.s39.t3_z1_c0.tf.c' ##  ch1[1] = (char )'\000'; ## ch1[1] = (char )uk_0;
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.s39.t3_z1_c0.tf.c'
+worker 0: run klee on /tmp/CETI_5cc6c7/pt5.cil.i.s39.t3_z1_c0.tf.c ***
+$ llvm-gcc -I /home/mingyue/klee/include --optimize -emit-llvm -c /tmp/CETI_5cc6c7/pt5.cil.i.s39.t3_z1_c0.tf.c -o /tmp/CETI_5cc6c7/pt5.cil.i.s39.t3_z1_c0.tf.o
+$ klee --allow-external-sym-calls --only-output-states-covering-new --optimize --max-time=10. -output-dir=/tmp/CETI_5cc6c7/pt5.cil.i.s39.t3_z1_c0.tf.o-klee-out  /tmp/CETI_5cc6c7/pt5.cil.i.s39.t3_z1_c0.tf.o
+worker 0: stdout: KLEE: WARNING: undefined reference to function: __ctype_b_loc
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcat
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcmp
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strlen
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcmp(177061984, 177059736)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: __ctype_b_loc()
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strlen(176837680)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcat(176837680, 177061984)
+worker 0: stdout: 7
+worker 0: stdout: klee
+worker 0: transform /tmp/CETI_5cc6c7/pt5.cil.i sid 3 tpl 44 xinfo t3_z1_c0 idxs 1 ***
+$ ./tf /tmp/CETI_5cc6c7/pt5.cil.i --only_transform --sids 44 --tpl 3 --idxs "1" --xinfo t3_z1_c0 --debug
+read_file: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+** CONSTS: xinfo t3_z1_c0, consts 1
+[35mAlert: __cil_tmp27 = (int )ch == 59; ## __cil_tmp27 = (int )ch == uk_0;
+[mTransform success: ## '/tmp/CETI_5cc6c7/pt5.cil.i.s44.t3_z1_c0.tf.c' ##  __cil_tmp27 = (int )ch == 59; ## __cil_tmp27 = (int )ch == uk_0;
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.s44.t3_z1_c0.tf.c'
+worker 0: run klee on /tmp/CETI_5cc6c7/pt5.cil.i.s44.t3_z1_c0.tf.c ***
+$ llvm-gcc -I /home/mingyue/klee/include --optimize -emit-llvm -c /tmp/CETI_5cc6c7/pt5.cil.i.s44.t3_z1_c0.tf.c -o /tmp/CETI_5cc6c7/pt5.cil.i.s44.t3_z1_c0.tf.o
+$ klee --allow-external-sym-calls --only-output-states-covering-new --optimize --max-time=10. -output-dir=/tmp/CETI_5cc6c7/pt5.cil.i.s44.t3_z1_c0.tf.o-klee-out  /tmp/CETI_5cc6c7/pt5.cil.i.s44.t3_z1_c0.tf.o
+worker 0: stdout: KLEE: WARNING: undefined reference to function: __ctype_b_loc
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcat
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcmp
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strlen
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcmp(156411904, 156635736)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: __ctype_b_loc()
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strlen(156669552)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcat(156669552, 156411904)
+worker 0: stdout: 7
+worker 0: stdout: klee
+worker 0: transform /tmp/CETI_5cc6c7/pt5.cil.i sid 3 tpl 93 xinfo t3_z1_c0 idxs 1 ***
+$ ./tf /tmp/CETI_5cc6c7/pt5.cil.i --only_transform --sids 93 --tpl 3 --idxs "1" --xinfo t3_z1_c0 --debug
+read_file: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+** CONSTS: xinfo t3_z1_c0, consts 1
+[35mAlert: __cil_tmp11 = type == 6; ## __cil_tmp11 = type == uk_0;
+[mTransform success: ## '/tmp/CETI_5cc6c7/pt5.cil.i.s93.t3_z1_c0.tf.c' ##  __cil_tmp11 = type == 6; ## __cil_tmp11 = type == uk_0;
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.s93.t3_z1_c0.tf.c'
+worker 0: run klee on /tmp/CETI_5cc6c7/pt5.cil.i.s93.t3_z1_c0.tf.c ***
+$ llvm-gcc -I /home/mingyue/klee/include --optimize -emit-llvm -c /tmp/CETI_5cc6c7/pt5.cil.i.s93.t3_z1_c0.tf.c -o /tmp/CETI_5cc6c7/pt5.cil.i.s93.t3_z1_c0.tf.o
+$ klee --allow-external-sym-calls --only-output-states-covering-new --optimize --max-time=10. -output-dir=/tmp/CETI_5cc6c7/pt5.cil.i.s93.t3_z1_c0.tf.o-klee-out  /tmp/CETI_5cc6c7/pt5.cil.i.s93.t3_z1_c0.tf.o
+worker 0: stdout: KLEE: WARNING: undefined reference to function: __ctype_b_loc
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcat
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcmp
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strlen
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcmp(157008136, 156613048)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: __ctype_b_loc()
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strlen(156784728)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcat(156784728, 157008136)
+worker 0: stdout: 7
+worker 0: stdout: klee
+worker 0: transform /tmp/CETI_5cc6c7/pt5.cil.i sid 3 tpl 143 xinfo t3_z1_c0 idxs 1 ***
+$ ./tf /tmp/CETI_5cc6c7/pt5.cil.i --only_transform --sids 143 --tpl 3 --idxs "1" --xinfo t3_z1_c0 --debug
+read_file: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+** CONSTS: xinfo t3_z1_c0, consts 1
+[35mAlert: i = 1; ## i = uk_0;
+[mTransform success: ## '/tmp/CETI_5cc6c7/pt5.cil.i.s143.t3_z1_c0.tf.c' ##  i = 1; ## i = uk_0;
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.s143.t3_z1_c0.tf.c'
+worker 0: run klee on /tmp/CETI_5cc6c7/pt5.cil.i.s143.t3_z1_c0.tf.c ***
+$ llvm-gcc -I /home/mingyue/klee/include --optimize -emit-llvm -c /tmp/CETI_5cc6c7/pt5.cil.i.s143.t3_z1_c0.tf.c -o /tmp/CETI_5cc6c7/pt5.cil.i.s143.t3_z1_c0.tf.o
+$ klee --allow-external-sym-calls --only-output-states-covering-new --optimize --max-time=10. -output-dir=/tmp/CETI_5cc6c7/pt5.cil.i.s143.t3_z1_c0.tf.o-klee-out  /tmp/CETI_5cc6c7/pt5.cil.i.s143.t3_z1_c0.tf.o
+worker 0: stdout: KLEE: WARNING: undefined reference to function: __ctype_b_loc
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcat
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcmp
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strlen
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcmp(165794992, 165792808)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: __ctype_b_loc()
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strlen(165570976)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcat(165570976, 165794992)
+worker 0: stdout: KLEE: ERROR: memory error: out of bound pointer
+worker 0: stdout: KLEE: NOTE: now ignoring this error at this location
+worker 0: stdout: 7
+worker 0: stdout: klee
+worker 0: stdout: KLEE: HaltTimer invoked
+worker 0: stdout: /tmp/CETI_5cc6c7/pt5.cil.i.s143.t3_z1_c0.tf.c, timeout 10
+worker 0: stdout: KLEE: halting execution, dumping remaining states
+worker 0: transform /tmp/CETI_5cc6c7/pt5.cil.i sid 3 tpl 142 xinfo t3_z1_c0 idxs 1 ***
+$ ./tf /tmp/CETI_5cc6c7/pt5.cil.i --only_transform --sids 142 --tpl 3 --idxs "1" --xinfo t3_z1_c0 --debug
+read_file: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+** CONSTS: xinfo t3_z1_c0, consts 1
+[35mAlert: __cil_tmp11 = 0; ## __cil_tmp11 = uk_0;
+[mTransform success: ## '/tmp/CETI_5cc6c7/pt5.cil.i.s142.t3_z1_c0.tf.c' ##  __cil_tmp11 = 0; ## __cil_tmp11 = uk_0;
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.s142.t3_z1_c0.tf.c'
+worker 0: run klee on /tmp/CETI_5cc6c7/pt5.cil.i.s142.t3_z1_c0.tf.c ***
+$ llvm-gcc -I /home/mingyue/klee/include --optimize -emit-llvm -c /tmp/CETI_5cc6c7/pt5.cil.i.s142.t3_z1_c0.tf.c -o /tmp/CETI_5cc6c7/pt5.cil.i.s142.t3_z1_c0.tf.o
+$ klee --allow-external-sym-calls --only-output-states-covering-new --optimize --max-time=10. -output-dir=/tmp/CETI_5cc6c7/pt5.cil.i.s142.t3_z1_c0.tf.o-klee-out  /tmp/CETI_5cc6c7/pt5.cil.i.s142.t3_z1_c0.tf.o
+worker 0: stdout: KLEE: WARNING: undefined reference to function: __ctype_b_loc
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcat
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcmp
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strlen
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcmp(160541536, 160704616)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: __ctype_b_loc()
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strlen(160739632)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcat(160739632, 160541536)
+worker 0: stdout: 7
+worker 0: stdout: klee
+worker 0: transform /tmp/CETI_5cc6c7/pt5.cil.i sid 3 tpl 118 xinfo t3_z1_c0 idxs 1 ***
+$ ./tf /tmp/CETI_5cc6c7/pt5.cil.i --only_transform --sids 118 --tpl 3 --idxs "1" --xinfo t3_z1_c0 --debug
+read_file: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+** CONSTS: xinfo t3_z1_c0, consts 1
+[35mAlert: __cil_tmp7 = (int )*str == 35; ## __cil_tmp7 = (int )*str == uk_0;
+[mTransform success: ## '/tmp/CETI_5cc6c7/pt5.cil.i.s118.t3_z1_c0.tf.c' ##  __cil_tmp7 = (int )*str == 35; ## __cil_tmp7 = (int )*str == uk_0;
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.s118.t3_z1_c0.tf.c'
+worker 0: run klee on /tmp/CETI_5cc6c7/pt5.cil.i.s118.t3_z1_c0.tf.c ***
+$ llvm-gcc -I /home/mingyue/klee/include --optimize -emit-llvm -c /tmp/CETI_5cc6c7/pt5.cil.i.s118.t3_z1_c0.tf.c -o /tmp/CETI_5cc6c7/pt5.cil.i.s118.t3_z1_c0.tf.o
+$ klee --allow-external-sym-calls --only-output-states-covering-new --optimize --max-time=10. -output-dir=/tmp/CETI_5cc6c7/pt5.cil.i.s118.t3_z1_c0.tf.o-klee-out  /tmp/CETI_5cc6c7/pt5.cil.i.s118.t3_z1_c0.tf.o
+worker 0: stdout: KLEE: WARNING: undefined reference to function: __ctype_b_loc
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcat
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcmp
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strlen
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcmp(152957072, 152954824)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: __ctype_b_loc()
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strlen(152707888)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcat(152707888, 152957072)
+worker 0: stdout: 7
+worker 0: stdout: klee
+worker 0: transform /tmp/CETI_5cc6c7/pt5.cil.i sid 3 tpl 26 xinfo t3_z1_c0 idxs 1 ***
+$ ./tf /tmp/CETI_5cc6c7/pt5.cil.i --only_transform --sids 26 --tpl 3 --idxs "1" --xinfo t3_z1_c0 --debug
+read_file: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+** CONSTS: xinfo t3_z1_c0, consts 1
+[35mAlert: __cil_tmp17 = (int )ch == 0; ## __cil_tmp17 = (int )ch == uk_0;
+[mTransform success: ## '/tmp/CETI_5cc6c7/pt5.cil.i.s26.t3_z1_c0.tf.c' ##  __cil_tmp17 = (int )ch == 0; ## __cil_tmp17 = (int )ch == uk_0;
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.s26.t3_z1_c0.tf.c'
+worker 0: run klee on /tmp/CETI_5cc6c7/pt5.cil.i.s26.t3_z1_c0.tf.c ***
+$ llvm-gcc -I /home/mingyue/klee/include --optimize -emit-llvm -c /tmp/CETI_5cc6c7/pt5.cil.i.s26.t3_z1_c0.tf.c -o /tmp/CETI_5cc6c7/pt5.cil.i.s26.t3_z1_c0.tf.o
+$ klee --allow-external-sym-calls --only-output-states-covering-new --optimize --max-time=10. -output-dir=/tmp/CETI_5cc6c7/pt5.cil.i.s26.t3_z1_c0.tf.o-klee-out  /tmp/CETI_5cc6c7/pt5.cil.i.s26.t3_z1_c0.tf.o
+worker 0: stdout: KLEE: WARNING: undefined reference to function: __ctype_b_loc
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcat
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcmp
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strlen
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcmp(170882368, 170899368)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: __ctype_b_loc()
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strlen(170689496)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcat(170689496, 170882368)
+worker 0: stdout: 7
+worker 0: stdout: klee
+worker 0: transform /tmp/CETI_5cc6c7/pt5.cil.i sid 3 tpl 46 xinfo t3_z1_c0 idxs 1 ***
+$ ./tf /tmp/CETI_5cc6c7/pt5.cil.i --only_transform --sids 46 --tpl 3 --idxs "1" --xinfo t3_z1_c0 --debug
+read_file: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+** CONSTS: xinfo t3_z1_c0, consts 1
+[35mAlert: __cil_tmp28 = tmp___2 == 1; ## __cil_tmp28 = tmp___2 == uk_0;
+[mTransform success: ## '/tmp/CETI_5cc6c7/pt5.cil.i.s46.t3_z1_c0.tf.c' ##  __cil_tmp28 = tmp___2 == 1; ## __cil_tmp28 = tmp___2 == uk_0;
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.s46.t3_z1_c0.tf.c'
+worker 0: run klee on /tmp/CETI_5cc6c7/pt5.cil.i.s46.t3_z1_c0.tf.c ***
+$ llvm-gcc -I /home/mingyue/klee/include --optimize -emit-llvm -c /tmp/CETI_5cc6c7/pt5.cil.i.s46.t3_z1_c0.tf.c -o /tmp/CETI_5cc6c7/pt5.cil.i.s46.t3_z1_c0.tf.o
+$ klee --allow-external-sym-calls --only-output-states-covering-new --optimize --max-time=10. -output-dir=/tmp/CETI_5cc6c7/pt5.cil.i.s46.t3_z1_c0.tf.o-klee-out  /tmp/CETI_5cc6c7/pt5.cil.i.s46.t3_z1_c0.tf.o
+worker 0: stdout: KLEE: WARNING: undefined reference to function: __ctype_b_loc
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcat
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcmp
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strlen
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcmp(178265016, 178262832)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: __ctype_b_loc()
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strlen(178040648)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcat(178040648, 178265016)
+worker 0: stdout: 7
+worker 0: stdout: klee
+worker 0: transform /tmp/CETI_5cc6c7/pt5.cil.i sid 3 tpl 92 xinfo t3_z1_c0 idxs 1 ***
+$ ./tf /tmp/CETI_5cc6c7/pt5.cil.i --only_transform --sids 92 --tpl 3 --idxs "1" --xinfo t3_z1_c0 --debug
+read_file: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+** CONSTS: xinfo t3_z1_c0, consts 1
+[35mAlert: __cil_tmp10 = type == 43; ## __cil_tmp10 = type == uk_0;
+[mTransform success: ## '/tmp/CETI_5cc6c7/pt5.cil.i.s92.t3_z1_c0.tf.c' ##  __cil_tmp10 = type == 43; ## __cil_tmp10 = type == uk_0;
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.s92.t3_z1_c0.tf.c'
+worker 0: run klee on /tmp/CETI_5cc6c7/pt5.cil.i.s92.t3_z1_c0.tf.c ***
+$ llvm-gcc -I /home/mingyue/klee/include --optimize -emit-llvm -c /tmp/CETI_5cc6c7/pt5.cil.i.s92.t3_z1_c0.tf.c -o /tmp/CETI_5cc6c7/pt5.cil.i.s92.t3_z1_c0.tf.o
+$ klee --allow-external-sym-calls --only-output-states-covering-new --optimize --max-time=10. -output-dir=/tmp/CETI_5cc6c7/pt5.cil.i.s92.t3_z1_c0.tf.o-klee-out  /tmp/CETI_5cc6c7/pt5.cil.i.s92.t3_z1_c0.tf.o
+worker 0: stdout: KLEE: WARNING: undefined reference to function: __ctype_b_loc
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcat
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcmp
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strlen
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcmp(182900840, 182898592)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: __ctype_b_loc()
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strlen(182676632)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcat(182676632, 182900840)
+worker 0: stdout: 7
+worker 0: stdout: klee
+worker 0: transform /tmp/CETI_5cc6c7/pt5.cil.i sid 3 tpl 11 xinfo t3_z1_c0 idxs 1 ***
+$ ./tf /tmp/CETI_5cc6c7/pt5.cil.i --only_transform --sids 11 --tpl 3 --idxs "1" --xinfo t3_z1_c0 --debug
+read_file: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+** CONSTS: xinfo t3_z1_c0, consts 1
+[35mAlert: __cil_tmp6 = (int )ch != 0; ## __cil_tmp6 = (int )ch != uk_0;
+[mTransform success: ## '/tmp/CETI_5cc6c7/pt5.cil.i.s11.t3_z1_c0.tf.c' ##  __cil_tmp6 = (int )ch != 0; ## __cil_tmp6 = (int )ch != uk_0;
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.s11.t3_z1_c0.tf.c'
+worker 0: run klee on /tmp/CETI_5cc6c7/pt5.cil.i.s11.t3_z1_c0.tf.c ***
+$ llvm-gcc -I /home/mingyue/klee/include --optimize -emit-llvm -c /tmp/CETI_5cc6c7/pt5.cil.i.s11.t3_z1_c0.tf.c -o /tmp/CETI_5cc6c7/pt5.cil.i.s11.t3_z1_c0.tf.o
+$ klee --allow-external-sym-calls --only-output-states-covering-new --optimize --max-time=10. -output-dir=/tmp/CETI_5cc6c7/pt5.cil.i.s11.t3_z1_c0.tf.o-klee-out  /tmp/CETI_5cc6c7/pt5.cil.i.s11.t3_z1_c0.tf.o
+worker 0: stdout: KLEE: WARNING: undefined reference to function: __ctype_b_loc
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcat
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcmp
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strlen
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcmp(178049744, 178047496)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: __ctype_b_loc()
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strlen(177834072)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcat(177834072, 178049744)
+worker 0: stdout: KLEE: ERROR: /home/mingyue/klee/runtime/Intrinsic/memcpy.c:17: memory error: out of bound pointer
+worker 0: stdout: KLEE: NOTE: now ignoring this error at this location
+worker 0: stdout: 7
+worker 0: stdout: klee
+worker 0: transform /tmp/CETI_5cc6c7/pt5.cil.i sid 3 tpl 95 xinfo t3_z1_c0 idxs 1 ***
+$ ./tf /tmp/CETI_5cc6c7/pt5.cil.i --only_transform --sids 95 --tpl 3 --idxs "1" --xinfo t3_z1_c0 --debug
+read_file: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+** CONSTS: xinfo t3_z1_c0, consts 1
+[35mAlert: __cil_tmp2 = 1; ## __cil_tmp2 = uk_0;
+[mTransform success: ## '/tmp/CETI_5cc6c7/pt5.cil.i.s95.t3_z1_c0.tf.c' ##  __cil_tmp2 = 1; ## __cil_tmp2 = uk_0;
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.s95.t3_z1_c0.tf.c'
+worker 0: run klee on /tmp/CETI_5cc6c7/pt5.cil.i.s95.t3_z1_c0.tf.c ***
+$ llvm-gcc -I /home/mingyue/klee/include --optimize -emit-llvm -c /tmp/CETI_5cc6c7/pt5.cil.i.s95.t3_z1_c0.tf.c -o /tmp/CETI_5cc6c7/pt5.cil.i.s95.t3_z1_c0.tf.o
+$ klee --allow-external-sym-calls --only-output-states-covering-new --optimize --max-time=10. -output-dir=/tmp/CETI_5cc6c7/pt5.cil.i.s95.t3_z1_c0.tf.o-klee-out  /tmp/CETI_5cc6c7/pt5.cil.i.s95.t3_z1_c0.tf.o
+worker 0: stdout: KLEE: WARNING: undefined reference to function: __ctype_b_loc
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcat
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcmp
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strlen
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcmp(164386464, 163901280)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: __ctype_b_loc()
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strlen(164236680)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcat(164236680, 164386464)
+worker 0: stdout: KLEE: ERROR: memory error: out of bound pointer
+worker 0: stdout: KLEE: NOTE: now ignoring this error at this location
+worker 0: stdout: 7
+worker 0: stdout: klee
+worker 0: transform /tmp/CETI_5cc6c7/pt5.cil.i sid 3 tpl 130 xinfo t3_z1_c0 idxs 1 ***
+$ ./tf /tmp/CETI_5cc6c7/pt5.cil.i --only_transform --sids 130 --tpl 3 --idxs "1" --xinfo t3_z1_c0 --debug
+read_file: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+** CONSTS: xinfo t3_z1_c0, consts 1
+[35mAlert: __cil_tmp5 = (int )*(str + i) == 34; ## __cil_tmp5 = (int )*(str + i) == uk_0;
+[mTransform success: ## '/tmp/CETI_5cc6c7/pt5.cil.i.s130.t3_z1_c0.tf.c' ##  __cil_tmp5 = (int )*(str + i) == 34; ## __cil_tmp5 = (int )*(str + i) == uk_0;
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.s130.t3_z1_c0.tf.c'
+worker 0: run klee on /tmp/CETI_5cc6c7/pt5.cil.i.s130.t3_z1_c0.tf.c ***
+$ llvm-gcc -I /home/mingyue/klee/include --optimize -emit-llvm -c /tmp/CETI_5cc6c7/pt5.cil.i.s130.t3_z1_c0.tf.c -o /tmp/CETI_5cc6c7/pt5.cil.i.s130.t3_z1_c0.tf.o
+$ klee --allow-external-sym-calls --only-output-states-covering-new --optimize --max-time=10. -output-dir=/tmp/CETI_5cc6c7/pt5.cil.i.s130.t3_z1_c0.tf.o-klee-out  /tmp/CETI_5cc6c7/pt5.cil.i.s130.t3_z1_c0.tf.o
+worker 0: stdout: KLEE: WARNING: undefined reference to function: __ctype_b_loc
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcat
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcmp
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strlen
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcmp(151300960, 151298744)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: __ctype_b_loc()
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strlen(151076840)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcat(151076840, 151300960)
+worker 0: stdout: 7
+worker 0: stdout: klee
+worker 0: transform /tmp/CETI_5cc6c7/pt5.cil.i sid 3 tpl 43 xinfo t3_z1_c0 idxs 1 ***
+$ ./tf /tmp/CETI_5cc6c7/pt5.cil.i --only_transform --sids 43 --tpl 3 --idxs "1" --xinfo t3_z1_c0 --debug
+read_file: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+** CONSTS: xinfo t3_z1_c0, consts 1
+[35mAlert: __cil_tmp26 = (int )ch == 34; ## __cil_tmp26 = (int )ch == uk_0;
+[mTransform success: ## '/tmp/CETI_5cc6c7/pt5.cil.i.s43.t3_z1_c0.tf.c' ##  __cil_tmp26 = (int )ch == 34; ## __cil_tmp26 = (int )ch == uk_0;
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.s43.t3_z1_c0.tf.c'
+worker 0: run klee on /tmp/CETI_5cc6c7/pt5.cil.i.s43.t3_z1_c0.tf.c ***
+$ llvm-gcc -I /home/mingyue/klee/include --optimize -emit-llvm -c /tmp/CETI_5cc6c7/pt5.cil.i.s43.t3_z1_c0.tf.c -o /tmp/CETI_5cc6c7/pt5.cil.i.s43.t3_z1_c0.tf.o
+$ klee --allow-external-sym-calls --only-output-states-covering-new --optimize --max-time=10. -output-dir=/tmp/CETI_5cc6c7/pt5.cil.i.s43.t3_z1_c0.tf.o-klee-out  /tmp/CETI_5cc6c7/pt5.cil.i.s43.t3_z1_c0.tf.o
+worker 0: stdout: KLEE: WARNING: undefined reference to function: __ctype_b_loc
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcat
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcmp
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strlen
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcmp(175090648, 175184000)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: __ctype_b_loc()
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strlen(175247832)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcat(175247832, 175090648)
+worker 0: stdout: 7
+worker 0: stdout: klee
+worker 0: transform /tmp/CETI_5cc6c7/pt5.cil.i sid 3 tpl 21 xinfo t3_z1_c0 idxs 1 ***
+$ ./tf /tmp/CETI_5cc6c7/pt5.cil.i --only_transform --sids 21 --tpl 3 --idxs "1" --xinfo t3_z1_c0 --debug
+read_file: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+** CONSTS: xinfo t3_z1_c0, consts 1
+[35mAlert: id = 1; ## id = uk_0;
+[mTransform success: ## '/tmp/CETI_5cc6c7/pt5.cil.i.s21.t3_z1_c0.tf.c' ##  id = 1; ## id = uk_0;
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.s21.t3_z1_c0.tf.c'
+worker 0: run klee on /tmp/CETI_5cc6c7/pt5.cil.i.s21.t3_z1_c0.tf.c ***
+$ llvm-gcc -I /home/mingyue/klee/include --optimize -emit-llvm -c /tmp/CETI_5cc6c7/pt5.cil.i.s21.t3_z1_c0.tf.c -o /tmp/CETI_5cc6c7/pt5.cil.i.s21.t3_z1_c0.tf.o
+$ klee --allow-external-sym-calls --only-output-states-covering-new --optimize --max-time=10. -output-dir=/tmp/CETI_5cc6c7/pt5.cil.i.s21.t3_z1_c0.tf.o-klee-out  /tmp/CETI_5cc6c7/pt5.cil.i.s21.t3_z1_c0.tf.o
+worker 0: stdout: KLEE: WARNING: undefined reference to function: __ctype_b_loc
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcat
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcmp
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strlen
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcmp(164422560, 164420312)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: __ctype_b_loc()
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strlen(164718432)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcat(164718432, 164422560)
+worker 0: stdout: 7
+worker 0: stdout: klee
+worker 0: transform /tmp/CETI_5cc6c7/pt5.cil.i sid 3 tpl 167 xinfo t3_z1_c0 idxs 1 ***
+$ ./tf /tmp/CETI_5cc6c7/pt5.cil.i --only_transform --sids 167 --tpl 3 --idxs "1" --xinfo t3_z1_c0 --debug
+read_file: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+** CONSTS: xinfo t3_z1_c0, consts 1
+[35mAlert: __cil_tmp6 = ! (tmp == 0); ## __cil_tmp6 = ! (tmp == uk_0);
+[mTransform success: ## '/tmp/CETI_5cc6c7/pt5.cil.i.s167.t3_z1_c0.tf.c' ##  __cil_tmp6 = ! (tmp == 0); ## __cil_tmp6 = ! (tmp == uk_0);
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.s167.t3_z1_c0.tf.c'
+worker 0: run klee on /tmp/CETI_5cc6c7/pt5.cil.i.s167.t3_z1_c0.tf.c ***
+$ llvm-gcc -I /home/mingyue/klee/include --optimize -emit-llvm -c /tmp/CETI_5cc6c7/pt5.cil.i.s167.t3_z1_c0.tf.c -o /tmp/CETI_5cc6c7/pt5.cil.i.s167.t3_z1_c0.tf.o
+$ klee --allow-external-sym-calls --only-output-states-covering-new --optimize --max-time=10. -output-dir=/tmp/CETI_5cc6c7/pt5.cil.i.s167.t3_z1_c0.tf.o-klee-out  /tmp/CETI_5cc6c7/pt5.cil.i.s167.t3_z1_c0.tf.o
+worker 0: stdout: KLEE: WARNING: undefined reference to function: __ctype_b_loc
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcat
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcmp
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strlen
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcmp(156100816, 156098600)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: __ctype_b_loc()
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strlen(155886864)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcat(155886864, 156100816)
+worker 0: stdout: 7
+worker 0: stdout: klee
+worker 0: transform /tmp/CETI_5cc6c7/pt5.cil.i sid 3 tpl 53 xinfo t3_z1_c0 idxs 1 ***
+$ ./tf /tmp/CETI_5cc6c7/pt5.cil.i --only_transform --sids 53 --tpl 3 --idxs "1" --xinfo t3_z1_c0 --debug
+read_file: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+** CONSTS: xinfo t3_z1_c0, consts 1
+[35mAlert: __cil_tmp8 = 0; ## __cil_tmp8 = uk_0;
+[mTransform success: ## '/tmp/CETI_5cc6c7/pt5.cil.i.s53.t3_z1_c0.tf.c' ##  __cil_tmp8 = 0; ## __cil_tmp8 = uk_0;
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.s53.t3_z1_c0.tf.c'
+worker 0: run klee on /tmp/CETI_5cc6c7/pt5.cil.i.s53.t3_z1_c0.tf.c ***
+$ llvm-gcc -I /home/mingyue/klee/include --optimize -emit-llvm -c /tmp/CETI_5cc6c7/pt5.cil.i.s53.t3_z1_c0.tf.c -o /tmp/CETI_5cc6c7/pt5.cil.i.s53.t3_z1_c0.tf.o
+$ klee --allow-external-sym-calls --only-output-states-covering-new --optimize --max-time=10. -output-dir=/tmp/CETI_5cc6c7/pt5.cil.i.s53.t3_z1_c0.tf.o-klee-out  /tmp/CETI_5cc6c7/pt5.cil.i.s53.t3_z1_c0.tf.o
+worker 0: stdout: KLEE: WARNING: undefined reference to function: __ctype_b_loc
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcat
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcmp
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strlen
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcmp(154515680, 154513496)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: __ctype_b_loc()
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strlen(154733544)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcat(154733544, 154515680)
+worker 0: stdout: 7
+worker 0: stdout: klee
+worker 0: transform /tmp/CETI_5cc6c7/pt5.cil.i sid 3 tpl 42 xinfo t3_z1_c0 idxs 1 ***
+$ ./tf /tmp/CETI_5cc6c7/pt5.cil.i --only_transform --sids 42 --tpl 3 --idxs "1" --xinfo t3_z1_c0 --debug
+read_file: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+** CONSTS: xinfo t3_z1_c0, consts 1
+[35mAlert: __cil_tmp25 = tmp___0 == 1; ## __cil_tmp25 = tmp___0 == uk_0;
+[mTransform success: ## '/tmp/CETI_5cc6c7/pt5.cil.i.s42.t3_z1_c0.tf.c' ##  __cil_tmp25 = tmp___0 == 1; ## __cil_tmp25 = tmp___0 == uk_0;
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.s42.t3_z1_c0.tf.c'
+worker 0: run klee on /tmp/CETI_5cc6c7/pt5.cil.i.s42.t3_z1_c0.tf.c ***
+$ llvm-gcc -I /home/mingyue/klee/include --optimize -emit-llvm -c /tmp/CETI_5cc6c7/pt5.cil.i.s42.t3_z1_c0.tf.c -o /tmp/CETI_5cc6c7/pt5.cil.i.s42.t3_z1_c0.tf.o
+$ klee --allow-external-sym-calls --only-output-states-covering-new --optimize --max-time=10. -output-dir=/tmp/CETI_5cc6c7/pt5.cil.i.s42.t3_z1_c0.tf.o-klee-out  /tmp/CETI_5cc6c7/pt5.cil.i.s42.t3_z1_c0.tf.o
+worker 0: stdout: KLEE: WARNING: undefined reference to function: __ctype_b_loc
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcat
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcmp
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strlen
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcmp(161802712, 161800496)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: __ctype_b_loc()
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strlen(162005288)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcat(162005288, 161802712)
+worker 0: stdout: 7
+worker 0: stdout: klee
+worker 0: transform /tmp/CETI_5cc6c7/pt5.cil.i sid 3 tpl 12 xinfo t3_z1_c0 idxs 1 ***
+$ ./tf /tmp/CETI_5cc6c7/pt5.cil.i --only_transform --sids 12 --tpl 3 --idxs "1" --xinfo t3_z1_c0 --debug
+read_file: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+** CONSTS: xinfo t3_z1_c0, consts 1
+[35mAlert: __cil_tmp7 = (int )c == 0; ## __cil_tmp7 = (int )c == uk_0;
+[mTransform success: ## '/tmp/CETI_5cc6c7/pt5.cil.i.s12.t3_z1_c0.tf.c' ##  __cil_tmp7 = (int )c == 0; ## __cil_tmp7 = (int )c == uk_0;
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.s12.t3_z1_c0.tf.c'
+worker 0: run klee on /tmp/CETI_5cc6c7/pt5.cil.i.s12.t3_z1_c0.tf.c ***
+$ llvm-gcc -I /home/mingyue/klee/include --optimize -emit-llvm -c /tmp/CETI_5cc6c7/pt5.cil.i.s12.t3_z1_c0.tf.c -o /tmp/CETI_5cc6c7/pt5.cil.i.s12.t3_z1_c0.tf.o
+$ klee --allow-external-sym-calls --only-output-states-covering-new --optimize --max-time=10. -output-dir=/tmp/CETI_5cc6c7/pt5.cil.i.s12.t3_z1_c0.tf.o-klee-out  /tmp/CETI_5cc6c7/pt5.cil.i.s12.t3_z1_c0.tf.o
+worker 0: stdout: KLEE: WARNING: undefined reference to function: __ctype_b_loc
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcat
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcmp
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strlen
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcmp(167859424, 167857176)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: __ctype_b_loc()
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strlen(167652328)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcat(167652328, 167859424)
+worker 0: stdout: 7
+worker 0: stdout: klee
+worker 0: transform /tmp/CETI_5cc6c7/pt5.cil.i sid 3 tpl 144 xinfo t3_z1_c0 idxs 1 ***
+$ ./tf /tmp/CETI_5cc6c7/pt5.cil.i --only_transform --sids 144 --tpl 3 --idxs "1" --xinfo t3_z1_c0 --debug
+read_file: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+** CONSTS: xinfo t3_z1_c0, consts 1
+[35mAlert: __cil_tmp12 = (int const   )*(*tmp___1 + (int )*str) & 1024; ## __cil_tmp12 = (int const   )*(*tmp___1 + (int )*str) & uk_0;
+[mTransform success: ## '/tmp/CETI_5cc6c7/pt5.cil.i.s144.t3_z1_c0.tf.c' ##  __cil_tmp12 = (int const   )*(*tmp___1 + (int )*str) & 1024; ## __cil_tmp12 = (int const   )*(*tmp___1 + (int )*str) & uk_0;
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.s144.t3_z1_c0.tf.c'
+worker 0: run klee on /tmp/CETI_5cc6c7/pt5.cil.i.s144.t3_z1_c0.tf.c ***
+$ llvm-gcc -I /home/mingyue/klee/include --optimize -emit-llvm -c /tmp/CETI_5cc6c7/pt5.cil.i.s144.t3_z1_c0.tf.c -o /tmp/CETI_5cc6c7/pt5.cil.i.s144.t3_z1_c0.tf.o
+$ klee --allow-external-sym-calls --only-output-states-covering-new --optimize --max-time=10. -output-dir=/tmp/CETI_5cc6c7/pt5.cil.i.s144.t3_z1_c0.tf.o-klee-out  /tmp/CETI_5cc6c7/pt5.cil.i.s144.t3_z1_c0.tf.o
+worker 0: stdout: KLEE: WARNING: undefined reference to function: __ctype_b_loc
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcat
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcmp
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strlen
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcmp(158776984, 158774800)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: __ctype_b_loc()
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strlen(158802376)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcat(158802376, 158776984)
+worker 0: stdout: 7
+worker 0: stdout: klee
+worker 0: transform /tmp/CETI_5cc6c7/pt5.cil.i sid 3 tpl 91 xinfo t3_z1_c0 idxs 1 ***
+$ ./tf /tmp/CETI_5cc6c7/pt5.cil.i --only_transform --sids 91 --tpl 3 --idxs "1" --xinfo t3_z1_c0 --debug
+read_file: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+** CONSTS: xinfo t3_z1_c0, consts 1
+[35mAlert: __cil_tmp9 = type == 42; ## __cil_tmp9 = type == uk_0;
+[mTransform success: ## '/tmp/CETI_5cc6c7/pt5.cil.i.s91.t3_z1_c0.tf.c' ##  __cil_tmp9 = type == 42; ## __cil_tmp9 = type == uk_0;
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.s91.t3_z1_c0.tf.c'
+worker 0: run klee on /tmp/CETI_5cc6c7/pt5.cil.i.s91.t3_z1_c0.tf.c ***
+$ llvm-gcc -I /home/mingyue/klee/include --optimize -emit-llvm -c /tmp/CETI_5cc6c7/pt5.cil.i.s91.t3_z1_c0.tf.c -o /tmp/CETI_5cc6c7/pt5.cil.i.s91.t3_z1_c0.tf.o
+$ klee --allow-external-sym-calls --only-output-states-covering-new --optimize --max-time=10. -output-dir=/tmp/CETI_5cc6c7/pt5.cil.i.s91.t3_z1_c0.tf.o-klee-out  /tmp/CETI_5cc6c7/pt5.cil.i.s91.t3_z1_c0.tf.o
+worker 0: stdout: KLEE: WARNING: undefined reference to function: __ctype_b_loc
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcat
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcmp
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strlen
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcmp(169505720, 169494952)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: __ctype_b_loc()
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strlen(169245016)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcat(169245016, 169505720)
+worker 0: stdout: 7
+worker 0: stdout: klee
+worker 0: transform /tmp/CETI_5cc6c7/pt5.cil.i sid 3 tpl 131 xinfo t3_z1_c0 idxs 1 ***
+$ ./tf /tmp/CETI_5cc6c7/pt5.cil.i --only_transform --sids 131 --tpl 3 --idxs "1" --xinfo t3_z1_c0 --debug
+read_file: '/tmp/CETI_5cc6c7/pt5.cil.i.info'
+** CONSTS: xinfo t3_z1_c0, consts 1
+[35mAlert: __cil_tmp6 = 1; ## __cil_tmp6 = uk_0;
+[mTransform success: ## '/tmp/CETI_5cc6c7/pt5.cil.i.s131.t3_z1_c0.tf.c' ##  __cil_tmp6 = 1; ## __cil_tmp6 = uk_0;
+write_src: '/tmp/CETI_5cc6c7/pt5.cil.i.s131.t3_z1_c0.tf.c'
+worker 0: run klee on /tmp/CETI_5cc6c7/pt5.cil.i.s131.t3_z1_c0.tf.c ***
+$ llvm-gcc -I /home/mingyue/klee/include --optimize -emit-llvm -c /tmp/CETI_5cc6c7/pt5.cil.i.s131.t3_z1_c0.tf.c -o /tmp/CETI_5cc6c7/pt5.cil.i.s131.t3_z1_c0.tf.o
+$ klee --allow-external-sym-calls --only-output-states-covering-new --optimize --max-time=10. -output-dir=/tmp/CETI_5cc6c7/pt5.cil.i.s131.t3_z1_c0.tf.o-klee-out  /tmp/CETI_5cc6c7/pt5.cil.i.s131.t3_z1_c0.tf.o
+worker 0: stdout: KLEE: WARNING: undefined reference to function: __ctype_b_loc
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcat
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strcmp
+worker 0: stdout: KLEE: WARNING: undefined reference to function: strlen
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcmp(171939432, 172103504)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: __ctype_b_loc()
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strlen(171943400)
+worker 0: stdout: KLEE: WARNING ONCE: calling external: strcat(171943400, 171939432)
+worker 0: found fix for /tmp/CETI_5cc6c7/pt5.cil.i.s131.t3_z1_c0.tf.c
+rs: 7
+rs: klee
+worker 0: sol found, break !
+KR: summary (bugfix: True, stop after a repair found: True, parallel: False), '/tmp/CETI_5cc6c7/pt5.cil.i', 1 / 548
+0. /tmp/CETI_5cc6c7/pt5.cil.i.s131.t3_z1_c0.tf.c: __cil_tmp6 = 1; ===> __cil_tmp6 = uk_0; ===> uk_0 0
+Note: temp files created in dir '/tmp/CETI_5cc6c7'
+
+real	0m50.095s
+user	0m48.955s
+sys	0m1.020s
+/home/mingyue/experiments/ceti/printtoken2/coverageTC

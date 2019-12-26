@@ -1,0 +1,123 @@
+5
+klee
+#constrains--stp:
+__tmpInt8  : BITVECTOR(8);
+__tmpInt16  : BITVECTOR(16);
+__tmpInt32  : BITVECTOR(32);
+__tmpInt64  : BITVECTOR(64);
+argv1_0x9d919d0  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+argv1_1_0x9e167e8  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+const_arr1_0x9dffba8  : ARRAY BITVECTOR(32) OF BITVECTOR(8);
+%----------------------------------------------------
+ASSERT( BVLT(BVPLUS(8, 
+0xD0, 
+argv1_0x9d919d0[0x00000000])
+,0x0A)
+ );
+ASSERT( (0x0A = argv1_0x9d919d0[0x00000001]
+) );
+ASSERT( BVLT(BVPLUS(8, 
+0xD0, 
+argv1_0x9d919d0[0x00000002])
+,0x0A)
+ );
+ASSERT( BVLT(BVPLUS(8, 
+0x9F, 
+argv1_0x9d919d0[0x00000003])
+,0x1A)
+ );
+ASSERT( (0x0A = argv1_0x9d919d0[0x00000004]
+) );
+ASSERT( (0x00 = argv1_0x9d919d0[0x00000005]
+) );
+ASSERT( (LET let_k_0 = argv1_0x9d919d0[0x00000000] IN 
+( NOT( (0x20 = ((((((argv1_1_0x9e167e8 WITH [0x00000000] := let_k_0)
+ WITH [0x00000001] := 0x31)
+ WITH [0x00000002] := argv1_0x9d919d0[0x00000001])
+ WITH [0x00000003] := argv1_0x9d919d0[0x00000002])
+ WITH [0x00000004] := argv1_0x9d919d0[0x00000004])
+ WITH [0x00000005] := argv1_0x9d919d0[0x00000005])
+[BVPLUS(32, 
+0xF62225C0, 
+IF((0x00 = let_k_0
+))
+THEN 0x00000000
+ELSE 0x09DDDA40
+ENDIF)
+]
+))))  );
+ASSERT( (LET let_k_0 = argv1_0x9d919d0[0x00000000] IN 
+( NOT( (0x0A = ((((((argv1_1_0x9e167e8 WITH [0x00000000] := let_k_0)
+ WITH [0x00000001] := 0x31)
+ WITH [0x00000002] := argv1_0x9d919d0[0x00000001])
+ WITH [0x00000003] := argv1_0x9d919d0[0x00000002])
+ WITH [0x00000004] := argv1_0x9d919d0[0x00000004])
+ WITH [0x00000005] := argv1_0x9d919d0[0x00000005])
+[BVPLUS(32, 
+0xF62225C0, 
+IF((0x00 = let_k_0
+))
+THEN 0x00000000
+ELSE 0x09DDDA40
+ENDIF)
+]
+))))  );
+ASSERT( (LET let_k_0 = argv1_0x9d919d0[0x00000000] IN 
+( NOT( (0x20 = ((((((argv1_1_0x9e167e8 WITH [0x00000000] := let_k_0)
+ WITH [0x00000001] := 0x31)
+ WITH [0x00000002] := argv1_0x9d919d0[0x00000001])
+ WITH [0x00000003] := argv1_0x9d919d0[0x00000002])
+ WITH [0x00000004] := argv1_0x9d919d0[0x00000004])
+ WITH [0x00000005] := argv1_0x9d919d0[0x00000005])
+[BVPLUS(32, 
+0xF62225C3, 
+IF((0x00 = let_k_0
+))
+THEN 0x00000000
+ELSE 0x09DDDA40
+ENDIF)
+]
+))))  );
+ASSERT( (LET let_k_0 = argv1_0x9d919d0[0x00000000] IN 
+( NOT( (0x0A = ((((((argv1_1_0x9e167e8 WITH [0x00000000] := let_k_0)
+ WITH [0x00000001] := 0x31)
+ WITH [0x00000002] := argv1_0x9d919d0[0x00000001])
+ WITH [0x00000003] := argv1_0x9d919d0[0x00000002])
+ WITH [0x00000004] := argv1_0x9d919d0[0x00000004])
+ WITH [0x00000005] := argv1_0x9d919d0[0x00000005])
+[BVPLUS(32, 
+0xF62225C3, 
+IF((0x00 = let_k_0
+))
+THEN 0x00000000
+ELSE 0x09DDDA40
+ENDIF)
+]
+))))  );
+%----------------------------------------------------
+QUERY( FALSE  );
+
+#variable value:
+numeric,-
+(Read w8 (Add w32 4129433024
+                  (Select w32 (Eq 0 N0:(Read w8 0 argv1))
+                              0
+                              165534272))
+         [5=(Read w8 5 argv1),
+          4=(Read w8 4 argv1),
+          3=(Read w8 2 argv1),
+          2=(Read w8 1 argv1),
+          1=49, 0=N0] @ argv1_1)
+1.
+numeric,-
+(Read w8 (Add w32 4129433027
+                  (Select w32 (Eq 0 N0:(Read w8 0 argv1))
+                              0
+                              165534272))
+         [5=(Read w8 5 argv1),
+          4=(Read w8 4 argv1),
+          3=(Read w8 2 argv1),
+          2=(Read w8 1 argv1),
+          1=49, 0=N0] @ argv1_1)
+.
+eof.

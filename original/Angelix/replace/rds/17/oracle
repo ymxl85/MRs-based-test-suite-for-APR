@@ -1,0 +1,78 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "NUgU" "~." "Nwj|czV/%kS_A"
+      ;;
+    2)
+      test-replace  "r" ",C" "2ss\\jD> | wpG2"
+      ;;
+    3)
+      test-replace  "" "" "L(0?tRzAw6Z>\$|Z=Y@"
+      ;;
+    4)
+      test-replace  "M" ".y+G" "}v>~HK:"
+      ;;
+    5)
+      test-replace  "" ".Zk" "t)O"
+      ;;
+    6)
+      test-replace  "" "P2/" "mzsouuv4"
+      ;;
+    7)
+      test-replace  "" "@" "zkMhG+,R+dOL)"
+      ;;
+    8)
+      test-replace  "jfm" "" "f1PZuxb QNr"
+      ;;
+    9)
+      test-replace  "9ILn" "" "fb}gk8"
+      ;;
+    10)
+      test-replace  "(@0" "Z5L6" "XN-SB\\0{vs("
+      ;;
+    11)
+      test-replace  " " "" "/c0S)p7_{YdN #"
+      ;;
+    12)
+      test-replace  "" "" "o"
+      ;;
+    13)
+      test-replace  "]5D;" "Tr" "NB\$S^\$l#EKN5>Bzn"
+      ;;
+    14)
+      test-replace  "z" "" "X"
+      ;;
+    15)
+      test-replace  "--?7" "bPz" "^B>m>Xb<|/XQ5pXLv"
+      ;;
+    16)
+      test-replace  "zZ8-" "As" "C"
+      ;;
+    17)
+      test-replace  "R@E" "bqz%" "Po%Lt}\"W&h@"
+      ;;
+    18)
+      test-replace  "D" "G\\" "Foh &*A!FQ/i\$F+:5"
+      ;;
+    19)
+      test-replace  "xB" "QsP" ">7zHB.MF+6V8"
+      ;;
+    20)
+      test-replace  "" "g" "l3I\`M:j[Laa]XZppS"
+      ;;
+    21)
+      test-replace  "\`iPa" "#ar" "AsC/5=x#VWA"
+      ;;
+    22)
+      test-replace  "" ">w" "sAUV5*OPE C?{>@K"
+      ;;
+    23)
+      test-replace  "" "0JR!" "JYj>\$o*eF:6w"
+      ;;
+esac

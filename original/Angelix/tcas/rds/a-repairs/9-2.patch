@@ -1,0 +1,20 @@
+--- a/tcas.c
++++ b/tcas.c
+@@ -303,7 +303,7 @@
+     
+   alt_sep = 0;
+     
+-  if (enabled && ((tcas_equipped && intent_not_known) || !tcas_equipped))
++  if ((enabled && tcas_equipped))
+     {
+       need_upward_RA = Non_Crossing_Biased_Climb(Cur_Vertical_Sep, 
+ 						 High_Confidence,
+@@ -352,7 +352,7 @@
+ 											Other_RAC,
+ 											Other_Capability,
+ 											Climb_Inhibit);
+-      if (need_upward_RA && need_downward_RA)
++      if ((need_upward_RA && need_downward_RA))
+ 	/* unreachable: requires Own_Below_Threat and Own_Above_Threat
+ 	   to both be true - that requires Own_Tracked_Alt < Other_Tracked_Alt
+ 	   and Other_Tracked_Alt < Own_Tracked_Alt, which isn't possible */

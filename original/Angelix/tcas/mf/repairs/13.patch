@@ -1,0 +1,11 @@
+--- a/tcas.c
++++ b/tcas.c
+@@ -241,7 +241,7 @@
+ #line 93
+   tmp = Inhibit_Biased_Climb();
+ #line 93
+-  upward_preferred = tmp > Down_Separation;
++  upward_preferred = (512 < Own_Tracked_Alt_Rate);
+ #line 94
+   if (upward_preferred) {
+ #line 96

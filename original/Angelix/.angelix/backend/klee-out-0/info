@@ -1,0 +1,21 @@
+klee -max-forks=50 -watchdog -max-time=100 -smtlib-human-readable -write-smt2s --libc=uclibc --posix-runtime -allow-external-sym-calls ./schedule.patched.bc /home/mingyue/Documents/Angelix/angelix/TSE/RDS/schedule/7/inputs10/in12 9 4 8
+PID: 9919
+Started: 2016-05-31 06:23:33
+BEGIN searcher description
+<InterleavedSearcher> containing 2 searchers:
+RandomPathSearcher
+WeightedRandomSearcher::CoveringNew
+</InterleavedSearcher>
+END searcher description
+Finished: 2016-05-31 06:23:39
+Elapsed: 00:00:06
+KLEE: done: explored paths = 2
+KLEE: done: avg. constructs per query = 14
+KLEE: done: total queries = 33
+KLEE: done: valid queries = 0
+KLEE: done: invalid queries = 33
+KLEE: done: query cex = 33
+
+KLEE: done: total instructions = 4193249
+KLEE: done: completed paths = 2
+KLEE: done: generated tests = 2

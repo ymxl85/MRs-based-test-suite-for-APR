@@ -1,0 +1,43 @@
+//all do not match: ss
+int main()
+{
+   char argv1[3];
+   char argv2[2];
+   char argv3[3];
+   char rr[1000];
+   klee_make_symbolic(&argv1,sizeof(argv1),"argv1");
+   klee_make_symbolic(&argv2,sizeof(argv2),"argv2");
+   klee_make_symbolic(&argv3,sizeof(argv3),"argv3");
+
+    //ts.pat=c1
+    klee_assume(argv1[0]>0 & argv1[0]<128 & argv1[0]!='%' & argv1[0]!='$' & argv1[0]!=']' & argv1[0]!='[' & argv1[0]!='^' & argv1[0]!='-');
+    klee_assume(argv1[1]=='\0');
+    //ts.substitution=s
+    klee_assume(argv2[0]>='0' & argv2[0]<='9');
+    klee_assume(argv2[1]=='\0');
+    //ts.text=a1a2
+    klee_assume(argv3[0]>0 & argv3[0]<128 & argv3[0]!='$' & argv3[0]!='[');
+    klee_assume(argv3[1]>0 & argv3[1]<128);
+    klee_assume(argv3[2]=='\0');
+///////////////////////////////////////////////////////////////////////////
+   char f[4];
+   if(argv1[0]=='?')
+   {
+      f[0]='[';
+      f[1]='^';
+      f[2]=']';
+      f[3]=argv1[1];
+     }
+     else
+     {
+       f[0]='[';
+       f[1]=argv1[0];
+       f[2]=']';
+       f[3]=argv1[1];
+     }
+  //////////////////////////////////////////////////////////////////////////////////////
+   mainQ(f,argv2,argv3,rr);
+   klee_print_expr("rr=",rr);
+   
+   return 0;
+}

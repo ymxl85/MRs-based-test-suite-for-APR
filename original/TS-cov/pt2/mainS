@@ -1,0 +1,13 @@
+int main(int argc,char *argv[])
+{  
+    char rr[100]="";
+    char argv1[50];
+    klee_make_symbolic(&argv1,sizeof(argv1),"argv1");
+
+    klee_assume(argv1[0]!='\0');
+    klee_assume(argv1[49]=='\0');
+////////////////////////////////////////////////////////
+    mainQ(argv1,rr);
+////////////////////////////////////////////////////////
+   return 0;
+}

@@ -1,0 +1,99 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "=-_H" "" "\$D4cEalzK2vP8Kg6Tf\$"
+      ;;
+    2)
+      test-replace  "nCJ" "be" ";p-3+,\\"
+      ;;
+    3)
+      test-replace  "" "%" "MN_B\\V"
+      ;;
+    4)
+      test-replace  "" "3\"" "nN ."
+      ;;
+    5)
+      test-replace  ")[" "V" ";zr-P8r\`Q\$W|l"
+      ;;
+    6)
+      test-replace  "" "(zr" "U"
+      ;;
+    7)
+      test-replace  ")bE@" "UM}7" "j:d3jn#dzzBL2A"
+      ;;
+    8)
+      test-replace  "" "HNTP" "A>"
+      ;;
+    9)
+      test-replace  "Tk:" "" "jQx|KaWj"
+      ;;
+    10)
+      test-replace  "m/" ";" "UQ0v;~A|K@h[p"
+      ;;
+    11)
+      test-replace  "g" "R,)\$" "FDq-~u#8,P tHDVN1"
+      ;;
+    12)
+      test-replace  "[^Dv" "J%" "&3*~,RZMUf\$ah6"
+      ;;
+    13)
+      test-replace  "dH" "B/Ed" "teB(L"
+      ;;
+    14)
+      test-replace  "wI#\"" "uK4b" ":>y/}52zf/**"
+      ;;
+    15)
+      test-replace  "" "." "pw< M(%-ch"
+      ;;
+    16)
+      test-replace  "" "hgVS" "_@4\$V&U"
+      ;;
+    17)
+      test-replace  "k" "M4j" "|B/NWg/.WXISI@uK"
+      ;;
+    18)
+      test-replace  "k)" ";" "@R}O^TWbw<bnAYyXN"
+      ;;
+    19)
+      test-replace  "u}" "?-" "s|b63@\"6;Tz4.Zm.oc4t"
+      ;;
+    20)
+      test-replace  "" "1zO" "g[dJ%h,j%zz\"#|B"
+      ;;
+    21)
+      test-replace  "Wqzw" "WWZI" "%d87VHL)c%d4U/\\"
+      ;;
+    22)
+      test-replace  "wzh{" "," "zpBVkhIcx"
+      ;;
+    23)
+      test-replace  "" "R>^\\" "Roh 8\"3+{\`7EQp\""
+      ;;
+    24)
+      test-replace  "@wu" "/y" "l\`.dy&DeW}0n(T q"
+      ;;
+    25)
+      test-replace  "Fx" "X!5x" "sM4rwV?Lga>947>1+D9"
+      ;;
+    26)
+      test-replace  "[s" "z" "\"#/JE\\~;0//hiGZy@1)("
+      ;;
+    27)
+      test-replace  "\`@Y!" "A," "gW3u"
+      ;;
+    28)
+      test-replace  "PvmJ" "~e" "["
+      ;;
+    29)
+      test-replace  "tk" "\`" "^"
+      ;;
+    30)
+      test-replace  "^Ck" "" "m8XIyr67DW"
+      ;;
+esac

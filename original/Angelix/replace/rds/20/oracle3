@@ -1,0 +1,288 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "<7\"" "" "BGC\`{%\\&Lqr"
+      ;;
+    2)
+      test-replace  "p*55" "r" "*["
+      ;;
+    3)
+      test-replace  "De/" "}" "{+)7JpD"
+      ;;
+    4)
+      test-replace  "(s4n" "+lf" "j"
+      ;;
+    5)
+      test-replace  ";Z" "" "/3OR~)Lm;Xxw7I%.I9<)"
+      ;;
+    6)
+      test-replace  "cB" "^AB" "uC,BDBJr9Dk?t7JoD=Fj"
+      ;;
+    7)
+      test-replace  "]^i" "}ZPk" ".L-i+K"
+      ;;
+    8)
+      test-replace  "=8;" "" "Cm9#-=g\"m"
+      ;;
+    9)
+      test-replace  "=Z" "gm^" "V:\`+iN*iP"
+      ;;
+    10)
+      test-replace  "N1" "" "RQAKYZO*q"
+      ;;
+    11)
+      test-replace  "6W" ">{PK" "ZDzMm("
+      ;;
+    12)
+      test-replace  "" "n/@^" " "
+      ;;
+    13)
+      test-replace  " " "cp" "pJru"
+      ;;
+    14)
+      test-replace  ";gh" "3s\"" "Yu\"j\"xzUe]#[-A"
+      ;;
+    15)
+      test-replace  "69t4" "=8" "dHx<}\"SRaX"
+      ;;
+    16)
+      test-replace  "" "" "fOc"
+      ;;
+    17)
+      test-replace  "S.lx" "p:" "_Tiz"
+      ;;
+    18)
+      test-replace  "-OQ" "2N" "H\"IJNTKq1eB!B{\\p"
+      ;;
+    19)
+      test-replace  "of" "MQfo" "0Z.eDeMk9V~.3SbHy|&"
+      ;;
+    20)
+      test-replace  "Ak" "+k" "+]_CM?Y~Wf0lwB1FfK"
+      ;;
+    21)
+      test-replace  "" "&[{%" "xed>Q?EezYsQFa1Dk8R"
+      ;;
+    22)
+      test-replace  ";" "jS%" " "
+      ;;
+    23)
+      test-replace  "1XD" "f" "sL6<l|nOGE&8xYnaj*"
+      ;;
+    24)
+      test-replace  "" "|." "m3-4"
+      ;;
+    25)
+      test-replace  "#" "CS" "bC\"_ B.11:QMmMOdr~"
+      ;;
+    26)
+      test-replace  "" "un+}" "0"
+      ;;
+    27)
+      test-replace  "ew" "" "i"
+      ;;
+    28)
+      test-replace  "@q" "kY:s" "g5zRHX8JA,cY2( "
+      ;;
+    29)
+      test-replace  "" ")IIk" "h>r{R%\""
+      ;;
+    30)
+      test-replace  "" "p" "{&"
+      ;;
+    31)
+      test-replace  "}qk)" "" "E"
+      ;;
+    32)
+      test-replace  ":~#" "G" ",\"x>zh7?C\\C7O"
+      ;;
+    33)
+      test-replace  "" "" ")+xT/XuS|sk.wH(\\"
+      ;;
+    34)
+      test-replace  "o6>M" "p(A" "["
+      ;;
+    35)
+      test-replace  "NE" "" "%CZywWe%ZB?0z\"Yh;LTh"
+      ;;
+    36)
+      test-replace  ";k~m" "" "X(:2:+G"
+      ;;
+    37)
+      test-replace  "-" ":d4" "1e<A8"
+      ;;
+    38)
+      test-replace  "u" "CF6i" "%8/7#<H*|.ARY9;<li/4"
+      ;;
+    39)
+      test-replace  "3.v" "m\\^" "KHZScc2WndtB\`A\\"
+      ;;
+    40)
+      test-replace  "{p,s" "X" "q"
+      ;;
+    41)
+      test-replace  ";h8U" "Q+?b" "9v}&N~5oq~{m;A(gC.I#"
+      ;;
+    42)
+      test-replace  "Tmb" "" "ve~\"xu.Yd("
+      ;;
+    43)
+      test-replace  "M&" "pb6<" "W"
+      ;;
+    44)
+      test-replace  "IOZ" "c4Q" "DUs?\$R)!Myif<"
+      ;;
+    45)
+      test-replace  "" "F" ".BNYF)1nlOD}DWcD"
+      ;;
+    46)
+      test-replace  "T1xp" "[6OC" "5nh^7k];"
+      ;;
+    47)
+      test-replace  "-" "4i:" " \`r!,]1%LPLQNh"
+      ;;
+    48)
+      test-replace  "" "xl" "t@\`qSZW~Ej|j1"
+      ;;
+    49)
+      test-replace  "" "#k_" "UxL"
+      ;;
+    50)
+      test-replace  "%Is@" "VWf" "U"
+      ;;
+    51)
+      test-replace  "" "U" "1_VZPoc~XGL.4l!;"
+      ;;
+    52)
+      test-replace  "9" "pJ" "O"
+      ;;
+    53)
+      test-replace  "A|" "" "61[P?M2"
+      ;;
+    54)
+      test-replace  "Zq" "1:" "G.f([?8wZ0nj^"
+      ;;
+    55)
+      test-replace  "Kn" "v" "o"
+      ;;
+    56)
+      test-replace  "X" "e" "gd[hUil}*XSvm8WE"
+      ;;
+    57)
+      test-replace  "82/" "7A-" "9xRA<>p)"
+      ;;
+    58)
+      test-replace  "DO" "T<]" "<@tM};}Y\$p<b\`(xe~\\"
+      ;;
+    59)
+      test-replace  "" "Y,C" "^0pYls"
+      ;;
+    60)
+      test-replace  "" "{p" "=oOra)0Y;{t?R*"
+      ;;
+    61)
+      test-replace  "" "0" "&D[-W}&yGt"
+      ;;
+    62)
+      test-replace  "" "" "W:ZY-Jm"
+      ;;
+    63)
+      test-replace  "^Bxx" "0TB" "\\|D\$7kw1PMv"
+      ;;
+    64)
+      test-replace  "" "" "\\+8PIW[Q[61iTgr@E*3"
+      ;;
+    65)
+      test-replace  "n" "=" "%v2V\"a95E=;{|"
+      ;;
+    66)
+      test-replace  "5h^" "" "b75\"md:N3 *!o&cPD"
+      ;;
+    67)
+      test-replace  "=:" "\`" "g=j"
+      ;;
+    68)
+      test-replace  "^v" "+ " "E\\JnC%"
+      ;;
+    69)
+      test-replace  "" "" "2%O;}0^f"
+      ;;
+    70)
+      test-replace  "eE0p" "&w" "HX86e\$FiB"
+      ;;
+    71)
+      test-replace  "2" "iO" "4a>Fn,D"
+      ;;
+    72)
+      test-replace  "" "z-" "iaweXWtt?pd|=_0kF)q"
+      ;;
+    73)
+      test-replace  "" ":}%_" "iQnF0In?7fCMiA^u4"
+      ;;
+    74)
+      test-replace  "" "Fyki" ":9J8}.q"
+      ;;
+    75)
+      test-replace  "" "S*" "nX:mxx-I"
+      ;;
+    76)
+      test-replace  "n[" "u;" "zDMKb"
+      ;;
+    77)
+      test-replace  "J[{" "D," "0.2CFnsDj^6*i"
+      ;;
+    78)
+      test-replace  "VjfF" "bu" "%Uv~\$l89rRM:"
+      ;;
+    79)
+      test-replace  "" "c:bQ" "WRD"
+      ;;
+    80)
+      test-replace  "99" "" " kN6p;q"
+      ;;
+    81)
+      test-replace  "j" "S2" "y^hNOaEaX,"
+      ;;
+    82)
+      test-replace  "5GW" "e" "=:::3%2X5p[=I"
+      ;;
+    83)
+      test-replace  "6PUk" "\`ts" "IO"
+      ;;
+    84)
+      test-replace  "3-" ".yS" "JB/\\OV%)h4C7p\$"
+      ;;
+    85)
+      test-replace  "43&B" "(+}]" "H^>qK"
+      ;;
+    86)
+      test-replace  "" "yk@" "[n<1Na=ULzT4%nB Tg"
+      ;;
+    87)
+      test-replace  "V.\"/" "Pr" "zvT"
+      ;;
+    88)
+      test-replace  "C" "&W" "%/EL_FoJS+"
+      ;;
+    89)
+      test-replace  "xxI" "" "O:J:AQ:p b#O}bRf"
+      ;;
+    90)
+      test-replace  "" "\"" "2zZIf"
+      ;;
+    91)
+      test-replace  "8L" "" "9Gl]cM@AAjW.:WP=\"E8\$"
+      ;;
+    92)
+      test-replace  "}" "va\"" "l1>2ocd+tX/#"
+      ;;
+    93)
+      test-replace  "" "*T" "mAA\\*86tfbN?diJ^&3]b"
+      ;;
+esac

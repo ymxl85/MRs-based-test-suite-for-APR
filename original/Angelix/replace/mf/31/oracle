@@ -1,0 +1,282 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "?" "0" "
+
+"
+      ;;
+    2)
+      test-replace  "@" "0" "
+@"
+      ;;
+    3)
+      test-replace  "r" "0" "
+	"
+      ;;
+    4)
+      test-replace  "" "0" "r"
+      ;;
+    5)
+      test-replace  "À" "0" ""
+      ;;
+    6)
+      test-replace  "À" "0" "
+
+"
+      ;;
+    7)
+      test-replace  "?" "0" "
+"
+      ;;
+    8)
+      test-replace  "?" "0" "
+"
+      ;;
+    9)
+      test-replace  "2" "0" "
+@"
+      ;;
+    10)
+      test-replace  "@" "0" "
+s"
+      ;;
+    11)
+      test-replace  "@" "0" "s@"
+      ;;
+    12)
+      test-replace  "
+" "0" "|
+"
+      ;;
+    13)
+      test-replace  "r" "0" "s	"
+      ;;
+    14)
+      test-replace  "s" "0" "
+s"
+      ;;
+    15)
+      test-replace  "
+" "0" "<<"
+      ;;
+    16)
+      test-replace  "" "0" "["
+      ;;
+    17)
+      test-replace  "" "0" "]"
+      ;;
+    18)
+      test-replace  "" "0" "*"
+      ;;
+    19)
+      test-replace  "" "0" "?"
+      ;;
+    20)
+      test-replace  "" "0" "\\"
+      ;;
+    21)
+      test-replace  "" "0" "Z"
+      ;;
+    22)
+      test-replace  "" "0" "-"
+      ;;
+    23)
+      test-replace  "" "0" ","
+      ;;
+    24)
+      test-replace  "" "0" "s"
+      ;;
+    25)
+      test-replace  "r" "0" "s"
+      ;;
+    26)
+      test-replace  "" "0" "
+"
+      ;;
+    27)
+      test-replace  "" "0" ""
+      ;;
+    28)
+      test-replace  "s" "0" "rs"
+      ;;
+    29)
+      test-replace  "
+" "0" "<"
+      ;;
+    30)
+      test-replace  "" "0" "\$"
+      ;;
+    31)
+      test-replace  "[^]" "0" "
+
+"
+      ;;
+    32)
+      test-replace  "[^@]" "0" "
+@"
+      ;;
+    33)
+      test-replace  "[^A]" "0" "
+@"
+      ;;
+    34)
+      test-replace  "[r]" "0" ""
+      ;;
+    35)
+      test-replace  "[^]" "0" "r"
+      ;;
+    36)
+      test-replace  "[^r]" "0" "r"
+      ;;
+    37)
+      test-replace  "[À]" "0" ""
+      ;;
+    38)
+      test-replace  "[À]" "0" "
+
+"
+      ;;
+    39)
+      test-replace  "[^]" "0" "
+"
+      ;;
+    40)
+      test-replace  "[^]" "0" "
+"
+      ;;
+    41)
+      test-replace  "[^]" "0" "
+"
+      ;;
+    42)
+      test-replace  "[^]" "0" "
+"
+      ;;
+    43)
+      test-replace  "[2]" "0" "
+@"
+      ;;
+    44)
+      test-replace  "[@]" "0" "
+s"
+      ;;
+    45)
+      test-replace  "[^@]" "0" "s@"
+      ;;
+    46)
+      test-replace  "[^s]" "0" "s@"
+      ;;
+    47)
+      test-replace  "[^}]" "0" "|
+"
+      ;;
+    48)
+      test-replace  "[^|]" "0" "|
+"
+      ;;
+    49)
+      test-replace  "[^s]" "0" "
+s"
+      ;;
+    50)
+      test-replace  "[^t]" "0" "
+s"
+      ;;
+    51)
+      test-replace  "[
+]" "0" "<<"
+      ;;
+    52)
+      test-replace  "[^]" "0" "["
+      ;;
+    53)
+      test-replace  "[^[]" "0" "["
+      ;;
+    54)
+      test-replace  "[^]" "0" "]"
+      ;;
+    55)
+      test-replace  "[^]]" "0" "]"
+      ;;
+    56)
+      test-replace  "[^]" "0" "*"
+      ;;
+    57)
+      test-replace  "[^*]" "0" "*"
+      ;;
+    58)
+      test-replace  "[^]" "0" "?"
+      ;;
+    59)
+      test-replace  "[^?]" "0" "?"
+      ;;
+    60)
+      test-replace  "[^]" "0" "\\"
+      ;;
+    61)
+      test-replace  "[^\\]" "0" "\\"
+      ;;
+    62)
+      test-replace  "[^]" "0" "Z"
+      ;;
+    63)
+      test-replace  "[^Z]" "0" "Z"
+      ;;
+    64)
+      test-replace  "[^]" "0" "-"
+      ;;
+    65)
+      test-replace  "[^-]" "0" "-"
+      ;;
+    66)
+      test-replace  "[^]" "0" ","
+      ;;
+    67)
+      test-replace  "[^,]" "0" ","
+      ;;
+    68)
+      test-replace  "[^]" "0" "s"
+      ;;
+    69)
+      test-replace  "[^s]" "0" "s"
+      ;;
+    70)
+      test-replace  "[r]" "0" "s"
+      ;;
+    71)
+      test-replace  "[^]" "0" "
+"
+      ;;
+    72)
+      test-replace  "[^]" "0" "
+"
+      ;;
+    73)
+      test-replace  "[^]" "0" ""
+      ;;
+    74)
+      test-replace  "[^]" "0" ""
+      ;;
+    75)
+      test-replace  "[^s]" "0" "rs"
+      ;;
+    76)
+      test-replace  "[^r]" "0" "rs"
+      ;;
+    77)
+      test-replace  "[
+]" "0" "<"
+      ;;
+    78)
+      test-replace  "[^]" "0" "\$"
+      ;;
+    79)
+      test-replace  "[^\$]" "0" "\$"
+      ;;
+esac

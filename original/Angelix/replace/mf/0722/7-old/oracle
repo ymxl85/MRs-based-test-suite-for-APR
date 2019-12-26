@@ -1,0 +1,187 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "?*" "d" "
+
+"
+      ;;
+    2)
+      test-replace  "?*" "a" "
+u"
+      ;;
+    3)
+      test-replace  "?*" "b" "uu"
+      ;;
+    4)
+      test-replace  "?*" "z" "
+
+"
+      ;;
+    5)
+      test-replace  "À*" "z" "
+
+"
+      ;;
+    6)
+      test-replace  "?Õ" "z" "
+
+"
+      ;;
+    7)
+      test-replace  "?*" "z" "õ
+"
+      ;;
+    8)
+      test-replace  "?*" "z" "
+õ"
+      ;;
+    9)
+      test-replace  "ÀÕ" "y" "õõ"
+      ;;
+    10)
+      test-replace  "?*" "z" "
+u"
+      ;;
+    11)
+      test-replace  "?*" "t" "
+"
+      ;;
+    12)
+      test-replace  "À*" "z" "
+u"
+      ;;
+    13)
+      test-replace  "?Õ" "z" "
+u"
+      ;;
+    14)
+      test-replace  "?*" "z" "õu"
+      ;;
+    15)
+      test-replace  "?*" "y" "
+
+"
+      ;;
+    16)
+      test-replace  "ÀÕ" "p" "õ
+"
+      ;;
+    17)
+      test-replace  "?*" "z" "uu"
+      ;;
+    18)
+      test-replace  "?*" "p" "u"
+      ;;
+    19)
+      test-replace  "?*" "p" "u"
+      ;;
+    20)
+      test-replace  "À*" "z" "uu"
+      ;;
+    21)
+      test-replace  "?Õ" "z" "uu"
+      ;;
+    22)
+      test-replace  "?*" "z" "u
+"
+      ;;
+    23)
+      test-replace  "ÀÕ" "h" "
+"
+      ;;
+    24)
+      test-replace  "[^]*" "d" "
+
+"
+      ;;
+    25)
+      test-replace  "[^]*" "a" "
+u"
+      ;;
+    26)
+      test-replace  "[^]*" "b" "uu"
+      ;;
+    27)
+      test-replace  "[^]*" "z" "
+
+"
+      ;;
+    28)
+      test-replace  "[À]*" "z" "
+
+"
+      ;;
+    29)
+      test-replace  "[^]Õ" "z" "
+
+"
+      ;;
+    30)
+      test-replace  "[^]*" "z" "õ
+"
+      ;;
+    31)
+      test-replace  "[^]*" "z" "
+õ"
+      ;;
+    32)
+      test-replace  "[À]Õ" "y" "õõ"
+      ;;
+    33)
+      test-replace  "[^]*" "z" "
+u"
+      ;;
+    34)
+      test-replace  "[^]*" "t" "
+"
+      ;;
+    35)
+      test-replace  "[À]*" "z" "
+u"
+      ;;
+    36)
+      test-replace  "[^]Õ" "z" "
+u"
+      ;;
+    37)
+      test-replace  "[^]*" "z" "õu"
+      ;;
+    38)
+      test-replace  "[^]*" "y" "
+
+"
+      ;;
+    39)
+      test-replace  "[À]Õ" "p" "õ
+"
+      ;;
+    40)
+      test-replace  "[^]*" "z" "uu"
+      ;;
+    41)
+      test-replace  "[^]*" "p" "u"
+      ;;
+    42)
+      test-replace  "[^]*" "p" "u"
+      ;;
+    43)
+      test-replace  "[À]*" "z" "uu"
+      ;;
+    44)
+      test-replace  "[^]Õ" "z" "uu"
+      ;;
+    45)
+      test-replace  "[^]*" "z" "u
+"
+      ;;
+    46)
+      test-replace  "[À]Õ" "h" "
+"
+      ;;
+esac

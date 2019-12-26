@@ -1,0 +1,7 @@
+array argv1[10] : w32 -> w8 = symbolic
+(query [(Eq 0 (Read w8 9 argv1))
+        (Eq false
+            (Eq 0 (Read w8 1 argv1)))
+        (Eq 34 N0:(Read w8 0 argv1))
+        (Eq false (Eq 59 N0))]
+       false)

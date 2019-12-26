@@ -1,0 +1,45 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-pt2 () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./pt2 "$1") <(angelix-eval $SCRIPT_DIR/../golden/pt2 "$1")
+}
+
+case "$1" in
+    1)
+      test-pt2  "7u9{"
+      ;;
+    2)
+      test-pt2  "h,Cqsz\"3|WT"
+      ;;
+    3)
+      test-pt2  "[#)y,Xe;?[vCfePGG "
+      ;;
+    4)
+      test-pt2  "40(L^rHsdGmz)y6Rvf"
+      ;;
+    5)
+      test-pt2  "PR=YXx>;n[b#&k("
+      ;;
+    6)
+      test-pt2  "sSbU2CV.Tx76WIFd-@"
+      ;;
+    7)
+      test-pt2  "6  e>GGNl^Kec%;+or%!"
+      ;;
+    8)
+      test-pt2  "e8nnZsWu2M:E"
+      ;;
+    9)
+      test-pt2  "6VI!:@hw"
+      ;;
+    10)
+      test-pt2  "\"QyP<"
+      ;;
+    11)
+      test-pt2  "XiCCwhj3N[J4BW."
+      ;;
+    12)
+      test-pt2  "\$r=."
+      ;;
+esac

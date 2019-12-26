@@ -1,0 +1,99 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "|" "eTE" "ES5iyM\\#KL("
+      ;;
+    2)
+      test-replace  "YC\$" " se" "~sj\\l-E=b?qaw"
+      ;;
+    3)
+      test-replace  "^F" "jW8k" "PWXKo8>87"
+      ;;
+    4)
+      test-replace  "pD" "" "S/;^I%Z[skE\$48ALo"
+      ;;
+    5)
+      test-replace  "poj@" "" "h.RVphUU "
+      ;;
+    6)
+      test-replace  "5:\"X" "4" "B3Q|3(VyN0~"
+      ;;
+    7)
+      test-replace  "" "R?" "n-saC(R"
+      ;;
+    8)
+      test-replace  "wW" "" "N"
+      ;;
+    9)
+      test-replace  "k" "2" "E{}Hg )ZkXTXX1Y9%v{1"
+      ;;
+    10)
+      test-replace  "-M;Q" "-)/" "gjU|W.XjPt!I"
+      ;;
+    11)
+      test-replace  "Vns" ".@" "VvzEs(K]iy)2Svq"
+      ;;
+    12)
+      test-replace  "t" "\\x" "oZn]Uquz]Pg[:9ja?I2"
+      ;;
+    13)
+      test-replace  "" "#" "|{_+N~&)+-ky-"
+      ;;
+    14)
+      test-replace  "d" "Ii<9" "1C3zo*f*cqXP]&v42P"
+      ;;
+    15)
+      test-replace  "o-mt" "a)N]" "V>8GQ*"
+      ;;
+    16)
+      test-replace  "Q@r" "" "k< >[\$3*8keX=w\`"
+      ;;
+    17)
+      test-replace  "2)Q" "<V&S" "4t!b*hGyQl&lF?7\\y("
+      ;;
+    18)
+      test-replace  ":r" "d,|" "\\:xfc-8yZLv*?W]WS}T+"
+      ;;
+    19)
+      test-replace  "o" "U4\"L" "Gz*MFL.\\Ylo+"
+      ;;
+    20)
+      test-replace  "i@" "J+e" "2\$r\$8r+@F~>HV>Z|F85F"
+      ;;
+    21)
+      test-replace  "v!__" "" "Uq]J<0d"
+      ;;
+    22)
+      test-replace  "gy" "U:c" "o"
+      ;;
+    23)
+      test-replace  "7i! " "Q9|G" ">98xm@o9qB"
+      ;;
+    24)
+      test-replace  "[" "HR" "#Uw?f\`#"
+      ;;
+    25)
+      test-replace  "w" "D+N)" "u.TpTx){x/e@s>"
+      ;;
+    26)
+      test-replace  "" "a,|)" "[XV7=k8G1%2W[T]nI"
+      ;;
+    27)
+      test-replace  "?*Ww" "" "vFi"
+      ;;
+    28)
+      test-replace  "yn)Z" "" "b"
+      ;;
+    29)
+      test-replace  "" "g%}" "!iBpnTD"
+      ;;
+    30)
+      test-replace  "Am" "3(" "Ghtfvex*"
+      ;;
+esac

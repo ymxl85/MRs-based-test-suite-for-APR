@@ -1,0 +1,528 @@
+        -:    0:Source:m30.c
+        -:    0:Graph:m30.gcno
+        -:    0:Data:m30.gcda
+        -:    0:Runs:20
+        -:    0:Programs:1
+        -:    1:/*  -*- Last-Edit:  Fri Jan 29 11:13:27 1993 by Tarak S. Goradia; -*- */
+        -:    2:/* $Log: tcas.c,v $
+        -:    3: * Revision 1.2  1993/03/12  19:29:50  foster
+        -:    4: * Correct logic bug which didn't allow output of 2 - hf
+        -:    5: * 
+        -:    6:
+        -:    7: Vu: no global variables -- much faster
+        -:    8:
+        -:    9:*/
+        -:   10:
+        -:   11:#include <stdio.h>
+        -:   12:
+        -:   13:
+function ALIM called 32 returned 100% blocks executed 100%
+       32:   14:int ALIM (int Cur_Vertical_Sep, 
+        -:   15:	  int High_Confidence,
+        -:   16:	  int Two_of_Three_Reports_Valid,
+        -:   17:	  int Own_Tracked_Alt,
+        -:   18:	  int Own_Tracked_Alt_Rate,
+        -:   19:	  int Other_Tracked_Alt,
+        -:   20:	  int Alt_Layer_Value,
+        -:   21:	  int Up_Separation,
+        -:   22:	  int Down_Separation,
+        -:   23:	  int Other_RAC,
+        -:   24:	  int Other_Capability,
+        -:   25:	  int Climb_Inhibit)
+        -:   26:{
+        -:   27:  /*Vu: original program has a bug here:
+        -:   28:    it returns Positive_RA_Alt_Thres[Alt_Layer_value] 
+        -:   29:    but Alt_Layer_value can be out of range, e.,g, < 0 or 3 <
+        -:   30:    tmp sol: comment out inputs causing these probs
+        -:   31:  */
+        -:   32:
+       32:   33:  if (Alt_Layer_Value == 0) return 400;
+branch  0 taken 25% (fallthrough)
+branch  1 taken 75%
+       24:   34:  else if (Alt_Layer_Value == 1) return 500;
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+       16:   35:  else if (Alt_Layer_Value == 2) return 640;
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        8:   36:  else return 740;
+        -:   37:
+        -:   38:}
+        -:   39:
+function Inhibit_Biased_Climb called 36 returned 100% blocks executed 100%
+       36:   40:int Inhibit_Biased_Climb (int Cur_Vertical_Sep, 
+        -:   41:			  int High_Confidence,
+        -:   42:			  int Two_of_Three_Reports_Valid,
+        -:   43:			  int Own_Tracked_Alt,
+        -:   44:			  int Own_Tracked_Alt_Rate,
+        -:   45:			  int Other_Tracked_Alt,
+        -:   46:			  int Alt_Layer_Value,
+        -:   47:			  int Up_Separation,
+        -:   48:			  int Down_Separation,
+        -:   49:			  int Other_RAC,
+        -:   50:			  int Other_Capability,
+        -:   51:			  int Climb_Inhibit)
+        -:   52:{
+        -:   53:
+       36:   54:  return (Up_Separation + 100); //tvn: missing code (Climb_Inhibit ? 100 + Up_Separation: Up_Separation);
+        -:   55:	  
+        -:   56:}
+        -:   57:
+function Non_Crossing_Biased_Climb called 18 returned 100% blocks executed 100%
+       18:   58:int Non_Crossing_Biased_Climb(int Cur_Vertical_Sep, 
+        -:   59:			      int High_Confidence,
+        -:   60:			      int Two_of_Three_Reports_Valid,
+        -:   61:			      int Own_Tracked_Alt,
+        -:   62:			      int Own_Tracked_Alt_Rate,
+        -:   63:			      int Other_Tracked_Alt,
+        -:   64:			      int Alt_Layer_Value,
+        -:   65:			      int Up_Separation,
+        -:   66:			      int Down_Separation,
+        -:   67:			      int Other_RAC,
+        -:   68:			      int Other_Capability,
+        -:   69:			      int Climb_Inhibit)
+        -:   70:{
+        -:   71:  int upward_preferred;
+        -:   72:  int upward_crossing_situation;
+        -:   73:  int result;
+        -:   74:
+       18:   75:  upward_preferred = Inhibit_Biased_Climb(Cur_Vertical_Sep, 
+call    0 returned 100%
+        -:   76:					  High_Confidence,
+        -:   77:					  Two_of_Three_Reports_Valid,
+        -:   78:					  Own_Tracked_Alt,
+        -:   79:					  Own_Tracked_Alt_Rate,
+        -:   80:					  Other_Tracked_Alt,
+        -:   81:					  Alt_Layer_Value,
+        -:   82:					  Up_Separation,
+        -:   83:					  Down_Separation,
+        -:   84:					  Other_RAC,
+        -:   85:					  Other_Capability,
+        -:   86:					  Climb_Inhibit) > Down_Separation;
+       18:   87:  if (upward_preferred)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:   88:    {
+       25:   89:      result = !(Own_Below_Threat(Cur_Vertical_Sep, 
+call    0 returned 100%
+branch  1 taken 89% (fallthrough)
+branch  2 taken 11%
+branch  3 taken 100% (fallthrough)
+branch  4 taken 0%
+branch  5 taken 50% (fallthrough)
+branch  6 taken 50%
+        -:   90:				  High_Confidence,
+        -:   91:				  Two_of_Three_Reports_Valid,
+        -:   92:				  Own_Tracked_Alt,
+        -:   93:				  Own_Tracked_Alt_Rate,
+        -:   94:				  Other_Tracked_Alt,
+        -:   95:				  Alt_Layer_Value,
+        -:   96:				  Up_Separation,
+        -:   97:				  Down_Separation,
+        -:   98:				  Other_RAC,
+        -:   99:				  Other_Capability,
+        8:  100:				  Climb_Inhibit)) || ((Own_Below_Threat(Cur_Vertical_Sep, 
+call    0 returned 100%
+        -:  101:									High_Confidence,
+        -:  102:									Two_of_Three_Reports_Valid,
+        -:  103:									Own_Tracked_Alt,
+        -:  104:									Own_Tracked_Alt_Rate,
+        -:  105:									Other_Tracked_Alt,
+        -:  106:									Alt_Layer_Value,
+        -:  107:									Up_Separation,
+        -:  108:									Down_Separation,
+        -:  109:									Other_RAC,
+        -:  110:									Other_Capability,
+        8:  111:									Climb_Inhibit)) && (!(Down_Separation >= ALIM(Cur_Vertical_Sep, 
+call    0 returned 100%
+        -:  112:														      High_Confidence,
+        -:  113:														      Two_of_Three_Reports_Valid,
+        -:  114:														      Own_Tracked_Alt,
+        -:  115:														      Own_Tracked_Alt_Rate,
+        -:  116:														      Other_Tracked_Alt,
+        -:  117:														      Alt_Layer_Value,
+        -:  118:														      Up_Separation,
+        -:  119:														      Down_Separation,
+        -:  120:														      Other_RAC,
+        -:  121:														      Other_Capability,
+        -:  122:														      Climb_Inhibit))));
+        -:  123:    }
+        -:  124:  else
+        -:  125:    {	
+       17:  126:      result = Own_Above_Threat(Cur_Vertical_Sep, 
+branch  0 taken 89% (fallthrough)
+branch  1 taken 11%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0%
+branch  4 taken 50% (fallthrough)
+branch  5 taken 50%
+        -:  127:				High_Confidence,
+        -:  128:				Two_of_Three_Reports_Valid,
+        -:  129:				Own_Tracked_Alt,
+        -:  130:				Own_Tracked_Alt_Rate,
+        -:  131:				Other_Tracked_Alt,
+        -:  132:				Alt_Layer_Value,
+        -:  133:				Up_Separation,
+        -:  134:				Down_Separation,
+        -:  135:				Other_RAC,
+        -:  136:				Other_Capability,
+       17:  137:				Climb_Inhibit) && (Cur_Vertical_Sep >= 300) && (Up_Separation >= ALIM(Cur_Vertical_Sep, 
+call    0 returned 100%
+call    1 returned 100%
+        -:  138:												      High_Confidence,
+        -:  139:												      Two_of_Three_Reports_Valid,
+        -:  140:												      Own_Tracked_Alt,
+        -:  141:												      Own_Tracked_Alt_Rate,
+        -:  142:												      Other_Tracked_Alt,
+        -:  143:												      Alt_Layer_Value,
+        -:  144:												      Up_Separation,
+        -:  145:												      Down_Separation,
+        -:  146:												      Other_RAC,
+        -:  147:												      Other_Capability,
+        -:  148:												      Climb_Inhibit));
+        -:  149:    }
+       18:  150:  return result;
+        -:  151:}
+        -:  152:
+function Non_Crossing_Biased_Descend called 18 returned 100% blocks executed 100%
+       18:  153:int Non_Crossing_Biased_Descend(int Cur_Vertical_Sep, 
+        -:  154:				int High_Confidence,
+        -:  155:				int Two_of_Three_Reports_Valid,
+        -:  156:				int Own_Tracked_Alt,
+        -:  157:				int Own_Tracked_Alt_Rate,
+        -:  158:				int Other_Tracked_Alt,
+        -:  159:				int Alt_Layer_Value,
+        -:  160:				int Up_Separation,
+        -:  161:				int Down_Separation,
+        -:  162:				int Other_RAC,
+        -:  163:				int Other_Capability,
+        -:  164:				int Climb_Inhibit)
+        -:  165:{
+        -:  166:  int upward_preferred;
+        -:  167:  int upward_crossing_situation;
+        -:  168:  int result;
+        -:  169:
+       18:  170:  upward_preferred = Inhibit_Biased_Climb(Cur_Vertical_Sep, 
+call    0 returned 100%
+        -:  171:					  High_Confidence,
+        -:  172:					  Two_of_Three_Reports_Valid,
+        -:  173:					  Own_Tracked_Alt,
+        -:  174:					  Own_Tracked_Alt_Rate,
+        -:  175:					  Other_Tracked_Alt,
+        -:  176:					  Alt_Layer_Value,
+        -:  177:					  Up_Separation,
+        -:  178:					  Down_Separation,
+        -:  179:					  Other_RAC,
+        -:  180:					  Other_Capability,
+        -:  181:					  Climb_Inhibit) > Down_Separation;
+       18:  182:  if (upward_preferred)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:  183:    {
+       17:  184:      result = Own_Below_Threat(Cur_Vertical_Sep, 
+branch  0 taken 89% (fallthrough)
+branch  1 taken 11%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0%
+branch  4 taken 50% (fallthrough)
+branch  5 taken 50%
+        -:  185:				High_Confidence,
+        -:  186:				Two_of_Three_Reports_Valid,
+        -:  187:				Own_Tracked_Alt,
+        -:  188:				Own_Tracked_Alt_Rate,
+        -:  189:				Other_Tracked_Alt,
+        -:  190:				Alt_Layer_Value,
+        -:  191:				Up_Separation,
+        -:  192:				Down_Separation,
+        -:  193:				Other_RAC,
+        -:  194:				Other_Capability,
+       17:  195:				Climb_Inhibit) && (Cur_Vertical_Sep >= 300) && (Down_Separation >= ALIM(Cur_Vertical_Sep, 
+call    0 returned 100%
+call    1 returned 100%
+        -:  196:													High_Confidence,
+        -:  197:													Two_of_Three_Reports_Valid,
+        -:  198:													Own_Tracked_Alt,
+        -:  199:													Own_Tracked_Alt_Rate,
+        -:  200:													Other_Tracked_Alt,
+        -:  201:													Alt_Layer_Value,
+        -:  202:													Up_Separation,
+        -:  203:													Down_Separation,
+        -:  204:													Other_RAC,
+        -:  205:													Other_Capability,
+        -:  206:													Climb_Inhibit));
+        -:  207:    }
+        -:  208:  else
+        -:  209:    {
+       25:  210:      result = !(Own_Above_Threat(Cur_Vertical_Sep, 
+call    0 returned 100%
+branch  1 taken 89% (fallthrough)
+branch  2 taken 11%
+branch  3 taken 100% (fallthrough)
+branch  4 taken 0%
+branch  5 taken 50% (fallthrough)
+branch  6 taken 50%
+        -:  211:				  High_Confidence,
+        -:  212:				  Two_of_Three_Reports_Valid,
+        -:  213:				  Own_Tracked_Alt,
+        -:  214:				  Own_Tracked_Alt_Rate,
+        -:  215:				  Other_Tracked_Alt,
+        -:  216:				  Alt_Layer_Value,
+        -:  217:				  Up_Separation,
+        -:  218:				  Down_Separation,
+        -:  219:				  Other_RAC,
+        -:  220:				  Other_Capability,
+        8:  221:				  Climb_Inhibit)) || ((Own_Above_Threat(Cur_Vertical_Sep, 
+call    0 returned 100%
+        -:  222:									High_Confidence,
+        -:  223:									Two_of_Three_Reports_Valid,
+        -:  224:									Own_Tracked_Alt,
+        -:  225:									Own_Tracked_Alt_Rate,
+        -:  226:									Other_Tracked_Alt,
+        -:  227:									Alt_Layer_Value,
+        -:  228:									Up_Separation,
+        -:  229:									Down_Separation,
+        -:  230:									Other_RAC,
+        -:  231:									Other_Capability,
+        8:  232:									Climb_Inhibit)) && (Up_Separation >= ALIM(Cur_Vertical_Sep, 
+call    0 returned 100%
+        -:  233:														  High_Confidence,
+        -:  234:														  Two_of_Three_Reports_Valid,
+        -:  235:														  Own_Tracked_Alt,
+        -:  236:														  Own_Tracked_Alt_Rate,
+        -:  237:														  Other_Tracked_Alt,
+        -:  238:														  Alt_Layer_Value,
+        -:  239:														  Up_Separation,
+        -:  240:														  Down_Separation,
+        -:  241:														  Other_RAC,
+        -:  242:														  Other_Capability,
+        -:  243:														  Climb_Inhibit)));
+        -:  244:    }
+       18:  245:  return result;
+        -:  246:}
+        -:  247:
+function Own_Below_Threat called 35 returned 100% blocks executed 100%
+       35:  248:int Own_Below_Threat(int Cur_Vertical_Sep, 
+        -:  249:		     int High_Confidence,
+        -:  250:		     int Two_of_Three_Reports_Valid,
+        -:  251:		     int Own_Tracked_Alt,
+        -:  252:		     int Own_Tracked_Alt_Rate,
+        -:  253:		     int Other_Tracked_Alt,
+        -:  254:		     int Alt_Layer_Value,
+        -:  255:		     int Up_Separation,
+        -:  256:		     int Down_Separation,
+        -:  257:		     int Other_RAC,
+        -:  258:		     int Other_Capability,
+        -:  259:		     int Climb_Inhibit)
+        -:  260:{
+       35:  261:  return (Own_Tracked_Alt < Other_Tracked_Alt);
+        -:  262:}
+        -:  263:
+function Own_Above_Threat called 35 returned 100% blocks executed 100%
+       35:  264:int Own_Above_Threat(int Cur_Vertical_Sep, 
+        -:  265:		     int High_Confidence,
+        -:  266:		     int Two_of_Three_Reports_Valid,
+        -:  267:		     int Own_Tracked_Alt,
+        -:  268:		     int Own_Tracked_Alt_Rate,
+        -:  269:		     int Other_Tracked_Alt,
+        -:  270:		     int Alt_Layer_Value,
+        -:  271:		     int Up_Separation,
+        -:  272:		     int Down_Separation,
+        -:  273:		     int Other_RAC,
+        -:  274:		     int Other_Capability,
+        -:  275:		     int Climb_Inhibit)
+        -:  276:{
+       35:  277:  return (Other_Tracked_Alt < Own_Tracked_Alt);
+        -:  278:}
+        -:  279:
+function alt_sep_test called 20 returned 100% blocks executed 97%
+       20:  280:int alt_sep_test(int Cur_Vertical_Sep, 
+        -:  281:		 int High_Confidence,
+        -:  282:		 int Two_of_Three_Reports_Valid,
+        -:  283:		 int Own_Tracked_Alt,
+        -:  284:		 int Own_Tracked_Alt_Rate,
+        -:  285:		 int Other_Tracked_Alt,
+        -:  286:		 int Alt_Layer_Value,
+        -:  287:		 int Up_Separation,
+        -:  288:		 int Down_Separation,
+        -:  289:		 int Other_RAC,
+        -:  290:		 int Other_Capability,
+        -:  291:		 int Climb_Inhibit)
+        -:  292:{
+        -:  293:  int enabled, tcas_equipped, intent_not_known;
+        -:  294:  int need_upward_RA, need_downward_RA;
+        -:  295:  int alt_sep;
+        -:  296:
+       20:  297:  enabled = High_Confidence && (Own_Tracked_Alt_Rate <= 600) && (Cur_Vertical_Sep > 600);
+branch  0 taken 95% (fallthrough)
+branch  1 taken 5%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0%
+       20:  298:  tcas_equipped = Other_Capability == 1;
+       20:  299:  intent_not_known = Two_of_Three_Reports_Valid && Other_RAC == 0;
+branch  0 taken 90% (fallthrough)
+branch  1 taken 10%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0%
+        -:  300:    
+       20:  301:  alt_sep = 0;
+        -:  302:    
+       20:  303:  if (enabled && ((tcas_equipped && intent_not_known) || !tcas_equipped))
+branch  0 taken 95% (fallthrough)
+branch  1 taken 5%
+branch  2 taken 5% (fallthrough)
+branch  3 taken 95%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0%
+branch  6 taken 95% (fallthrough)
+branch  7 taken 5%
+        -:  304:    {
+       27:  305:      need_upward_RA = Non_Crossing_Biased_Climb(Cur_Vertical_Sep, 
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+branch  2 taken 44% (fallthrough)
+branch  3 taken 56%
+        -:  306:						 High_Confidence,
+        -:  307:						 Two_of_Three_Reports_Valid,
+        -:  308:						 Own_Tracked_Alt,
+        -:  309:						 Own_Tracked_Alt_Rate,
+        -:  310:						 Other_Tracked_Alt,
+        -:  311:						 Alt_Layer_Value,
+        -:  312:						 Up_Separation,
+        -:  313:						 Down_Separation,
+        -:  314:						 Other_RAC,
+        -:  315:						 Other_Capability,
+       18:  316:						 Climb_Inhibit) && 
+call    0 returned 100%
+        -:  317:	Own_Below_Threat(Cur_Vertical_Sep, 
+        -:  318:			 High_Confidence,
+        -:  319:			 Two_of_Three_Reports_Valid,
+        -:  320:			 Own_Tracked_Alt,
+        -:  321:			 Own_Tracked_Alt_Rate,
+        -:  322:			 Other_Tracked_Alt,
+        -:  323:			 Alt_Layer_Value,
+        -:  324:			 Up_Separation,
+        -:  325:			 Down_Separation,
+        -:  326:			 Other_RAC,
+        -:  327:			 Other_Capability,
+        9:  328:			 Climb_Inhibit);
+call    0 returned 100%
+       27:  329:      need_downward_RA = Non_Crossing_Biased_Descend(Cur_Vertical_Sep, 
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+branch  2 taken 44% (fallthrough)
+branch  3 taken 56%
+        -:  330:						     High_Confidence,
+        -:  331:						     Two_of_Three_Reports_Valid,
+        -:  332:						     Own_Tracked_Alt,
+        -:  333:						     Own_Tracked_Alt_Rate,
+        -:  334:						     Other_Tracked_Alt,
+        -:  335:						     Alt_Layer_Value,
+        -:  336:						     Up_Separation,
+        -:  337:						     Down_Separation,
+        -:  338:						     Other_RAC,
+        -:  339:						     Other_Capability,
+       18:  340:						     Climb_Inhibit) && Own_Above_Threat(Cur_Vertical_Sep, 
+call    0 returned 100%
+        -:  341:											High_Confidence,
+        -:  342:											Two_of_Three_Reports_Valid,
+        -:  343:											Own_Tracked_Alt,
+        -:  344:											Own_Tracked_Alt_Rate,
+        -:  345:											Other_Tracked_Alt,
+        -:  346:											Alt_Layer_Value,
+        -:  347:											Up_Separation,
+        -:  348:											Down_Separation,
+        -:  349:											Other_RAC,
+        -:  350:											Other_Capability,
+        9:  351:											Climb_Inhibit);
+call    0 returned 100%
+       18:  352:      if (need_upward_RA && need_downward_RA)
+branch  0 taken 22% (fallthrough)
+branch  1 taken 78%
+branch  2 taken 0% (fallthrough)
+branch  3 taken 100%
+        -:  353:	/* unreachable: requires Own_Below_Threat and Own_Above_Threat
+        -:  354:	   to both be true - that requires Own_Tracked_Alt < Other_Tracked_Alt
+        -:  355:	   and Other_Tracked_Alt < Own_Tracked_Alt, which isn't possible */
+    #####:  356:	alt_sep = 0;
+       18:  357:      else if (need_upward_RA)
+branch  0 taken 22% (fallthrough)
+branch  1 taken 78%
+        4:  358:	alt_sep = 1;
+       14:  359:      else if (need_downward_RA)
+branch  0 taken 29% (fallthrough)
+branch  1 taken 71%
+        4:  360:	alt_sep = 2;
+        -:  361:      else
+       10:  362:	alt_sep = 0;
+        -:  363:    }
+        -:  364:    
+       20:  365:  return alt_sep;
+        -:  366:}
+        -:  367:
+        -:  368:
+        -:  369:
+        -:  370:
+        -:  371:
+        -:  372:
+function mainQ called 20 returned 100% blocks executed 100%
+       20:  373:int mainQ(int Cur_Vertical_Sep, 
+        -:  374:	  int High_Confidence,
+        -:  375:	  int Two_of_Three_Reports_Valid,
+        -:  376:	  int Own_Tracked_Alt,
+        -:  377:	  int Own_Tracked_Alt_Rate,
+        -:  378:	  int Other_Tracked_Alt,
+        -:  379:	  int Alt_Layer_Value,
+        -:  380:	  int Up_Separation,
+        -:  381:	  int Down_Separation,
+        -:  382:	  int Other_RAC,
+        -:  383:	  int Other_Capability,
+        -:  384:	  int Climb_Inhibit){
+       20:  385:  return alt_sep_test(Cur_Vertical_Sep, 
+call    0 returned 100%
+        -:  386:		      High_Confidence,
+        -:  387:		      Two_of_Three_Reports_Valid,
+        -:  388:		      Own_Tracked_Alt,
+        -:  389:		      Own_Tracked_Alt_Rate,
+        -:  390:		      Other_Tracked_Alt,
+        -:  391:		      Alt_Layer_Value,
+        -:  392:		      Up_Separation,
+        -:  393:		      Down_Separation,
+        -:  394:		      Other_RAC,
+        -:  395:		      Other_Capability,
+        -:  396:		      Climb_Inhibit);
+        -:  397:}
+        -:  398:
+function main called 20 returned 100% blocks executed 100%
+       20:  399:int main(int argc, char*argv[])
+        -:  400:{
+      220:  401:  fprintf(stdout, "%d\n", mainQ(atoi(argv[1]),
+call    0 returned 100%
+call    1 returned 100%
+call    2 returned 100%
+call    3 returned 100%
+call    4 returned 100%
+call    5 returned 100%
+call    6 returned 100%
+call    7 returned 100%
+call    8 returned 100%
+call    9 returned 100%
+call   10 returned 100%
+call   11 returned 100%
+call   12 returned 100%
+call   13 returned 100%
+       20:  402:				atoi(argv[2]),
+       20:  403:				atoi(argv[3]),
+       20:  404:				atoi(argv[4]),
+       20:  405:				atoi(argv[5]),
+       20:  406:				atoi(argv[6]),
+       20:  407:				atoi(argv[7]),
+       20:  408:				atoi(argv[8]),
+       20:  409:				atoi(argv[9]),
+       20:  410:				atoi(argv[10]),
+       20:  411:				atoi(argv[11]),
+       20:  412:				atoi(argv[12])
+        -:  413:				));
+       20:  414:  return 0;
+        -:  415:}

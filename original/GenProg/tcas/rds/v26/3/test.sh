@@ -1,0 +1,78 @@
+ulimit -t 1
+echo $1 $2 $3 $4 $5 >> testruns.txt
+case $2 in
+  p1) $1 195 0 351 741 683 5591 3 771 701 0 0 0 | diff outputP/O1 - && exit 0 ;;
+  p2) $1 458 1 760 732 971 3249 3 640 263 1 0 1 | diff outputP/O2 - && exit 0 ;;
+  p3) $1 564 0 287 56 553 9562 3 132 388 1 1 1 | diff outputP/O3 - && exit 0 ;;
+  p4) $1 147 1 395 848 391 267 1 784 709 0 1 1 | diff outputP/O4 - && exit 0 ;;
+  p5) $1 495 1 727 519 713 7577 1 906 59 0 0 0 | diff outputP/O5 - && exit 0 ;;
+  p6) $1 783 1 215 30 387 1848 2 581 563 0 0 1 | diff outputP/O6 - && exit 0 ;;
+  p7) $1 51 0 875 217 496 475 0 604 48 1 1 1 | diff outputP/O7 - && exit 0 ;;
+  p8) $1 171 1 743 587 56 4488 0 870 127 0 1 1 | diff outputP/O8 - && exit 0 ;;
+  p9) $1 320 1 595 195 256 8160 1 801 923 0 0 0 | diff outputP/O9 - && exit 0 ;;
+  p10) $1 206 1 331 72 475 4085 2 193 414 0 0 0 | diff outputP/O10 - && exit 0 ;;
+  p11) $1 481 1 994 285 691 5379 1 348 909 1 0 1 | diff outputP/O11 - && exit 0 ;;
+  p12) $1 468 0 579 17 728 8173 1 616 133 1 1 0 | diff outputP/O12 - && exit 0 ;;
+  p13) $1 442 0 823 96 71 1178 3 366 875 1 1 0 | diff outputP/O13 - && exit 0 ;;
+  p14) $1 330 0 262 166 739 4928 0 120 37 1 1 0 | diff outputP/O14 - && exit 0 ;;
+  p15) $1 919 0 511 819 104 4534 2 52 757 1 0 1 | diff outputP/O15 - && exit 0 ;;
+  p16) $1 782 1 664 371 321 5779 2 379 189 1 1 1 | diff outputP/O16 - && exit 0 ;;
+  p17) $1 541 1 303 162 402 1006 1 379 444 1 0 0 | diff outputP/O17 - && exit 0 ;;
+  p18) $1 317 1 357 576 913 4835 1 133 161 0 1 0 | diff outputP/O18 - && exit 0 ;;
+  p19) $1 379 0 525 703 695 5033 2 753 805 1 0 1 | diff outputP/O19 - && exit 0 ;;
+  p20) $1 150 1 347 448 633 1947 2 813 155 1 0 1 | diff outputP/O20 - && exit 0 ;;
+  p21) $1 575 0 127 185 179 950 0 621 394 0 0 0 | diff outputP/O21 - && exit 0 ;;
+  p22) $1 251 1 126 257 77 1406 3 352 991 0 0 1 | diff outputP/O22 - && exit 0 ;;
+  p23) $1 34 0 173 601 206 3410 1 879 224 1 1 1 | diff outputP/O23 - && exit 0 ;;
+  p24) $1 582 1 562 413 352 3399 3 723 234 0 1 1 | diff outputP/O24 - && exit 0 ;;
+  p25) $1 532 1 786 170 138 1853 0 824 54 1 1 1 | diff outputP/O25 - && exit 0 ;;
+  p26) $1 716 1 321 397 160 558 1 835 84 0 0 0 | diff outputP/O26 - && exit 0 ;;
+  p27) $1 968 1 276 416 747 3343 2 386 935 1 1 1 | diff outputP/O27 - && exit 0 ;;
+  p28) $1 748 0 340 818 508 2870 0 170 544 1 0 0 | diff outputP/O28 - && exit 0 ;;
+  p29) $1 864 0 992 695 136 6876 2 903 862 1 0 1 | diff outputP/O29 - && exit 0 ;;
+  p30) $1 210 0 490 580 635 273 2 62 320 1 0 1 | diff outputP/O30 - && exit 0 ;;
+  p31) $1 429 1 644 818 374 4736 1 919 611 1 0 1 | diff outputP/O31 - && exit 0 ;;
+  n1) $1 756 1 861 142 969 1358 1 907 335 0 1 1 | diff outputF/O1 - && exit 0 ;;
+  s) # single-valued fitness 
+let fit=0
+  $1 195 0 351 741 683 5591 3 771 701 0 0 0 | diff outputP/O1 - && let fit=$fit+1
+  $1 458 1 760 732 971 3249 3 640 263 1 0 1 | diff outputP/O2 - && let fit=$fit+1
+  $1 564 0 287 56 553 9562 3 132 388 1 1 1 | diff outputP/O3 - && let fit=$fit+1
+  $1 147 1 395 848 391 267 1 784 709 0 1 1 | diff outputP/O4 - && let fit=$fit+1
+  $1 495 1 727 519 713 7577 1 906 59 0 0 0 | diff outputP/O5 - && let fit=$fit+1
+  $1 783 1 215 30 387 1848 2 581 563 0 0 1 | diff outputP/O6 - && let fit=$fit+1
+  $1 51 0 875 217 496 475 0 604 48 1 1 1 | diff outputP/O7 - && let fit=$fit+1
+  $1 171 1 743 587 56 4488 0 870 127 0 1 1 | diff outputP/O8 - && let fit=$fit+1
+  $1 320 1 595 195 256 8160 1 801 923 0 0 0 | diff outputP/O9 - && let fit=$fit+1
+  $1 206 1 331 72 475 4085 2 193 414 0 0 0 | diff outputP/O10 - && let fit=$fit+1
+  $1 481 1 994 285 691 5379 1 348 909 1 0 1 | diff outputP/O11 - && let fit=$fit+1
+  $1 468 0 579 17 728 8173 1 616 133 1 1 0 | diff outputP/O12 - && let fit=$fit+1
+  $1 442 0 823 96 71 1178 3 366 875 1 1 0 | diff outputP/O13 - && let fit=$fit+1
+  $1 330 0 262 166 739 4928 0 120 37 1 1 0 | diff outputP/O14 - && let fit=$fit+1
+  $1 919 0 511 819 104 4534 2 52 757 1 0 1 | diff outputP/O15 - && let fit=$fit+1
+  $1 782 1 664 371 321 5779 2 379 189 1 1 1 | diff outputP/O16 - && let fit=$fit+1
+  $1 541 1 303 162 402 1006 1 379 444 1 0 0 | diff outputP/O17 - && let fit=$fit+1
+  $1 317 1 357 576 913 4835 1 133 161 0 1 0 | diff outputP/O18 - && let fit=$fit+1
+  $1 379 0 525 703 695 5033 2 753 805 1 0 1 | diff outputP/O19 - && let fit=$fit+1
+  $1 150 1 347 448 633 1947 2 813 155 1 0 1 | diff outputP/O20 - && let fit=$fit+1
+  $1 575 0 127 185 179 950 0 621 394 0 0 0 | diff outputP/O21 - && let fit=$fit+1
+  $1 251 1 126 257 77 1406 3 352 991 0 0 1 | diff outputP/O22 - && let fit=$fit+1
+  $1 34 0 173 601 206 3410 1 879 224 1 1 1 | diff outputP/O23 - && let fit=$fit+1
+  $1 582 1 562 413 352 3399 3 723 234 0 1 1 | diff outputP/O24 - && let fit=$fit+1
+  $1 532 1 786 170 138 1853 0 824 54 1 1 1 | diff outputP/O25 - && let fit=$fit+1
+  $1 716 1 321 397 160 558 1 835 84 0 0 0 | diff outputP/O26 - && let fit=$fit+1
+  $1 968 1 276 416 747 3343 2 386 935 1 1 1 | diff outputP/O27 - && let fit=$fit+1
+  $1 748 0 340 818 508 2870 0 170 544 1 0 0 | diff outputP/O28 - && let fit=$fit+1
+  $1 864 0 992 695 136 6876 2 903 862 1 0 1 | diff outputP/O29 - && let fit=$fit+1
+  $1 210 0 490 580 635 273 2 62 320 1 0 1 | diff outputP/O30 - && let fit=$fit+1
+  $1 429 1 644 818 374 4736 1 919 611 1 0 1 | diff outputP/O31 - && let fit=$fit+1
+  $1 756 1 861 142 969 1358 1 907 335 0 1 1 | diff outputF/O1 - && let fit=$fit+1
+  let passed_all_so_stop_search="$fit >=32 "
+  echo $fit > $5
+  if [ $passed_all_so_stop_search -eq 1 ] ; then 
+    exit 0 
+  else
+    exit 1
+  fi;;
+esac
+exit 1

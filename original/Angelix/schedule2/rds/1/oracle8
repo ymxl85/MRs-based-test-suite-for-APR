@@ -1,0 +1,27 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-schedule () {
+    diff <(${ANGELIX_RUN:-eval} ./schedule2 $1 < $2) <(angelix-eval $SCRIPT_DIR/../golden/schedule2 $1 < $2)
+}
+
+case "$1" in
+    1)
+      test-schedule  "5 1 0 " "$SCRIPT_DIR/inputs8/in1"
+      ;;
+    2)
+      test-schedule  "4 5 0 " "$SCRIPT_DIR/inputs8/in2"
+      ;;
+    3)
+      test-schedule  "9 8 9 " "$SCRIPT_DIR/inputs8/in3"
+      ;;
+    4)
+      test-schedule  "8 7 4 " "$SCRIPT_DIR/inputs8/in4"
+      ;;
+    5)
+      test-schedule  "9 3 8 " "$SCRIPT_DIR/inputs8/in5"
+      ;;
+    6)
+      test-schedule  "7 0 9 " "$SCRIPT_DIR/inputs8/in6"
+      ;;
+esac

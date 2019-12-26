@@ -1,0 +1,30 @@
+gcc -D_GNUCC -E -DCIL=1 coverageTC/v7/1/v7.c -o coverageTC/v7/1/v7.i
+/usr/local/bin/cilly.native --out coverageTC/v7/1/v7.cil.c --noPrintLn --useLogicalOperators coverageTC/v7/1/v7.i
+coverageTC/v7/1/v7.c:102: Warning: Body of function main falls-through. Adding a return statement
+gcc -D_GNUCC -E coverageTC/v7/1/v7.cil.c -o coverageTC/v7/1/v7.cil.i
+gcc -D_GNUCC -c -o coverageTC/v7/1/v7.o coverageTC/v7/1/v7.cil.i
+coverageTC/v7/1/v7.cil.c:241: warning: conflicting types for built-in function ‘exit’
+coverageTC/v7/1/v7.cil.c:252: warning: conflicting types for built-in function ‘malloc’
+coverageTC/v7/1/v7.cil.c:253: warning: conflicting types for built-in function ‘free’
+coverageTC/v7/1/v7.cil.c:350: warning: conflicting types for built-in function ‘strcat’
+gcc -D_GNUCC -E -DCIL=1 coverageTC/v7/1/processor.c -o coverageTC/v7/1/processor.i
+/usr/local/bin/cilly.native --out coverageTC/v7/1/processor.cil.c --noPrintLn --useLogicalOperators coverageTC/v7/1/processor.i
+gcc -D_GNUCC -E coverageTC/v7/1/processor.cil.c -o coverageTC/v7/1/processor.cil.i
+gcc -D_GNUCC -c -o coverageTC/v7/1/processor.o coverageTC/v7/1/processor.cil.i
+coverageTC/v7/1/processor.cil.c:6: warning: conflicting types for built-in function ‘strlen’
+gcc -D_GNUCC -o a.out coverageTC/v7/1/v7.o coverageTC/v7/1/processor.o
+$ cp coverageTC/v7/1/v7.cil.i /tmp/CETI_a9e412/v7.cil.i
+$ cp coverageTC/v7/1/processor.c /tmp/CETI_a9e412/processor.c
+input length='47' output length='47'
+*** Get good/bad tcs ***
+cmd 'gcc /tmp/CETI_a9e412/v7.cil.i coverageTC/v7/1/processor.c -o /tmp/CETI_a9e412/v7.cil.i.exe >& /dev/null'
+$ gcc /tmp/CETI_a9e412/v7.cil.i coverageTC/v7/1/processor.c -o /tmp/CETI_a9e412/v7.cil.i.exe >& /dev/null
+write_file_str: '/tmp/CETI_a9e412/v7.cil.i.sh'
+$ sh /tmp/CETI_a9e412/v7.cil.i.sh /tmp/CETI_a9e412/v7.cil.i.exe &> /dev/null
+[35mAlert: All tests passed. Exit!
+[mNote: temp files created in dir '/tmp/CETI_a9e412'
+
+real	0m0.179s
+user	0m0.216s
+sys	0m0.056s
+/home/mingyue/experiments/ceti/schedule2/coverageTC

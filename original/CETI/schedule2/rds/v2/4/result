@@ -1,0 +1,29 @@
+gcc -D_GNUCC -E -DCIL=1 randomTC/v2/4/v2.c -o randomTC/v2/4/v2.i
+/usr/local/bin/cilly.native --out randomTC/v2/4/v2.cil.c --noPrintLn --useLogicalOperators randomTC/v2/4/v2.i
+gcc -D_GNUCC -E randomTC/v2/4/v2.cil.c -o randomTC/v2/4/v2.cil.i
+gcc -D_GNUCC -c -o randomTC/v2/4/v2.o randomTC/v2/4/v2.cil.i
+randomTC/v2/4/v2.cil.c:241: warning: conflicting types for built-in function ‘exit’
+randomTC/v2/4/v2.cil.c:252: warning: conflicting types for built-in function ‘malloc’
+randomTC/v2/4/v2.cil.c:253: warning: conflicting types for built-in function ‘free’
+randomTC/v2/4/v2.cil.c:350: warning: conflicting types for built-in function ‘strcat’
+gcc -D_GNUCC -E -DCIL=1 randomTC/v2/4/processor.c -o randomTC/v2/4/processor.i
+/usr/local/bin/cilly.native --out randomTC/v2/4/processor.cil.c --noPrintLn --useLogicalOperators randomTC/v2/4/processor.i
+gcc -D_GNUCC -E randomTC/v2/4/processor.cil.c -o randomTC/v2/4/processor.cil.i
+gcc -D_GNUCC -c -o randomTC/v2/4/processor.o randomTC/v2/4/processor.cil.i
+randomTC/v2/4/processor.cil.c:6: warning: conflicting types for built-in function ‘strlen’
+gcc -D_GNUCC -o a.out randomTC/v2/4/v2.o randomTC/v2/4/processor.o
+$ cp randomTC/v2/4/v2.cil.i /tmp/CETI_1a465f/v2.cil.i
+$ cp randomTC/v2/4/processor.c /tmp/CETI_1a465f/processor.c
+input length='6' output length='6'
+*** Get good/bad tcs ***
+cmd 'gcc /tmp/CETI_1a465f/v2.cil.i randomTC/v2/4/processor.c -o /tmp/CETI_1a465f/v2.cil.i.exe >& /dev/null'
+$ gcc /tmp/CETI_1a465f/v2.cil.i randomTC/v2/4/processor.c -o /tmp/CETI_1a465f/v2.cil.i.exe >& /dev/null
+write_file_str: '/tmp/CETI_1a465f/v2.cil.i.sh'
+$ sh /tmp/CETI_1a465f/v2.cil.i.sh /tmp/CETI_1a465f/v2.cil.i.exe &> /dev/null
+[35mAlert: All tests passed. Exit!
+[mNote: temp files created in dir '/tmp/CETI_1a465f'
+
+real	0m0.104s
+user	0m0.096s
+sys	0m0.016s
+/home/mingyue/experiments/ceti/schedule2/randomTC

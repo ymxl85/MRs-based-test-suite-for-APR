@@ -1,0 +1,294 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "?" "0" "@@"
+      ;;
+    2)
+      test-replace  "?" "0" "@s"
+      ;;
+    3)
+      test-replace  "?" "0" "s@"
+      ;;
+    4)
+      test-replace  "@" "0" "@s"
+      ;;
+    5)
+      test-replace  "À" "0" "@@"
+      ;;
+    6)
+      test-replace  "À" "0" ">"
+      ;;
+    7)
+      test-replace  "?" "0" "@"
+      ;;
+    8)
+      test-replace  "?" "0" "@\$"
+      ;;
+    9)
+      test-replace  "?" "0" "@["
+      ;;
+    10)
+      test-replace  "?" "0" "@]"
+      ;;
+    11)
+      test-replace  "?" "0" "@*"
+      ;;
+    12)
+      test-replace  "?" "0" "@?"
+      ;;
+    13)
+      test-replace  "?" "0" "@\\"
+      ;;
+    14)
+      test-replace  "?" "0" "@Z"
+      ;;
+    15)
+      test-replace  "?" "0" "@-"
+      ;;
+    16)
+      test-replace  "?" "0" "@,"
+      ;;
+    17)
+      test-replace  "À" "0" "@s"
+      ;;
+    18)
+      test-replace  "?" "0" "@
+"
+      ;;
+    19)
+      test-replace  "?" "0" "ss"
+      ;;
+    20)
+      test-replace  "?" "0" "@"
+      ;;
+    21)
+      test-replace  "?" "0" ",@"
+      ;;
+    22)
+      test-replace  "?" "0" "\$@"
+      ;;
+    23)
+      test-replace  "À" "0" "s@"
+      ;;
+    24)
+      test-replace  "?" "0" "
+@"
+      ;;
+    25)
+      test-replace  "À" "0" ""
+      ;;
+    26)
+      test-replace  "?" "0" "[@"
+      ;;
+    27)
+      test-replace  "?" "0" "]@"
+      ;;
+    28)
+      test-replace  "?" "0" "*@"
+      ;;
+    29)
+      test-replace  "?" "0" "?@"
+      ;;
+    30)
+      test-replace  "?" "0" "\\@"
+      ;;
+    31)
+      test-replace  "?" "0" "Z@"
+      ;;
+    32)
+      test-replace  "?" "0" "-@"
+      ;;
+    33)
+      test-replace  "@" "0" "@"
+      ;;
+    34)
+      test-replace  "@" "0" "@\$"
+      ;;
+    35)
+      test-replace  "@" "0" "@["
+      ;;
+    36)
+      test-replace  "@" "0" "@]"
+      ;;
+    37)
+      test-replace  "@" "0" "@*"
+      ;;
+    38)
+      test-replace  "@" "0" "@?"
+      ;;
+    39)
+      test-replace  "@" "0" "@\\"
+      ;;
+    40)
+      test-replace  "@" "0" "@Z"
+      ;;
+    41)
+      test-replace  "@" "0" "@-"
+      ;;
+    42)
+      test-replace  "@" "0" "@,"
+      ;;
+    43)
+      test-replace  "s" "0" "sB"
+      ;;
+    44)
+      test-replace  "@" "0" "ss"
+      ;;
+    45)
+      test-replace  "@" "0" "@@"
+      ;;
+    46)
+      test-replace  "=" "0" "<<"
+      ;;
+    47)
+      test-replace  "?@@@" "0" "@@@@@@"
+      ;;
+    48)
+      test-replace  "?s@" "0" "@s@ss@"
+      ;;
+    49)
+      test-replace  "?s@" "0" "ss@@s@"
+      ;;
+    50)
+      test-replace  "[@]" "0" "@s"
+      ;;
+    51)
+      test-replace  "[À]" "0" "@@"
+      ;;
+    52)
+      test-replace  "[À]" "0" ">"
+      ;;
+    53)
+      test-replace  "?\$@" "0" "@\$@\$\$@"
+      ;;
+    54)
+      test-replace  "?[@" "0" "@[@[[@"
+      ;;
+    55)
+      test-replace  "?]@" "0" "@]@]]@"
+      ;;
+    56)
+      test-replace  "?*@" "0" "@*@**@"
+      ;;
+    57)
+      test-replace  "??@" "0" "@?@??@"
+      ;;
+    58)
+      test-replace  "?\\@" "0" "@\\@\\\\@"
+      ;;
+    59)
+      test-replace  "?Z@" "0" "@Z@ZZ@"
+      ;;
+    60)
+      test-replace  "?-@" "0" "@-@--@"
+      ;;
+    61)
+      test-replace  "?,@" "0" "@,@,,@"
+      ;;
+    62)
+      test-replace  "[À]" "0" "@s"
+      ;;
+    63)
+      test-replace  "[^A]" "0" "@
+"
+      ;;
+    64)
+      test-replace  "[^@]" "0" "@
+"
+      ;;
+    65)
+      test-replace  "?ss" "0" "ssssss"
+      ;;
+    66)
+      test-replace  "?,@" "0" ",,@@,@"
+      ;;
+    67)
+      test-replace  "?\$@" "0" "\$\$@@\$@"
+      ;;
+    68)
+      test-replace  "[À]" "0" "s@"
+      ;;
+    69)
+      test-replace  "[^@]" "0" "
+@"
+      ;;
+    70)
+      test-replace  "[^A]" "0" "
+@"
+      ;;
+    71)
+      test-replace  "[À]" "0" ""
+      ;;
+    72)
+      test-replace  "?[@" "0" "[[@@[@"
+      ;;
+    73)
+      test-replace  "?]@" "0" "]]@@]@"
+      ;;
+    74)
+      test-replace  "?*@" "0" "**@@*@"
+      ;;
+    75)
+      test-replace  "??@" "0" "??@@?@"
+      ;;
+    76)
+      test-replace  "?\\@" "0" "\\\\@@\\@"
+      ;;
+    77)
+      test-replace  "?Z@" "0" "ZZ@@Z@"
+      ;;
+    78)
+      test-replace  "?-@" "0" "--@@-@"
+      ;;
+    79)
+      test-replace  "[@]" "0" "@"
+      ;;
+    80)
+      test-replace  "[@]" "0" "@\$"
+      ;;
+    81)
+      test-replace  "[@]" "0" "@["
+      ;;
+    82)
+      test-replace  "[@]" "0" "@]"
+      ;;
+    83)
+      test-replace  "[@]" "0" "@*"
+      ;;
+    84)
+      test-replace  "[@]" "0" "@?"
+      ;;
+    85)
+      test-replace  "[@]" "0" "@\\"
+      ;;
+    86)
+      test-replace  "[@]" "0" "@Z"
+      ;;
+    87)
+      test-replace  "[@]" "0" "@-"
+      ;;
+    88)
+      test-replace  "[@]" "0" "@,"
+      ;;
+    89)
+      test-replace  "[^B]" "0" "sB"
+      ;;
+    90)
+      test-replace  "[^s]" "0" "sB"
+      ;;
+    91)
+      test-replace  "[@]" "0" "ss"
+      ;;
+    92)
+      test-replace  "[@]" "0" "@@"
+      ;;
+    93)
+      test-replace  "[=]" "0" "<<"
+      ;;
+esac

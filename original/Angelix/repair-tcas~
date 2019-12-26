@@ -1,0 +1,43 @@
+#!/bin/bash
+set -euo pipefail
+
+
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+
+usage="Usage: repair VERSION"
+
+subject="tcas"
+
+SUBJECT_DIR=${SCRIPT_DIR}/${subject}
+
+if [[ $# > 0 ]]; then
+    version="$1"
+    shift
+else
+    echo "$usage"
+    exit 1
+fi
+
+arguments="$@"
+
+if [ ! -f $SUBJECT_DIR/golden/$subject ]; then
+   (cd $SUBJECT_DIR/golden/; make &> /dev/null)
+fi
+
+src=$SUBJECT_DIR/$version
+golden=$SUBJECT_DIR/golden
+oracle=$SUBJECT_DIR/$version/oracle
+
+echo $src
+echo $golden
+echo $oracle
+echo $subject
+echo $version
+
+test_suite=`cat $SUBJECT_DIR/$version/semfix-tests-50`
+echo $test_suite
+echo $subject
+echo $version
+angelix $src $subject.c $oracle $test_suite --golden $golden \
+    `./get-options $subject $version` \
+    $arguments

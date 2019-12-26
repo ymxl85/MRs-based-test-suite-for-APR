@@ -1,0 +1,16 @@
+--- a/schedule.c
++++ b/schedule.c
+@@ -210,11 +210,11 @@
+     Ele *proc;
+     List *src_queue, *dest_queue;
+     
+-    if (prio >= MAXPRIO)
++    if ((prio >= 3))
+ 	goto RET;
+     src_queue = prio_queue[prio];
+     dest_queue = prio_queue[prio+1];
+-    count = src_queue->mem_count;
++    count = 2147483647;
+ 
+     if (count > 0)
+     {

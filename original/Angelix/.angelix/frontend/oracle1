@@ -1,0 +1,54 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-schedule () {
+    diff <(${ANGELIX_RUN:-eval} ./schedule $2 $1) <($SCRIPT_DIR/../golden/schedule $2 $1)
+}
+
+case "$1" in
+    1)
+      test-schedule  "0 6 0" "$SCRIPT_DIR/inputs1/in1"
+      ;;
+    2)
+      test-schedule  "5 3 9" "$SCRIPT_DIR/inputs1/in2"
+      ;;
+    3)
+      test-schedule  "9 5 3" "$SCRIPT_DIR/inputs1/in3"
+      ;;
+    4)
+      test-schedule  "2 2 4" "$SCRIPT_DIR/inputs1/in4"
+      ;;
+    5)
+      test-schedule  "6 8 6" "$SCRIPT_DIR/inputs1/in5"
+      ;;
+    6)
+      test-schedule  "3 5 9" "$SCRIPT_DIR/inputs1/in6"
+      ;;
+    7)
+      test-schedule  "5 7 2" "$SCRIPT_DIR/inputs1/in7"
+      ;;
+    8)
+      test-schedule  "8 6 0" "$SCRIPT_DIR/inputs1/in8"
+      ;;
+    9)
+      test-schedule  "6 7 0" "$SCRIPT_DIR/inputs1/in9"
+      ;;
+    10)
+      test-schedule  "6 6 7" "$SCRIPT_DIR/inputs1/in10"
+      ;;
+    11)
+      test-schedule  "0 0 2" "$SCRIPT_DIR/inputs1/in11"
+      ;;
+    12)
+      test-schedule  "3 6 2" "$SCRIPT_DIR/inputs1/in12"
+      ;;
+    13)
+      test-schedule  "2 2 3" "$SCRIPT_DIR/inputs1/in13"
+      ;;
+    14)
+      test-schedule  "0 8 5" "$SCRIPT_DIR/inputs1/in14"
+      ;;
+    15)
+      test-schedule  "2 8 9" "$SCRIPT_DIR/inputs1/in15"
+      ;;
+esac

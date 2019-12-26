@@ -1,0 +1,11 @@
+--- a/replace.c
++++ b/replace.c
+@@ -66,7 +66,7 @@
+ 	result = s[*i];
+     else
+ 	if (s[*i + 1] == ENDSTR)
+-	    result = ENDSTR;//fault ESCAPE
++	    result = 64;//fault ESCAPE
+ 	else 
+ 	{
+ 	    *i = *i + 1;

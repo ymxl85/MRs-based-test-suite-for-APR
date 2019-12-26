@@ -1,0 +1,21 @@
+gcc -D_GNUCC -E -DCIL=1 /home/mingyue/experiments/ceti/TCAS/coverageTC/v18/m18.c -o /home/mingyue/experiments/ceti/TCAS/coverageTC/v18/m18.i
+/usr/local/bin/cilly.native --out /home/mingyue/experiments/ceti/TCAS/coverageTC/v18/m18.cil.c --noPrintLn --useLogicalOperators /home/mingyue/experiments/ceti/TCAS/coverageTC/v18/m18.i
+gcc -D_GNUCC -E /home/mingyue/experiments/ceti/TCAS/coverageTC/v18/m18.cil.c -o /home/mingyue/experiments/ceti/TCAS/coverageTC/v18/m18.cil.i
+gcc -D_GNUCC -c -o /home/mingyue/experiments/ceti/TCAS/coverageTC/v18/m18.o /home/mingyue/experiments/ceti/TCAS/coverageTC/v18/m18.cil.i
+gcc -D_GNUCC -o a.out /home/mingyue/experiments/ceti/TCAS/coverageTC/v18/m18.o
+**Begin v18**
+$ cp /home/mingyue/experiments/ceti/TCAS/coverageTC/v18/m18.cil.i /tmp/CETI_3e5d80/m18.cil.i
+*** Get good/bad tcs ***
+cmd 'gcc /tmp/CETI_3e5d80/m18.cil.i -o /tmp/CETI_3e5d80/m18.cil.i.exe >& /dev/null'
+$ gcc /tmp/CETI_3e5d80/m18.cil.i -o /tmp/CETI_3e5d80/m18.cil.i.exe >& /dev/null
+write_file_str: '/tmp/CETI_3e5d80/m18.cil.i.sh'
+$ sh /tmp/CETI_3e5d80/m18.cil.i.sh /tmp/CETI_3e5d80/m18.cil.i.exe /tmp/CETI_3e5d80/m18.cil.i.routputs &> /dev/null
+[35mAlert: All tests passed. No bug found. Exit!
+[mNote: temp files created in dir '/tmp/CETI_3e5d80'
+0.06user 0.02system 0:00.07elapsed 101%CPU (0avgtext+0avgdata 24736maxresident)k
+0inputs+112outputs (0major+10618minor)pagefaults 0swaps
+
+real	0m0.080s
+user	0m0.060s
+sys	0m0.020s
+**Done v18**

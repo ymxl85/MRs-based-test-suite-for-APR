@@ -1,0 +1,135 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-replace () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./replace "$1" "$2"  "$3") <(angelix-eval $SCRIPT_DIR/../golden/replace "$1" "$2" "$3")
+}
+
+case "$1" in
+    1)
+      test-replace  "@" "a" "?@"
+      ;;
+    2)
+      test-replace  "@" "a" "@?"
+      ;;
+    3)
+      test-replace  "@" "d" "@@"
+      ;;
+    4)
+      test-replace  "@c" "z" ">@"
+      ;;
+    5)
+      test-replace  "@" "d" "@@"
+      ;;
+    6)
+      test-replace  "@" "b" "??"
+      ;;
+    7)
+      test-replace  "=^" "b" ""
+      ;;
+    8)
+      test-replace  "@" "b" "?@"
+      ;;
+    9)
+      test-replace  "r" "y" "r"
+      ;;
+    10)
+      test-replace  "@c" "z" "@>"
+      ;;
+    11)
+      test-replace  "@" "b" "??"
+      ;;
+    12)
+      test-replace  "@" "d" "@@"
+      ;;
+    13)
+      test-replace  "=^" "b" ""
+      ;;
+    14)
+      test-replace  "@" "b" "@?"
+      ;;
+    15)
+      test-replace  "r" "y" "r"
+      ;;
+    16)
+      test-replace  "@c" "z" "@@"
+      ;;
+    17)
+      test-replace  "@" "a" "?@"
+      ;;
+    18)
+      test-replace  "@" "a" "@?"
+      ;;
+    19)
+      test-replace  "=^" "b" ""
+      ;;
+    20)
+      test-replace  "@" "b" "@@"
+      ;;
+    21)
+      test-replace  "r" "y" "rr"
+      ;;
+    22)
+      test-replace  "[@]" "a" "?@"
+      ;;
+    23)
+      test-replace  "[@]" "a" "@?"
+      ;;
+    24)
+      test-replace  "[@]" "d" "@@"
+      ;;
+    25)
+      test-replace  "[c]" "z" ">@"
+      ;;
+    26)
+      test-replace  "[@]" "d" "@@"
+      ;;
+    27)
+      test-replace  "[@]" "b" "??"
+      ;;
+    28)
+      test-replace  "[=]^" "b" ""
+      ;;
+    29)
+      test-replace  "[@]" "b" "?@"
+      ;;
+    30)
+      test-replace  "[r]" "y" "r"
+      ;;
+    31)
+      test-replace  "[c]" "z" "@>"
+      ;;
+    32)
+      test-replace  "[@]" "b" "??"
+      ;;
+    33)
+      test-replace  "[@]" "d" "@@"
+      ;;
+    34)
+      test-replace  "[=]^" "b" ""
+      ;;
+    35)
+      test-replace  "[@]" "b" "@?"
+      ;;
+    36)
+      test-replace  "[r]" "y" "r"
+      ;;
+    37)
+      test-replace  "[c]" "z" "@@"
+      ;;
+    38)
+      test-replace  "[@]" "a" "?@"
+      ;;
+    39)
+      test-replace  "[@]" "a" "@?"
+      ;;
+    40)
+      test-replace  "[=]^" "b" ""
+      ;;
+    41)
+      test-replace  "[@]" "b" "@@"
+      ;;
+    42)
+      test-replace  "[r]" "y" "rr"
+      ;;
+esac

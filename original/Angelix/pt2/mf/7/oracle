@@ -1,0 +1,245 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-pt2 () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./pt2 "$1") <(angelix-eval $SCRIPT_DIR/../golden/pt2 "$1")
+}
+
+case "$1" in
+    1)
+      test-pt2  "  ; \"
+  "
+      ;;
+    2)
+      test-pt2  "  ; \"
+ \""
+      ;;
+    3)
+      test-pt2  "  ; \"
+\"\""
+      ;;
+    4)
+      test-pt2  "  ; \"
+\"}"
+      ;;
+    5)
+      test-pt2  "  Ä \"
+  "
+      ;;
+    6)
+      test-pt2  "  ; ;
+  "
+      ;;
+    7)
+      test-pt2  "  ; \"
+ß "
+      ;;
+    8)
+      test-pt2  "  ; \"
+ ß"
+      ;;
+    9)
+      test-pt2  " "
+      ;;
+    10)
+      test-pt2  "  ; \"õ  "
+      ;;
+    11)
+      test-pt2  "ß ; \"
+  "
+      ;;
+    12)
+      test-pt2  " ß; \"
+  "
+      ;;
+    13)
+      test-pt2  "  ;\"
+  "
+      ;;
+    14)
+      test-pt2  "  Ä \"
+ \""
+      ;;
+    15)
+      test-pt2  " ß; \"
+ \""
+      ;;
+    16)
+      test-pt2  "  ;\"
+ \""
+      ;;
+    17)
+      test-pt2  "  ; ;
+ \""
+      ;;
+    18)
+      test-pt2  "  ; \"
+ß\""
+      ;;
+    19)
+      test-pt2  "  ; \"
+ ;"
+      ;;
+    20)
+      test-pt2  "  ; \"õ \""
+      ;;
+    21)
+      test-pt2  "ß ; \"
+ \""
+      ;;
+    22)
+      test-pt2  "  Ä \"
+\"\""
+      ;;
+    23)
+      test-pt2  " ß; \"
+\"\""
+      ;;
+    24)
+      test-pt2  "  ;\"
+\"\""
+      ;;
+    25)
+      test-pt2  "  ; ;
+\"\""
+      ;;
+    26)
+      test-pt2  "  ; \"
+;\""
+      ;;
+    27)
+      test-pt2  "  ; \"
+\"Ý"
+      ;;
+    28)
+      test-pt2  "  ; \"õ\"\""
+      ;;
+    29)
+      test-pt2  "ß ; \"
+\"\""
+      ;;
+    30)
+      test-pt2  "  Ä \"
+\"}"
+      ;;
+    31)
+      test-pt2  "  ; \"
+\""
+      ;;
+    32)
+      test-pt2  "ß ; \"
+\"}"
+      ;;
+    33)
+      test-pt2  " ß; \"
+\"}"
+      ;;
+    34)
+      test-pt2  "  ;\"
+\"}"
+      ;;
+    35)
+      test-pt2  "  ; ;
+\"}"
+      ;;
+    36)
+      test-pt2  "  ; \"
+;}"
+      ;;
+    37)
+      test-pt2  " "
+      ;;
+    38)
+      test-pt2  "  ; \"õ\"}"
+      ;;
+    39)
+      test-pt2  "  ; \"
+\"
+"
+      ;;
+    40)
+      test-pt2  "  
+  "
+      ;;
+    41)
+      test-pt2  "  
+ \""
+      ;;
+    42)
+      test-pt2  "  
+\"\""
+      ;;
+    43)
+      test-pt2  "  
+\"}"
+      ;;
+    44)
+      test-pt2  "  
+ß "
+      ;;
+    45)
+      test-pt2  "  
+ ß"
+      ;;
+    46)
+      test-pt2  "ß 
+  "
+      ;;
+    47)
+      test-pt2  " ß
+  "
+      ;;
+    48)
+      test-pt2  " ß
+ \""
+      ;;
+    49)
+      test-pt2  "  
+ß\""
+      ;;
+    50)
+      test-pt2  "  
+ ;"
+      ;;
+    51)
+      test-pt2  "ß 
+ \""
+      ;;
+    52)
+      test-pt2  " ß
+\"\""
+      ;;
+    53)
+      test-pt2  "  
+;\""
+      ;;
+    54)
+      test-pt2  "  
+\"Ý"
+      ;;
+    55)
+      test-pt2  "ß 
+\"\""
+      ;;
+    56)
+      test-pt2  "  
+\""
+      ;;
+    57)
+      test-pt2  "ß 
+\"}"
+      ;;
+    58)
+      test-pt2  " ß
+\"}"
+      ;;
+    59)
+      test-pt2  "  
+;}"
+      ;;
+    60)
+      test-pt2  "  
+\"
+"
+      ;;
+esac

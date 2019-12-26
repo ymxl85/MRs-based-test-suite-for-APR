@@ -1,0 +1,70 @@
+main(){
+ int Cur_Vertical_Sep;
+   int High_Confidence;
+   int Two_of_Three_Reports_Valid;
+   int Own_Tracked_Alt;
+   int Own_Tracked_Alt_Rate;
+   int Other_Tracked_Alt;
+   int Alt_Layer_Value;
+   int Up_Separation;
+   int Down_Separation;
+   int Other_RAC;
+   int Other_Capability;
+   int Climb_Inhibit;
+    int argv1,argv2,argv3,argv4,argv5,argv6,argv7,argv8,argv9,argv10,argv11,argv12;
+    klee_make_symbolic(&argv1,sizeof(argv1),"argv1");
+    klee_make_symbolic(&argv2,sizeof(argv2),"argv2");
+    klee_make_symbolic(&argv3,sizeof(argv3),"argv3");
+    klee_make_symbolic(&argv4,sizeof(argv4),"argv4");
+    klee_make_symbolic(&argv5,sizeof(argv5),"argv5");
+    klee_make_symbolic(&argv6,sizeof(argv6),"argv6");
+    klee_make_symbolic(&argv7,sizeof(argv7),"argv7");
+    klee_make_symbolic(&argv8,sizeof(argv8),"argv8");
+    klee_make_symbolic(&argv9,sizeof(argv9),"argv9");
+    klee_make_symbolic(&argv10,sizeof(argv10),"argv10");
+    klee_make_symbolic(&argv11,sizeof(argv11),"argv11");
+    klee_make_symbolic(&argv12,sizeof(argv12),"argv12");
+    klee_assume(argv7>=0 & argv7<=3);
+    klee_assume(argv2==1 | argv2==0);
+    klee_assume(argv3==1 | argv3==0);
+   klee_assume(argv1>=-10000 & argv1<=10000);
+    klee_assume(argv4>=-10000 & argv4<=10000);
+    klee_assume(argv5>=-10000 & argv5<=10000);
+    klee_assume(argv6>=-10000 & argv6<=10000);
+    klee_assume(argv8>=-10000 & argv8<=10000);
+    klee_assume(argv9>=-10000 & argv9<=10000);
+
+    klee_assume(argv10==0 | argv10==1 | argv10==2);
+    klee_assume(argv11==1 | argv11==2);
+    klee_assume(argv12==1 | argv12==0);
+
+
+    
+    Cur_Vertical_Sep = argv1;
+    High_Confidence = argv2;
+    Two_of_Three_Reports_Valid = argv3;
+    Own_Tracked_Alt = argv4;
+    Own_Tracked_Alt_Rate = argv5;
+    Other_Tracked_Alt = argv6;
+    Alt_Layer_Value = argv7;
+    Up_Separation = argv8;
+    Down_Separation = argv9;
+    Other_RAC = argv10;
+    Other_Capability = argv11;
+    Climb_Inhibit = argv12;
+
+ int result=alt_sep_test(Cur_Vertical_Sep, 
+		 High_Confidence,
+		 Two_of_Three_Reports_Valid,
+		 Own_Tracked_Alt,
+		 Own_Tracked_Alt_Rate,
+		 Other_Tracked_Alt,
+		 Alt_Layer_Value,
+		 Up_Separation,
+		 Down_Separation,
+		 Other_RAC,
+		 Other_Capability,
+		 Climb_Inhibit);
+    klee_print_expr("output=",result);
+    exit(0);
+}

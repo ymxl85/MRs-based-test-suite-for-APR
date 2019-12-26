@@ -1,0 +1,177 @@
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+test-pt2 () {
+    diff <(${ANGELIX_RUN:-angelix-eval} ./pt2 "$1") <(angelix-eval $SCRIPT_DIR/../golden/pt2 "$1")
+}
+
+case "$1" in
+    1)
+      test-pt2  "sah\`00rf:@V+"
+      ;;
+    2)
+      test-pt2  "Yv=f31UP:ZGQUIM68("
+      ;;
+    3)
+      test-pt2  "Bc "
+      ;;
+    4)
+      test-pt2  "\$f2]q:"
+      ;;
+    5)
+      test-pt2  "9{Xct5pCobW:U/c-"
+      ;;
+    6)
+      test-pt2  "@*L<O:z\`CY_l=%Qrx8yc"
+      ;;
+    7)
+      test-pt2  "#Rx^>xT?bj7B@N"
+      ;;
+    8)
+      test-pt2  "};,rFf[h[n%mUowhO#"
+      ;;
+    9)
+      test-pt2  "3d7RQX><7\`~EKQ5C\"u"
+      ;;
+    10)
+      test-pt2  "=w"
+      ;;
+    11)
+      test-pt2  "9JI3~8["
+      ;;
+    12)
+      test-pt2  "\]bk25zaT,(hX~C?d"
+      ;;
+    13)
+      test-pt2  "Y"
+      ;;
+    14)
+      test-pt2  "&Sj}b5uH"
+      ;;
+    15)
+      test-pt2  "136z!MBZ"
+      ;;
+    16)
+      test-pt2  "7Qt@ 6^\`@u[Q#"
+      ;;
+    17)
+      test-pt2  "oNavS1 6;,f"
+      ;;
+    18)
+      test-pt2  "L-vg^kjW/"
+      ;;
+    19)
+      test-pt2  "rK"
+      ;;
+    20)
+      test-pt2  "k~nQ\`I3u9x"
+      ;;
+    21)
+      test-pt2  "N;Mc->IMlS{v<y9Qri"
+      ;;
+    22)
+      test-pt2  "dap(PIZ#[z4XX*>=)"
+      ;;
+    23)
+      test-pt2  "znVK5#"
+      ;;
+    24)
+      test-pt2  "fu|oS9eWO&An*NZg<!5"
+      ;;
+    25)
+      test-pt2  "WoK*acSyuk_2m"
+      ;;
+    26)
+      test-pt2  "(-Md73PFR)a.YI"
+      ;;
+    27)
+      test-pt2  "A\"SL140YN"
+      ;;
+    28)
+      test-pt2  "zl@ W8L^Z*"
+      ;;
+    29)
+      test-pt2  "n~j~hC=w"
+      ;;
+    30)
+      test-pt2  "iC>\`\"LYEW /:E>[.>y"
+      ;;
+    31)
+      test-pt2  " dr Y>YMx"
+      ;;
+    32)
+      test-pt2  "p^d^|;DuJN}M|2kkgX}S"
+      ;;
+    33)
+      test-pt2  "\$2pl]_rRe("
+      ;;
+    34)
+      test-pt2  "-|a8"
+      ;;
+    35)
+      test-pt2  "y<FBwvj9pa"
+      ;;
+    36)
+      test-pt2  "EYNjDuy2T9~P)N-atF-i"
+      ;;
+    37)
+      test-pt2  "PL\"i%Rh2-pW/Bem=x"
+      ;;
+    38)
+      test-pt2  "7zW4~_gFx0An^Y9n1"
+      ;;
+    39)
+      test-pt2  "ys=5~{[,V\$^?#;d#7^"
+      ;;
+    40)
+      test-pt2  "\`%d*9X\$mT96"
+      ;;
+    41)
+      test-pt2  "=[ 6\`5M=~MWxir^"
+      ;;
+    42)
+      test-pt2  "eRkB:&G1|HuK.XTR("
+      ;;
+    43)
+      test-pt2  ":=hEc,XQ6C-;=<@Y/e9"
+      ;;
+    44)
+      test-pt2  "X#A\"gn.gK_*aL%b31"
+      ;;
+    45)
+      test-pt2  "ah?eo"
+      ;;
+    46)
+      test-pt2  "a\"z#WNCG\yb\$\$1?:I&"
+      ;;
+    47)
+      test-pt2  "b&k#79u2_Iq\$T"
+      ;;
+    48)
+      test-pt2  "H-^\O[^s8o"
+      ;;
+    49)
+      test-pt2  ">(S\/2~Bu~"
+      ;;
+    50)
+      test-pt2  "w\"XN\"X"
+      ;;
+    51)
+      test-pt2  "rpu"
+      ;;
+    52)
+      test-pt2  "wS?|0=[JZgI"
+      ;;
+    53)
+      test-pt2  " B|+w{vj_\?m\$6[ui"
+      ;;
+    54)
+      test-pt2  "[}v>%.1<E3[,5oGdkV*"
+      ;;
+    55)
+      test-pt2  "iD75W"
+      ;;
+    56)
+      test-pt2  "fpa36L]"
+      ;;
+esac

@@ -1,0 +1,546 @@
+        -:    0:Source:m4.c
+        -:    0:Graph:m4.gcno
+        -:    0:Data:m4.gcda
+        -:    0:Runs:32
+        -:    0:Programs:1
+        -:    1:/*  -*- Last-Edit:  Wed May 7 10:12:52 1993 by Monica; -*- */
+        -:    2:
+        -:    3:
+        -:    4:#include <stdio.h>
+        -:    5:
+        -:    6:#include "processor.h"
+        -:    7:/* A job descriptor. */
+        -:    8:extern float getOperand(char * str);
+        -:    9:
+        -:   10:extern void getAdata(char * str,int *pos, char * s);
+        -:   11:
+        -:   12:#define NULL 0
+        -:   13:
+        -:   14:
+        -:   15:#define NEW_JOB        1
+        -:   16:#define UPGRADE_PRIO   2 
+        -:   17:#define BLOCK          3
+        -:   18:#define UNBLOCK        4  
+        -:   19:#define QUANTUM_EXPIRE 5
+        -:   20:#define FINISH         6
+        -:   21:#define FLUSH          7
+        -:   22:
+        -:   23:#define MAXPRIO 3
+        -:   24:
+        -:   25:typedef struct _job {
+        -:   26:    struct  _job *next, *prev; /* Next and Previous in job list. */
+        -:   27:    int          val  ;         /* Id-value of program. */
+        -:   28:    short        priority;     /* Its priority. */
+        -:   29:} Ele, *Ele_Ptr;
+        -:   30:
+        -:   31:typedef struct list		/* doubly linked list */
+        -:   32:{
+        -:   33:  Ele *first;
+        -:   34:  Ele *last;
+        -:   35:  int    mem_count;		/* member count */
+        -:   36:} List;
+        -:   37:
+        -:   38:/*-----------------------------------------------------------------------------
+        -:   39:  new_ele
+        -:   40:     alloates a new element with value as num.
+        -:   41:-----------------------------------------------------------------------------*/
+function new_ele called 32 returned 100% blocks executed 100%
+       32:   42:Ele* new_ele(new_num) 
+        -:   43:int new_num;
+        -:   44:{	
+        -:   45:    Ele *ele;
+        -:   46:
+       32:   47:    ele =(Ele *)malloc(sizeof(Ele));
+       32:   48:    ele->next = NULL;
+       32:   49:    ele->prev = NULL;
+       32:   50:    ele->val  = new_num;
+       32:   51:    return ele;
+        -:   52:}
+        -:   53:
+        -:   54:/*-----------------------------------------------------------------------------
+        -:   55:  new_list
+        -:   56:        allocates, initializes and returns a new list.
+        -:   57:        Note that if the argument compare() is provided, this list can be
+        -:   58:            made into an ordered list. see insert_ele().
+        -:   59:-----------------------------------------------------------------------------*/
+function new_list called 99 returned 100% blocks executed 100%
+       99:   60:List *new_list()
+        -:   61:{
+        -:   62:    List *list;
+        -:   63:
+       99:   64:    list = (List *)malloc(sizeof(List));
+        -:   65:    
+       99:   66:    list->first = NULL;
+       99:   67:    list->last  = NULL;
+       99:   68:    list->mem_count = 0;
+       99:   69:    return (list);
+        -:   70:}
+        -:   71:
+        -:   72:/*-----------------------------------------------------------------------------
+        -:   73:  append_ele
+        -:   74:        appends the new_ele to the list. If list is null, a new
+        -:   75:	list is created. The modified list is returned.
+        -:   76:-----------------------------------------------------------------------------*/
+function append_ele called 38 returned 100% blocks executed 100%
+       38:   77:List *append_ele(a_list, a_ele)
+        -:   78:List *a_list;
+        -:   79:Ele  *a_ele;
+        -:   80:{
+       38:   81:  if (!a_list)
+branch  0 taken 8% (fallthrough)
+branch  1 taken 92%
+        3:   82:      a_list = new_list();	/* make list without compare function */
+call    0 returned 100%
+        -:   83:
+       38:   84:  a_ele->prev = a_list->last;	/* insert at the tail */
+       38:   85:  if (a_list->last)
+branch  0 taken 21% (fallthrough)
+branch  1 taken 79%
+        8:   86:    a_list->last->next = a_ele;
+        -:   87:  else
+       30:   88:    a_list->first = a_ele;
+       38:   89:  a_list->last = a_ele;
+       38:   90:  a_ele->next = NULL;
+       38:   91:  a_list->mem_count++;
+       38:   92:  return (a_list);
+        -:   93:}
+        -:   94:
+        -:   95:/*-----------------------------------------------------------------------------
+        -:   96:  find_nth
+        -:   97:        fetches the nth element of the list (count starts at 1)
+        -:   98:-----------------------------------------------------------------------------*/
+function find_nth called 2 returned 100% blocks executed 88%
+        2:   99:Ele *find_nth(f_list, n)
+        -:  100:List *f_list;
+        -:  101:int   n;
+        -:  102:{
+        -:  103:    Ele *f_ele;
+        -:  104:    int i;
+        -:  105:
+        2:  106:    if (!f_list)
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:  107:	return NULL;
+        2:  108:    f_ele = f_list->first;
+        6:  109:    for (i=1; f_ele && (i<n); i++)
+branch  0 taken 67% (fallthrough)
+branch  1 taken 33%
+branch  2 taken 100%
+branch  3 taken 0% (fallthrough)
+        4:  110:	f_ele = f_ele->next;
+        2:  111:    return f_ele;
+        -:  112:}
+        -:  113:
+        -:  114:/*-----------------------------------------------------------------------------
+        -:  115:  del_ele
+        -:  116:        deletes the old_ele from the list.
+        -:  117:        Note: even if list becomes empty after deletion, the list
+        -:  118:	      node is not deallocated.
+        -:  119:-----------------------------------------------------------------------------*/
+function del_ele called 27 returned 100% blocks executed 82%
+       27:  120:List *del_ele(d_list, d_ele)
+        -:  121:List *d_list;
+        -:  122:Ele  *d_ele;
+        -:  123:{
+       27:  124:    if (!d_list || !d_ele)
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 0% (fallthrough)
+branch  3 taken 100%
+    #####:  125:	return (NULL);
+        -:  126:    
+       27:  127:    if (d_ele->next)
+branch  0 taken 22% (fallthrough)
+branch  1 taken 78%
+        6:  128:	d_ele->next->prev = d_ele->prev;
+        -:  129:    else
+       21:  130:	d_list->last = d_ele->prev;
+       27:  131:    if (d_ele->prev)
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:  132:	d_ele->prev->next = d_ele->next;
+        -:  133:    else
+       27:  134:	d_list->first = d_ele->next;
+        -:  135:    /* KEEP d_ele's data & pointers intact!! */
+       27:  136:    d_list->mem_count--;
+       27:  137:    return (d_list);
+        -:  138:}
+        -:  139:
+        -:  140:/*-----------------------------------------------------------------------------
+        -:  141:   free_ele
+        -:  142:       deallocate the ptr. Caution: The ptr should point to an object
+        -:  143:       allocated in a single call to malloc.
+        -:  144:-----------------------------------------------------------------------------*/
+function free_ele called 21 returned 100% blocks executed 100%
+       21:  145:void free_ele(ptr)
+        -:  146:Ele *ptr;
+        -:  147:{
+       21:  148:    free(ptr);
+       21:  149:}
+        -:  150:
+        -:  151:int alloc_proc_num;
+        -:  152:int num_processes;
+        -:  153:Ele* cur_proc;
+        -:  154:List *prio_queue[MAXPRIO+1]; 	/* 0th element unused */
+        -:  155:List *block_queue;
+        -:  156:
+        -:  157:void
+function finish_process called 46 returned 100% blocks executed 100%
+       46:  158:finish_process(char *r,int *OL)
+        -:  159:{
+       46:  160:    schedule();
+call    0 returned 100%
+       46:  161:    char s[10]="";
+       46:  162:    if (cur_proc)
+branch  0 taken 46% (fallthrough)
+branch  1 taken 54%
+        -:  163:    {
+       21:  164:snprintf(s,10,"%d",cur_proc->val);
+       21:  165:        strcat(r,s);
+       21:  166:        strcat(r," ");
+       21:  167:	free_ele(cur_proc);
+call    0 returned 100%
+       21:  168:	num_processes--;
+        -:  169:    }
+       46:  170:}
+        -:  171:
+        -:  172:void
+function finish_all_processes called 7 returned 100% blocks executed 100%
+        7:  173:finish_all_processes(char *r,int *OL)
+        -:  174:{
+        -:  175:    int i;
+        -:  176:    int total;
+        7:  177:    total = num_processes;
+       13:  178:    for (i=0; i<total; i++)
+branch  0 taken 46%
+branch  1 taken 54% (fallthrough)
+        6:  179:	finish_process(r,OL);
+call    0 returned 100%
+        7:  180:}
+        -:  181:
+function schedule called 54 returned 100% blocks executed 100%
+       54:  182:schedule()
+        -:  183:{
+        -:  184:    int i;
+        -:  185:    
+       54:  186:    cur_proc = NULL;
+      153:  187:    for (i=MAXPRIO; i > 0; i--)
+branch  0 taken 82%
+branch  1 taken 18% (fallthrough)
+        -:  188:    {
+      126:  189:	if (prio_queue[i]->mem_count > 0)
+branch  0 taken 21% (fallthrough)
+branch  1 taken 79%
+        -:  190:	{
+       27:  191:	    cur_proc = prio_queue[i]->first;
+       27:  192:	    prio_queue[i] = del_ele(prio_queue[i], cur_proc);
+call    0 returned 100%
+       27:  193:	    return;
+        -:  194:	}
+        -:  195:    }
+        -:  196:}
+        -:  197:
+        -:  198:void
+function upgrade_process_prio called 4 returned 100% blocks executed 67%
+        4:  199:upgrade_process_prio(prio, ratio)
+        -:  200:int prio;
+        -:  201:float ratio;
+        -:  202:{
+        -:  203:    int count;
+        -:  204:    int n;
+        -:  205:    Ele *proc;
+        -:  206:    List *src_queue, *dest_queue;
+        -:  207:    
+        4:  208:    if (prio >= MAXPRIO)
+branch  0 taken 25% (fallthrough)
+branch  1 taken 75%
+        1:  209:	return;
+        3:  210:    src_queue = prio_queue[prio];
+        3:  211:    dest_queue = prio_queue[prio+1];
+        3:  212:    count = src_queue->mem_count;
+        -:  213:
+        3:  214:    if (count > 1) /* off by one */ {
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        1:  215:	n = (int) (count*ratio + 1);
+        1:  216:	proc = find_nth(src_queue, n);
+call    0 returned 100%
+        1:  217:	if (proc) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:  218:	    src_queue = del_ele(src_queue, proc);
+call    0 never executed
+        -:  219:	    /* append to appropriate prio queue */
+    #####:  220:	    proc->priority = prio;
+    #####:  221:	    dest_queue = append_ele(dest_queue, proc);
+call    0 never executed
+        -:  222:	}
+        -:  223:    }
+        -:  224:}
+        -:  225:
+        -:  226:void
+function unblock_process called 7 returned 100% blocks executed 57%
+        7:  227:unblock_process(ratio)
+        -:  228:float ratio;
+        -:  229:{
+        -:  230:    int count;
+        -:  231:    int n;
+        -:  232:    Ele *proc;
+        -:  233:    int prio;
+        7:  234:    if (block_queue)
+branch  0 taken 14% (fallthrough)
+branch  1 taken 86%
+        -:  235:    {
+        1:  236:	count = block_queue->mem_count;
+        1:  237:	n = (int) (count*ratio + 1);
+        1:  238:	proc = find_nth(block_queue, n);
+call    0 returned 100%
+        1:  239:	if (proc) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:  240:	    block_queue = del_ele(block_queue, proc);
+call    0 never executed
+        -:  241:	    /* append to appropriate prio queue */
+    #####:  242:	    prio = proc->priority;
+    #####:  243:	    prio_queue[prio] = append_ele(prio_queue[prio], proc);
+call    0 never executed
+        -:  244:	}
+        -:  245:    }
+        7:  246:}
+        -:  247:
+function quantum_expire called 4 returned 100% blocks executed 100%
+        4:  248:void quantum_expire()
+        -:  249:{
+        -:  250:    int prio;
+        4:  251:    schedule();
+call    0 returned 100%
+        4:  252:    if (cur_proc)
+branch  0 taken 75% (fallthrough)
+branch  1 taken 25%
+        -:  253:    {
+        3:  254:	prio = cur_proc->priority;
+        3:  255:	prio_queue[prio] = append_ele(prio_queue[prio], cur_proc);
+call    0 returned 100%
+        -:  256:    }	
+        4:  257:}
+        -:  258:	
+        -:  259:void
+function block_process called 4 returned 100% blocks executed 100%
+        4:  260:block_process()
+        -:  261:{
+        4:  262:    schedule();
+call    0 returned 100%
+        4:  263:    if (cur_proc)
+branch  0 taken 75% (fallthrough)
+branch  1 taken 25%
+        -:  264:    {
+        3:  265:	block_queue = append_ele(block_queue, cur_proc);
+call    0 returned 100%
+        -:  266:    }
+        4:  267:}
+        -:  268:
+function new_process called 32 returned 100% blocks executed 100%
+       32:  269:Ele * new_process(prio)
+        -:  270:int prio;
+        -:  271:{
+        -:  272:    Ele *proc;
+       32:  273:    proc = new_ele(alloc_proc_num++);
+call    0 returned 100%
+       32:  274:    proc->priority = prio;
+       32:  275:    num_processes++;
+       32:  276:    return proc;
+        -:  277:}
+        -:  278:
+function add_process called 3 returned 100% blocks executed 100%
+        3:  279:void add_process(prio)
+        -:  280:int prio;
+        -:  281:{
+        -:  282:    Ele *proc;
+        3:  283:    proc = new_process(prio);
+call    0 returned 100%
+        3:  284:    prio_queue[prio] = append_ele(prio_queue[prio], proc);
+call    0 returned 100%
+        3:  285:}
+        -:  286:
+function init_prio_queue called 96 returned 100% blocks executed 100%
+       96:  287:void init_prio_queue(prio, num_proc)
+        -:  288:int prio;
+        -:  289:int num_proc;
+        -:  290:{
+        -:  291:    List *queue;
+        -:  292:    Ele  *proc;
+        -:  293:    int i;
+        -:  294:    
+       96:  295:    queue = new_list();
+call    0 returned 100%
+      125:  296:    for (i=0; i<num_proc; i++)
+branch  0 taken 23%
+branch  1 taken 77% (fallthrough)
+        -:  297:    {
+       29:  298:	proc = new_process(prio);
+call    0 returned 100%
+       29:  299:	queue = append_ele(queue, proc);
+call    0 returned 100%
+        -:  300:    }
+       96:  301:    prio_queue[prio] = queue;
+       96:  302:}
+        -:  303:
+function initialize called 32 returned 100% blocks executed 100%
+       32:  304:void initialize()
+        -:  305:{
+       32:  306:    alloc_proc_num = 0;
+       32:  307:    num_processes = 0;
+       32:  308:}
+        -:  309:				
+        -:  310:/* test driver */
+        -:  311:		
+        -:  312:/* test driver */
+function mainQ called 32 returned 100% blocks executed 94%
+       32:  313:char *mainQ(char *argv)
+        -:  314:{
+        -:  315:    int command;
+        -:  316:    int prio;
+        -:  317:    float ratio;
+        -:  318:    int status;
+       32:  319:    float intF=1.0;
+        -:  320:    static char r[2000]="";
+       32:  321:r[0]='\0'; 
+       32:  322:    int OL=0;
+       32:  323:    int pos=0;
+        -:  324:    int x;
+       32:  325:    char value[10]="";
+        -:  326:    int a1,a2,a3;
+       32:  327:    initialize();
+call    0 returned 100%
+        -:  328:    
+       32:  329:    getAdata(argv,&pos,value);
+call    0 returned 100%
+       32:  330:    a1=atoi(value);
+call    0 returned 100%
+       32:  331:    getAdata(argv,&pos,value);
+call    0 returned 100%
+       32:  332:    a2=atoi(value);
+call    0 returned 100%
+       32:  333:    getAdata(argv,&pos,value);
+call    0 returned 100%
+       32:  334:    a3=atoi(value);
+call    0 returned 100%
+        -:  335:  
+       32:  336:	init_prio_queue(3, a3);
+call    0 returned 100%
+       32:  337:	init_prio_queue(2, a2);
+call    0 returned 100%
+       32:  338:	init_prio_queue(1, a1);
+call    0 returned 100%
+        -:  339:
+      174:  340:    while(argv[pos]!='\0')
+branch  0 taken 77%
+branch  1 taken 23% (fallthrough)
+        -:  341:    {
+      110:  342:        getAdata(argv,&pos,value);
+call    0 returned 100%
+      110:  343:        command=atoi(value);
+call    0 returned 100%
+      110:  344:	switch(command)
+branch  0 taken 36%
+branch  1 taken 4%
+branch  2 taken 4%
+branch  3 taken 7%
+branch  4 taken 4%
+branch  5 taken 3%
+branch  6 taken 6%
+branch  7 taken 36%
+        -:  345:	{
+        -:  346:	case FINISH:
+       40:  347:	    finish_process(r,&OL);
+call    0 returned 100%
+       40:  348:	    break;
+        -:  349:	case BLOCK:
+        4:  350:	    block_process();
+call    0 returned 100%
+        4:  351:	    break;
+        -:  352:	case QUANTUM_EXPIRE:
+        4:  353:	    quantum_expire();
+call    0 returned 100%
+        4:  354:	    break;
+        -:  355:	case UNBLOCK:
+        8:  356:            if(argv[pos]!='\0'){
+branch  0 taken 88% (fallthrough)
+branch  1 taken 13%
+        7:  357:            getAdata(argv,&pos,value);
+call    0 returned 100%
+        7:  358:            ratio=(float)(getOperand(value));
+call    0 returned 100%
+        7:  359:	    unblock_process(ratio);}
+call    0 returned 100%
+        8:  360:	    break;
+        -:  361:	case UPGRADE_PRIO:
+        4:  362:            if(argv[pos]!='\0'){
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        4:  363:            getAdata(argv,&pos,value);
+call    0 returned 100%
+        4:  364:	    prio=atoi(value);
+call    0 returned 100%
+        -:  365:            }
+        -:  366:            
+        4:  367:            if(argv[pos]!='\0'){
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        4:  368:            getAdata(argv,&pos,value);
+call    0 returned 100%
+        4:  369:            ratio=(float)(getOperand(value));
+call    0 returned 100%
+        -:  370:            }
+        4:  371:	    if (prio > MAXPRIO || prio <= 0) { 
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 0% (fallthrough)
+branch  3 taken 100%
+        -:  372:		//fprintf(stdout, "** invalid priority\n");
+    #####:  373:                strcat(r,"** invalid priority\n");
+    #####:  374:		return;
+        -:  375:	    }
+        -:  376:	    else 
+        4:  377:		upgrade_process_prio(prio, ratio);
+call    0 returned 100%
+        4:  378:	    break;
+        -:  379:	case NEW_JOB:
+        3:  380:            if(argv[pos]!='\0'){
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        3:  381:            getAdata(argv,&pos,value);
+call    0 returned 100%
+        3:  382:            prio=atoi(value);
+call    0 returned 100%
+        -:  383:            }
+        3:  384:	    if (prio > MAXPRIO || prio <= 0) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 0% (fallthrough)
+branch  3 taken 100%
+        -:  385:		//fprintf(stdout, "** invalid priority\n");
+    #####:  386:                strcat(r,"** invalid priority\n");
+    #####:  387:		return;
+        -:  388:	    }
+        -:  389:	    else 
+        3:  390:		add_process(prio);
+call    0 returned 100%
+        3:  391:	    break;
+        -:  392:	case FLUSH:
+        7:  393:	    finish_all_processes(r,&OL);
+call    0 returned 100%
+        -:  394:	    break;
+        -:  395:	}
+        -:  396:    }
+       32:  397:   return r;
+        -:  398:}
+function main called 32 returned 100% blocks executed 100%
+       32:  399:main(argc, argv)
+        -:  400:int argc;
+        -:  401:char *argv[];
+        -:  402:{
+       32:  403:      fprintf(stdout,"%s",mainQ(argv[1]));
+call    0 returned 100%
+call    1 returned 100%
+       32:  404:}
