@@ -1,0 +1,43 @@
+#!/bin/bash
+
+set -euo pipefail
+
+# Usage: ./repair SUBJECT VERSION
+#
+# Top script for executing repair
+
+cd "$(dirname "${BASH_SOURCE[0]}")"
+
+usage="Usage: ./repair SUBJECT VERSION"
+
+if [[ $# > 0 ]]; then
+    subject="$1"
+    shift
+else
+    echo "$usage"
+    exit 1
+fi
+
+if [[ $# > 0 ]]; then
+    version="$1"
+    shift
+else
+    echo "$usage"
+    exit 1
+fi
+
+
+#./fetch $subject $version
+
+bug="${subject}-bug-${version}"
+fix="${subject}-fix-${version}"
+cd TS/T1
+chmod u+x *
+cd -
+cp -avr TS/T1 $bug/gzip/
+cp -avr TS/T1 $fix/gzip/
+cp TS/gzip-run-tests-T1.pl $bug/
+cp TS/gzip-run-tests-T1.pl $fix/
+chmod u+x $bug/gzip-run-tests-T1.pl
+chmod u+x $fix/gzip-run-tests-T1.pl
+./repair-$subject-T1 $version `./get-options $subject $version`

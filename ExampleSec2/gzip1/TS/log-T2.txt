@@ -1,0 +1,1080 @@
+/home/mingyuejiang/Documents/angelix/data0/gzip1
+‘TS/T2/b.gz’ -> ‘gzip-bug-a1d3d4019ddd22-f17cbd13a1d0a7/gzip/T2/b.gz’
+‘TS/T2/t2’ -> ‘gzip-bug-a1d3d4019ddd22-f17cbd13a1d0a7/gzip/T2/t2’
+‘TS/T2/t3’ -> ‘gzip-bug-a1d3d4019ddd22-f17cbd13a1d0a7/gzip/T2/t3’
+‘TS/T2/t3~’ -> ‘gzip-bug-a1d3d4019ddd22-f17cbd13a1d0a7/gzip/T2/t3~’
+‘TS/T2/t2~’ -> ‘gzip-bug-a1d3d4019ddd22-f17cbd13a1d0a7/gzip/T2/t2~’
+‘TS/T2/a.gz’ -> ‘gzip-bug-a1d3d4019ddd22-f17cbd13a1d0a7/gzip/T2/a.gz’
+‘TS/T2/b.gz’ -> ‘gzip-fix-a1d3d4019ddd22-f17cbd13a1d0a7/gzip/T2/b.gz’
+‘TS/T2/t2’ -> ‘gzip-fix-a1d3d4019ddd22-f17cbd13a1d0a7/gzip/T2/t2’
+‘TS/T2/t3’ -> ‘gzip-fix-a1d3d4019ddd22-f17cbd13a1d0a7/gzip/T2/t3’
+‘TS/T2/t3~’ -> ‘gzip-fix-a1d3d4019ddd22-f17cbd13a1d0a7/gzip/T2/t3~’
+‘TS/T2/t2~’ -> ‘gzip-fix-a1d3d4019ddd22-f17cbd13a1d0a7/gzip/T2/t2~’
+‘TS/T2/a.gz’ -> ‘gzip-fix-a1d3d4019ddd22-f17cbd13a1d0a7/gzip/T2/a.gz’
+---build
+INFO     repair          src=gzip-bug-a1d3d4019ddd22-f17cbd13a1d0a7/gzip
+ buggy=gzip.c
+ oracle=/tmp/gzip-oracle
+ golden=gzip-fix-a1d3d4019ddd22-f17cbd13a1d0a7/gzip
+
+INFO     project         configuring validation source
+INFO     project         building json compilation database from validation source
+INFO     project         --message=/tmp/tmpb_udg2kv/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/validation---cmd=bear /tmp/build-gzip
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+INFO     testing         running test '3' of validation source
+INFO     testing         running test '4' of validation source
+INFO     project         configuring frontend source
+INFO     transformation  instrumenting repairable of frontend source
+INFO     project         building frontend source
+INFO     project         CC=angelix-compiler --test
+INFO     project         --message=/tmp/tmpxqis9x19/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/frontend---cmd=/tmp/build-gzip
+INFO     repair          running positive tests for debugging
+INFO     testing         running test '2' of frontend source
+INFO     repair          running negative tests for debugging
+INFO     testing         running test '1' of frontend source
+INFO     project         configuring golden source
+INFO     project         building golden source
+INFO     project         CC=angelix-compiler --test
+INFO     project         --message=/tmp/tmpo2c8xs62/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/golden---cmd=/tmp/build-gzip
+INFO     testing         running test '1' of golden source
+INFO     testing         running test '3' of frontend source
+WARNING  testing         ANGELIX_RUN is not executed by test 3
+INFO     testing         running test '3' of golden source
+WARNING  testing         ANGELIX_RUN is not executed by test 3
+INFO     testing         running test '4' of frontend source
+WARNING  testing         ANGELIX_RUN is not executed by test 4
+INFO     testing         running test '4' of golden source
+WARNING  testing         ANGELIX_RUN is not executed by test 4
+WARNING  repair          excluding test 3 because it fails in golden version
+WARNING  repair          excluding test 4 because it fails in golden version
+INFO     repair          repair test suite: ['1', '2']
+INFO     repair          validation test suite: ['1', '2']
+INFO     localization    selected expressions [(608, 9, 608, 20)] with group score 1.0 
+INFO     localization    selected expressions [(630, 9, 630, 24)] with group score 1.0 
+INFO     localization    selected expressions [(633, 9, 633, 49)] with group score 1.0 
+INFO     localization    selected expressions [(647, 9, 647, 21)] with group score 1.0 
+INFO     localization    selected expressions [(651, 17, 651, 17)] with group score 1.0 
+INFO     localization    selected expressions [(652, 15, 652, 15)] with group score 1.0 
+INFO     localization    selected expressions [(653, 6, 653, 6)] with group score 1.0 
+INFO     localization    selected expressions [(655, 9, 655, 9)] with group score 1.0 
+INFO     localization    selected expressions [(1857, 8, 1857, 8)] with group score 1.0 
+INFO     localization    selected expressions [(1858, 7, 1858, 12)] with group score 1.0 
+INFO     localization    selected expressions [(421, 9, 421, 13)] with group score 0.5 
+INFO     localization    selected expressions [(532, 32, 532, 32)] with group score 0.5 
+INFO     localization    selected expressions [(535, 18, 535, 25)] with group score 0.5 
+INFO     localization    selected expressions [(544, 9, 544, 48)] with group score 0.5 
+INFO     localization    selected expressions [(588, 7, 588, 22)] with group score 0.5 
+INFO     localization    selected expressions [(729, 9, 729, 11)] with group score 0.5 
+INFO     localization    selected expressions [(778, 9, 778, 21)] with group score 0.5 
+INFO     localization    selected expressions [(784, 9, 784, 32)] with group score 0.5 
+INFO     localization    selected expressions [(795, 9, 795, 9)] with group score 0.5 
+INFO     localization    selected expressions [(827, 9, 827, 9)] with group score 0.5 
+INFO     localization    selected expressions [(850, 9, 850, 10)] with group score 0.5 
+INFO     localization    selected expressions [(1042, 7, 1042, 12)] with group score 0.5 
+INFO     localization    selected expressions [(1262, 9, 1262, 18)] with group score 0.5 
+INFO     localization    selected expressions [(1289, 9, 1289, 9)] with group score 0.5 
+INFO     localization    selected expressions [(1317, 6, 1317, 21)] with group score 0.5 
+INFO     localization    selected expressions [(1346, 10, 1346, 55)] with group score 0.5 
+INFO     localization    selected expressions [(1375, 6, 1375, 17)] with group score 0.5 
+INFO     localization    selected expressions [(1790, 12, 1790, 12)] with group score 0.5 
+INFO     localization    selected expressions [(1798, 17, 1798, 17)] with group score 0.5 
+INFO     localization    selected expressions [(1801, 12, 1801, 12)] with group score 0.5 
+INFO     repair          considering suspicious expressions [(608, 9, 608, 20)]
+INFO     reduction       selected 1 tests
+INFO     reduction       selected passing tests: []
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmpzsf8baa3/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (608, 9, 608, 20)[0]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (608, 9, 608, 20)[0]: angelic = True
+INFO     inference       found 2 angelic paths for test '1'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     synthesis       fixing expression (608, 9, 608, 20): ((! force) && (! list)) ---> ((! force) && (! list))
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+INFO     project         --message=/tmp/tmp407y0l3u/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/validation---cmd=/tmp/build-gzip
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+WARNING  repair          generated invalid fix (tests ['1'] not repaired)
+INFO     repair          considering suspicious expressions [(630, 9, 630, 24)]
+INFO     reduction       selected 1 tests
+INFO     reduction       selected passing tests: []
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmptajmqnmr/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       found 1 angelic paths for test '1'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+ERROR    transformation  transformation of .angelix/validation failed
+INFO     repair          cannot apply fix
+INFO     repair          considering suspicious expressions [(633, 9, 633, 49)]
+INFO     reduction       selected 1 tests
+INFO     reduction       selected passing tests: []
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmp5vmtabi6/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       found 1 angelic paths for test '1'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+ERROR    transformation  transformation of .angelix/validation failed
+INFO     repair          cannot apply fix
+INFO     repair          considering suspicious expressions [(647, 9, 647, 21)]
+INFO     reduction       selected 1 tests
+INFO     reduction       selected passing tests: []
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmp6c7d41nr/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (647, 9, 647, 21)[0]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (647, 9, 647, 21)[0]: angelic = True
+INFO     inference       found 2 angelic paths for test '1'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     synthesis       fixing expression (647, 9, 647, 21): ((! no_time) || list) ---> ((! no_time) || list)
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+INFO     project         --message=/tmp/tmp_8kzivrx/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/validation---cmd=/tmp/build-gzip
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+WARNING  repair          generated invalid fix (tests ['1'] not repaired)
+INFO     repair          considering suspicious expressions [(651, 17, 651, 17)]
+INFO     reduction       selected 1 tests
+INFO     reduction       selected passing tests: []
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmp50hyrvwi/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       found 1 angelic paths for test '1'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+ERROR    transformation  transformation of .angelix/validation failed
+INFO     repair          cannot apply fix
+INFO     repair          considering suspicious expressions [(652, 15, 652, 15)]
+INFO     reduction       selected 1 tests
+INFO     reduction       selected passing tests: []
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmprqrnwu7c/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       found 1 angelic paths for test '1'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+ERROR    transformation  transformation of .angelix/validation failed
+INFO     repair          cannot apply fix
+INFO     repair          considering suspicious expressions [(653, 6, 653, 6)]
+INFO     reduction       selected 1 tests
+INFO     reduction       selected passing tests: []
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmpx5etksao/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (653, 6, 653, 6)[0]: angelic = -2147483648
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (653, 6, 653, 6)[0]: angelic = 16
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       expression (653, 6, 653, 6)[0]: angelic = 1
+INFO     inference       solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     inference       expression (653, 6, 653, 6)[0]: angelic = 0
+INFO     inference       found 4 angelic paths for test '1'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     synthesis       fixing expression (653, 6, 653, 6): ifd ---> to_stdout
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+INFO     project         --message=/tmp/tmpa8uamyr0/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/validation---cmd=/tmp/build-gzip
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+WARNING  repair          generated invalid fix (tests ['1'] not repaired)
+INFO     repair          considering suspicious expressions [(655, 9, 655, 9)]
+INFO     reduction       selected 1 tests
+INFO     reduction       selected passing tests: []
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmpez2x57x8/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (655, 9, 655, 9)[0]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (655, 9, 655, 9)[0]: angelic = True
+INFO     inference       found 2 angelic paths for test '1'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     synthesis       fixing expression (655, 9, 655, 9): decompress ---> decompress
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+INFO     project         --message=/tmp/tmpehee03dj/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/validation---cmd=/tmp/build-gzip
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+WARNING  repair          generated invalid fix (tests ['1'] not repaired)
+INFO     repair          considering suspicious expressions [(1857, 8, 1857, 8)]
+INFO     reduction       selected 1 tests
+INFO     reduction       selected passing tests: []
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmppk2xdmav/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000006.smt2
+INFO     inference       expression (1857, 8, 1857, 8)[0]: angelic = 2
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (1857, 8, 1857, 8)[0]: angelic = -2147483648
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (1857, 8, 1857, 8)[0]: angelic = 0
+INFO     inference       solving path .angelix/backend/klee-out-0/test000005.smt2
+INFO     inference       expression (1857, 8, 1857, 8)[0]: angelic = 1
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       expression (1857, 8, 1857, 8)[0]: angelic = 128
+INFO     inference       solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     inference       expression (1857, 8, 1857, 8)[0]: angelic = 16
+INFO     inference       found 6 angelic paths for test '1'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     synthesis       synthesis failed
+INFO     repair          cannot synthesize fix
+INFO     repair          considering suspicious expressions [(1858, 7, 1858, 12)]
+INFO     reduction       selected 1 tests
+INFO     reduction       selected passing tests: []
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmp74kz_kp4/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (1858, 7, 1858, 12)[0]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (1858, 7, 1858, 12)[0]: angelic = True
+INFO     inference       found 2 angelic paths for test '1'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     synthesis       fixing expression (1858, 7, 1858, 12): (0 <= fd) ---> (0 <= fd)
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+INFO     project         --message=/tmp/tmp1w4q08i1/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/validation---cmd=/tmp/build-gzip
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+WARNING  repair          generated invalid fix (tests ['1'] not repaired)
+INFO     repair          considering suspicious expressions [(421, 9, 421, 13)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['2']
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmpleywiv83/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (421, 9, 421, 13)[0]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (421, 9, 421, 13)[0]: angelic = False
+INFO     inference       found 2 angelic paths for test '1'
+INFO     inference       inferring specification for test '2'
+INFO     testing         running test '2' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (421, 9, 421, 13)[0]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (421, 9, 421, 13)[0]: angelic = False
+INFO     inference       found 2 angelic paths for test '2'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     synthesis       fixing expression (421, 9, 421, 13): (4 < proglen) ---> (4 < proglen)
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+INFO     project         --message=/tmp/tmpqyy78vfg/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/validation---cmd=/tmp/build-gzip
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+WARNING  repair          generated invalid fix (tests ['1'] not repaired)
+INFO     repair          considering suspicious expressions [(532, 32, 532, 32)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['2']
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmpo6166lmn/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (532, 32, 532, 32)[0]: angelic = 16843009
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (532, 32, 532, 32)[0]: angelic = 0
+INFO     inference       found 2 angelic paths for test '1'
+INFO     inference       inferring specification for test '2'
+INFO     testing         running test '2' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (532, 32, 532, 32)[0]: angelic = 16843009
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (532, 32, 532, 32)[0]: angelic = 0
+INFO     inference       found 2 angelic paths for test '2'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     synthesis       synthesis failed
+INFO     repair          cannot synthesize fix
+INFO     repair          considering suspicious expressions [(535, 18, 535, 25)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['2']
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmp_w2qrkht/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (535, 18, 535, 25)[0]: angelic = 0
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (535, 18, 535, 25)[0]: angelic = 16843009
+INFO     inference       found 2 angelic paths for test '1'
+INFO     inference       inferring specification for test '2'
+INFO     testing         running test '2' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (535, 18, 535, 25)[0]: angelic = 0
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (535, 18, 535, 25)[0]: angelic = 16843009
+INFO     inference       found 2 angelic paths for test '2'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     synthesis       fixing expression (535, 18, 535, 25): (argc - optind) ---> (optind - optind)
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+INFO     project         --message=/tmp/tmp2n6aw0ct/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/validation---cmd=/tmp/build-gzip
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+WARNING  repair          generated invalid fix (tests ['2', '1'] not repaired)
+INFO     repair          considering suspicious expressions [(544, 9, 544, 48)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['2']
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmp4powajy7/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (544, 9, 544, 48)[0]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (544, 9, 544, 48)[0]: angelic = False
+INFO     inference       found 2 angelic paths for test '1'
+INFO     inference       inferring specification for test '2'
+INFO     testing         running test '2' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (544, 9, 544, 48)[0]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (544, 9, 544, 48)[0]: angelic = False
+INFO     inference       found 2 angelic paths for test '2'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     synthesis       fixing expression (544, 9, 544, 48): (((z_len == 0) && (! decompress)) || (z_len > 30)) ---> (((z_len == 0) && (! decompress)) || (z_len > 30))
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+INFO     project         --message=/tmp/tmpbh4j3vhz/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/validation---cmd=/tmp/build-gzip
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+WARNING  repair          generated invalid fix (tests ['1'] not repaired)
+INFO     repair          considering suspicious expressions [(588, 7, 588, 22)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['2']
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmpejhfelk2/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (588, 7, 588, 22)[0]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (588, 7, 588, 22)[0]: angelic = True
+INFO     inference       found 2 angelic paths for test '1'
+INFO     inference       inferring specification for test '2'
+INFO     testing         running test '2' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (588, 7, 588, 22)[0]: angelic = True
+INFO     inference       expression (588, 7, 588, 22)[1]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (588, 7, 588, 22)[0]: angelic = True
+INFO     inference       expression (588, 7, 588, 22)[1]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       expression (588, 7, 588, 22)[0]: angelic = False
+INFO     inference       expression (588, 7, 588, 22)[1]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     inference       expression (588, 7, 588, 22)[0]: angelic = False
+INFO     inference       expression (588, 7, 588, 22)[1]: angelic = False
+INFO     inference       found 4 angelic paths for test '2'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     synthesis       fixing expression (588, 7, 588, 22): ((! decompress) || last_member) ---> ((! decompress) || last_member)
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+INFO     project         --message=/tmp/tmpymaqbpyq/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/validation---cmd=/tmp/build-gzip
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+WARNING  repair          generated invalid fix (tests ['1'] not repaired)
+INFO     repair          considering suspicious expressions [(729, 9, 729, 11)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['2']
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmpp17ckzlc/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (729, 9, 729, 11)[0]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (729, 9, 729, 11)[0]: angelic = True
+INFO     inference       found 2 angelic paths for test '1'
+INFO     inference       inferring specification for test '2'
+INFO     testing         running test '2' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (729, 9, 729, 11)[0]: angelic = False
+INFO     inference       expression (729, 9, 729, 11)[1]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (729, 9, 729, 11)[0]: angelic = False
+INFO     inference       expression (729, 9, 729, 11)[1]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       expression (729, 9, 729, 11)[0]: angelic = True
+INFO     inference       expression (729, 9, 729, 11)[1]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     inference       expression (729, 9, 729, 11)[0]: angelic = True
+INFO     inference       expression (729, 9, 729, 11)[1]: angelic = False
+INFO     inference       found 4 angelic paths for test '2'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     synthesis       fixing expression (729, 9, 729, 11): (! to_stdout) ---> (! to_stdout)
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+INFO     project         --message=/tmp/tmpkn8t_y5l/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/validation---cmd=/tmp/build-gzip
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+WARNING  repair          generated invalid fix (tests ['1'] not repaired)
+INFO     repair          considering suspicious expressions [(778, 9, 778, 21)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['2']
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmpcydqyvl_/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (778, 9, 778, 21)[0]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (778, 9, 778, 21)[0]: angelic = True
+INFO     inference       found 2 angelic paths for test '1'
+INFO     inference       inferring specification for test '2'
+INFO     testing         running test '2' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (778, 9, 778, 21)[0]: angelic = False
+INFO     inference       expression (778, 9, 778, 21)[1]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (778, 9, 778, 21)[0]: angelic = False
+INFO     inference       expression (778, 9, 778, 21)[1]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       expression (778, 9, 778, 21)[0]: angelic = True
+INFO     inference       expression (778, 9, 778, 21)[1]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     inference       expression (778, 9, 778, 21)[0]: angelic = True
+INFO     inference       expression (778, 9, 778, 21)[1]: angelic = True
+INFO     inference       found 4 angelic paths for test '2'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     synthesis       fixing expression (778, 9, 778, 21): ((! no_time) || list) ---> ((! no_time) || list)
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+INFO     project         --message=/tmp/tmp_m8r4m91/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/validation---cmd=/tmp/build-gzip
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+WARNING  repair          generated invalid fix (tests ['1'] not repaired)
+INFO     repair          considering suspicious expressions [(784, 9, 784, 32)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['2']
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmp9mpnjfvk/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (784, 9, 784, 32)[0]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (784, 9, 784, 32)[0]: angelic = False
+INFO     inference       found 2 angelic paths for test '1'
+INFO     inference       inferring specification for test '2'
+INFO     testing         running test '2' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (784, 9, 784, 32)[0]: angelic = True
+INFO     inference       expression (784, 9, 784, 32)[1]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (784, 9, 784, 32)[0]: angelic = True
+INFO     inference       expression (784, 9, 784, 32)[1]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       expression (784, 9, 784, 32)[0]: angelic = False
+INFO     inference       expression (784, 9, 784, 32)[1]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     inference       expression (784, 9, 784, 32)[0]: angelic = False
+INFO     inference       expression (784, 9, 784, 32)[1]: angelic = False
+INFO     inference       found 4 angelic paths for test '2'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     synthesis       fixing expression (784, 9, 784, 32): ((to_stdout && (! list)) && (! test)) ---> ((to_stdout && (! list)) && (! test))
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+INFO     project         --message=/tmp/tmpz9g5o5uk/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/validation---cmd=/tmp/build-gzip
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+WARNING  repair          generated invalid fix (tests ['1'] not repaired)
+INFO     repair          considering suspicious expressions [(795, 9, 795, 9)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['2']
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmphgo_9vd6/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (795, 9, 795, 9)[0]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (795, 9, 795, 9)[0]: angelic = False
+INFO     inference       found 2 angelic paths for test '1'
+INFO     inference       inferring specification for test '2'
+INFO     testing         running test '2' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (795, 9, 795, 9)[0]: angelic = True
+INFO     inference       expression (795, 9, 795, 9)[1]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (795, 9, 795, 9)[0]: angelic = True
+INFO     inference       expression (795, 9, 795, 9)[1]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       expression (795, 9, 795, 9)[0]: angelic = False
+INFO     inference       expression (795, 9, 795, 9)[1]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     inference       expression (795, 9, 795, 9)[0]: angelic = False
+INFO     inference       expression (795, 9, 795, 9)[1]: angelic = False
+INFO     inference       found 4 angelic paths for test '2'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     synthesis       fixing expression (795, 9, 795, 9): decompress ---> decompress
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+INFO     project         --message=/tmp/tmpd8mx4q0s/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/validation---cmd=/tmp/build-gzip
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+WARNING  repair          generated invalid fix (tests ['1'] not repaired)
+INFO     repair          considering suspicious expressions [(827, 9, 827, 9)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['2']
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmp_o2vb57o/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (827, 9, 827, 9)[0]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (827, 9, 827, 9)[0]: angelic = False
+INFO     inference       found 2 angelic paths for test '1'
+INFO     inference       inferring specification for test '2'
+INFO     testing         running test '2' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (827, 9, 827, 9)[0]: angelic = False
+INFO     inference       expression (827, 9, 827, 9)[1]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (827, 9, 827, 9)[0]: angelic = False
+INFO     inference       expression (827, 9, 827, 9)[1]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       expression (827, 9, 827, 9)[0]: angelic = True
+INFO     inference       expression (827, 9, 827, 9)[1]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     inference       expression (827, 9, 827, 9)[0]: angelic = True
+INFO     inference       expression (827, 9, 827, 9)[1]: angelic = True
+INFO     inference       found 4 angelic paths for test '2'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     synthesis       fixing expression (827, 9, 827, 9): verbose ---> verbose
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+INFO     project         --message=/tmp/tmp6wpmfxif/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/validation---cmd=/tmp/build-gzip
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+WARNING  repair          generated invalid fix (tests ['1'] not repaired)
+INFO     repair          considering suspicious expressions [(850, 9, 850, 10)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['2']
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmpxpemr92x/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (850, 9, 850, 10)[0]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (850, 9, 850, 10)[0]: angelic = True
+INFO     inference       found 2 angelic paths for test '1'
+INFO     inference       inferring specification for test '2'
+INFO     testing         running test '2' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (850, 9, 850, 10)[0]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (850, 9, 850, 10)[0]: angelic = False
+INFO     inference       expression (850, 9, 850, 10)[1]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       expression (850, 9, 850, 10)[0]: angelic = False
+INFO     inference       expression (850, 9, 850, 10)[1]: angelic = True
+INFO     inference       found 3 angelic paths for test '2'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     synthesis       fixing expression (850, 9, 850, 10): (! to_stdout) ---> (! to_stdout)
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+INFO     project         --message=/tmp/tmp2fugh_td/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/validation---cmd=/tmp/build-gzip
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+WARNING  repair          generated invalid fix (tests ['1'] not repaired)
+INFO     repair          considering suspicious expressions [(1042, 7, 1042, 12)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['2']
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmpyjrganbz/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (1042, 7, 1042, 12)[0]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (1042, 7, 1042, 12)[0]: angelic = True
+INFO     inference       found 2 angelic paths for test '1'
+INFO     inference       inferring specification for test '2'
+INFO     testing         running test '2' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000006.smt2
+INFO     inference       expression (1042, 7, 1042, 12)[0]: angelic = False
+INFO     inference       expression (1042, 7, 1042, 12)[1]: angelic = False
+INFO     inference       expression (1042, 7, 1042, 12)[2]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (1042, 7, 1042, 12)[0]: angelic = True
+INFO     inference       expression (1042, 7, 1042, 12)[1]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (1042, 7, 1042, 12)[0]: angelic = True
+INFO     inference       expression (1042, 7, 1042, 12)[1]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000005.smt2
+INFO     inference       expression (1042, 7, 1042, 12)[0]: angelic = False
+INFO     inference       expression (1042, 7, 1042, 12)[1]: angelic = False
+INFO     inference       expression (1042, 7, 1042, 12)[2]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       expression (1042, 7, 1042, 12)[0]: angelic = False
+INFO     inference       expression (1042, 7, 1042, 12)[1]: angelic = True
+INFO     inference       expression (1042, 7, 1042, 12)[2]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     inference       expression (1042, 7, 1042, 12)[0]: angelic = False
+INFO     inference       expression (1042, 7, 1042, 12)[1]: angelic = True
+INFO     inference       expression (1042, 7, 1042, 12)[2]: angelic = True
+INFO     inference       found 6 angelic paths for test '2'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     synthesis       fixing expression (1042, 7, 1042, 12): (0 <= fd) ---> (0 <= fd)
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+INFO     project         --message=/tmp/tmpaxsinksl/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/validation---cmd=/tmp/build-gzip
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+WARNING  repair          generated invalid fix (tests ['1'] not repaired)
+INFO     repair          considering suspicious expressions [(1262, 9, 1262, 18)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['2']
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmpdi9vlt7a/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (1262, 9, 1262, 18)[0]: angelic = False
+INFO     inference       expression (1262, 9, 1262, 18)[1]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (1262, 9, 1262, 18)[0]: angelic = False
+INFO     inference       expression (1262, 9, 1262, 18)[1]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       expression (1262, 9, 1262, 18)[0]: angelic = True
+INFO     inference       expression (1262, 9, 1262, 18)[1]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     inference       expression (1262, 9, 1262, 18)[0]: angelic = True
+INFO     inference       expression (1262, 9, 1262, 18)[1]: angelic = False
+INFO     inference       found 4 angelic paths for test '1'
+INFO     inference       inferring specification for test '2'
+INFO     testing         running test '2' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (1262, 9, 1262, 18)[0]: angelic = False
+INFO     inference       expression (1262, 9, 1262, 18)[1]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (1262, 9, 1262, 18)[0]: angelic = False
+INFO     inference       expression (1262, 9, 1262, 18)[1]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       expression (1262, 9, 1262, 18)[0]: angelic = True
+INFO     inference       expression (1262, 9, 1262, 18)[1]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     inference       expression (1262, 9, 1262, 18)[0]: angelic = True
+INFO     inference       expression (1262, 9, 1262, 18)[1]: angelic = False
+INFO     inference       found 4 angelic paths for test '2'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     synthesis       fixing expression (1262, 9, 1262, 18): (force && to_stdout) ---> (force && to_stdout)
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+INFO     project         --message=/tmp/tmpvg9iyfx1/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/validation---cmd=/tmp/build-gzip
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+WARNING  repair          generated invalid fix (tests ['1'] not repaired)
+INFO     repair          considering suspicious expressions [(1289, 9, 1289, 9)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['2']
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmpvs855sbm/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+WARNING  inference       No non-error paths explored
+INFO     repair          considering suspicious expressions [(1317, 6, 1317, 21)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['2']
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmpsuhhbzn_/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (1317, 6, 1317, 21)[0]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (1317, 6, 1317, 21)[0]: angelic = True
+INFO     inference       found 2 angelic paths for test '1'
+INFO     inference       inferring specification for test '2'
+INFO     testing         running test '2' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (1317, 6, 1317, 21)[0]: angelic = True
+INFO     inference       expression (1317, 6, 1317, 21)[1]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (1317, 6, 1317, 21)[0]: angelic = True
+INFO     inference       expression (1317, 6, 1317, 21)[1]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       expression (1317, 6, 1317, 21)[0]: angelic = False
+INFO     inference       expression (1317, 6, 1317, 21)[1]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     inference       expression (1317, 6, 1317, 21)[0]: angelic = False
+INFO     inference       expression (1317, 6, 1317, 21)[1]: angelic = True
+INFO     inference       found 4 angelic paths for test '2'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     synthesis       fixing expression (1317, 6, 1317, 21): ((! (stamp == 0)) && (! no_time)) ---> ((! (stamp == 0)) && (! no_time))
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+INFO     project         --message=/tmp/tmpmm7apwfo/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/validation---cmd=/tmp/build-gzip
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+WARNING  repair          generated invalid fix (tests ['1'] not repaired)
+INFO     repair          considering suspicious expressions [(1346, 10, 1346, 55)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['2']
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmpx6nfnvhw/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (1346, 10, 1346, 55)[0]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (1346, 10, 1346, 55)[0]: angelic = False
+INFO     inference       found 2 angelic paths for test '1'
+INFO     inference       inferring specification for test '2'
+INFO     testing         running test '2' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (1346, 10, 1346, 55)[0]: angelic = True
+INFO     inference       expression (1346, 10, 1346, 55)[1]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (1346, 10, 1346, 55)[0]: angelic = True
+INFO     inference       expression (1346, 10, 1346, 55)[1]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       expression (1346, 10, 1346, 55)[0]: angelic = False
+INFO     inference       expression (1346, 10, 1346, 55)[1]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     inference       expression (1346, 10, 1346, 55)[0]: angelic = False
+INFO     inference       expression (1346, 10, 1346, 55)[1]: angelic = True
+INFO     inference       found 4 angelic paths for test '2'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     synthesis       fixing expression (1346, 10, 1346, 55): ((no_name || (to_stdout && (! list))) || (part_nb > 1)) ---> ((no_name || (to_stdout && (! list))) || (part_nb > 1))
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+INFO     project         --message=/tmp/tmpiow1nl0y/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/validation---cmd=/tmp/build-gzip
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+WARNING  repair          generated invalid fix (tests ['1'] not repaired)
+INFO     repair          considering suspicious expressions [(1375, 6, 1375, 17)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['2']
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmp3j477uhp/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (1375, 6, 1375, 17)[0]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (1375, 6, 1375, 17)[0]: angelic = False
+INFO     inference       found 2 angelic paths for test '1'
+INFO     inference       inferring specification for test '2'
+INFO     testing         running test '2' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000001.smt2
+INFO     inference       expression (1375, 6, 1375, 17)[0]: angelic = True
+INFO     inference       expression (1375, 6, 1375, 17)[1]: angelic = False
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (1375, 6, 1375, 17)[0]: angelic = True
+INFO     inference       expression (1375, 6, 1375, 17)[1]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       expression (1375, 6, 1375, 17)[0]: angelic = False
+INFO     inference       expression (1375, 6, 1375, 17)[1]: angelic = True
+INFO     inference       solving path .angelix/backend/klee-out-0/test000004.smt2
+INFO     inference       expression (1375, 6, 1375, 17)[0]: angelic = False
+INFO     inference       expression (1375, 6, 1375, 17)[1]: angelic = False
+INFO     inference       found 4 angelic paths for test '2'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     synthesis       fixing expression (1375, 6, 1375, 17): (part_nb == 1) ---> (part_nb == 1)
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+INFO     project         --message=/tmp/tmpn41bsiuw/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/validation---cmd=/tmp/build-gzip
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+WARNING  repair          generated invalid fix (tests ['1'] not repaired)
+INFO     repair          considering suspicious expressions [(1790, 12, 1790, 12)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['2']
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmppxej4tze/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (1790, 12, 1790, 12)[0]: angelic = 1073741824
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       expression (1790, 12, 1790, 12)[0]: angelic = 4
+INFO     inference       found 2 angelic paths for test '1'
+INFO     inference       inferring specification for test '2'
+INFO     testing         running test '2' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (1790, 12, 1790, 12)[0]: angelic = 1073741824
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       expression (1790, 12, 1790, 12)[0]: angelic = 4
+INFO     inference       found 2 angelic paths for test '2'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     synthesis       synthesis failed
+INFO     repair          cannot synthesize fix
+INFO     repair          considering suspicious expressions [(1798, 17, 1798, 17)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['2']
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmpjs5mpsiz/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+WARNING  project         failed to build .angelix/backend/gzip.c
+WARNING  project         failed to build .angelix/backend/gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (1790, 12, 1790, 12)[0]: angelic = 1073741824
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       expression (1790, 12, 1790, 12)[0]: angelic = 4
+INFO     inference       found 2 angelic paths for test '1'
+INFO     inference       inferring specification for test '2'
+INFO     testing         running test '2' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (1790, 12, 1790, 12)[0]: angelic = 1073741824
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       expression (1790, 12, 1790, 12)[0]: angelic = 4
+INFO     inference       found 2 angelic paths for test '2'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     synthesis       synthesis failed
+INFO     repair          cannot synthesize fix
+INFO     repair          considering suspicious expressions [(1801, 12, 1801, 12)]
+INFO     reduction       selected 2 tests
+INFO     reduction       selected passing tests: ['2']
+INFO     reduction       selected failing tests: ['1']
+INFO     project         configuring backend source
+INFO     transformation  instrumenting suspicious of backend source
+INFO     project         building backend source
+INFO     project         CC=angelix-compiler --klee
+INFO     project         --message=/tmp/tmpxqs0tgzo/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/backend---cmd=/tmp/build-gzip
+INFO     inference       inferring specification for test '1'
+INFO     testing         running test '1' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (1801, 12, 1801, 12)[0]: angelic = 1073741824
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       expression (1801, 12, 1801, 12)[0]: angelic = 0
+INFO     inference       found 2 angelic paths for test '1'
+INFO     inference       inferring specification for test '2'
+INFO     testing         running test '2' of backend source with KLEE
+INFO     inference       solving path .angelix/backend/klee-out-0/test000002.smt2
+INFO     inference       expression (1801, 12, 1801, 12)[0]: angelic = 1073741824
+INFO     inference       solving path .angelix/backend/klee-out-0/test000003.smt2
+INFO     inference       expression (1801, 12, 1801, 12)[0]: angelic = 0
+INFO     inference       found 2 angelic paths for test '2'
+INFO     synthesis       synthesizing patch with component level 'variables'
+INFO     synthesis       fixing expression (1801, 12, 1801, 12): 0 ---> 0
+INFO     repair          candidate fix synthesized
+INFO     transformation  applying patch to validation source
+INFO     project         building validation source
+INFO     project         --message=/tmp/tmp3ag0ys6q/messages
+WARNING  project         dir=/home/mingyuejiang/Documents/angelix/data0/gzip1/.angelix/validation---cmd=/tmp/build-gzip
+INFO     testing         running test '1' of validation source
+INFO     testing         running test '2' of validation source
+WARNING  repair          generated invalid fix (tests ['1'] not repaired)
+INFO     repair          no patch generated in 15m 53s
+FAIL

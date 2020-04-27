@@ -1,0 +1,16 @@
+#!/bin/sh
+rm -rf err && rm -rf out;
+
+
+
+printf "aaa\n" > exp || exit 99 #expected output
+
+fail=0
+exe() { "$@"; }; ${ANGELIX_RUN:-exe} ../gzip -dc a.gz > out 2>err || fail=1
+
+diff exp out || fail=1
+diff /dev/null err || fail=1
+
+exit $fail
+
+
